@@ -68,25 +68,16 @@ h1 {
   transform:scale(1.1);
 }
 
-/* sections */
+/* sections cachées */
 .box {
   margin:40px auto;
   padding:25px;
   border:1px solid red;
   width:65%;
-  cursor:pointer;
-  transition:0.3s;
-}
+  transition:0.5s;
 
-.box:hover {
-  background:red;
-  color:black;
-  transform:scale(1.05);
-}
-
-.content {
-  display:none;
-  margin-top:15px;
+  opacity:0;
+  transform:translateY(30px);
 }
 
 /* terminal */
@@ -103,16 +94,13 @@ h1 {
 
 #terminalText {
   color:red;
+  text-align:left;
 }
 
 /* contact */
 .contact a {
   color:red;
   text-decoration:none;
-}
-
-.contact a:hover {
-  text-decoration:underline;
 }
 </style>
 </head>
@@ -127,7 +115,7 @@ h1 {
   <p class="subtitle">Analyse réseau • OSINT • Sécurité des systèmes</p>
   <p class="tagline">Analyse et sécurisation des systèmes dans un environnement numérique en constante évolution.</p>
 
-  <!-- bouton terminal -->
+  <!-- bouton -->
   <button class="terminal-btn" onclick="openTerminal()">
     ▶ RUN TERMINAL
   </button>
@@ -138,53 +126,19 @@ h1 {
   </div>
 
   <!-- sections -->
-  <div class="box" onclick="toggle('about')">
-    <h2>À propos</h2>
-    <div id="about" class="content">
-      Spécialisée en analyse réseau et investigation OSINT.
-    </div>
-  </div>
-
-  <div class="box" onclick="toggle('skills')">
-    <h2>Compétences</h2>
-    <div id="skills" class="content">
-      Wireshark • OSINT • Windows / Linux
-    </div>
-  </div>
-
-  <div class="box" onclick="toggle('tools')">
-    <h2>Outils</h2>
-    <div id="tools" class="content">
-      Wireshark • Nmap • OSINT Framework
-    </div>
-  </div>
-
-  <div class="box" onclick="toggle('projects')">
-    <h2>Projets</h2>
-    <div id="projects" class="content">
-      Analyse trafic réseau<br>
-      Investigation OSINT<br>
-      Scan réseau
-    </div>
-  </div>
-
-  <div class="box contact" onclick="toggle('contact')">
-    <h2>Contact</h2>
-    <div id="contact" class="content">
-      Email : <a href="mailto:oceane.dehaudt.pro@gmail.com">oceane.dehaudt.pro@gmail.com</a>
-    </div>
+  <div class="box">À propos : Analyse réseau et OSINT</div>
+  <div class="box">Compétences : Wireshark • OSINT • Linux</div>
+  <div class="box">Outils : Nmap • OSINT Framework</div>
+  <div class="box">Projets : Analyse trafic • Investigation</div>
+  <div class="box contact">
+    Contact : <a href="mailto:oceane.dehaudt.pro@gmail.com">oceane.dehaudt.pro@gmail.com</a>
   </div>
 
 </div>
 
 <script>
-// toggle sections
-function toggle(id) {
-  let el = document.getElementById(id);
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-}
 
-// terminal
+// terminal + reveal
 function openTerminal() {
   let terminal = document.getElementById("terminal");
   let text = document.getElementById("terminalText");
@@ -193,10 +147,10 @@ function openTerminal() {
 
   let lines = [
     "> Access granted...",
+    "> Initializing scan...",
     "> Loading profile...",
-    "> Océane Dehaudt detected",
-    "> Skills loaded...",
-    "> Ready."
+    "> Data detected...",
+    "> Deploying content..."
   ];
 
   text.innerHTML = "";
@@ -207,13 +161,27 @@ function openTerminal() {
       text.innerHTML += lines[i] + "\n";
       i++;
       setTimeout(typeLine, 500);
+    } else {
+      revealSections();
     }
   }
 
   typeLine();
 }
 
-// matrix
+// reveal sections
+function revealSections() {
+  let sections = document.querySelectorAll(".box");
+
+  sections.forEach((section, index) => {
+    setTimeout(() => {
+      section.style.opacity = "1";
+      section.style.transform = "translateY(0)";
+    }, index * 400);
+  });
+}
+
+// matrix effect
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -246,6 +214,7 @@ function draw() {
 }
 
 setInterval(draw, 35);
+
 </script>
 
 </body>
