@@ -23,7 +23,7 @@ canvas {
 
 .container {
   text-align:center;
-  padding-top:120px;
+  padding-top:100px;
 }
 
 h1 {
@@ -49,6 +49,26 @@ h1 {
   font-size:0.9em;
 }
 
+/* bouton terminal */
+.terminal-btn {
+  margin-top:30px;
+  padding:15px 40px;
+  font-size:1.2em;
+  background:black;
+  color:red;
+  border:2px solid red;
+  cursor:pointer;
+  letter-spacing:2px;
+  transition:0.3s;
+}
+
+.terminal-btn:hover {
+  background:red;
+  color:black;
+  transform:scale(1.1);
+}
+
+/* sections */
 .box {
   margin:40px auto;
   padding:25px;
@@ -67,9 +87,25 @@ h1 {
 .content {
   display:none;
   margin-top:15px;
-  font-size:0.9em;
 }
 
+/* terminal */
+#terminal {
+  display:none;
+  margin-top:40px;
+  width:60%;
+  margin-left:auto;
+  margin-right:auto;
+  border:1px solid red;
+  padding:20px;
+  background:black;
+}
+
+#terminalText {
+  color:red;
+}
+
+/* contact */
 .contact a {
   color:red;
   text-decoration:none;
@@ -86,57 +122,49 @@ h1 {
 <canvas id="matrix"></canvas>
 
 <div class="container">
+
   <h1>OCÉANE DEHAUDT</h1>
   <p class="subtitle">Analyse réseau • OSINT • Sécurité des systèmes</p>
   <p class="tagline">Analyse et sécurisation des systèmes dans un environnement numérique en constante évolution.</p>
 
+  <!-- bouton terminal -->
+  <button class="terminal-btn" onclick="openTerminal()">
+    ▶ RUN TERMINAL
+  </button>
+
+  <!-- terminal -->
+  <div id="terminal">
+    <pre id="terminalText"></pre>
+  </div>
+
+  <!-- sections -->
   <div class="box" onclick="toggle('about')">
     <h2>À propos</h2>
     <div id="about" class="content">
-      Spécialisée en analyse réseau et investigation OSINT.  
-      Approche basée sur l’identification, l’analyse et la compréhension des flux.
+      Spécialisée en analyse réseau et investigation OSINT.
     </div>
   </div>
 
   <div class="box" onclick="toggle('skills')">
     <h2>Compétences</h2>
     <div id="skills" class="content">
-      Analyse réseau (Wireshark)<br>
-      OSINT<br>
-      Bases en sécurité offensive<br>
-      Windows / Linux
+      Wireshark • OSINT • Windows / Linux
     </div>
   </div>
 
   <div class="box" onclick="toggle('tools')">
     <h2>Outils</h2>
     <div id="tools" class="content">
-      Wireshark • Nmap • OSINT Framework • Linux
-    </div>
-  </div>
-
-  <div class="box" onclick="toggle('method')">
-    <h2>Méthodologie</h2>
-    <div id="method" class="content">
-      Analyse → Identification → Corrélation → Interprétation → Reporting
+      Wireshark • Nmap • OSINT Framework
     </div>
   </div>
 
   <div class="box" onclick="toggle('projects')">
     <h2>Projets</h2>
     <div id="projects" class="content">
-      🔎 Analyse Wireshark : identification de trafic suspect<br><br>
-      🌐 Investigation OSINT : corrélation d’informations<br><br>
-      🛠️ Scan réseau avec Nmap
-    </div>
-  </div>
-
-  <div class="box" onclick="toggle('level')">
-    <h2>Niveau</h2>
-    <div id="level" class="content">
-      Analyse réseau : intermédiaire<br>
-      OSINT : intermédiaire<br>
-      Sécurité offensive : débutant
+      Analyse trafic réseau<br>
+      Investigation OSINT<br>
+      Scan réseau
     </div>
   </div>
 
@@ -150,13 +178,42 @@ h1 {
 </div>
 
 <script>
-// toggle interaction
+// toggle sections
 function toggle(id) {
   let el = document.getElementById(id);
   el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
-// matrix effect
+// terminal
+function openTerminal() {
+  let terminal = document.getElementById("terminal");
+  let text = document.getElementById("terminalText");
+
+  terminal.style.display = "block";
+
+  let lines = [
+    "> Access granted...",
+    "> Loading profile...",
+    "> Océane Dehaudt detected",
+    "> Skills loaded...",
+    "> Ready."
+  ];
+
+  text.innerHTML = "";
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      text.innerHTML += lines[i] + "\n";
+      i++;
+      setTimeout(typeLine, 500);
+    }
+  }
+
+  typeLine();
+}
+
+// matrix
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -171,17 +228,17 @@ let drops = [];
 for (let x = 0; x < columns; x++) drops[x] = 1;
 
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
 
   ctx.fillStyle = "red";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    let text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    let text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+    if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
       drops[i] = 0;
 
     drops[i]++;
