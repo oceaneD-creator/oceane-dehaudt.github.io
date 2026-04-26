@@ -41,13 +41,12 @@ h1 {
 .subtitle {
   margin-top:10px;
   color:#aaa;
-  font-size:1.2em;
 }
 
 .tagline {
-  margin-top:15px;
-  font-size:0.95em;
-  color:#888;
+  margin-top:10px;
+  color:#777;
+  font-size:0.9em;
 }
 
 .box {
@@ -55,6 +54,7 @@ h1 {
   padding:25px;
   border:1px solid red;
   width:65%;
+  cursor:pointer;
   transition:0.3s;
 }
 
@@ -64,8 +64,10 @@ h1 {
   transform:scale(1.05);
 }
 
-.box:hover a {
-  color:black;
+.content {
+  display:none;
+  margin-top:15px;
+  font-size:0.9em;
 }
 
 .contact a {
@@ -88,59 +90,73 @@ h1 {
   <p class="subtitle">Analyse réseau • OSINT • Sécurité des systèmes</p>
   <p class="tagline">Analyse et sécurisation des systèmes dans un environnement numérique en constante évolution.</p>
 
-  <div class="box">
+  <div class="box" onclick="toggle('about')">
     <h2>À propos</h2>
-    <p>
+    <div id="about" class="content">
       Spécialisée en analyse réseau et investigation OSINT.  
-      Approche structurée basée sur l’identification, l’analyse et la compréhension des systèmes et des flux.
-    </p>
+      Approche basée sur l’identification, l’analyse et la compréhension des flux.
+    </div>
   </div>
 
-  <div class="box">
+  <div class="box" onclick="toggle('skills')">
     <h2>Compétences</h2>
-    <p>
-      Analyse réseau (Wireshark) • OSINT • Bases en sécurité offensive • Compréhension systèmes (Windows / Linux)
-    </p>
+    <div id="skills" class="content">
+      Analyse réseau (Wireshark)<br>
+      OSINT<br>
+      Bases en sécurité offensive<br>
+      Windows / Linux
+    </div>
   </div>
 
-  <div class="box">
+  <div class="box" onclick="toggle('tools')">
     <h2>Outils</h2>
-    <p>
+    <div id="tools" class="content">
       Wireshark • Nmap • OSINT Framework • Linux
-    </p>
+    </div>
   </div>
 
-  <div class="box">
+  <div class="box" onclick="toggle('method')">
     <h2>Méthodologie</h2>
-    <p>
+    <div id="method" class="content">
       Analyse → Identification → Corrélation → Interprétation → Reporting
-    </p>
+    </div>
   </div>
 
-  <div class="box">
+  <div class="box" onclick="toggle('projects')">
     <h2>Projets</h2>
-    <p>
-      Analyse de trafic réseau : identification de comportements suspects  
-      <br><br>
-      Investigation OSINT : recherche et corrélation d’informations à partir de sources ouvertes
-    </p>
+    <div id="projects" class="content">
+      🔎 Analyse Wireshark : identification de trafic suspect<br><br>
+      🌐 Investigation OSINT : corrélation d’informations<br><br>
+      🛠️ Scan réseau avec Nmap
+    </div>
   </div>
 
-  <div class="box">
+  <div class="box" onclick="toggle('level')">
     <h2>Niveau</h2>
-    <p>
-      Analyse réseau : intermédiaire • OSINT : intermédiaire • Sécurité offensive : débutant
-    </p>
+    <div id="level" class="content">
+      Analyse réseau : intermédiaire<br>
+      OSINT : intermédiaire<br>
+      Sécurité offensive : débutant
+    </div>
   </div>
 
-  <div class="box contact">
+  <div class="box contact" onclick="toggle('contact')">
     <h2>Contact</h2>
-    <p>Email : <a href="mailto:oceanedehaudtt@gmail.com">oceanedehaudtt@gmail.com</a></p>
+    <div id="contact" class="content">
+      Email : <a href="mailto:oceane.dehaudt.pro@gmail.com">oceane.dehaudt.pro@gmail.com</a>
+    </div>
   </div>
 
 </div>
 
 <script>
+// toggle interaction
+function toggle(id) {
+  let el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+// matrix effect
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
