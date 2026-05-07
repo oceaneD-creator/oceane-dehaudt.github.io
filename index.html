@@ -2,10 +2,11 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersécurité Offensive</title>
+<title>Océane Dehaudt | Analyste en Cybersécurité</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -13,24 +14,24 @@
 
 <style>
 
+/* RESET */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
+/* BODY */
 
 body{
-background:#000;
+background:#050505;
 font-family:'Orbitron',sans-serif;
 overflow-x:hidden;
 color:white;
 }
 
-/* BACKGROUND */
+/* BACKGROUND GLOW */
 
 body::before{
 content:'';
@@ -39,12 +40,10 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-
 background:
 radial-gradient(circle at center,
-rgba(255,0,0,0.18),
+rgba(255,0,0,0.12),
 black 60%);
-
 z-index:-3;
 }
 
@@ -57,7 +56,6 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-
 background:
 repeating-linear-gradient(
 to bottom,
@@ -66,7 +64,6 @@ rgba(255,255,255,0.015) 1px,
 transparent 1px,
 transparent 3px
 );
-
 pointer-events:none;
 z-index:999;
 }
@@ -78,26 +75,20 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-
 padding:28px 80px;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-background:rgba(0,0,0,0.35);
-
+background:rgba(0,0,0,0.45);
 backdrop-filter:blur(10px);
-
-border-bottom:1px solid rgba(255,0,0,0.2);
-
-z-index:1000;
+border-bottom:1px solid rgba(255,0,0,0.15);
+z-index:100;
 }
 
 .logo{
 font-size:2rem;
 font-weight:900;
-letter-spacing:4px;
+letter-spacing:3px;
 }
 
 .logo span{
@@ -105,10 +96,17 @@ color:#ff2a2a;
 text-shadow:0 0 15px red;
 }
 
+/* NAV */
+
+nav{
+display:flex;
+align-items:center;
+gap:35px;
+}
+
 nav a{
 color:white;
 text-decoration:none;
-margin-left:40px;
 font-weight:600;
 transition:0.3s;
 }
@@ -121,119 +119,89 @@ text-shadow:0 0 15px red;
 /* HERO */
 
 .hero{
-
 min-height:100vh;
-
 display:flex;
-justify-content:space-between;
 align-items:center;
-
+justify-content:space-between;
 padding:140px 8%;
-
 position:relative;
 }
 
 /* LEFT */
 
 .left{
-width:50%;
+width:48%;
 z-index:2;
 }
 
 .small{
 color:#ff4d4d;
-letter-spacing:5px;
-margin-bottom:25px;
+letter-spacing:4px;
+margin-bottom:20px;
 font-size:0.85rem;
+text-transform:uppercase;
 }
 
 h1{
-font-size:6rem;
-line-height:0.92;
+font-size:5rem;
+line-height:0.95;
 font-weight:900;
 text-transform:uppercase;
 }
 
 h1 span{
 color:#ff2a2a;
-
 text-shadow:
-0 0 10px #ff0000,
-0 0 25px #ff0000,
-0 0 45px #ff0000;
+0 0 15px #ff0000,
+0 0 35px #ff0000;
 }
 
 .description{
-
 margin-top:35px;
-
-font-size:1.08rem;
-
+font-size:1rem;
 line-height:2;
-
-max-width:700px;
-
-color:#d0d0d0;
+max-width:650px;
+color:#d3d3d3;
 }
 
 /* BUTTONS */
 
 .buttons{
-margin-top:50px;
+margin-top:45px;
 display:flex;
 gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
-
-padding:18px 42px;
-
+padding:18px 38px;
 border-radius:12px;
-
 text-decoration:none;
-
 font-weight:700;
-
-transition:0.35s;
+transition:0.3s;
 }
 
 .red{
-
 background:#ff2a2a;
-
 color:white;
-
-box-shadow:
-0 0 20px rgba(255,0,0,0.5),
-0 0 40px rgba(255,0,0,0.2);
+box-shadow:0 0 25px rgba(255,0,0,0.4);
 }
 
 .red:hover{
-
-transform:translateY(-5px);
-
-box-shadow:
-0 0 30px red,
-0 0 60px rgba(255,0,0,0.5);
+transform:translateY(-4px);
+box-shadow:0 0 40px red;
 }
 
 .dark{
-
-border:1px solid rgba(255,255,255,0.2);
-
+border:1px solid rgba(255,255,255,0.15);
 background:rgba(255,255,255,0.04);
-
-backdrop-filter:blur(10px);
-
 color:white;
+backdrop-filter:blur(5px);
 }
 
 .dark:hover{
-
 border-color:#ff2a2a;
-
-box-shadow:
-0 0 20px rgba(255,0,0,0.4);
+box-shadow:0 0 20px rgba(255,0,0,0.3);
 }
 
 /* RIGHT */
@@ -249,16 +217,16 @@ position:relative;
 /* GLOBE */
 
 #globe-container{
-
 width:650px;
 height:650px;
-
-animation:float 7s ease-in-out infinite;
-
+animation:float 6s ease-in-out infinite;
 filter:
-drop-shadow(0 0 50px red)
-drop-shadow(0 0 90px rgba(255,0,0,0.6));
+drop-shadow(0 0 25px #ff0000)
+drop-shadow(0 0 80px rgba(255,0,0,0.6))
+drop-shadow(0 0 120px rgba(255,0,0,0.3));
 }
+
+/* FLOAT */
 
 @keyframes float{
 
@@ -276,146 +244,19 @@ transform:translateY(0px);
 
 }
 
-/* STATS */
-
-.stats{
-
-position:absolute;
-
-right:-40px;
-
-display:flex;
-flex-direction:column;
-
-gap:25px;
-}
-
-.card{
-
-background:rgba(255,0,0,0.06);
-
-border:1px solid rgba(255,0,0,0.2);
-
-padding:24px;
-
-width:220px;
-
-border-radius:20px;
-
-backdrop-filter:blur(10px);
-
-transition:0.35s;
-}
-
-.card:hover{
-
-transform:translateX(-10px);
-
-box-shadow:
-0 0 25px rgba(255,0,0,0.25);
-}
-
-.card h2{
-
-font-size:2.8rem;
-
-color:#ff2a2a;
-
-margin-bottom:10px;
-}
-
-.card p{
-color:#d8d8d8;
-line-height:1.5;
-}
-
-/* CERTIFS */
-
-.certifications{
-
-padding:120px 8%;
-
-position:relative;
-}
-
-.section-title{
-
-font-size:3rem;
-
-margin-bottom:60px;
-
-color:white;
-}
-
-.section-title span{
-color:#ff2a2a;
-}
-
-.cert-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-}
-
-.cert-card{
-
-background:rgba(255,0,0,0.05);
-
-border:1px solid rgba(255,0,0,0.2);
-
-padding:35px;
-
-border-radius:20px;
-
-transition:0.35s;
-
-backdrop-filter:blur(10px);
-}
-
-.cert-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-0 0 30px rgba(255,0,0,0.25);
-}
-
-.cert-card h3{
-
-color:#ff2a2a;
-
-margin-bottom:15px;
-
-font-size:1.5rem;
-}
-
-.cert-card p{
-
-color:#cfcfcf;
-
-line-height:1.8;
-}
-
 /* PARTICLES */
 
 .particle{
-
 position:absolute;
-
 width:3px;
 height:3px;
-
-background:red;
-
+background:#ff0000;
 border-radius:50%;
-
-opacity:0.6;
-
+opacity:0.7;
 animation:particleMove linear infinite;
 }
+
+/* PARTICLE ANIMATION */
 
 @keyframes particleMove{
 
@@ -447,15 +288,11 @@ width:100%;
 }
 
 .right{
-margin-top:80px;
-}
-
-.stats{
-display:none;
+margin-top:50px;
 }
 
 h1{
-font-size:4rem;
+font-size:3.8rem;
 }
 
 .buttons{
@@ -463,16 +300,19 @@ justify-content:center;
 }
 
 #globe-container{
-width:420px;
-height:420px;
+width:450px;
+height:450px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -486,8 +326,12 @@ OCÉANE <span>DEHAUDT</span>
 GitHub
 </a>
 
-<a href="#certifications">
-Certifications
+<a href="certificate-zscaler-networking.pdf.pdf" target="_blank">
+Certification 1
+</a>
+
+<a href="certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">
+Certification 2
 </a>
 
 <a href="mailto:oceane.dehaudt.pro@gmail.com">
@@ -498,150 +342,51 @@ Contact
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="left">
 
 <div class="small">
-CYBERSÉCURITÉ OFFENSIVE • OSINT • ANALYSE RÉSEAU
+Cybersécurité • Analyse Réseau • Sécurité Offensive
 </div>
 
 <h1>
 
 ANALYSTE<br>
 EN<br>
-
 <span>CYBERSÉCURITÉ</span>
 
 </h1>
 
 <p class="description">
 
-Passionnée par la cybersécurité offensive, l’analyse réseau et l’investigation OSINT.  
-Je développe mes compétences à travers des laboratoires techniques, des projets orientés sécurité offensive et l’apprentissage continu des infrastructures réseau, de la détection et de l’analyse des menaces.
+Étudiante en cybersécurité, je développe mes compétences à travers des laboratoires techniques, l’analyse réseau, l’identification de vulnérabilités et des projets orientés sécurité offensive.
+
+Je travaille principalement sur des environnements Linux, les outils de pentesting, l’analyse de services réseau et l’apprentissage des méthodologies de détection et d’investigation.
 
 </p>
 
 <div class="buttons">
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank"
-class="btn red">
-
+<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn red">
 Voir GitHub
-
 </a>
 
-<a href="#certifications"
-class="btn dark">
-
-Voir Certifications
-
+<a href="Oceane_Dehaudt_.pdf" target="_blank" class="btn dark">
+Télécharger CV
 </a>
 
 </div>
 
 </div>
+
+<!-- RIGHT -->
 
 <div class="right">
 
 <div id="globe-container"></div>
-
-<div class="stats">
-
-<div class="card">
-
-<h2>15+</h2>
-
-<p>
-
-Laboratoires réalisés  
-Pentesting • Analyse • Réseau
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>OSINT</h2>
-
-<p>
-
-Recherche • Investigation  
-Analyse d’informations
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>CISCO</h2>
-
-<p>
-
-Modules réseau  
-Cybersécurité & infrastructure
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="certifications" id="certifications">
-
-<h2 class="section-title">
-
-CERTI<span>FICATIONS</span>
-
-</h2>
-
-<div class="cert-grid">
-
-<div class="cert-card">
-
-<h3>ZSCALER</h3>
-
-<p>
-
-Formation Zero Trust  
-Sécurité Cloud & Secure Access
-
-</p>
-
-</div>
-
-<div class="cert-card">
-
-<h3>CISCO NETWORKING</h3>
-
-<p>
-
-Fondamentaux réseau  
-Infrastructure • Protocoles • Sécurité
-
-</p>
-
-</div>
-
-<div class="cert-card">
-
-<h3>CYBERSECURITY</h3>
-
-<p>
-
-Analyse réseau • OSINT  
-Veille cyber • Pentesting
-
-</p>
-
-</div>
 
 </div>
 
@@ -651,7 +396,7 @@ Veille cyber • Pentesting
 
 /* PARTICLES */
 
-for(let i=0;i<55;i++){
+for(let i=0;i<45;i++){
 
 const particle=document.createElement('div');
 
@@ -662,7 +407,7 @@ particle.style.left=Math.random()*100+'vw';
 particle.style.top=Math.random()*100+'vh';
 
 particle.style.animationDuration=
-(5+Math.random()*12)+'s';
+(6+Math.random()*10)+'s';
 
 particle.style.opacity=Math.random();
 
@@ -682,10 +427,8 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 const renderer = new THREE.WebGLRenderer({
-
 alpha:true,
 antialias:true
-
 });
 
 renderer.setSize(650,650);
@@ -701,7 +444,7 @@ camera.position.z = 2.2;
 const textureLoader = new THREE.TextureLoader();
 
 const texture = textureLoader.load(
-'red-earth.png_'
+'red-earth.png_.png'
 );
 
 /* GLOBE */
@@ -733,56 +476,24 @@ material
 
 scene.add(globe);
 
-/* WIREFRAME */
-
-const wireframe = new THREE.Mesh(
-
-new THREE.SphereGeometry(1.01,64,64),
-
-new THREE.MeshBasicMaterial({
-
-color:0xff2222,
-
-wireframe:true,
-
-transparent:true,
-
-opacity:0.05
-
-})
-
-);
-
-scene.add(wireframe);
-
 /* LIGHTS */
 
-const light = new THREE.PointLight(
+const redLight = new THREE.PointLight(
 0xff0000,
 4,
 100
 );
 
-light.position.set(5,3,5);
+redLight.position.set(5,3,5);
 
-scene.add(light);
+scene.add(redLight);
 
 const ambient = new THREE.AmbientLight(
 0xffffff,
-0.2
+0.25
 );
 
 scene.add(ambient);
-
-const glowLight = new THREE.PointLight(
-0xff0000,
-8,
-20
-);
-
-glowLight.position.set(0,0,2);
-
-scene.add(glowLight);
 
 /* PARALLAX */
 
@@ -807,8 +518,6 @@ function animate(){
 requestAnimationFrame(animate);
 
 globe.rotation.y += 0.002;
-
-wireframe.rotation.y += 0.0025;
 
 renderer.render(scene,camera);
 
