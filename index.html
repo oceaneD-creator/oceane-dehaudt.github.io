@@ -1,262 +1,406 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Océane Dehaudt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Océane Dehaudt | Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  background:black;
-  color:white;
-  font-family: monospace;
-  overflow-x:hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* matrix */
-canvas {
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:-1;
+html{
+    scroll-behavior:smooth;
 }
 
-/* container */
-.container {
-  text-align:center;
-  padding-top:100px;
+body{
+    background:#0b0f19;
+    color:#f5f7fa;
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
 }
 
-h1 {
-  font-size:4em;
-  color:red;
-  letter-spacing:5px;
-  margin-bottom:10px;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(0,255,170,0.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,140,255,0.12), transparent 30%);
+    z-index:-2;
 }
 
-.subtitle {
-  color:#aaa;
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
 }
 
-/* bouton */
-.terminal-btn {
-  margin-top:30px;
-  padding:15px 40px;
-  font-size:1.2em;
-  background:black;
-  color:red;
-  border:2px solid red;
-  cursor:pointer;
-  transition:0.3s;
+header{
+    width:100%;
+    padding:30px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    background:rgba(11,15,25,0.75);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    z-index:999;
 }
 
-.terminal-btn:hover {
-  background:red;
-  color:black;
+.logo{
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
-/* terminal */
-#terminal {
-  display:none;
-  margin-top:40px;
-  width:60%;
-  margin-left:auto;
-  margin-right:auto;
-  border:1px solid red;
-  padding:20px;
+nav a{
+    color:#cfd8e3;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+    font-size:0.95rem;
 }
 
-#terminalText {
-  color:red;
-  text-align:left;
+nav a:hover{
+    color:#00ffaa;
 }
 
-/* sections */
-.box {
-  margin:40px auto;
-  padding:25px;
-  border:1px solid red;
-  width:65%;
-
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.5s;
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 10%;
 }
 
-.box h2 {
-  color:red;
-  margin-bottom:10px;
+.hero-content{
+    max-width:900px;
 }
 
-.contact a {
-  color:red;
-  text-decoration:none;
+.hero h1{
+    font-size:4.5rem;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#00ffaa;
+}
+
+.hero p{
+    color:#aeb7c2;
+    font-size:1.15rem;
+    max-width:700px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:#00ffaa;
+    color:#081018;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(0,255,170,0.2);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+}
+
+.btn-secondary:hover{
+    border-color:#00ffaa;
+    color:#00ffaa;
+}
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+.section-subtitle{
+    color:#97a3b3;
+    margin-bottom:50px;
+    max-width:700px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:22px;
+    padding:30px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#00ffaa;
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#00ffaa;
+}
+
+.card p{
+    color:#b4c0cd;
+    font-size:0.96rem;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:25px;
+}
+
+.skill{
+    padding:10px 16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:999px;
+    color:#d8e1ea;
+    font-size:0.9rem;
+}
+
+.project-card{
+    overflow:hidden;
+}
+
+.project-card img{
+    width:100%;
+    border-radius:14px;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.project-links{
+    margin-top:20px;
+}
+
+.project-links a{
+    color:#00ffaa;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.contact-box{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+}
+
+.contact-box p{
+    color:#aeb7c2;
+    margin-bottom:20px;
+}
+
+.contact-box a{
+    color:#00ffaa;
+    text-decoration:none;
+    font-weight:600;
+}
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#6f7a88;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav a{
+    margin:0 10px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="grid"></div>
 
-<div class="container">
+<header>
+    <div class="logo">OCÉANE DEHAUDT</div>
 
-<h1>OCÉANE DEHAUDT</h1>
-<p class="subtitle">Analyse réseau • OSINT • Sécurité</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-<button class="terminal-btn" onclick="openTerminal()">
-▶ RUN TERMINAL
-</button>
+<section class="hero">
+    <div class="hero-content">
 
-<div id="terminal">
-<pre id="terminalText"></pre>
-</div>
+        <h1>Cybersecurity <span>Student</span><br>Focused on Offensive Security</h1>
 
-<!-- CONTENU -->
-<div class="box">
-<h2>À propos</h2>
-<p>Analyse des flux réseau et investigation OSINT. Approche basée sur l’identification, la corrélation et l’interprétation des données.</p>
-</div>
+        <p>
+            Cybersecurity student passionate about penetration testing, network analysis and offensive security methodologies. Currently building practical experience through labs, vulnerability research and hands-on projects using Kali Linux, Nmap and Metasploit.
+        </p>
 
-<div class="box">
-<h2>Compétences</h2>
-<p>
-Analyse de trafic réseau (Wireshark)<br>
-Recherche OSINT et corrélation d’informations<br>
-Bases en sécurité offensive<br>
-Compréhension des systèmes Windows et Linux
-</p>
-</div>
+        <div class="buttons">
+            <a class="btn btn-primary" href="https://github.com/oceane-dehaudt" target="_blank">View GitHub</a>
+            <a class="btn btn-secondary" href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank">View Projects</a>
+        </div>
 
-<div class="box">
-<h2>Outils</h2>
-<p>Wireshark • Nmap • OSINT Framework • Linux</p>
-</div>
+    </div>
+</section>
 
-<div class="box">
-<h2>Méthodologie</h2>
-<p>Analyse → Identification → Corrélation → Interprétation → Reporting</p>
-</div>
+<section id="about">
+    <h2 class="section-title">About Me</h2>
 
-<div class="box">
-<h2>Projets</h2>
-<p>
-🔎 Analyse Wireshark<br>
-Objectif : analyser un trafic réseau<br>
-Résultat : détection de comportements anormaux<br><br>
+    <p class="section-subtitle">
+        I am currently studying cybersecurity with a growing interest in penetration testing, offensive security and infrastructure analysis. My objective is to continue improving my technical skills through hands-on practice and real-world oriented labs.
+    </p>
 
-🌐 Investigation OSINT<br>
-Objectif : collecter et recouper des informations<br>
-Résultat : identification de données pertinentes<br><br>
+    <div class="cards">
 
-🛠️ Scan réseau<br>
-Objectif : identifier les services actifs<br>
-Outil : Nmap
-</p>
-</div>
+        <div class="card">
+            <h3>Network Analysis</h3>
+            <p>
+                Traffic inspection, service enumeration and network reconnaissance using tools such as Wireshark and Nmap.
+            </p>
+        </div>
 
-<div class="box">
-<h2>Niveau</h2>
-<p>
-Analyse réseau : intermédiaire<br>
-OSINT : intermédiaire<br>
-Sécurité offensive : débutant
-</p>
-</div>
+        <div class="card">
+            <h3>Offensive Security</h3>
+            <p>
+                Beginner penetration testing experience including vulnerability discovery, Metasploit exploitation and post-exploitation techniques.
+            </p>
+        </div>
 
-<div class="box">
-<h2>Objectif</h2>
-<p>Développer des compétences en détection d’intrusions et analyse avancée.</p>
-</div>
+        <div class="card">
+            <h3>OSINT</h3>
+            <p>
+                Open-source intelligence gathering and information correlation techniques for investigations and reconnaissance.
+            </p>
+        </div>
 
-<div class="box contact">
-<h2>Contact</h2>
-<p>
-<a href="mailto:oceane.dehaudt.pro@gmail.com">
-oceane.dehaudt.pro@gmail.com
-</a>
-</p>
-</div>
+    </div>
+</section>
 
-</div>
+<section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
 
-<script>
-// terminal
-function openTerminal() {
-  let terminal = document.getElementById("terminal");
-  let text = document.getElementById("terminalText");
+    <div class="skills">
+        <div class="skill">Kali Linux</div>
+        <div class="skill">Nmap</div>
+        <div class="skill">Metasploit</div>
+        <div class="skill">Wireshark</div>
+        <div class="skill">Linux</div>
+        <div class="skill">TCP/IP</div>
+        <div class="skill">OSINT</div>
+        <div class="skill">Virtualization</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Network Enumeration</div>
+    </div>
+</section>
 
-  terminal.style.display = "block";
+<section id="projects">
+    <h2 class="section-title">Projects & Labs</h2>
 
-  let lines = [
-    "> Access granted...",
-    "> Loading profile...",
-    "> Deploying content..."
-  ];
+    <p class="section-subtitle">
+        Documentation of cybersecurity labs and offensive security projects developed during my learning journey.
+    </p>
 
-  text.innerHTML = "";
-  let i = 0;
+    <div class="cards">
 
-  function typeLine() {
-    if (i < lines.length) {
-      text.innerHTML += lines[i] + "\n";
-      i++;
-      setTimeout(typeLine, 500);
-    } else {
-      reveal();
-    }
-  }
+        <div class="card project-card">
 
-  typeLine();
-}
+            <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200&auto=format&fit=crop" alt="Cybersecurity Lab">
 
-// reveal
-function reveal() {
-  let sections = document.querySelectorAll(".box");
+            <h3>Nagios XI Pentest Lab</h3>
 
-  sections.forEach((section, index) => {
-    setTimeout(() => {
-      section.style.opacity = "1";
-      section.style.transform = "translateY(0)";
-    }, index * 300);
-  });
-}
+            <p>
+                Penetration testing lab including reconnaissance, service enumeration, vulnerability analysis, Metasploit exploitation and post-exploitation tasks on a vulnerable Nagios XI environment.
+            </p>
 
-// matrix
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+            <div class="project-links">
+                <a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank">
+                    View Project →
+                </a>
+            </div>
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+        </div>
 
-let letters = "01".split("");
-let fontSize = 14;
-let columns = canvas.width / fontSize;
+    </div>
+</section>
 
-let drops = [];
-for (let x = 0; x < columns; x++) drops[x] = 1;
+<section id="contact">
+    <div class="contact-box">
 
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
+        <h2 class="section-title">Contact</h2>
 
-  ctx.fillStyle = "red";
-  ctx.font = fontSize + "px monospace";
+        <p>
+            Open to internship opportunities and cybersecurity collaborations.
+        </p>
 
-  for (let i = 0; i < drops.length; i++) {
-    let text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        <p>
+            📧 <a href="mailto:oceanedehaudtt@gmail.com">oceanedehaudtt@gmail.com</a>
+        </p>
 
-    if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
-      drops[i] = 0;
+        <p>
+            💻 <a href="https://github.com/oceane-dehaudt" target="_blank">GitHub Profile</a>
+        </p>
 
-    drops[i]++;
-  }
-}
+    </div>
+</section>
 
-setInterval(draw, 35);
-</script>
+<footer>
+    © 2026 Océane Dehaudt — Cybersecurity Portfolio
+</footer>
 
 </body>
 </html>
+
