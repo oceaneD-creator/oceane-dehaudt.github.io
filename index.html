@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Océane Dehaudt | Cybersecurity Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,125 +15,137 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
+background:#000;
 overflow:hidden;
-background:#020202;
 font-family:'Inter',sans-serif;
 color:white;
 height:100vh;
-cursor:crosshair;
 }
 
-/* BACKGROUND */
+canvas{
+position:fixed;
+inset:0;
+z-index:-50;
+}
 
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(255,0,0,0.14), transparent 45%),
-linear-gradient(to bottom,#000000,#040404,#090000);
-z-index:-30;
+radial-gradient(circle at center, rgba(255,0,0,0.12), transparent 45%),
+linear-gradient(to bottom,#000000,#020202,#070707);
+z-index:-40;
 }
 
-/* GRID */
-
-body::after{
-content:'';
+.grid{
 position:fixed;
 inset:0;
 background-image:
-linear-gradient(rgba(255,0,0,0.02) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,0,0.02) 1px, transparent 1px);
-background-size:70px 70px;
-z-index:-20;
+linear-gradient(rgba(255,0,0,0.025) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,0,0.025) 1px, transparent 1px);
+background-size:55px 55px;
+z-index:-30;
+opacity:0.28;
 }
-
-/* HEADER */
 
 header{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:25px 5%;
+padding:24px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:100;
-background:rgba(0,0,0,0.25);
-backdrop-filter:blur(16px);
+backdrop-filter:blur(12px);
+background:rgba(0,0,0,0.22);
 border-bottom:1px solid rgba(255,0,0,0.08);
+z-index:999;
 }
 
 .logo{
 font-family:'Rajdhani',sans-serif;
-font-size:2rem;
+font-size:2.2rem;
 font-weight:700;
-letter-spacing:3px;
+letter-spacing:4px;
+line-height:1;
 }
 
-.logo span{
+.logo small{
 display:block;
-font-size:0.72rem;
-color:#ff2b2b;
-letter-spacing:4px;
-margin-top:4px;
+font-size:0.75rem;
+letter-spacing:5px;
+margin-top:8px;
+color:#ff3131;
+}
+
+nav{
+display:flex;
+gap:45px;
 }
 
 nav a{
 text-decoration:none;
-color:#d1d5db;
-margin-left:35px;
+color:#d4d4d4;
 font-family:'Rajdhani',sans-serif;
-letter-spacing:2px;
+letter-spacing:3px;
 transition:0.3s;
 }
 
 nav a:hover{
-color:#ff2b2b;
+color:#ff3131;
 }
 
-/* LEFT SIDE */
+.hero{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
 
-.content{
+.left{
 position:absolute;
 left:6%;
 top:50%;
 transform:translateY(-50%);
-max-width:500px;
-z-index:100;
+max-width:520px;
+z-index:50;
 }
 
-.small{
-color:#ff2b2b;
+.tag{
 font-family:'Rajdhani',sans-serif;
 letter-spacing:5px;
-margin-bottom:20px;
+font-size:0.9rem;
+color:#ff3131;
+margin-bottom:22px;
 }
 
-.content h1{
-font-size:6rem;
+.left h1{
+font-size:6.5rem;
 line-height:0.88;
 font-weight:800;
-margin-bottom:25px;
+margin-bottom:28px;
 }
 
-.content h1 span{
-color:#ff2b2b;
+.left h1 span{
+color:#ff2323;
 text-shadow:
 0 0 25px rgba(255,0,0,0.4),
-0 0 90px rgba(255,0,0,0.18);
+0 0 120px rgba(255,0,0,0.18);
 }
 
-.content p{
+.left p{
 font-size:1.05rem;
 line-height:2;
-color:#d1d5db;
-margin-bottom:40px;
+color:#d2d2d2;
+margin-bottom:42px;
 }
-
-/* BUTTONS */
 
 .buttons{
 display:flex;
@@ -145,68 +154,63 @@ gap:18px;
 
 .btn{
 padding:18px 34px;
-border-radius:12px;
+border-radius:10px;
 text-decoration:none;
 font-family:'Rajdhani',sans-serif;
 font-weight:700;
 letter-spacing:2px;
-transition:0.3s;
+transition:0.35s;
 }
 
-.primary{
-background:linear-gradient(135deg,#7a0000,#ff0000);
+.red{
+background:linear-gradient(135deg,#7d0000,#ff1a1a);
 color:white;
 box-shadow:
-0 0 40px rgba(255,0,0,0.35),
-0 0 120px rgba(255,0,0,0.18);
+0 0 30px rgba(255,0,0,0.35),
+0 0 100px rgba(255,0,0,0.12);
 }
 
-.secondary{
-border:1px solid rgba(255,0,0,0.15);
+.dark{
 background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,0,0,0.12);
 color:white;
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 }
 
 .btn:hover{
 transform:translateY(-5px);
 }
 
-/* GLOBE */
-
 .globe-wrapper{
 position:absolute;
-right:-120px;
+right:-80px;
 top:50%;
 transform:translateY(-50%);
-width:1000px;
-height:1000px;
+width:1100px;
+height:1100px;
 display:flex;
-justify-content:center;
 align-items:center;
-z-index:20;
+justify-content:center;
+z-index:10;
 }
-
-/* EARTH */
 
 .earth{
 position:absolute;
 width:860px;
 height:860px;
 border-radius:50%;
-background:
-linear-gradient(rgba(0,0,0,0.62),rgba(0,0,0,0.62)),
-url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=3000&auto=format&fit=crop') center/cover;
-background-size:cover;
-box-shadow:
-0 0 70px rgba(255,0,0,0.35),
-0 0 180px rgba(255,0,0,0.18),
-0 0 300px rgba(255,0,0,0.08);
-animation:rotateEarth 180s linear infinite;
 overflow:hidden;
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=3000&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+box-shadow:
+0 0 80px rgba(255,0,0,0.28),
+0 0 180px rgba(255,0,0,0.12),
+0 0 260px rgba(255,0,0,0.08);
+animation:earthRotate 120s linear infinite;
 }
-
-/* GLOW */
 
 .earth::before{
 content:'';
@@ -215,128 +219,74 @@ inset:0;
 border-radius:50%;
 background:
 radial-gradient(circle at center,
-transparent 40%,
-rgba(255,0,0,0.18));
-mix-blend-mode:screen;
+transparent 30%,
+rgba(0,0,0,0.45));
 }
-
-/* CYBER GRID */
-
-.earth::after{
-content:'';
-position:absolute;
-inset:0;
-border-radius:50%;
-background:
-repeating-linear-gradient(
-0deg,
-rgba(255,0,0,0.04),
-rgba(255,0,0,0.04) 1px,
-transparent 1px,
-transparent 18px
-),
-repeating-linear-gradient(
-90deg,
-rgba(255,0,0,0.04),
-rgba(255,0,0,0.04) 1px,
-transparent 1px,
-transparent 18px
-);
-mix-blend-mode:screen;
-}
-
-/* ATTACK ORBITS */
 
 .orbit{
 position:absolute;
-border:1px solid rgba(255,0,0,0.3);
+border:1px solid rgba(255,0,0,0.22);
 border-radius:50%;
 pointer-events:none;
 }
 
 .o1{
-width:900px;
-height:250px;
-transform:rotate(10deg);
-animation:spin1 16s linear infinite;
+width:920px;
+height:260px;
+animation:spin1 12s linear infinite;
 }
 
 .o2{
-width:860px;
-height:320px;
-transform:rotate(-20deg);
-animation:spin2 22s linear infinite;
+width:980px;
+height:340px;
+animation:spin2 18s linear infinite;
 }
 
 .o3{
-width:920px;
-height:300px;
-transform:rotate(40deg);
-animation:spin3 28s linear infinite;
+width:900px;
+height:420px;
+animation:spin3 24s linear infinite;
 }
 
 .o4{
-width:880px;
-height:360px;
-transform:rotate(-45deg);
-animation:spin4 18s linear infinite;
+width:1020px;
+height:300px;
+animation:spin4 20s linear infinite;
 }
-
-/* ATTACK PARTICLES */
 
 .attack{
 position:absolute;
-width:8px;
-height:8px;
+width:10px;
+height:10px;
 border-radius:50%;
 background:#ff0000;
 box-shadow:
 0 0 12px red,
 0 0 30px red,
-0 0 60px rgba(255,0,0,0.8);
+0 0 60px rgba(255,0,0,0.7);
 }
 
-/* MOVEMENTS */
-
-.a1{
-animation:attack1 6s linear infinite;
-}
-
-.a2{
-animation:attack2 8s linear infinite;
-}
-
-.a3{
-animation:attack3 10s linear infinite;
-}
-
-.a4{
-animation:attack4 7s linear infinite;
-}
-
-.a5{
-animation:attack5 9s linear infinite;
-}
-
-/* BOTTOM */
+.a1{animation:move1 8s linear infinite;}
+.a2{animation:move2 10s linear infinite;}
+.a3{animation:move3 12s linear infinite;}
+.a4{animation:move4 7s linear infinite;}
+.a5{animation:move5 9s linear infinite;}
 
 .bottom{
 position:absolute;
-bottom:25px;
+bottom:20px;
 left:50%;
 transform:translateX(-50%);
 width:82%;
-padding:20px;
-text-align:center;
-background:rgba(0,0,0,0.42);
+padding:18px;
+background:rgba(0,0,0,0.45);
 border:1px solid rgba(255,0,0,0.12);
+backdrop-filter:blur(10px);
 font-family:'Rajdhani',sans-serif;
-letter-spacing:4px;
-backdrop-filter:blur(12px);
-z-index:100;
+letter-spacing:5px;
+text-align:center;
+z-index:60;
 }
-
-/* PARTICLES */
 
 .particle{
 position:absolute;
@@ -344,124 +294,83 @@ width:2px;
 height:2px;
 background:red;
 border-radius:50%;
-opacity:0.5;
-animation:float 8s linear infinite;
+opacity:0.4;
+animation:float linear infinite;
 }
 
-/* ANIMATIONS */
-
-@keyframes rotateEarth{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
+@keyframes earthRotate{
+from{background-position:0 center;}
+to{background-position:-2000px center;}
 }
 
 @keyframes spin1{
-from{rotate:0deg;}
-to{rotate:360deg;}
+from{transform:rotate(0deg);}to{transform:rotate(360deg);}
 }
 
 @keyframes spin2{
-from{rotate:360deg;}
-to{rotate:0deg;}
+from{transform:rotate(360deg);}to{transform:rotate(0deg);}
 }
 
 @keyframes spin3{
-from{rotate:0deg;}
-to{rotate:360deg;}
+from{transform:rotate(0deg);}to{transform:rotate(360deg);}
 }
 
 @keyframes spin4{
-from{rotate:360deg;}
-to{rotate:0deg;}
+from{transform:rotate(360deg);}to{transform:rotate(0deg);}
 }
 
-/* ATTACK PATHS */
-
-@keyframes attack1{
-0%{transform:translate(-350px,0);}
-50%{transform:translate(350px,-120px);}
-100%{transform:translate(-350px,0);}
+@keyframes move1{
+0%{transform:translate(-420px,0);}50%{transform:translate(420px,-100px);}100%{transform:translate(-420px,0);}
 }
 
-@keyframes attack2{
-0%{transform:translate(250px,-150px);}
-50%{transform:translate(-250px,150px);}
-100%{transform:translate(250px,-150px);}
+@keyframes move2{
+0%{transform:translate(300px,-220px);}50%{transform:translate(-300px,220px);}100%{transform:translate(300px,-220px);}
 }
 
-@keyframes attack3{
-0%{transform:translate(-100px,250px);}
-50%{transform:translate(300px,-250px);}
-100%{transform:translate(-100px,250px);}
+@keyframes move3{
+0%{transform:translate(0,-420px);}50%{transform:translate(0,420px);}100%{transform:translate(0,-420px);}
 }
 
-@keyframes attack4{
-0%{transform:translate(350px,0);}
-50%{transform:translate(-350px,120px);}
-100%{transform:translate(350px,0);}
+@keyframes move4{
+0%{transform:translate(420px,0);}50%{transform:translate(-420px,120px);}100%{transform:translate(420px,0);}
 }
 
-@keyframes attack5{
-0%{transform:translate(0,-350px);}
-50%{transform:translate(0,350px);}
-100%{transform:translate(0,-350px);}
+@keyframes move5{
+0%{transform:translate(-200px,300px);}50%{transform:translate(320px,-320px);}100%{transform:translate(-200px,300px);}
 }
-
-/* SPACE PARTICLES */
 
 @keyframes float{
-0%{
-transform:translateY(0px);
-opacity:0;
+0%{transform:translateY(0px);opacity:0;}
+50%{opacity:0.8;}
+100%{transform:translateY(-1200px);opacity:0;}
 }
-50%{
-opacity:0.7;
-}
-100%{
-transform:translateY(-1200px);
-opacity:0;
-}
-}
-
-/* MOBILE */
 
 @media(max-width:1200px){
-
 .globe-wrapper{
-right:-350px;
-opacity:0.45;
+right:-320px;
+opacity:0.55;
 }
 
-.content h1{
+.left h1{
 font-size:4rem;
 }
 
-header{
-flex-direction:column;
+nav{
 gap:18px;
 }
-
-nav a{
-margin:0 10px;
-}
-
 }
 
 </style>
-
 </head>
-
 <body>
 
-<header>
+<canvas id="bg"></canvas>
+<div class="grid"></div>
 
+<header>
 <div class="logo">
 OCÉANE DEHAUDT
-<span>CYBERSECURITY STUDENT</span>
+<small>CYBERSECURITY STUDENT</small>
 </div>
 
 <nav>
@@ -470,15 +379,13 @@ OCÉANE DEHAUDT
 <a href="#">PROJETS</a>
 <a href="#">CONTACT</a>
 </nav>
-
 </header>
 
-<!-- LEFT -->
+<section class="hero">
 
-<div class="content">
-
-<div class="small">
-PORTFOLIO
+<div class="left">
+<div class="tag">
+OFFENSIVE SECURITY • OSINT • NETWORK ANALYSIS
 </div>
 
 <h1>
@@ -487,32 +394,18 @@ OCÉANE<br>
 </h1>
 
 <p>
-Étudiante en cybersécurité spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
-Passionnée par la cybersécurité offensive et les nouvelles technologies.
+Étudiante en cybersécurité à l’IFAPME spécialisée dans l’analyse réseau,
+la sécurité offensive, les laboratoires de penetration testing
+et les environnements de cybersécurité modernes.
 </p>
 
 <div class="buttons">
-
-<a href="https://github.com/oceane-dehaudt"
-target="_blank"
-class="btn primary">
-VOIR GITHUB
-</a>
-
-<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
-target="_blank"
-class="btn secondary">
-VOIR LES LABS
-</a>
-
+<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn red">VOIR GITHUB</a>
+<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank" class="btn dark">VOIR LES LABS</a>
 </div>
-
 </div>
-
-<!-- GLOBE -->
 
 <div class="globe-wrapper">
-
 <div class="earth"></div>
 
 <div class="orbit o1"></div>
@@ -525,53 +418,46 @@ VOIR LES LABS
 <div class="attack a3"></div>
 <div class="attack a4"></div>
 <div class="attack a5"></div>
-
 </div>
-
-<!-- BOTTOM -->
 
 <div class="bottom">
 REAL-TIME CYBER ATTACK MAP
 </div>
 
-<!-- SPACE PARTICLES -->
+</section>
 
 <script>
 
-for(let i=0;i<120;i++){
+for(let i=0;i<140;i++){
 
-const particle = document.createElement('div');
+const p = document.createElement('div');
 
-particle.classList.add('particle');
+p.classList.add('particle');
 
-particle.style.left = Math.random()*100 + 'vw';
-particle.style.top = Math.random()*100 + 'vh';
+p.style.left = Math.random()*100+'vw';
+p.style.top = Math.random()*100+'vh';
 
-particle.style.animationDuration =
-(4 + Math.random()*8) + 's';
+p.style.animationDuration =
+(4 + Math.random()*10)+'s';
 
-particle.style.animationDelay =
-Math.random()*5 + 's';
+p.style.animationDelay =
+Math.random()*5+'s';
 
-document.body.appendChild(particle);
-
+document.body.appendChild(p);
 }
 
-/* PARALLAX */
+const globe = document.querySelector('.globe-wrapper');
 
-document.addEventListener('mousemove',(e)=>{
-
-const globe =
-document.querySelector('.globe-wrapper');
+window.addEventListener('mousemove',(e)=>{
 
 const x =
-(e.clientX / window.innerWidth - 0.5) * 30;
+(e.clientX / window.innerWidth - 0.5) * 22;
 
 const y =
-(e.clientY / window.innerHeight - 0.5) * 20;
+(e.clientY / window.innerHeight - 0.5) * 18;
 
 globe.style.transform =
-`translateY(-50%) translate(${x}px, ${y}px)`;
+`translate(${x}px, ${y}px)`;
 
 });
 
@@ -579,3 +465,4 @@ globe.style.transform =
 
 </body>
 </html>
+```
