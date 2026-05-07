@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,9 +10,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
 <style>
+
+/* RESET */
 
 *{
 margin:0;
@@ -19,38 +20,56 @@ padding:0;
 box-sizing:border-box;
 }
 
+/* BODY */
+
 body{
+
 background:#050505;
 font-family:'Orbitron',sans-serif;
 overflow-x:hidden;
 color:white;
+
 }
 
 /* BACKGROUND */
 
 body::before{
+
 content:'';
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
+
 background:
-radial-gradient(circle at center,
+radial-gradient(
+circle at center,
 rgba(255,0,0,0.12),
-black 70%);
+black 70%
+);
+
 z-index:-5;
+
 }
 
 /* SCANLINES */
 
 body::after{
+
 content:'';
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
+
 background:
 repeating-linear-gradient(
 to bottom,
@@ -59,156 +78,249 @@ rgba(255,255,255,0.015) 1px,
 transparent 1px,
 transparent 3px
 );
+
 pointer-events:none;
+
 z-index:999;
+
 }
 
 /* HEADER */
 
 header{
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
+
 padding:30px 80px;
+
 display:flex;
+
 justify-content:space-between;
 align-items:center;
+
 background:rgba(0,0,0,0.45);
+
 backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(255,0,0,0.15);
+
 z-index:100;
-border-bottom:1px solid rgba(255,0,0,0.15);
+
 }
 
+/* LOGO */
+
 .logo{
+
 font-size:2.2rem;
 font-weight:900;
 letter-spacing:3px;
+
 }
 
 .logo span{
+
 color:#ff2a2a;
+
 text-shadow:
 0 0 10px rgba(255,0,0,0.7);
+
 }
 
+/* NAV */
+
 nav{
+
 display:flex;
 gap:40px;
+
 }
 
 nav a{
+
 color:white;
+
 text-decoration:none;
+
 font-weight:600;
+
 transition:0.3s;
+
 }
 
 nav a:hover{
+
 color:#ff2a2a;
-text-shadow:0 0 15px red;
+
+text-shadow:
+0 0 15px red;
+
 }
 
 /* HERO */
 
 .hero{
+
 min-height:100vh;
+
 display:flex;
+
 align-items:center;
 justify-content:space-between;
+
 padding:140px 8%;
+
 position:relative;
+
 overflow:hidden;
+
 }
 
 /* LEFT */
 
 .left{
-width:48%;
+
+width:45%;
 z-index:5;
+
 }
+
+/* SMALL TEXT */
 
 .small{
+
 color:#ff4d4d;
+
 letter-spacing:6px;
+
 margin-bottom:25px;
+
 font-size:0.85rem;
+
 line-height:1.8;
+
 }
 
+/* TITLE */
+
 h1{
+
 font-size:7rem;
-line-height:0.9;
+
+line-height:0.88;
+
 font-weight:900;
+
 text-transform:uppercase;
+
 margin-bottom:40px;
+
 }
 
 h1 span{
+
 color:#ff2a2a;
 
 text-shadow:
 0 0 10px #ff0000,
 0 0 20px #ff0000;
+
 }
 
+/* DESCRIPTION */
+
 .description{
+
 font-size:1.05rem;
+
 line-height:2.2;
+
 max-width:650px;
+
 color:#d2d2d2;
+
 }
 
 /* BUTTON */
 
 .buttons{
+
 margin-top:50px;
+
 display:flex;
+
 gap:20px;
+
 }
 
 .btn{
+
 padding:18px 42px;
+
 border-radius:12px;
+
 text-decoration:none;
+
 font-weight:700;
+
 transition:0.3s;
+
 }
 
 .red{
+
 background:#ff2a2a;
+
 color:white;
 
 box-shadow:
 0 0 20px rgba(255,0,0,0.4);
+
 }
 
 .red:hover{
+
 transform:translateY(-5px);
 
 box-shadow:
 0 0 35px rgba(255,0,0,0.7);
+
 }
 
 /* RIGHT */
 
 .right{
-width:52%;
+
+width:55%;
+
 position:relative;
+
 display:flex;
+
 justify-content:center;
 align-items:center;
+
 }
 
 /* GLOW */
 
 .glow-bg{
+
 position:absolute;
-right:-150px;
+
+right:-250px;
 top:50%;
+
 transform:translateY(-50%);
-width:850px;
-height:850px;
+
+width:900px;
+height:900px;
 
 background:
 radial-gradient(
@@ -220,28 +332,34 @@ transparent 70%
 filter:blur(120px);
 
 z-index:0;
+
 }
 
-/* GLOBE */
+/* EARTH */
 
-#globe-container{
-width:620px;
-height:620px;
+.earth{
+
+width:850px;
 
 position:relative;
 
-z-index:2;
+right:-120px;
+
+opacity:0.92;
 
 mix-blend-mode:screen;
-
-opacity:0.95;
 
 animation:float 7s ease-in-out infinite;
 
 filter:
-drop-shadow(0 0 40px #ff0000)
-drop-shadow(0 0 100px rgba(255,0,0,0.35));
+drop-shadow(0 0 25px #ff0000)
+drop-shadow(0 0 90px rgba(255,0,0,0.35));
+
+z-index:2;
+
 }
+
+/* FLOAT */
 
 @keyframes float{
 
@@ -262,25 +380,38 @@ transform:translateY(0px);
 /* PARTICLES */
 
 .particle{
+
 position:absolute;
+
 width:2px;
 height:2px;
+
 background:red;
+
 border-radius:50%;
+
 opacity:0.5;
+
 animation:particleMove linear infinite;
+
 }
 
 @keyframes particleMove{
 
 from{
+
 transform:translateY(0);
+
 opacity:0;
+
 }
 
 to{
+
 transform:translateY(-120vh);
+
 opacity:1;
+
 }
 
 }
@@ -290,36 +421,66 @@ opacity:1;
 @media(max-width:1200px){
 
 .hero{
+
 flex-direction:column;
+
 text-align:center;
+
 padding-top:180px;
+
 }
 
 .left,
 .right{
+
 width:100%;
+
 }
 
 .right{
+
 margin-top:80px;
+
 }
 
 h1{
+
 font-size:4.5rem;
+
 }
 
 .buttons{
+
 justify-content:center;
+
 }
 
-#globe-container{
-width:420px;
-height:420px;
+.earth{
+
+width:480px;
+
+right:0;
+
+}
+
+nav{
+
+gap:20px;
+
+font-size:0.8rem;
+
+}
+
+header{
+
+padding:25px 30px;
+
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -327,7 +488,9 @@ height:420px;
 <header>
 
 <div class="logo">
+
 OCÉANE <span>DEHAUDT</span>
+
 </div>
 
 <nav>
@@ -357,24 +520,30 @@ Contact
 <div class="left">
 
 <div class="small">
+
 CYBERSÉCURITÉ • ANALYSE RÉSEAU • OSINT
+
 </div>
 
 <h1>
+
 ANALYSTE<br>
 EN<br>
 <span>CYBERSÉCURITÉ</span>
+
 </h1>
 
 <p class="description">
 
-Portfolio orienté cybersécurité offensive,
-analyse réseau et investigation technique.
+Portfolio orienté cybersécurité offensive
+et analyse technique.
 
 Développement de compétences en
-pentesting, identification de vulnérabilités,
-OSINT et sécurité Linux à travers des
-laboratoires pratiques et projets spécialisés.
+pentesting, investigation OSINT,
+identification de vulnérabilités,
+sécurité Linux et analyse réseau
+à travers des laboratoires pratiques
+et projets spécialisés.
 
 </p>
 
@@ -396,7 +565,7 @@ Voir GitHub
 
 <div class="glow-bg"></div>
 
-<div id="globe-container"></div>
+<img src="red-earth.png_.png" class="earth">
 
 </div>
 
@@ -425,117 +594,8 @@ document.body.appendChild(particle);
 
 }
 
-/* THREE JS */
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-45,
-1,
-0.1,
-1000
-);
-
-const renderer = new THREE.WebGLRenderer({
-alpha:true,
-antialias:true
-});
-
-renderer.setSize(620,620);
-
-document
-.getElementById("globe-container")
-.appendChild(renderer.domElement);
-
-camera.position.z = 2.2;
-
-/* TEXTURE */
-
-const textureLoader = new THREE.TextureLoader();
-
-const texture = textureLoader.load(
-'red-earth.png_.png'
-);
-
-/* GLOBE */
-
-const geometry = new THREE.SphereGeometry(
-1,
-128,
-128
-);
-
-const material = new THREE.MeshStandardMaterial({
-
-map:texture,
-
-emissive:new THREE.Color(0xff0000),
-
-emissiveIntensity:0.9,
-
-metalness:0.6,
-
-roughness:0.25
-
-});
-
-const globe = new THREE.Mesh(
-geometry,
-material
-);
-
-scene.add(globe);
-
-/* LIGHTS */
-
-const light = new THREE.PointLight(
-0xff2a2a,
-3,
-100
-);
-
-light.position.set(5,3,5);
-
-scene.add(light);
-
-const ambient = new THREE.AmbientLight(
-0xffffff,
-0.25
-);
-
-scene.add(ambient);
-
-/* PARALLAX */
-
-document.addEventListener('mousemove',(e)=>{
-
-const mouseX =
-(e.clientX/window.innerWidth - 0.5);
-
-const mouseY =
-(e.clientY/window.innerHeight - 0.5);
-
-globe.rotation.y += mouseX*0.003;
-
-globe.rotation.x += mouseY*0.0015;
-
-});
-
-/* ANIMATION */
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-globe.rotation.y += 0.0018;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
 </script>
 
 </body>
+
 </html>
