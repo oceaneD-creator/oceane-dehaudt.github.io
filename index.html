@@ -1,13 +1,16 @@
+<!-- REMPLACE TON index.html PAR ÇA -->
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cyber Threat Intelligence</title>
+<title>Océane Dehaudt | Cybersecurity Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,32 +22,44 @@ box-sizing:border-box;
 
 body{
 overflow:hidden;
-background:#030303;
+background:#020202;
 font-family:'Inter',sans-serif;
 color:white;
 }
 
-/* CANVAS */
+/* THREE CANVAS */
 
 canvas{
 position:fixed;
 inset:0;
-width:100%;
-height:100%;
-z-index:-10;
+z-index:-20;
 }
 
-/* OVERLAY */
+/* RED ATMOSPHERE */
 
-.overlay{
+body::before{
+content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(255,0,0,0.12), transparent 35%),
-radial-gradient(circle at top, rgba(255,60,60,0.08), transparent 25%),
-linear-gradient(to bottom,#000000,#050505,#0a0000);
+radial-gradient(circle at center, rgba(255,0,0,0.14), transparent 40%),
+linear-gradient(to bottom,#000000,#070707,#120000);
 pointer-events:none;
-z-index:-5;
+z-index:-10;
+}
+
+/* GRID */
+
+body::after{
+content:'';
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px);
+background-size:80px 80px;
+pointer-events:none;
+z-index:-9;
 }
 
 /* HEADER */
@@ -54,76 +69,81 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 7%;
+padding:24px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.28);
+background:rgba(0,0,0,0.25);
 backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,0,0,0.12);
-z-index:200;
+z-index:100;
 }
 
 .logo{
-font-size:1.1rem;
+font-size:1.15rem;
 font-weight:800;
+letter-spacing:3px;
+}
+
+.logo span{
+color:#ff2b2b;
+display:block;
+font-size:0.72rem;
+margin-top:4px;
 letter-spacing:2px;
 }
 
 nav a{
 text-decoration:none;
 color:#d1d5db;
-margin-left:28px;
+margin-left:32px;
 transition:0.3s;
 font-size:0.95rem;
+font-weight:500;
 }
 
 nav a:hover{
 color:#ff4d4d;
 }
 
-/* HERO */
+/* LEFT SIDE */
 
-.hero{
+.left{
 position:absolute;
-top:50%;
 left:7%;
+top:50%;
 transform:translateY(-50%);
-max-width:650px;
-z-index:100;
+max-width:520px;
+z-index:20;
 }
 
-.tag{
-display:inline-block;
-padding:12px 22px;
-border-radius:999px;
-background:rgba(255,0,0,0.08);
-border:1px solid rgba(255,0,0,0.14);
-color:#ff6666;
+.mini{
+color:#ff3b3b;
+letter-spacing:4px;
+font-size:0.85rem;
 margin-bottom:25px;
-backdrop-filter:blur(12px);
 }
 
-.hero h1{
-font-size:5.8rem;
+.left h1{
+font-size:6rem;
 line-height:0.88;
 font-weight:800;
-margin-bottom:30px;
+margin-bottom:25px;
 text-shadow:
-0 0 40px rgba(255,0,0,0.35),
-0 0 120px rgba(255,0,0,0.2);
+0 0 35px rgba(255,0,0,0.35),
+0 0 100px rgba(255,0,0,0.18);
 }
 
-.hero h1 span{
-color:#ff3b3b;
+.left h1 span{
+color:#ff2b2b;
 }
 
-.hero p{
+.left p{
+font-size:1.05rem;
 line-height:2;
-font-size:1.08rem;
 color:#cbd5e1;
+max-width:500px;
 margin-bottom:40px;
-max-width:620px;
 }
 
 /* BUTTONS */
@@ -131,130 +151,149 @@ max-width:620px;
 .buttons{
 display:flex;
 gap:18px;
-flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 32px;
-border-radius:18px;
+padding:17px 32px;
+border-radius:16px;
 text-decoration:none;
 font-weight:700;
 transition:0.3s;
 }
 
-.btn-primary{
+.primary{
 background:linear-gradient(135deg,#ff0000,#ff4d4d);
 color:white;
 box-shadow:
-0 0 50px rgba(255,0,0,0.35),
-0 0 140px rgba(255,0,0,0.18);
+0 0 40px rgba(255,0,0,0.35),
+0 0 100px rgba(255,0,0,0.18);
 }
 
-.btn-primary:hover{
-transform:translateY(-5px) scale(1.02);
-}
-
-.btn-secondary{
+.secondary{
+border:1px solid rgba(255,0,0,0.15);
 background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.12);
 color:white;
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 }
 
-.btn-secondary:hover{
+.btn:hover{
 transform:translateY(-5px);
-border-color:#ff4d4d;
 }
 
-/* HUD */
+/* PANELS */
 
-.hud{
+.panel{
 position:fixed;
-bottom:35px;
-left:50%;
-transform:translateX(-50%);
-width:82%;
-padding:24px;
-background:rgba(0,0,0,0.5);
-border:1px solid rgba(255,0,0,0.16);
+background:rgba(0,0,0,0.45);
+border:1px solid rgba(255,0,0,0.14);
 backdrop-filter:blur(16px);
-z-index:100;
+padding:20px;
+z-index:30;
 }
 
-.hud-title{
-color:#ff5b5b;
-font-weight:700;
-margin-bottom:10px;
-font-size:1rem;
+.panel-title{
+color:#ff3b3b;
+font-size:0.85rem;
+letter-spacing:2px;
+margin-bottom:15px;
 }
 
-.hud p{
-color:#8b97a8;
-font-size:0.95rem;
-line-height:1.8;
+/* LEFT TERMINAL */
+
+.feed{
+left:35px;
+top:130px;
+width:280px;
 }
 
-/* STATS */
+.log{
+font-size:0.82rem;
+margin-bottom:9px;
+font-family:monospace;
+color:#ff6666;
+}
 
-.stats{
+/* RIGHT STATS */
+
+.right-stats{
 position:fixed;
-top:120px;
-right:50px;
+right:35px;
+top:130px;
 display:flex;
 flex-direction:column;
 gap:18px;
-z-index:100;
+z-index:30;
 }
 
-.stat-box{
-padding:18px 22px;
-background:rgba(0,0,0,0.35);
-border:1px solid rgba(255,0,0,0.12);
-backdrop-filter:blur(14px);
-min-width:200px;
+.stat{
+width:250px;
+padding:22px;
+background:rgba(0,0,0,0.45);
+border:1px solid rgba(255,0,0,0.14);
+backdrop-filter:blur(16px);
 }
 
-.stat-title{
-font-size:0.8rem;
+.stat small{
 color:#9ca3af;
-margin-bottom:8px;
+display:block;
+margin-bottom:10px;
 }
 
-.stat-value{
-font-size:1.8rem;
-font-weight:800;
-color:#ff4d4d;
+.stat strong{
+font-size:2rem;
+color:#ff3b3b;
+}
+
+/* BOTTOM */
+
+.bottom{
+position:fixed;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+width:80%;
+padding:20px;
+text-align:center;
+background:rgba(0,0,0,0.45);
+border:1px solid rgba(255,0,0,0.14);
+backdrop-filter:blur(16px);
+z-index:30;
+}
+
+.bottom span{
+color:#ff2b2b;
 }
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:1100px){
 
-.hero{
+.left{
 left:5%;
 right:5%;
 max-width:100%;
 }
 
-.hero h1{
+.left h1{
 font-size:4rem;
+}
+
+.feed,
+.right-stats{
+display:none;
+}
+
+.bottom{
+width:92%;
 }
 
 header{
 flex-direction:column;
-gap:15px;
+gap:18px;
 }
 
 nav a{
 margin:0 10px;
-}
-
-.stats{
-display:none;
-}
-
-.hud{
-width:92%;
 }
 
 }
@@ -265,14 +304,13 @@ width:92%;
 
 <body>
 
-<div class="overlay"></div>
-
 <canvas id="bg"></canvas>
 
 <header>
 
 <div class="logo">
 OCÉANE DEHAUDT
+<span>CYBERSECURITY STUDENT</span>
 </div>
 
 <nav>
@@ -284,10 +322,20 @@ OCÉANE DEHAUDT
 
 </header>
 
-<section class="hero">
+<div class="panel feed">
 
-<div class="tag">
-Threat Intelligence • Offensive Security • Cyber Warfare
+<div class="panel-title">
+THREAT FEED
+</div>
+
+<div id="logs"></div>
+
+</div>
+
+<div class="left">
+
+<div class="mini">
+PORTFOLIO
 </div>
 
 <h1>
@@ -296,65 +344,49 @@ Océane<br>
 </h1>
 
 <p>
-Étudiante en cybersécurité à l’IFAPME spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
-Interface cyber futuriste simulant des cyberattaques mondiales et des infrastructures réseau temps réel.
+Étudiante en cybersécurité spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
+Passionnée par la cybersécurité offensive et les nouvelles technologies.
 </p>
 
 <div class="buttons">
 
-<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn btn-primary">
-Voir GitHub
+<a class="btn primary"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+VOIR GITHUB
 </a>
 
-<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank" class="btn btn-secondary">
-Voir les Labs
+<a class="btn secondary"
+href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
+target="_blank">
+VOIR LES LABS
 </a>
 
 </div>
 
-</section>
-
-<div class="stats">
-
-<div class="stat-box">
-<div class="stat-title">
-LIVE ATTACKS
-</div>
-<div class="stat-value" id="attackCounter">
-4821
-</div>
 </div>
 
-<div class="stat-box">
-<div class="stat-title">
-ACTIVE NODES
-</div>
-<div class="stat-value">
-1428
-</div>
+<div class="right-stats">
+
+<div class="stat">
+<small>LIVE ATTACKS</small>
+<strong id="attacks">4821</strong>
 </div>
 
-<div class="stat-box">
-<div class="stat-title">
-THREAT LEVEL
+<div class="stat">
+<small>ACTIVE NODES</small>
+<strong>1428</strong>
 </div>
-<div class="stat-value">
-CRITICAL
-</div>
+
+<div class="stat">
+<small>THREAT LEVEL</small>
+<strong>CRITICAL</strong>
 </div>
 
 </div>
 
-<div class="hud">
-
-<div class="hud-title">
-LIVE THREAT DETECTION SYSTEM
-</div>
-
-<p>
-Analyse offensive • Activité réseau mondiale • Détection de vulnérabilités • Infrastructure cyber temps réel • Monitoring offensif avancé
-</p>
-
+<div class="bottom">
+<span>REAL-TIME CYBER ATTACK MAP</span>
 </div>
 
 <script type="module">
@@ -365,7 +397,7 @@ const scene = new THREE.Scene();
 
 scene.fog = new THREE.FogExp2(
 0x050505,
-0.0007
+0.0008
 );
 
 const camera = new THREE.PerspectiveCamera(
@@ -375,7 +407,7 @@ window.innerWidth/window.innerHeight,
 5000
 );
 
-camera.position.z = 22;
+camera.position.z = 20;
 
 const renderer = new THREE.WebGLRenderer({
 canvas:document.getElementById('bg'),
@@ -399,11 +431,11 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const starsGeometry = new THREE.BufferGeometry();
 
-const starsArray = [];
+const stars = [];
 
-for(let i=0;i<40000;i++){
+for(let i=0;i<50000;i++){
 
-starsArray.push(
+stars.push(
 (Math.random()-0.5)*5000,
 (Math.random()-0.5)*5000,
 (Math.random()-0.5)*5000
@@ -413,22 +445,22 @@ starsArray.push(
 
 starsGeometry.setAttribute(
 'position',
-new THREE.Float32BufferAttribute(starsArray,3)
+new THREE.Float32BufferAttribute(stars,3)
 );
 
 const starsMaterial = new THREE.PointsMaterial({
-color:'#ff3b3b',
+color:'#ff2b2b',
 size:0.7,
 transparent:true,
-opacity:0.9
+opacity:0.85
 });
 
-const stars = new THREE.Points(
+const starsMesh = new THREE.Points(
 starsGeometry,
 starsMaterial
 );
 
-scene.add(stars);
+scene.add(starsMesh);
 
 /* EARTH */
 
@@ -455,11 +487,11 @@ earthGeometry,
 earthMaterial
 );
 
-earth.position.set(10,0,-10);
+earth.position.set(8,0,-10);
 
 scene.add(earth);
 
-/* DARK CYBER OVERLAY */
+/* DARK FILTER */
 
 const darkGeometry = new THREE.SphereGeometry(
 8.05,
@@ -468,7 +500,7 @@ const darkGeometry = new THREE.SphereGeometry(
 );
 
 const darkMaterial = new THREE.MeshBasicMaterial({
-color:'#050505',
+color:'#040404',
 transparent:true,
 opacity:0.72
 });
@@ -482,10 +514,10 @@ darkSphere.position.copy(earth.position);
 
 scene.add(darkSphere);
 
-/* RED ATMOSPHERE */
+/* RED GLOW */
 
 const atmosphereGeometry = new THREE.SphereGeometry(
-8.3,
+8.35,
 256,
 256
 );
@@ -507,19 +539,19 @@ scene.add(atmosphere);
 
 /* LIGHT */
 
-const pointLight = new THREE.PointLight(
+const light = new THREE.PointLight(
 0xff0000,
-10,
+12,
 400
 );
 
-pointLight.position.set(
+light.position.set(
 25,
 10,
-20
+15
 );
 
-scene.add(pointLight);
+scene.add(light);
 
 scene.add(
 new THREE.AmbientLight(
@@ -532,29 +564,29 @@ new THREE.AmbientLight(
 
 const attackGroup = new THREE.Group();
 
-/* ATTACK LINES */
+/* RED ATTACK LINES */
 
-for(let i=0;i<260;i++){
+for(let i=0;i<450;i++){
 
 const material = new THREE.LineBasicMaterial({
 color:Math.random()>0.5 ? 0xff0000 : 0xff6666,
 transparent:true,
-opacity:0.9
+opacity:0.95
 });
 
 const points = [];
 
 const radius = 9;
 
-for(let j=0;j<50;j++){
+for(let j=0;j<60;j++){
 
-const angle = (j/50)*Math.PI;
+const angle = (j/60)*Math.PI;
 
 points.push(
 new THREE.Vector3(
-Math.cos(angle)*(radius+Math.random()*1.6),
-(Math.random()-0.5)*12,
-Math.sin(angle)*(radius+Math.random()*1.6)
+Math.cos(angle)*(radius+Math.random()*2),
+(Math.random()-0.5)*16,
+Math.sin(angle)*(radius+Math.random()*2)
 )
 );
 
@@ -581,23 +613,23 @@ scene.add(attackGroup);
 /* CYBER NODES */
 
 const nodeGeometry = new THREE.SphereGeometry(
-0.05,
+0.06,
 8,
 8
 );
 
-for(let i=0;i<1800;i++){
+for(let i=0;i<3500;i++){
 
-const nodeMaterial = new THREE.MeshBasicMaterial({
+const material = new THREE.MeshBasicMaterial({
 color:Math.random()>0.5 ? '#ff0000' : '#ff6666'
 });
 
 const node = new THREE.Mesh(
 nodeGeometry,
-nodeMaterial
+material
 );
 
-const radius = 9.2;
+const radius = 9.3;
 
 const theta = Math.random()*Math.PI*2;
 const phi = Math.random()*Math.PI;
@@ -612,66 +644,108 @@ attackGroup.add(node);
 
 }
 
-/* FLOATING PARTICLES */
+/* PARTICLES */
 
 const particlesGeometry = new THREE.BufferGeometry();
 
-const particlesArray = [];
+const particles = [];
 
-for(let i=0;i<12000;i++){
+for(let i=0;i<22000;i++){
 
-particlesArray.push(
-(Math.random()-0.5)*300,
-(Math.random()-0.5)*300,
-(Math.random()-0.5)*300
+particles.push(
+(Math.random()-0.5)*400,
+(Math.random()-0.5)*400,
+(Math.random()-0.5)*400
 );
 
 }
 
 particlesGeometry.setAttribute(
 'position',
-new THREE.Float32BufferAttribute(particlesArray,3)
+new THREE.Float32BufferAttribute(particles,3)
 );
 
 const particlesMaterial = new THREE.PointsMaterial({
-color:'#ff3b3b',
+color:'#ff2b2b',
 size:0.12,
 transparent:true,
-opacity:0.15
+opacity:0.12
 });
 
-const particles = new THREE.Points(
+const particlesMesh = new THREE.Points(
 particlesGeometry,
 particlesMaterial
 );
 
-scene.add(particles);
+scene.add(particlesMesh);
 
-/* MOUSE PARALLAX */
+/* PARALLAX */
 
 let mouseX = 0;
 let mouseY = 0;
 
 window.addEventListener('mousemove',(e)=>{
 
-mouseX = (e.clientX/window.innerWidth - 0.5)*2;
+mouseX =
+(e.clientX/window.innerWidth - 0.5)*2;
 
-mouseY = (e.clientY/window.innerHeight - 0.5)*2;
+mouseY =
+(e.clientY/window.innerHeight - 0.5)*2;
 
 });
 
-/* LIVE COUNTER */
+/* COUNTER */
 
-const counter = document.getElementById('attackCounter');
+const attacks = document.getElementById('attacks');
 
 setInterval(()=>{
 
-counter.innerText =
+attacks.innerText =
 Math.floor(
-4000 + Math.random()*3000
+4000 + Math.random()*5000
 );
 
-},1500);
+},1200);
+
+/* TERMINAL */
+
+const logsContainer = document.getElementById('logs');
+
+const logs = [
+'Brute Force Attack',
+'SQL Injection',
+'DDoS Attack',
+'Port Scan',
+'Payload Delivery',
+'Exploit Detected',
+'Credential Stuffing',
+'IDS Triggered',
+'Network Breach',
+'Malware Signature'
+];
+
+setInterval(()=>{
+
+const div = document.createElement('div');
+
+div.className = 'log';
+
+div.innerText =
+new Date().toLocaleTimeString()
++ '  '
++ logs[Math.floor(Math.random()*logs.length)];
+
+logsContainer.prepend(div);
+
+if(logsContainer.children.length > 10){
+
+logsContainer.removeChild(
+logsContainer.lastChild
+);
+
+}
+
+},800);
 
 /* ANIMATION */
 
@@ -683,13 +757,13 @@ earth.rotation.y += 0.0012;
 
 darkSphere.rotation.y += 0.0012;
 
-attackGroup.rotation.y += 0.0022;
+attackGroup.rotation.y += 0.0025;
 
 atmosphere.rotation.y += 0.0005;
 
-stars.rotation.y += 0.00003;
+starsMesh.rotation.y += 0.00003;
 
-particles.rotation.y += 0.00006;
+particlesMesh.rotation.y += 0.00005;
 
 camera.position.x +=
 (mouseX*2 - camera.position.x)*0.02;
