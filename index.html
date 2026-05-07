@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersécurité</title>
+<title>Océane Dehaudt | Cybersécurité Offensive</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -16,37 +17,31 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#020202;
-overflow-x:hidden;
-font-family:'Inter',sans-serif;
 color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
 }
 
-/* ===== BACKGROUND ===== */
+/* ================= BACKGROUND ================= */
 
-#bg{
+body::before{
+content:'';
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-5;
+inset:0;
 background:
-radial-gradient(circle at center, rgba(255,0,0,0.08), transparent 60%),
-linear-gradient(to bottom, #020202 0%, #050505 100%);
+radial-gradient(circle at center,
+rgba(255,0,0,0.08),
+transparent 60%);
+z-index:-5;
 }
 
-/* ===== CANVAS ===== */
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-2;
-}
-
-/* ===== PARTICLES ===== */
+/* ================= PARTICLES ================= */
 
 .particles{
 position:fixed;
@@ -54,52 +49,56 @@ width:100%;
 height:100%;
 overflow:hidden;
 z-index:-1;
+pointer-events:none;
 }
 
 .particles span{
 position:absolute;
-display:block;
 width:2px;
 height:2px;
-background:red;
+background:#ff2d2d;
 border-radius:50%;
-animation:float 15s linear infinite;
 opacity:0.6;
+animation:float 18s linear infinite;
 }
 
 @keyframes float{
+
 0%{
-transform:translateY(100vh) scale(0);
+transform:translateY(100vh);
 opacity:0;
 }
+
 10%{
 opacity:1;
 }
+
 100%{
-transform:translateY(-10vh) scale(1);
+transform:translateY(-10vh);
 opacity:0;
 }
+
 }
 
-/* ===== NAVBAR ===== */
+/* ================= NAVBAR ================= */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-padding:25px 60px;
+padding:28px 70px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:999;
 backdrop-filter:blur(10px);
-background:rgba(0,0,0,0.2);
+background:rgba(0,0,0,0.15);
 border-bottom:1px solid rgba(255,0,0,0.1);
 }
 
 .logo{
 font-family:'Orbitron',sans-serif;
-font-size:1.7rem;
+font-size:1.8rem;
 font-weight:900;
 letter-spacing:2px;
 }
@@ -119,13 +118,14 @@ color:white;
 text-decoration:none;
 font-size:0.95rem;
 transition:0.3s;
+font-weight:500;
 }
 
 nav a:hover{
 color:#ff2d2d;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
@@ -133,91 +133,96 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 8%;
+gap:50px;
 position:relative;
 }
 
 .left{
-max-width:650px;
-z-index:5;
+max-width:720px;
+z-index:10;
 }
 
 .tag{
 font-size:0.8rem;
-letter-spacing:5px;
+letter-spacing:6px;
 color:#ff4b4b;
-margin-bottom:20px;
+margin-bottom:25px;
 font-family:'Orbitron',sans-serif;
 }
 
 h1{
 font-family:'Orbitron',sans-serif;
-font-size:6rem;
-line-height:0.95;
+font-size:6.3rem;
+line-height:0.92;
 font-weight:900;
 text-transform:uppercase;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 h1 span{
 color:#ff2d2d;
+
 text-shadow:
-0 0 10px rgba(255,0,0,0.7),
-0 0 30px rgba(255,0,0,0.5),
+0 0 10px rgba(255,0,0,0.8),
+0 0 25px rgba(255,0,0,0.6),
 0 0 60px rgba(255,0,0,0.3);
 }
 
-.desc{
-font-size:1.1rem;
-line-height:1.8;
-color:#cfcfcf;
-max-width:600px;
-margin-bottom:40px;
+.description{
+font-size:1.15rem;
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:45px;
+max-width:650px;
 }
+
+/* ================= BUTTONS ================= */
 
 .buttons{
 display:flex;
 gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 35px;
+padding:17px 35px;
 border-radius:12px;
-font-weight:600;
 text-decoration:none;
+font-weight:600;
 transition:0.35s;
 position:relative;
 overflow:hidden;
 }
 
-.btn-red{
+.btn-primary{
 background:#ff2d2d;
 color:white;
-box-shadow:0 0 25px rgba(255,0,0,0.4);
+box-shadow:0 0 25px rgba(255,0,0,0.35);
 }
 
-.btn-red:hover{
-transform:translateY(-3px);
-box-shadow:0 0 45px rgba(255,0,0,0.7);
+.btn-primary:hover{
+transform:translateY(-4px);
+box-shadow:0 0 40px rgba(255,0,0,0.7);
 }
 
-.btn-dark{
-border:1px solid rgba(255,255,255,0.2);
+.btn-secondary{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.15);
 color:white;
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(5px);
+backdrop-filter:blur(8px);
 }
 
-.btn-dark:hover{
+.btn-secondary:hover{
 border-color:#ff2d2d;
-box-shadow:0 0 20px rgba(255,0,0,0.3);
+box-shadow:0 0 25px rgba(255,0,0,0.3);
 }
 
-/* ===== GLOBE ===== */
+/* ================= GLOBE ================= */
 
-.globe-container{
+.globe-section{
 position:relative;
-width:650px;
-height:650px;
+width:520px;
+height:520px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -225,43 +230,58 @@ align-items:center;
 
 .glow{
 position:absolute;
-width:500px;
-height:500px;
-background:red;
+width:320px;
+height:320px;
+background:#ff0000;
 filter:blur(120px);
-opacity:0.18;
+opacity:0.22;
 border-radius:50%;
-animation:pulse 4s infinite ease-in-out;
+animation:pulse 5s ease-in-out infinite;
 }
 
 @keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.08);}
-100%{transform:scale(1);}
+
+0%{
+transform:scale(1);
 }
 
-/* ===== SCANLINES ===== */
+50%{
+transform:scale(1.08);
+}
 
-.scanlines{
-position:fixed;
-top:0;
-left:0;
+100%{
+transform:scale(1);
+}
+
+}
+
+.globe{
 width:100%;
 height:100%;
-pointer-events:none;
-background:
-linear-gradient(
-to bottom,
-rgba(255,255,255,0.03) 1px,
-transparent 1px
-);
-background-size:100% 4px;
-mix-blend-mode:overlay;
-opacity:0.08;
-z-index:1000;
+object-fit:contain;
+animation:rotateGlobe 18s linear infinite;
+filter:
+drop-shadow(0 0 25px rgba(255,0,0,0.5))
+drop-shadow(0 0 60px rgba(255,0,0,0.2));
 }
 
-/* ===== STATS ===== */
+@keyframes rotateGlobe{
+
+0%{
+transform:rotate(0deg);
+}
+
+50%{
+transform:rotate(2deg);
+}
+
+100%{
+transform:rotate(0deg);
+}
+
+}
+
+/* ================= STATS ================= */
 
 .stats{
 position:absolute;
@@ -270,33 +290,33 @@ top:50%;
 transform:translateY(-50%);
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:22px;
 }
 
 .stat{
 background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.2);
-padding:20px;
-border-radius:16px;
+border:1px solid rgba(255,0,0,0.12);
+padding:22px;
+border-radius:18px;
 backdrop-filter:blur(8px);
-min-width:160px;
+min-width:170px;
 }
 
 .stat h3{
-color:#ff2d2d;
-font-size:2rem;
 font-family:'Orbitron';
+font-size:2rem;
+color:#ff2d2d;
+margin-bottom:8px;
 }
 
 .stat p{
-font-size:0.85rem;
-color:#bbb;
-margin-top:5px;
+color:#bcbcbc;
+font-size:0.9rem;
 }
 
-/* ===== LABS ===== */
+/* ================= SECTION ================= */
 
-.labs{
+section{
 padding:120px 8%;
 }
 
@@ -311,6 +331,8 @@ text-align:center;
 color:#ff2d2d;
 }
 
+/* ================= CARDS ================= */
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -319,9 +341,9 @@ gap:35px;
 
 .card{
 background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.15);
+border:1px solid rgba(255,0,0,0.12);
 padding:35px;
-border-radius:20px;
+border-radius:22px;
 backdrop-filter:blur(8px);
 transition:0.4s;
 position:relative;
@@ -336,74 +358,120 @@ box-shadow:0 0 35px rgba(255,0,0,0.15);
 
 .card h3{
 font-family:'Orbitron';
-margin-bottom:20px;
 color:#ff4b4b;
+margin-bottom:20px;
+font-size:1.2rem;
 }
 
 .card p{
-line-height:1.7;
-color:#ccc;
+line-height:1.8;
+color:#d0d0d0;
 margin-bottom:25px;
 }
 
 .card a{
-color:#ff2d2d;
 text-decoration:none;
+color:#ff2d2d;
 font-weight:600;
 }
 
-/* ===== CONTACT ===== */
+/* ================= CONTACT ================= */
 
 .contact{
-padding:120px 8%;
 text-align:center;
 }
 
 .contact p{
-font-size:1.2rem;
+font-size:1.15rem;
+color:#d0d0d0;
 margin-top:20px;
-color:#ddd;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ================= SCANLINES ================= */
 
-@media(max-width:1200px){
+.scanlines{
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+linear-gradient(
+to bottom,
+rgba(255,255,255,0.03) 1px,
+transparent 1px
+);
+
+background-size:100% 4px;
+opacity:0.05;
+z-index:9999;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1300px){
 
 .hero{
 flex-direction:column;
 justify-content:center;
 text-align:center;
-gap:80px;
-padding-top:150px;
+padding-top:170px;
 }
 
-h1{
-font-size:4rem;
-}
-
-.globe-container{
-width:450px;
-height:450px;
-}
-
-.stats{
-display:none;
+.left{
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 .buttons{
 justify-content:center;
 }
 
+.globe-section{
+width:400px;
+height:400px;
+}
+
+.stats{
+display:none;
+}
+
+h1{
+font-size:4.5rem;
+}
+
+}
+
+@media(max-width:700px){
+
+h1{
+font-size:3.2rem;
+}
+
+.globe-section{
+width:300px;
+height:300px;
+}
+
+nav{
+padding:20px;
+}
+
+nav ul{
+gap:20px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div id="bg"></div>
+<!-- PARTICLES -->
 
 <div class="particles">
+
 <span style="left:10%; animation-delay:0s;"></span>
 <span style="left:20%; animation-delay:2s;"></span>
 <span style="left:30%; animation-delay:5s;"></span>
@@ -413,19 +481,44 @@ justify-content:center;
 <span style="left:70%; animation-delay:3s;"></span>
 <span style="left:80%; animation-delay:6s;"></span>
 <span style="left:90%; animation-delay:8s;"></span>
+
 </div>
 
 <div class="scanlines"></div>
 
+<!-- NAVBAR -->
+
 <nav>
-<div class="logo">OCÉANE <span>DEHAUDT</span></div>
+
+<div class="logo">
+OCÉANE <span>DEHAUDT</span>
+</div>
 
 <ul>
-<li><a href="#labs">Labs</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="https://github.com/oceane-dehaudt" target="_blank">GitHub</a></li>
+
+<li>
+<a href="#labs">Labs</a>
+</li>
+
+<li>
+<a href="#skills">Compétences</a>
+</li>
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+<li>
+<a href="https://github.com/oceane-dehaudt" target="_blank">
+GitHub
+</a>
+</li>
+
 </ul>
+
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -441,60 +534,83 @@ EN<br>
 <span>CYBERSÉCURITÉ</span>
 </h1>
 
-<p class="desc">
+<p class="description">
+
 Étudiante à l’IFAPME spécialisée en cybersécurité offensive.
 Je développe mes compétences à travers des laboratoires de pentesting,
-l’analyse réseau, l’OSINT et des projets techniques orientés sécurité offensive.
+l’analyse réseau, l’OSINT et l’étude des infrastructures systèmes et réseaux.
+
+Passionnée par la cybersécurité, je m’intéresse particulièrement
+à l’analyse des vulnérabilités, à l’investigation numérique
+et aux méthodologies défensives et offensives.
+
 </p>
 
 <div class="buttons">
 
-<a class="btn btn-red"
-href="https://github.com/oceane-dehaudt"
+<a href="https://github.com/oceane-dehaudt"
+class="btn btn-primary"
 target="_blank">
+
 Voir GitHub
+
 </a>
 
-<a class="btn btn-dark"
-href="Oceane_Dehaudt_.pdf"
+<a href="Oceane_Dehaudt_.pdf"
+class="btn btn-secondary"
 target="_blank">
+
 Télécharger CV
+
 </a>
 
 </div>
 
 </div>
 
-<div class="globe-container">
+<!-- GLOBE -->
+
+<div class="globe-section">
 
 <div class="glow"></div>
 
-<canvas id="globe"></canvas>
+<img src="red-earth.png"
+class="globe">
 
 </div>
+
+<!-- STATS -->
 
 <div class="stats">
 
 <div class="stat">
+
 <h3>15+</h3>
 <p>Labs réalisés</p>
+
 </div>
 
 <div class="stat">
-<h3>24/7</h3>
-<p>Veille cyber</p>
-</div>
 
-<div class="stat">
 <h3>OSINT</h3>
 <p>Investigation & analyse</p>
+
+</div>
+
+<div class="stat">
+
+<h3>24/7</h3>
+<p>Veille cybersécurité</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="labs" id="labs">
+<!-- LABS -->
+
+<section id="labs">
 
 <h2 class="section-title">
 MES <span>LABS</span>
@@ -503,49 +619,131 @@ MES <span>LABS</span>
 <div class="cards">
 
 <div class="card">
+
 <h3>Nagios XI Pentest Lab</h3>
 
 <p>
-Reconnaissance réseau, enumeration de services,
-analyse de vulnérabilités et exploitation via Metasploit.
+
+Reconnaissance réseau via Nmap,
+identification de services vulnérables,
+analyse de surface d’attaque
+et exploitation avec Metasploit.
+
+Post-exploitation avec création d’utilisateur
+et élévation de privilèges.
+
 </p>
 
-<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank">
-Voir le lab →
+<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
+target="_blank">
+
+Voir le projet →
+
 </a>
+
 </div>
 
 <div class="card">
+
 <h3>Analyse Réseau Wireshark</h3>
 
 <p>
+
 Inspection de trafic réseau,
-analyse de paquets et détection d’activités suspectes.
+analyse de paquets,
+identification d’activités suspectes
+et compréhension des communications réseau.
+
 </p>
 
-<a href="https://github.com/oceane-dehaudt" target="_blank">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir le projet →
+
 </a>
+
 </div>
 
 <div class="card">
-<h3>OSINT Investigation</h3>
+
+<h3>Investigation OSINT</h3>
 
 <p>
-Collecte, corrélation et analyse d’informations
-issues de sources ouvertes.
+
+Recherche et corrélation d’informations
+issues de sources ouvertes,
+analyse d’empreinte numérique
+et méthodologies d’investigation.
+
 </p>
 
-<a href="https://github.com/oceane-dehaudt" target="_blank">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir le projet →
+
 </a>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="contact" id="contact">
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2 class="section-title">
+COMPÉTENCES <span>TECHNIQUES</span>
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Réseau & Analyse</h3>
+
+<p>
+
+Wireshark • Analyse réseau • TCP/IP • Enumeration • Monitoring • Investigation
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sécurité Offensive</h3>
+
+<p>
+
+Nmap • Metasploit • Analyse de vulnérabilités • Pentesting • Linux
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>OSINT & Systèmes</h3>
+
+<p>
+
+OSINT Framework • Recherche avancée • Linux • Windows • GitHub
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
 
 <h2 class="section-title">
 CONTACT
@@ -556,141 +754,6 @@ oceane.dehaudt.pro@gmail.com
 </p>
 
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script>
-
-/* ===== THREE JS GLOBE ===== */
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-45,
-1,
-0.1,
-1000
-);
-
-const renderer = new THREE.WebGLRenderer({
-canvas:document.getElementById('globe'),
-alpha:true,
-antialias:true
-});
-
-renderer.setSize(650,650);
-
-const geometry = new THREE.SphereGeometry(5,64,64);
-
-const texture = new THREE.TextureLoader().load(
-'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_atmos_2048.jpg'
-);
-
-const material = new THREE.MeshStandardMaterial({
-map:texture,
-emissive:new THREE.Color(0xff0000),
-emissiveIntensity:1.4,
-roughness:0.4,
-metalness:0.5
-});
-
-const sphere = new THREE.Mesh(geometry,material);
-
-scene.add(sphere);
-
-const wireframe = new THREE.Mesh(
-geometry,
-new THREE.MeshBasicMaterial({
-color:0xff2d2d,
-wireframe:true,
-transparent:true,
-opacity:0.15
-})
-);
-
-scene.add(wireframe);
-
-const light = new THREE.PointLight(0xff2d2d,3);
-light.position.set(10,10,10);
-
-scene.add(light);
-
-const ambient = new THREE.AmbientLight(0xffffff,0.3);
-
-scene.add(ambient);
-
-camera.position.z = 11;
-
-/* ===== PARTICLES ===== */
-
-const starsGeometry = new THREE.BufferGeometry();
-const starsCount = 3000;
-
-const posArray = new Float32Array(starsCount * 3);
-
-for(let i = 0; i < starsCount * 3; i++){
-posArray[i] = (Math.random() - 0.5) * 200;
-}
-
-starsGeometry.setAttribute(
-'position',
-new THREE.BufferAttribute(posArray,3)
-);
-
-const starsMaterial = new THREE.PointsMaterial({
-size:0.03,
-color:0xff2d2d
-});
-
-const starsMesh = new THREE.Points(
-starsGeometry,
-starsMaterial
-);
-
-scene.add(starsMesh);
-
-/* ===== ANIMATION ===== */
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-sphere.rotation.y += 0.0025;
-wireframe.rotation.y += 0.003;
-
-starsMesh.rotation.y += 0.0003;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
-/* ===== PARALLAX ===== */
-
-document.addEventListener('mousemove',(e)=>{
-
-let x = (e.clientX / window.innerWidth - 0.5) * 2;
-let y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-sphere.rotation.x = y * 0.15;
-sphere.rotation.z = x * 0.1;
-
-});
-
-/* ===== RESPONSIVE ===== */
-
-window.addEventListener('resize',()=>{
-
-if(window.innerWidth < 1200){
-renderer.setSize(400,400);
-}else{
-renderer.setSize(650,650);
-}
-
-});
-
-</script>
 
 </body>
 </html>
