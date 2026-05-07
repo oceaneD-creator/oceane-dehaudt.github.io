@@ -23,12 +23,10 @@ box-sizing:border-box;
 /* BODY */
 
 body{
-
 background:#050505;
 font-family:'Orbitron',sans-serif;
 overflow-x:hidden;
 color:white;
-
 }
 
 /* BACKGROUND */
@@ -258,12 +256,9 @@ margin-top:50px;
 display:flex;
 
 gap:20px;
-
 flex-wrap:wrap;
 
 }
-
-/* BUTTON */
 
 .btn{
 
@@ -277,9 +272,9 @@ font-weight:700;
 
 transition:0.3s;
 
-display:inline-block;
-
 }
+
+/* RED BUTTON */
 
 .red{
 
@@ -298,6 +293,28 @@ transform:translateY(-4px);
 
 box-shadow:
 0 0 28px rgba(255,0,0,0.6);
+
+}
+
+/* DARK BUTTON */
+
+.dark{
+
+background:rgba(255,255,255,0.06);
+
+border:1px solid rgba(255,255,255,0.08);
+
+color:white;
+
+}
+
+.dark:hover{
+
+background:rgba(255,0,0,0.15);
+
+border:1px solid rgba(255,0,0,0.25);
+
+transform:translateY(-4px);
 
 }
 
@@ -474,22 +491,13 @@ right:0;
 nav{
 
 gap:18px;
-
 font-size:0.75rem;
-
-flex-wrap:wrap;
-
-justify-content:center;
 
 }
 
 header{
 
 padding:25px 30px;
-
-flex-direction:column;
-
-gap:20px;
 
 }
 
@@ -579,11 +587,11 @@ Voir GitHub
 
 </a>
 
-<a href="https://github.com/Oceane-Dehaudt/oceane-dehaudt.github.io/tree/main/XSS-lab/XSS-lab"
+<a href="https://github.com/Oceane-Dehaudt/oceane-dehaudt.github.io/tree/main/XSS-lab"
 target="_blank"
-class="btn red">
+class="btn dark">
 
-Voir le Lab XSS
+Voir le laboratoire XSS
 
 </a>
 
