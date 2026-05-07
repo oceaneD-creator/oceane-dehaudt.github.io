@@ -6,15 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Analyste en Cybersécurité</title>
+<title>Océane Dehaudt | Cybersécurité</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
 <style>
-
-/* RESET */
 
 *{
 margin:0;
@@ -22,16 +18,14 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* BODY */
-
 body{
-background:#050505;
+background:black;
 font-family:'Orbitron',sans-serif;
-overflow-x:hidden;
+overflow:hidden;
 color:white;
 }
 
-/* BACKGROUND GLOW */
+/* BACKGROUND */
 
 body::before{
 content:'';
@@ -40,10 +34,12 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+
 background:
 radial-gradient(circle at center,
-rgba(255,0,0,0.12),
-black 60%);
+rgba(255,0,0,0.18),
+black 65%);
+
 z-index:-3;
 }
 
@@ -56,174 +52,287 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+
 background:
 repeating-linear-gradient(
 to bottom,
-rgba(255,255,255,0.015),
-rgba(255,255,255,0.015) 1px,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.02) 1px,
 transparent 1px,
 transparent 3px
 );
+
 pointer-events:none;
+
 z-index:999;
 }
 
 /* HEADER */
 
 header{
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
-padding:28px 80px;
+
+padding:30px 80px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 background:rgba(0,0,0,0.45);
+
 backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,0,0,0.15);
+
 z-index:100;
+
+border-bottom:1px solid rgba(255,0,0,0.15);
+
 }
 
 .logo{
-font-size:2rem;
+
+font-size:2.2rem;
+
 font-weight:900;
+
 letter-spacing:3px;
+
 }
 
 .logo span{
+
 color:#ff2a2a;
-text-shadow:0 0 15px red;
+
+text-shadow:
+0 0 10px red,
+0 0 25px red;
+
 }
 
 /* NAV */
 
 nav{
+
 display:flex;
 align-items:center;
-gap:35px;
+gap:40px;
+
 }
 
 nav a{
+
 color:white;
+
 text-decoration:none;
+
 font-weight:600;
+
+font-size:1rem;
+
 transition:0.3s;
+
 }
 
 nav a:hover{
+
 color:#ff2a2a;
-text-shadow:0 0 15px red;
+
+text-shadow:
+0 0 10px red,
+0 0 20px red;
+
 }
 
 /* HERO */
 
 .hero{
+
 min-height:100vh;
+
 display:flex;
-align-items:center;
+
 justify-content:space-between;
-padding:140px 8%;
+align-items:center;
+
+padding:160px 8%;
+
 position:relative;
+
 }
 
 /* LEFT */
 
 .left{
-width:48%;
-z-index:2;
+
+width:50%;
+
+z-index:5;
+
 }
 
 .small{
-color:#ff4d4d;
-letter-spacing:4px;
-margin-bottom:20px;
-font-size:0.85rem;
-text-transform:uppercase;
+
+color:#ff4040;
+
+letter-spacing:5px;
+
+font-size:0.9rem;
+
+margin-bottom:25px;
+
+line-height:1.8;
+
 }
 
+/* TITLE */
+
 h1{
-font-size:5rem;
-line-height:0.95;
+
+font-size:7rem;
+
+line-height:0.9;
+
 font-weight:900;
+
 text-transform:uppercase;
+
 }
 
 h1 span{
+
 color:#ff2a2a;
+
 text-shadow:
 0 0 15px #ff0000,
-0 0 35px #ff0000;
+0 0 35px #ff0000,
+0 0 60px rgba(255,0,0,0.5);
+
 }
 
+/* DESCRIPTION */
+
 .description{
-margin-top:35px;
-font-size:1rem;
+
+margin-top:40px;
+
+max-width:720px;
+
+font-size:1.15rem;
+
 line-height:2;
-max-width:650px;
-color:#d3d3d3;
+
+color:#d0d0d0;
+
 }
 
 /* BUTTONS */
 
 .buttons{
-margin-top:45px;
+
+margin-top:50px;
+
 display:flex;
+
 gap:20px;
-flex-wrap:wrap;
+
 }
 
 .btn{
-padding:18px 38px;
+
+padding:18px 45px;
+
 border-radius:12px;
+
 text-decoration:none;
+
 font-weight:700;
+
 transition:0.3s;
+
 }
 
 .red{
+
 background:#ff2a2a;
+
 color:white;
-box-shadow:0 0 25px rgba(255,0,0,0.4);
+
+box-shadow:
+0 0 25px rgba(255,0,0,0.5);
+
 }
 
 .red:hover{
-transform:translateY(-4px);
-box-shadow:0 0 40px red;
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 40px red;
+
 }
 
 .dark{
+
 border:1px solid rgba(255,255,255,0.15);
-background:rgba(255,255,255,0.04);
+
+background:rgba(255,255,255,0.05);
+
 color:white;
+
 backdrop-filter:blur(5px);
+
 }
 
 .dark:hover{
+
 border-color:#ff2a2a;
-box-shadow:0 0 20px rgba(255,0,0,0.3);
+
+box-shadow:
+0 0 20px rgba(255,0,0,0.4);
+
 }
 
 /* RIGHT */
 
 .right{
+
 width:50%;
+
 display:flex;
+
 justify-content:center;
 align-items:center;
+
 position:relative;
+
 }
 
-/* GLOBE */
+/* EARTH */
 
-#globe-container{
-width:650px;
-height:650px;
-animation:float 6s ease-in-out infinite;
+.earth-image{
+
+width:720px;
+height:720px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+opacity:0.96;
+
+animation:
+float 6s ease-in-out infinite,
+rotateEarth 45s linear infinite;
+
 filter:
-drop-shadow(0 0 25px #ff0000)
-drop-shadow(0 0 80px rgba(255,0,0,0.6))
-drop-shadow(0 0 120px rgba(255,0,0,0.3));
+drop-shadow(0 0 30px #ff0000)
+drop-shadow(0 0 90px rgba(255,0,0,0.7));
+
 }
 
 /* FLOAT */
@@ -244,30 +353,57 @@ transform:translateY(0px);
 
 }
 
+/* ROTATION */
+
+@keyframes rotateEarth{
+
+from{
+rotate:0deg;
+}
+
+to{
+rotate:360deg;
+}
+
+}
+
 /* PARTICLES */
 
 .particle{
+
 position:absolute;
+
 width:3px;
 height:3px;
-background:#ff0000;
+
+background:red;
+
 border-radius:50%;
+
 opacity:0.7;
+
 animation:particleMove linear infinite;
+
 }
 
-/* PARTICLE ANIMATION */
+/* PARTICLE MOVE */
 
 @keyframes particleMove{
 
 from{
+
 transform:translateY(0);
+
 opacity:0;
+
 }
 
 to{
+
 transform:translateY(-100vh);
+
 opacity:1;
+
 }
 
 }
@@ -277,31 +413,52 @@ opacity:1;
 @media(max-width:1200px){
 
 .hero{
+
 flex-direction:column;
+
 text-align:center;
+
 padding-top:180px;
+
 }
 
 .left,
 .right{
+
 width:100%;
+
 }
 
 .right{
-margin-top:50px;
+
+margin-top:70px;
+
 }
 
 h1{
-font-size:3.8rem;
+
+font-size:4rem;
+
+}
+
+.description{
+
+margin:auto;
+margin-top:30px;
+
 }
 
 .buttons{
+
 justify-content:center;
+
 }
 
-#globe-container{
-width:450px;
-height:450px;
+.earth-image{
+
+width:420px;
+height:420px;
+
 }
 
 }
@@ -312,44 +469,55 @@ height:450px;
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
 <div class="logo">
+
 OCÉANE <span>DEHAUDT</span>
+
 </div>
 
 <nav>
 
-<a href="https://github.com/oceane-dehaudt" target="_blank">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 GitHub
+
 </a>
 
-<a href="certificate-zscaler-networking.pdf.pdf" target="_blank">
+<a href="certificate-zscaler-cybersecurity.pdf.pdf"
+target="_blank">
+
 Certification 1
+
 </a>
 
-<a href="certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">
+<a href="certificate-zscaler-networking.pdf.pdf"
+target="_blank">
+
 Certification 2
+
 </a>
 
 <a href="mailto:oceane.dehaudt.pro@gmail.com">
+
 Contact
+
 </a>
 
 </nav>
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="left">
 
 <div class="small">
-Cybersécurité • Analyse Réseau • Sécurité Offensive
+
+CYBERSÉCURITÉ • ANALYSE RÉSEAU • OSINT
+
 </div>
 
 <h1>
@@ -362,31 +530,30 @@ EN<br>
 
 <p class="description">
 
-Étudiante en cybersécurité, je développe mes compétences à travers des laboratoires techniques, l’analyse réseau, l’identification de vulnérabilités et des projets orientés sécurité offensive.
+Portfolio orienté cybersécurité offensive, analyse réseau et investigation technique.
 
-Je travaille principalement sur des environnements Linux, les outils de pentesting, l’analyse de services réseau et l’apprentissage des méthodologies de détection et d’investigation.
+Développement de compétences en pentesting, identification de vulnérabilités, sécurité Linux et méthodologies de détection à travers des laboratoires pratiques et projets techniques.
 
 </p>
 
 <div class="buttons">
 
-<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn red">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank"
+class="btn red">
+
 Voir GitHub
-</a>
 
-<a href="Oceane_Dehaudt_.pdf" target="_blank" class="btn dark">
-Télécharger CV
 </a>
 
 </div>
 
 </div>
-
-<!-- RIGHT -->
 
 <div class="right">
 
-<div id="globe-container"></div>
+<img src="red-earth.png_.png"
+class="earth-image">
 
 </div>
 
@@ -407,7 +574,7 @@ particle.style.left=Math.random()*100+'vw';
 particle.style.top=Math.random()*100+'vh';
 
 particle.style.animationDuration=
-(6+Math.random()*10)+'s';
+(5+Math.random()*10)+'s';
 
 particle.style.opacity=Math.random();
 
@@ -415,117 +582,8 @@ document.body.appendChild(particle);
 
 }
 
-/* THREE JS */
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-45,
-650/650,
-0.1,
-1000
-);
-
-const renderer = new THREE.WebGLRenderer({
-alpha:true,
-antialias:true
-});
-
-renderer.setSize(650,650);
-
-document
-.getElementById("globe-container")
-.appendChild(renderer.domElement);
-
-camera.position.z = 2.2;
-
-/* TEXTURE */
-
-const textureLoader = new THREE.TextureLoader();
-
-const texture = textureLoader.load(
-'red-earth.png_.png'
-);
-
-/* GLOBE */
-
-const geometry = new THREE.SphereGeometry(
-1,
-128,
-128
-);
-
-const material = new THREE.MeshStandardMaterial({
-
-map:texture,
-
-emissive:new THREE.Color(0xff0000),
-
-emissiveIntensity:1.2,
-
-metalness:0.7,
-
-roughness:0.2
-
-});
-
-const globe = new THREE.Mesh(
-geometry,
-material
-);
-
-scene.add(globe);
-
-/* LIGHTS */
-
-const redLight = new THREE.PointLight(
-0xff0000,
-4,
-100
-);
-
-redLight.position.set(5,3,5);
-
-scene.add(redLight);
-
-const ambient = new THREE.AmbientLight(
-0xffffff,
-0.25
-);
-
-scene.add(ambient);
-
-/* PARALLAX */
-
-document.addEventListener('mousemove',(e)=>{
-
-const mouseX =
-(e.clientX/window.innerWidth - 0.5);
-
-const mouseY =
-(e.clientY/window.innerHeight - 0.5);
-
-globe.rotation.y += mouseX*0.003;
-
-globe.rotation.x += mouseY*0.0015;
-
-});
-
-/* ANIMATION */
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-globe.rotation.y += 0.002;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
 </script>
 
 </body>
+
 </html>
