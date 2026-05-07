@@ -8,7 +8,7 @@
 
 <title>Océane Dehaudt | Cybersecurity Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,30 +20,22 @@ box-sizing:border-box;
 
 body{
 overflow:hidden;
-background:#020202;
+background:#030303;
 font-family:'Inter',sans-serif;
 color:white;
 }
 
-/* THREE CANVAS */
-
-canvas{
-position:fixed;
-inset:0;
-z-index:-20;
-}
-
-/* RED ATMOSPHERE */
+/* BACKGROUND */
 
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(255,0,0,0.14), transparent 40%),
-linear-gradient(to bottom,#000000,#070707,#120000);
-pointer-events:none;
+radial-gradient(circle at center, rgba(255,0,0,0.16), transparent 40%),
+linear-gradient(to bottom,#000000,#050505,#0b0000);
 z-index:-10;
+pointer-events:none;
 }
 
 /* GRID */
@@ -60,6 +52,101 @@ pointer-events:none;
 z-index:-9;
 }
 
+/* GLOBE */
+
+.globe-container{
+position:absolute;
+right:-120px;
+top:50%;
+transform:translateY(-50%);
+width:950px;
+height:950px;
+border-radius:50%;
+background:
+radial-gradient(circle at center, rgba(255,0,0,0.35), transparent 55%),
+url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=2000&auto=format&fit=crop') center/cover;
+box-shadow:
+0 0 80px rgba(255,0,0,0.25),
+0 0 180px rgba(255,0,0,0.18),
+0 0 300px rgba(255,0,0,0.08);
+animation:rotateGlobe 120s linear infinite;
+overflow:hidden;
+}
+
+/* CYBER LINES */
+
+.globe-container::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+repeating-radial-gradient(circle at center,
+transparent 0px,
+transparent 18px,
+rgba(255,0,0,0.08) 20px,
+transparent 22px),
+
+repeating-linear-gradient(
+45deg,
+rgba(255,0,0,0.12),
+rgba(255,0,0,0.12) 1px,
+transparent 1px,
+transparent 18px
+);
+
+mix-blend-mode:screen;
+animation:moveLines 12s linear infinite;
+}
+
+/* ATTACK ARCS */
+
+.arc{
+position:absolute;
+border:1px solid rgba(255,0,0,0.45);
+border-radius:50%;
+}
+
+.arc1{
+width:900px;
+height:320px;
+top:300px;
+left:-100px;
+transform:rotate(15deg);
+animation:spin 18s linear infinite;
+}
+
+.arc2{
+width:850px;
+height:280px;
+top:340px;
+left:-50px;
+transform:rotate(-10deg);
+animation:spinReverse 24s linear infinite;
+}
+
+.arc3{
+width:920px;
+height:350px;
+top:290px;
+left:-90px;
+transform:rotate(35deg);
+animation:spin 28s linear infinite;
+}
+
+/* NODES */
+
+.node{
+position:absolute;
+width:8px;
+height:8px;
+border-radius:50%;
+background:#ff0000;
+box-shadow:
+0 0 10px red,
+0 0 20px red;
+animation:pulse 2s infinite;
+}
+
 /* HEADER */
 
 header{
@@ -67,111 +154,114 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:24px 7%;
+padding:25px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.25);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,0,0,0.12);
 z-index:100;
+background:rgba(0,0,0,0.25);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,0,0,0.08);
 }
 
 .logo{
-font-size:1.15rem;
-font-weight:800;
+font-family:'Rajdhani',sans-serif;
+font-size:2rem;
+font-weight:700;
 letter-spacing:3px;
 }
 
 .logo span{
-color:#ff2b2b;
 display:block;
-font-size:0.72rem;
-margin-top:4px;
-letter-spacing:2px;
+font-size:0.75rem;
+color:#ff2b2b;
+letter-spacing:3px;
+margin-top:2px;
 }
 
 nav a{
 text-decoration:none;
 color:#d1d5db;
-margin-left:32px;
+margin-left:35px;
+font-family:'Rajdhani',sans-serif;
+font-size:1rem;
+letter-spacing:2px;
 transition:0.3s;
-font-size:0.95rem;
-font-weight:500;
 }
 
 nav a:hover{
-color:#ff4d4d;
-}
-
-/* LEFT SIDE */
-
-.left{
-position:absolute;
-left:7%;
-top:50%;
-transform:translateY(-50%);
-max-width:520px;
-z-index:20;
-}
-
-.mini{
-color:#ff3b3b;
-letter-spacing:4px;
-font-size:0.85rem;
-margin-bottom:25px;
-}
-
-.left h1{
-font-size:6rem;
-line-height:0.88;
-font-weight:800;
-margin-bottom:25px;
-text-shadow:
-0 0 35px rgba(255,0,0,0.35),
-0 0 100px rgba(255,0,0,0.18);
-}
-
-.left h1 span{
 color:#ff2b2b;
 }
 
-.left p{
-font-size:1.05rem;
+/* LEFT CONTENT */
+
+.content{
+position:absolute;
+left:6%;
+top:50%;
+transform:translateY(-50%);
+max-width:520px;
+z-index:50;
+}
+
+.small{
+color:#ff2b2b;
+letter-spacing:5px;
+margin-bottom:25px;
+font-family:'Rajdhani',sans-serif;
+font-size:1rem;
+}
+
+.content h1{
+font-size:6rem;
+line-height:0.88;
+font-weight:800;
+margin-bottom:30px;
+}
+
+.content h1 span{
+color:#ff2b2b;
+text-shadow:
+0 0 30px rgba(255,0,0,0.35),
+0 0 80px rgba(255,0,0,0.18);
+}
+
+.content p{
+font-size:1.1rem;
 line-height:2;
 color:#cbd5e1;
-max-width:500px;
-margin-bottom:40px;
+margin-bottom:45px;
 }
 
 /* BUTTONS */
 
 .buttons{
 display:flex;
-gap:18px;
+gap:20px;
 }
 
 .btn{
-padding:17px 32px;
-border-radius:16px;
+padding:18px 34px;
+border-radius:12px;
 text-decoration:none;
 font-weight:700;
+font-family:'Rajdhani',sans-serif;
+letter-spacing:2px;
 transition:0.3s;
 }
 
 .primary{
-background:linear-gradient(135deg,#ff0000,#ff4d4d);
+background:linear-gradient(135deg,#8b0000,#ff0000);
 color:white;
 box-shadow:
 0 0 40px rgba(255,0,0,0.35),
-0 0 100px rgba(255,0,0,0.18);
+0 0 100px rgba(255,0,0,0.12);
 }
 
 .secondary{
-border:1px solid rgba(255,0,0,0.15);
+border:1px solid rgba(255,0,0,0.18);
 background:rgba(255,255,255,0.03);
 color:white;
-backdrop-filter:blur(10px);
 }
 
 .btn:hover{
@@ -181,108 +271,160 @@ transform:translateY(-5px);
 /* PANELS */
 
 .panel{
-position:fixed;
-background:rgba(0,0,0,0.45);
+position:absolute;
+background:rgba(0,0,0,0.42);
 border:1px solid rgba(255,0,0,0.14);
-backdrop-filter:blur(16px);
-padding:20px;
-z-index:30;
+backdrop-filter:blur(14px);
+padding:22px;
+z-index:60;
 }
 
 .panel-title{
-color:#ff3b3b;
-font-size:0.85rem;
-letter-spacing:2px;
-margin-bottom:15px;
+font-family:'Rajdhani',sans-serif;
+letter-spacing:3px;
+font-size:0.9rem;
+color:#ff2b2b;
+margin-bottom:16px;
 }
 
-/* LEFT TERMINAL */
+/* THREAT FEED */
 
 .feed{
 left:35px;
-top:130px;
+top:140px;
 width:280px;
 }
 
 .log{
-font-size:0.82rem;
-margin-bottom:9px;
+font-size:0.85rem;
+margin-bottom:10px;
 font-family:monospace;
 color:#ff6666;
 }
 
-/* RIGHT STATS */
+/* RIGHT PANELS */
 
-.right-stats{
-position:fixed;
+.right{
+position:absolute;
 right:35px;
-top:130px;
+top:140px;
 display:flex;
 flex-direction:column;
-gap:18px;
-z-index:30;
+gap:20px;
+z-index:60;
 }
 
 .stat{
-width:250px;
-padding:22px;
-background:rgba(0,0,0,0.45);
+width:260px;
+padding:24px;
+background:rgba(0,0,0,0.42);
 border:1px solid rgba(255,0,0,0.14);
-backdrop-filter:blur(16px);
+backdrop-filter:blur(14px);
 }
 
 .stat small{
-color:#9ca3af;
 display:block;
+color:#9ca3af;
 margin-bottom:10px;
+font-family:'Rajdhani',sans-serif;
+letter-spacing:2px;
 }
 
 .stat strong{
-font-size:2rem;
-color:#ff3b3b;
+font-size:2.2rem;
+color:#ff2b2b;
 }
 
-/* BOTTOM */
+/* BOTTOM BAR */
 
 .bottom{
-position:fixed;
-bottom:25px;
+position:absolute;
+bottom:30px;
 left:50%;
 transform:translateX(-50%);
-width:80%;
+width:82%;
 padding:20px;
-text-align:center;
 background:rgba(0,0,0,0.45);
 border:1px solid rgba(255,0,0,0.14);
-backdrop-filter:blur(16px);
-z-index:30;
+text-align:center;
+font-family:'Rajdhani',sans-serif;
+letter-spacing:4px;
+z-index:60;
 }
 
-.bottom span{
-color:#ff2b2b;
+/* ANIMATIONS */
+
+@keyframes rotateGlobe{
+from{
+transform:translateY(-50%) rotate(0deg);
+}
+to{
+transform:translateY(-50%) rotate(360deg);
+}
+}
+
+@keyframes moveLines{
+from{
+transform:translateX(0);
+}
+to{
+transform:translateX(40px);
+}
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:1;
+}
+50%{
+transform:scale(1.8);
+opacity:0.4;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes spin{
+from{
+transform:rotate(0deg);
+}
+to{
+transform:rotate(360deg);
+}
+}
+
+@keyframes spinReverse{
+from{
+transform:rotate(360deg);
+}
+to{
+transform:rotate(0deg);
+}
 }
 
 /* MOBILE */
 
-@media(max-width:1100px){
+@media(max-width:1200px){
 
-.left{
-left:5%;
-right:5%;
-max-width:100%;
-}
-
-.left h1{
-font-size:4rem;
+.globe-container{
+opacity:0.35;
+right:-300px;
 }
 
 .feed,
-.right-stats{
+.right{
 display:none;
 }
 
-.bottom{
-width:92%;
+.content{
+max-width:90%;
+}
+
+.content h1{
+font-size:4rem;
 }
 
 header{
@@ -302,7 +444,24 @@ margin:0 10px;
 
 <body>
 
-<canvas id="bg"></canvas>
+<!-- GLOBE -->
+
+<div class="globe-container">
+
+<div class="arc arc1"></div>
+<div class="arc arc2"></div>
+<div class="arc arc3"></div>
+
+<div class="node" style="top:40%;left:30%;"></div>
+<div class="node" style="top:60%;left:65%;"></div>
+<div class="node" style="top:35%;left:70%;"></div>
+<div class="node" style="top:55%;left:45%;"></div>
+<div class="node" style="top:70%;left:55%;"></div>
+<div class="node" style="top:48%;left:80%;"></div>
+
+</div>
+
+<!-- HEADER -->
 
 <header>
 
@@ -312,13 +471,51 @@ OCÉANE DEHAUDT
 </div>
 
 <nav>
-<a href="#">À propos</a>
-<a href="#">Compétences</a>
-<a href="#">Projets</a>
-<a href="#">Contact</a>
+<a href="#">À PROPOS</a>
+<a href="#">COMPÉTENCES</a>
+<a href="#">PROJETS</a>
+<a href="#">CONTACT</a>
 </nav>
 
 </header>
+
+<!-- LEFT CONTENT -->
+
+<div class="content">
+
+<div class="small">
+PORTFOLIO
+</div>
+
+<h1>
+OCÉANE<br>
+<span>DEHAUDT</span>
+</h1>
+
+<p>
+Étudiante en cybersécurité spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
+Passionnée par la cybersécurité offensive et les nouvelles technologies.
+</p>
+
+<div class="buttons">
+
+<a href="https://github.com/oceane-dehaudt"
+target="_blank"
+class="btn primary">
+VOIR GITHUB
+</a>
+
+<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
+target="_blank"
+class="btn secondary">
+VOIR LES LABS
+</a>
+
+</div>
+
+</div>
+
+<!-- THREAT FEED -->
 
 <div class="panel feed">
 
@@ -330,45 +527,13 @@ THREAT FEED
 
 </div>
 
-<div class="left">
+<!-- RIGHT -->
 
-<div class="mini">
-PORTFOLIO
-</div>
-
-<h1>
-Océane<br>
-<span>Dehaudt</span>
-</h1>
-
-<p>
-Étudiante en cybersécurité spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
-Passionnée par la cybersécurité offensive et les nouvelles technologies.
-</p>
-
-<div class="buttons">
-
-<a class="btn primary"
-href="https://github.com/oceane-dehaudt"
-target="_blank">
-VOIR GITHUB
-</a>
-
-<a class="btn secondary"
-href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
-target="_blank">
-VOIR LES LABS
-</a>
-
-</div>
-
-</div>
-
-<div class="right-stats">
+<div class="right">
 
 <div class="stat">
 <small>LIVE ATTACKS</small>
-<strong id="attacks">4821</strong>
+<strong id="counter">4821</strong>
 </div>
 
 <div class="stat">
@@ -383,344 +548,42 @@ VOIR LES LABS
 
 </div>
 
+<!-- BOTTOM -->
+
 <div class="bottom">
-<span>REAL-TIME CYBER ATTACK MAP</span>
+REAL-TIME CYBER ATTACK MAP
 </div>
 
-<script type="module">
+<script>
 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js';
+/* LIVE COUNTER */
 
-const scene = new THREE.Scene();
-
-scene.fog = new THREE.FogExp2(
-0x050505,
-0.0008
-);
-
-const camera = new THREE.PerspectiveCamera(
-55,
-window.innerWidth/window.innerHeight,
-0.1,
-5000
-);
-
-camera.position.z = 20;
-
-const renderer = new THREE.WebGLRenderer({
-canvas:document.getElementById('bg'),
-antialias:true,
-alpha:true,
-powerPreference:'high-performance'
-});
-
-renderer.setSize(
-window.innerWidth,
-window.innerHeight
-);
-
-renderer.setPixelRatio(
-window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio
-);
-
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-/* STARS */
-
-const starsGeometry = new THREE.BufferGeometry();
-
-const stars = [];
-
-for(let i=0;i<50000;i++){
-
-stars.push(
-(Math.random()-0.5)*5000,
-(Math.random()-0.5)*5000,
-(Math.random()-0.5)*5000
-);
-
-}
-
-starsGeometry.setAttribute(
-'position',
-new THREE.Float32BufferAttribute(stars,3)
-);
-
-const starsMaterial = new THREE.PointsMaterial({
-color:'#ff2b2b',
-size:0.7,
-transparent:true,
-opacity:0.85
-});
-
-const starsMesh = new THREE.Points(
-starsGeometry,
-starsMaterial
-);
-
-scene.add(starsMesh);
-
-/* EARTH */
-
-const loader = new THREE.TextureLoader();
-
-const earthTexture = loader.load(
-'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
-);
-
-const earthGeometry = new THREE.SphereGeometry(
-8,
-256,
-256
-);
-
-const earthMaterial = new THREE.MeshStandardMaterial({
-map:earthTexture,
-roughness:0.9,
-metalness:0.05
-});
-
-const earth = new THREE.Mesh(
-earthGeometry,
-earthMaterial
-);
-
-earth.position.set(8,0,-10);
-
-scene.add(earth);
-
-/* DARK FILTER */
-
-const darkGeometry = new THREE.SphereGeometry(
-8.05,
-256,
-256
-);
-
-const darkMaterial = new THREE.MeshBasicMaterial({
-color:'#040404',
-transparent:true,
-opacity:0.72
-});
-
-const darkSphere = new THREE.Mesh(
-darkGeometry,
-darkMaterial
-);
-
-darkSphere.position.copy(earth.position);
-
-scene.add(darkSphere);
-
-/* RED GLOW */
-
-const atmosphereGeometry = new THREE.SphereGeometry(
-8.35,
-256,
-256
-);
-
-const atmosphereMaterial = new THREE.MeshBasicMaterial({
-color:'#ff0000',
-transparent:true,
-opacity:0.12
-});
-
-const atmosphere = new THREE.Mesh(
-atmosphereGeometry,
-atmosphereMaterial
-);
-
-atmosphere.position.copy(earth.position);
-
-scene.add(atmosphere);
-
-/* LIGHT */
-
-const light = new THREE.PointLight(
-0xff0000,
-12,
-400
-);
-
-light.position.set(
-25,
-10,
-15
-);
-
-scene.add(light);
-
-scene.add(
-new THREE.AmbientLight(
-0xffffff,
-0.15
-)
-);
-
-/* ATTACK GROUP */
-
-const attackGroup = new THREE.Group();
-
-/* RED ATTACK LINES */
-
-for(let i=0;i<450;i++){
-
-const material = new THREE.LineBasicMaterial({
-color:Math.random()>0.5 ? 0xff0000 : 0xff6666,
-transparent:true,
-opacity:0.95
-});
-
-const points = [];
-
-const radius = 9;
-
-for(let j=0;j<60;j++){
-
-const angle = (j/60)*Math.PI;
-
-points.push(
-new THREE.Vector3(
-Math.cos(angle)*(radius+Math.random()*2),
-(Math.random()-0.5)*16,
-Math.sin(angle)*(radius+Math.random()*2)
-)
-);
-
-}
-
-const geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-const line = new THREE.Line(
-geometry,
-material
-);
-
-line.rotation.x = Math.random()*Math.PI;
-line.rotation.y = Math.random()*Math.PI;
-
-attackGroup.add(line);
-
-}
-
-attackGroup.position.copy(earth.position);
-
-scene.add(attackGroup);
-
-/* CYBER NODES */
-
-const nodeGeometry = new THREE.SphereGeometry(
-0.06,
-8,
-8
-);
-
-for(let i=0;i<3500;i++){
-
-const material = new THREE.MeshBasicMaterial({
-color:Math.random()>0.5 ? '#ff0000' : '#ff6666'
-});
-
-const node = new THREE.Mesh(
-nodeGeometry,
-material
-);
-
-const radius = 9.3;
-
-const theta = Math.random()*Math.PI*2;
-const phi = Math.random()*Math.PI;
-
-node.position.set(
-radius*Math.sin(phi)*Math.cos(theta),
-radius*Math.cos(phi),
-radius*Math.sin(phi)*Math.sin(theta)
-);
-
-attackGroup.add(node);
-
-}
-
-/* PARTICLES */
-
-const particlesGeometry = new THREE.BufferGeometry();
-
-const particles = [];
-
-for(let i=0;i<22000;i++){
-
-particles.push(
-(Math.random()-0.5)*400,
-(Math.random()-0.5)*400,
-(Math.random()-0.5)*400
-);
-
-}
-
-particlesGeometry.setAttribute(
-'position',
-new THREE.Float32BufferAttribute(particles,3)
-);
-
-const particlesMaterial = new THREE.PointsMaterial({
-color:'#ff2b2b',
-size:0.12,
-transparent:true,
-opacity:0.12
-});
-
-const particlesMesh = new THREE.Points(
-particlesGeometry,
-particlesMaterial
-);
-
-scene.add(particlesMesh);
-
-/* PARALLAX */
-
-let mouseX = 0;
-let mouseY = 0;
-
-window.addEventListener('mousemove',(e)=>{
-
-mouseX =
-(e.clientX/window.innerWidth - 0.5)*2;
-
-mouseY =
-(e.clientY/window.innerHeight - 0.5)*2;
-
-});
-
-/* COUNTER */
-
-const attacks = document.getElementById('attacks');
+const counter = document.getElementById('counter');
 
 setInterval(()=>{
 
-attacks.innerText =
-Math.floor(
-4000 + Math.random()*5000
-);
+counter.innerText =
+Math.floor(4000 + Math.random()*5000);
 
 },1200);
 
-/* TERMINAL */
-
-const logsContainer = document.getElementById('logs');
+/* LOGS */
 
 const logs = [
 'Brute Force Attack',
-'SQL Injection',
 'DDoS Attack',
-'Port Scan',
-'Payload Delivery',
-'Exploit Detected',
+'SQL Injection',
 'Credential Stuffing',
+'Port Scan',
+'Malware Detection',
+'Payload Delivery',
 'IDS Triggered',
 'Network Breach',
-'Malware Signature'
+'Exploit Attempt'
 ];
+
+const logsContainer =
+document.getElementById('logs');
 
 setInterval(()=>{
 
@@ -743,60 +606,7 @@ logsContainer.lastChild
 
 }
 
-},800);
-
-/* ANIMATION */
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-earth.rotation.y += 0.0012;
-
-darkSphere.rotation.y += 0.0012;
-
-attackGroup.rotation.y += 0.0025;
-
-atmosphere.rotation.y += 0.0005;
-
-starsMesh.rotation.y += 0.00003;
-
-particlesMesh.rotation.y += 0.00005;
-
-camera.position.x +=
-(mouseX*2 - camera.position.x)*0.02;
-
-camera.position.y +=
-(-mouseY*1.5 - camera.position.y)*0.02;
-
-camera.lookAt(
-earth.position
-);
-
-renderer.render(
-scene,
-camera
-);
-
-}
-
-animate();
-
-/* RESIZE */
-
-window.addEventListener('resize',()=>{
-
-camera.aspect =
-window.innerWidth/window.innerHeight;
-
-camera.updateProjectionMatrix();
-
-renderer.setSize(
-window.innerWidth,
-window.innerHeight
-);
-
-});
+},900);
 
 </script>
 
