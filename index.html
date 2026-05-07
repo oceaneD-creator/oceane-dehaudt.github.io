@@ -35,9 +35,10 @@ content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(0,255,255,0.08), transparent 25%),
-radial-gradient(circle at 80% 40%, rgba(0,132,255,0.12), transparent 30%),
-radial-gradient(circle at bottom, rgba(0,255,170,0.05), transparent 40%);
+radial-gradient(circle at 15% 20%, rgba(0,180,255,0.15), transparent 20%),
+radial-gradient(circle at 85% 30%, rgba(0,255,180,0.12), transparent 25%),
+radial-gradient(circle at bottom, rgba(90,0,255,0.12), transparent 35%),
+linear-gradient(to bottom,#020617,#040b1d,#020617);
 z-index:-1;
 }
 
@@ -160,29 +161,40 @@ transform:translateY(-5px);
 border-color:#6ee7ff;
 }
 
-.floating-orb{
+.planet{
 position:absolute;
 border-radius:50%;
-filter:blur(80px);
-opacity:0.4;
-animation:float 10s infinite ease-in-out;
+filter:blur(1px);
+box-shadow:0 0 120px rgba(0,255,255,0.2);
+animation:planetFloat 12s ease-in-out infinite;
 }
 
-.orb1{
-width:300px;
-height:300px;
-background:#00ffae;
-top:10%;
+.planet1{
+width:260px;
+height:260px;
+background:radial-gradient(circle at 30% 30%, #4fdcff, #001a44 70%);
+top:12%;
 left:5%;
+opacity:0.9;
 }
 
-.orb2{
-width:250px;
-height:250px;
-background:#0066ff;
+.planet2{
+width:180px;
+height:180px;
+background:radial-gradient(circle at 30% 30%, #7dffcf, #002c2c 70%);
 bottom:10%;
-right:10%;
-animation-delay:2s;
+right:8%;
+animation-delay:3s;
+}
+
+.planet3{
+width:90px;
+height:90px;
+background:radial-gradient(circle at 30% 30%, #ffffff, #355dff 70%);
+top:22%;
+right:18%;
+animation-delay:5s;
+opacity:0.8;
 }
 
 section{
@@ -318,10 +330,10 @@ color:#718096;
 border-top:1px solid rgba(255,255,255,0.05);
 }
 
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-35px);}
-100%{transform:translateY(0px);}
+@keyframes planetFloat{
+0%{transform:translateY(0px) rotate(0deg);}
+50%{transform:translateY(-30px) rotate(8deg);}
+100%{transform:translateY(0px) rotate(0deg);}
 }
 
 @keyframes fadeUp{
@@ -363,8 +375,9 @@ font-size:2.2rem;
 
 <canvas id="bg"></canvas>
 
-<div class="floating-orb orb1"></div>
-<div class="floating-orb orb2"></div>
+<div class="planet planet1"></div>
+<div class="planet planet2"></div>
+<div class="planet planet3"></div>
 
 <header>
 <div class="logo">OCÉANE DEHAUDT</div>
@@ -381,17 +394,16 @@ font-size:2.2rem;
 <div class="hero-content">
 
 <div class="hero-tag">
-Cybersecurity Student • Offensive Security • Pentesting
+Cybersecurity Student • Offensive Security • Network Analysis
 </div>
 
 <h1>
-Building a <span>Cybersecurity</span><br>
-Portfolio Through<br>
-Practical Labs
+Océane<br>
+<span>Dehaudt</span>
 </h1>
 
 <p>
-Cybersecurity student focused on offensive security, network analysis and penetration testing. Building practical experience through hands-on labs, vulnerability assessment and technical documentation using Kali Linux, Nmap, Metasploit and Wireshark.
+Cybersecurity student building practical experience through offensive security labs, network analysis and penetration testing projects. Focused on developing real-world technical skills through hands-on learning and cybersecurity research.
 </p>
 
 <div class="buttons">
@@ -586,4 +598,3 @@ animate();
 
 </body>
 </html>
-
