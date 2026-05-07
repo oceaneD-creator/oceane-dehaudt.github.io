@@ -23,6 +23,8 @@ overflow:hidden;
 background:#020202;
 font-family:'Inter',sans-serif;
 color:white;
+height:100vh;
+cursor:crosshair;
 }
 
 /* BACKGROUND */
@@ -32,9 +34,9 @@ content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(255,0,0,0.12), transparent 45%),
-linear-gradient(to bottom,#000000,#050505,#090000);
-z-index:-20;
+radial-gradient(circle at center, rgba(255,0,0,0.14), transparent 45%),
+linear-gradient(to bottom,#000000,#040404,#090000);
+z-index:-30;
 }
 
 /* GRID */
@@ -44,11 +46,10 @@ content:'';
 position:fixed;
 inset:0;
 background-image:
-linear-gradient(rgba(255,0,0,0.025) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,0,0.025) 1px, transparent 1px);
-background-size:80px 80px;
-pointer-events:none;
-z-index:-10;
+linear-gradient(rgba(255,0,0,0.02) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,0,0.02) 1px, transparent 1px);
+background-size:70px 70px;
+z-index:-20;
 }
 
 /* HEADER */
@@ -62,10 +63,10 @@ padding:25px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.3);
+z-index:100;
+background:rgba(0,0,0,0.25);
 backdrop-filter:blur(16px);
 border-bottom:1px solid rgba(255,0,0,0.08);
-z-index:100;
 }
 
 .logo{
@@ -88,7 +89,6 @@ text-decoration:none;
 color:#d1d5db;
 margin-left:35px;
 font-family:'Rajdhani',sans-serif;
-font-size:1rem;
 letter-spacing:2px;
 transition:0.3s;
 }
@@ -97,28 +97,27 @@ nav a:hover{
 color:#ff2b2b;
 }
 
-/* LEFT CONTENT */
+/* LEFT SIDE */
 
 .content{
 position:absolute;
 left:6%;
 top:50%;
 transform:translateY(-50%);
-max-width:480px;
-z-index:50;
+max-width:500px;
+z-index:100;
 }
 
 .small{
 color:#ff2b2b;
-letter-spacing:5px;
-margin-bottom:22px;
 font-family:'Rajdhani',sans-serif;
-font-size:1rem;
+letter-spacing:5px;
+margin-bottom:20px;
 }
 
 .content h1{
 font-size:6rem;
-line-height:0.9;
+line-height:0.88;
 font-weight:800;
 margin-bottom:25px;
 }
@@ -126,8 +125,8 @@ margin-bottom:25px;
 .content h1 span{
 color:#ff2b2b;
 text-shadow:
-0 0 30px rgba(255,0,0,0.4),
-0 0 90px rgba(255,0,0,0.2);
+0 0 25px rgba(255,0,0,0.4),
+0 0 90px rgba(255,0,0,0.18);
 }
 
 .content p{
@@ -155,222 +154,198 @@ transition:0.3s;
 }
 
 .primary{
-background:linear-gradient(135deg,#8b0000,#ff0000);
+background:linear-gradient(135deg,#7a0000,#ff0000);
 color:white;
 box-shadow:
 0 0 40px rgba(255,0,0,0.35),
-0 0 100px rgba(255,0,0,0.12);
+0 0 120px rgba(255,0,0,0.18);
 }
 
 .secondary{
 border:1px solid rgba(255,0,0,0.15);
 background:rgba(255,255,255,0.03);
 color:white;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 }
 
 .btn:hover{
 transform:translateY(-5px);
 }
 
-/* EARTH */
+/* GLOBE */
 
-.earth-wrapper{
+.globe-wrapper{
 position:absolute;
 right:-120px;
 top:50%;
 transform:translateY(-50%);
-width:950px;
-height:950px;
+width:1000px;
+height:1000px;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:5;
+z-index:20;
 }
 
-/* EARTH IMAGE */
+/* EARTH */
 
 .earth{
 position:absolute;
-width:850px;
-height:850px;
+width:860px;
+height:860px;
 border-radius:50%;
 background:
-url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2400&auto=format&fit=crop') center/cover;
+linear-gradient(rgba(0,0,0,0.62),rgba(0,0,0,0.62)),
+url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=3000&auto=format&fit=crop') center/cover;
+background-size:cover;
 box-shadow:
-0 0 60px rgba(255,0,0,0.25),
+0 0 70px rgba(255,0,0,0.35),
 0 0 180px rgba(255,0,0,0.18),
 0 0 300px rgba(255,0,0,0.08);
-animation:rotateEarth 120s linear infinite;
+animation:rotateEarth 180s linear infinite;
 overflow:hidden;
 }
 
-/* RED OVERLAY */
+/* GLOW */
 
 .earth::before{
 content:'';
 position:absolute;
 inset:0;
+border-radius:50%;
 background:
-radial-gradient(circle at center, transparent 35%, rgba(255,0,0,0.12)),
-linear-gradient(to bottom, rgba(255,0,0,0.04), rgba(0,0,0,0.55));
+radial-gradient(circle at center,
+transparent 40%,
+rgba(255,0,0,0.18));
 mix-blend-mode:screen;
 }
 
-/* CYBER LINES */
+/* CYBER GRID */
 
-.cyber-lines{
+.earth::after{
+content:'';
 position:absolute;
+inset:0;
+border-radius:50%;
+background:
+repeating-linear-gradient(
+0deg,
+rgba(255,0,0,0.04),
+rgba(255,0,0,0.04) 1px,
+transparent 1px,
+transparent 18px
+),
+repeating-linear-gradient(
+90deg,
+rgba(255,0,0,0.04),
+rgba(255,0,0,0.04) 1px,
+transparent 1px,
+transparent 18px
+);
+mix-blend-mode:screen;
+}
+
+/* ATTACK ORBITS */
+
+.orbit{
+position:absolute;
+border:1px solid rgba(255,0,0,0.3);
+border-radius:50%;
+pointer-events:none;
+}
+
+.o1{
 width:900px;
-height:900px;
-border-radius:50%;
-animation:rotateLines 35s linear infinite;
-}
-
-.line{
-position:absolute;
-border:1px solid rgba(255,0,0,0.32);
-border-radius:50%;
-}
-
-/* LINES */
-
-.l1{
-width:850px;
-height:280px;
-top:300px;
-left:20px;
+height:250px;
 transform:rotate(10deg);
+animation:spin1 16s linear infinite;
 }
 
-.l2{
-width:880px;
+.o2{
+width:860px;
 height:320px;
-top:280px;
-left:10px;
-transform:rotate(-25deg);
+transform:rotate(-20deg);
+animation:spin2 22s linear infinite;
 }
 
-.l3{
-width:830px;
-height:260px;
-top:320px;
-left:30px;
-transform:rotate(35deg);
-}
-
-.l4{
-width:870px;
-height:350px;
-top:270px;
-left:10px;
-transform:rotate(-10deg);
-}
-
-.l5{
-width:890px;
+.o3{
+width:920px;
 height:300px;
-top:300px;
-left:0px;
-transform:rotate(60deg);
+transform:rotate(40deg);
+animation:spin3 28s linear infinite;
 }
 
-/* RED NODES */
+.o4{
+width:880px;
+height:360px;
+transform:rotate(-45deg);
+animation:spin4 18s linear infinite;
+}
 
-.node{
+/* ATTACK PARTICLES */
+
+.attack{
 position:absolute;
-width:9px;
-height:9px;
+width:8px;
+height:8px;
 border-radius:50%;
 background:#ff0000;
 box-shadow:
 0 0 12px red,
-0 0 30px red;
-animation:pulse 2s infinite;
+0 0 30px red,
+0 0 60px rgba(255,0,0,0.8);
 }
 
-/* PANELS */
+/* MOVEMENTS */
 
-.panel{
-position:absolute;
-background:rgba(0,0,0,0.42);
-border:1px solid rgba(255,0,0,0.14);
-backdrop-filter:blur(16px);
-padding:22px;
-z-index:80;
+.a1{
+animation:attack1 6s linear infinite;
 }
 
-.panel-title{
-font-family:'Rajdhani',sans-serif;
-letter-spacing:3px;
-font-size:0.9rem;
-color:#ff2b2b;
-margin-bottom:15px;
+.a2{
+animation:attack2 8s linear infinite;
 }
 
-/* FEED */
-
-.feed{
-left:35px;
-top:150px;
-width:290px;
+.a3{
+animation:attack3 10s linear infinite;
 }
 
-.log{
-font-size:0.82rem;
-margin-bottom:10px;
-font-family:monospace;
-color:#ff6666;
+.a4{
+animation:attack4 7s linear infinite;
 }
 
-/* RIGHT */
-
-.right{
-position:absolute;
-right:35px;
-top:150px;
-display:flex;
-flex-direction:column;
-gap:18px;
-z-index:80;
-}
-
-.stat{
-width:250px;
-padding:22px;
-background:rgba(0,0,0,0.42);
-border:1px solid rgba(255,0,0,0.14);
-backdrop-filter:blur(16px);
-}
-
-.stat small{
-display:block;
-margin-bottom:10px;
-color:#9ca3af;
-font-family:'Rajdhani',sans-serif;
-letter-spacing:2px;
-}
-
-.stat strong{
-font-size:2rem;
-color:#ff2b2b;
+.a5{
+animation:attack5 9s linear infinite;
 }
 
 /* BOTTOM */
 
 .bottom{
 position:absolute;
-bottom:30px;
+bottom:25px;
 left:50%;
 transform:translateX(-50%);
 width:82%;
 padding:20px;
 text-align:center;
 background:rgba(0,0,0,0.42);
-border:1px solid rgba(255,0,0,0.14);
+border:1px solid rgba(255,0,0,0.12);
 font-family:'Rajdhani',sans-serif;
 letter-spacing:4px;
-z-index:80;
+backdrop-filter:blur(12px);
+z-index:100;
+}
+
+/* PARTICLES */
+
+.particle{
+position:absolute;
+width:2px;
+height:2px;
+background:red;
+border-radius:50%;
+opacity:0.5;
+animation:float 8s linear infinite;
 }
 
 /* ANIMATIONS */
@@ -384,27 +359,71 @@ transform:rotate(360deg);
 }
 }
 
-@keyframes rotateLines{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
+@keyframes spin1{
+from{rotate:0deg;}
+to{rotate:360deg;}
 }
 
-@keyframes pulse{
+@keyframes spin2{
+from{rotate:360deg;}
+to{rotate:0deg;}
+}
+
+@keyframes spin3{
+from{rotate:0deg;}
+to{rotate:360deg;}
+}
+
+@keyframes spin4{
+from{rotate:360deg;}
+to{rotate:0deg;}
+}
+
+/* ATTACK PATHS */
+
+@keyframes attack1{
+0%{transform:translate(-350px,0);}
+50%{transform:translate(350px,-120px);}
+100%{transform:translate(-350px,0);}
+}
+
+@keyframes attack2{
+0%{transform:translate(250px,-150px);}
+50%{transform:translate(-250px,150px);}
+100%{transform:translate(250px,-150px);}
+}
+
+@keyframes attack3{
+0%{transform:translate(-100px,250px);}
+50%{transform:translate(300px,-250px);}
+100%{transform:translate(-100px,250px);}
+}
+
+@keyframes attack4{
+0%{transform:translate(350px,0);}
+50%{transform:translate(-350px,120px);}
+100%{transform:translate(350px,0);}
+}
+
+@keyframes attack5{
+0%{transform:translate(0,-350px);}
+50%{transform:translate(0,350px);}
+100%{transform:translate(0,-350px);}
+}
+
+/* SPACE PARTICLES */
+
+@keyframes float{
 0%{
-transform:scale(1);
-opacity:1;
+transform:translateY(0px);
+opacity:0;
 }
 50%{
-transform:scale(1.8);
-opacity:0.45;
+opacity:0.7;
 }
 100%{
-transform:scale(1);
-opacity:1;
+transform:translateY(-1200px);
+opacity:0;
 }
 }
 
@@ -412,18 +431,9 @@ opacity:1;
 
 @media(max-width:1200px){
 
-.earth-wrapper{
-right:-300px;
-opacity:0.4;
-}
-
-.feed,
-.right{
-display:none;
-}
-
-.content{
-max-width:90%;
+.globe-wrapper{
+right:-350px;
+opacity:0.45;
 }
 
 .content h1{
@@ -499,61 +509,22 @@ VOIR LES LABS
 
 </div>
 
-<!-- EARTH -->
+<!-- GLOBE -->
 
-<div class="earth-wrapper">
+<div class="globe-wrapper">
 
 <div class="earth"></div>
 
-<div class="cyber-lines">
+<div class="orbit o1"></div>
+<div class="orbit o2"></div>
+<div class="orbit o3"></div>
+<div class="orbit o4"></div>
 
-<div class="line l1"></div>
-<div class="line l2"></div>
-<div class="line l3"></div>
-<div class="line l4"></div>
-<div class="line l5"></div>
-
-<div class="node" style="top:40%;left:30%;"></div>
-<div class="node" style="top:55%;left:68%;"></div>
-<div class="node" style="top:35%;left:75%;"></div>
-<div class="node" style="top:70%;left:60%;"></div>
-<div class="node" style="top:48%;left:82%;"></div>
-<div class="node" style="top:58%;left:40%;"></div>
-
-</div>
-
-</div>
-
-<!-- FEED -->
-
-<div class="panel feed">
-
-<div class="panel-title">
-THREAT FEED
-</div>
-
-<div id="logs"></div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="right">
-
-<div class="stat">
-<small>LIVE ATTACKS</small>
-<strong id="counter">4821</strong>
-</div>
-
-<div class="stat">
-<small>ACTIVE NODES</small>
-<strong>1428</strong>
-</div>
-
-<div class="stat">
-<small>THREAT LEVEL</small>
-<strong>CRITICAL</strong>
-</div>
+<div class="attack a1"></div>
+<div class="attack a2"></div>
+<div class="attack a3"></div>
+<div class="attack a4"></div>
+<div class="attack a5"></div>
 
 </div>
 
@@ -563,59 +534,46 @@ THREAT FEED
 REAL-TIME CYBER ATTACK MAP
 </div>
 
+<!-- SPACE PARTICLES -->
+
 <script>
 
-/* LIVE COUNTER */
+for(let i=0;i<120;i++){
 
-const counter = document.getElementById('counter');
+const particle = document.createElement('div');
 
-setInterval(()=>{
+particle.classList.add('particle');
 
-counter.innerText =
-Math.floor(4000 + Math.random()*5000);
+particle.style.left = Math.random()*100 + 'vw';
+particle.style.top = Math.random()*100 + 'vh';
 
-},1200);
+particle.style.animationDuration =
+(4 + Math.random()*8) + 's';
 
-/* LOGS */
+particle.style.animationDelay =
+Math.random()*5 + 's';
 
-const logs = [
-'Brute Force Attack',
-'DDoS Attack',
-'SQL Injection',
-'Credential Stuffing',
-'Port Scan',
-'Malware Detection',
-'Payload Delivery',
-'IDS Triggered',
-'Network Breach',
-'Exploit Attempt'
-];
-
-const logsContainer =
-document.getElementById('logs');
-
-setInterval(()=>{
-
-const div = document.createElement('div');
-
-div.className = 'log';
-
-div.innerText =
-new Date().toLocaleTimeString()
-+ '  '
-+ logs[Math.floor(Math.random()*logs.length)];
-
-logsContainer.prepend(div);
-
-if(logsContainer.children.length > 10){
-
-logsContainer.removeChild(
-logsContainer.lastChild
-);
+document.body.appendChild(particle);
 
 }
 
-},900);
+/* PARALLAX */
+
+document.addEventListener('mousemove',(e)=>{
+
+const globe =
+document.querySelector('.globe-wrapper');
+
+const x =
+(e.clientX / window.innerWidth - 0.5) * 30;
+
+const y =
+(e.clientY / window.innerHeight - 0.5) * 20;
+
+globe.style.transform =
+`translateY(-50%) translate(${x}px, ${y}px)`;
+
+});
 
 </script>
 
