@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Océane Dehaudt | Cybersecurity Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,413 +13,390 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
 font-family:'Inter',sans-serif;
 background:#020617;
-color:white;
 overflow-x:hidden;
-min-height:100vh;
+color:white;
+cursor:default;
 }
 
-/* ===== BACKGROUND ===== */
+/* ===========================
+BACKGROUND CANVAS
+=========================== */
 
-.space-bg{
+#space{
 position:fixed;
 inset:0;
-overflow:hidden;
-z-index:-5;
-background:
-linear-gradient(to bottom,#020617 0%,#040b1d 40%,#020617 100%);
-}
-
-/* étoiles */
-
-.stars{
-position:absolute;
 width:100%;
 height:100%;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:3px 3px;
-opacity:0.12;
-animation:starsMove 120s linear infinite;
+z-index:-10;
+display:block;
 }
 
-@keyframes starsMove{
-from{
-transform:translateY(0px);
-}
-to{
-transform:translateY(-2000px);
-}
-}
+/* ===========================
+ATMOSPHERIC OVERLAY
+=========================== */
 
-/* glow */
-
-.glow{
-position:absolute;
-width:900px;
-height:900px;
-background:radial-gradient(circle,rgba(0,174,255,0.18),transparent 70%);
-filter:blur(80px);
-top:-250px;
-left:-250px;
-animation:glowMove 10s ease-in-out infinite;
-}
-
-@keyframes glowMove{
-0%{transform:translate(0,0);}
-50%{transform:translate(60px,40px);}
-100%{transform:translate(0,0);}
-}
-
-/* PLANETES */
-
-.planet{
-position:absolute;
-border-radius:50%;
-background-size:cover;
-background-position:center;
-box-shadow:
-0 0 80px rgba(255,255,255,0.08),
-0 0 140px rgba(0,140,255,0.12);
-animation-timing-function:ease-in-out;
-animation-iteration-count:infinite;
-}
-
-/* grosse planète */
-
-.planet1{
-width:650px;
-height:650px;
-right:-120px;
-top:-60px;
-
+body::before{
+content:'';
+position:fixed;
+inset:0;
 background:
-radial-gradient(circle at 30% 30%,
-rgba(255,255,255,0.35),
-rgba(0,180,255,0.15) 20%,
-rgba(0,30,60,0.95) 60%,
-black 100%);
-
-animation:
-rotatePlanet 80s linear infinite,
-floatPlanet 12s ease-in-out infinite;
+radial-gradient(circle at 20% 20%, rgba(0,180,255,0.12), transparent 25%),
+radial-gradient(circle at 80% 30%, rgba(0,255,200,0.08), transparent 25%),
+radial-gradient(circle at bottom, rgba(60,0,255,0.12), transparent 40%),
+linear-gradient(to bottom,#01040d,#020617,#01040d);
+pointer-events:none;
+z-index:-5;
 }
 
-/* petite planète */
+/* ===========================
+GRID OVERLAY
+=========================== */
 
-.planet2{
-width:220px;
-height:220px;
-left:8%;
-bottom:10%;
-
+.grid-overlay{
+position:fixed;
+inset:0;
 background:
-radial-gradient(circle at 30% 30%,
-rgba(255,255,255,0.25),
-rgba(120,0,255,0.25) 25%,
-rgba(10,10,30,0.95));
-
-animation:
-rotatePlanetReverse 60s linear infinite,
-floatPlanet2 10s ease-in-out infinite;
+linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+background-size:60px 60px;
+opacity:0.22;
+pointer-events:none;
+z-index:-4;
 }
 
-/* mini lune */
+/* ===========================
+HEADER
+=========================== */
 
-.planet3{
-width:100px;
-height:100px;
-right:22%;
-top:18%;
-
-background:
-radial-gradient(circle at 30% 30%,
-rgba(255,255,255,0.3),
-rgba(180,180,180,0.15),
-rgba(20,20,20,0.95));
-
-animation:
-rotatePlanet 40s linear infinite,
-moonMove 9s ease-in-out infinite;
-}
-
-/* anneaux */
-
-.ring{
-position:absolute;
-border:1px solid rgba(255,255,255,0.08);
-border-radius:50%;
-transform-style:preserve-3d;
-}
-
-.ring1{
-width:900px;
-height:900px;
-top:-180px;
-right:-240px;
-animation:spinRing 80s linear infinite;
-}
-
-.ring2{
-width:1200px;
-height:1200px;
-top:-350px;
-right:-350px;
-animation:spinRingReverse 140s linear infinite;
-}
-
-/* animations */
-
-@keyframes rotatePlanet{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
-}
-
-@keyframes rotatePlanetReverse{
-from{
-transform:rotate(360deg);
-}
-to{
-transform:rotate(0deg);
-}
-}
-
-@keyframes floatPlanet{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-25px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
-@keyframes floatPlanet2{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(18px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
-@keyframes moonMove{
-0%{
-transform:translateY(0px) translateX(0px);
-}
-50%{
-transform:translateY(-12px) translateX(10px);
-}
-100%{
-transform:translateY(0px) translateX(0px);
-}
-}
-
-@keyframes spinRing{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
-}
-
-@keyframes spinRingReverse{
-from{
-transform:rotate(360deg);
-}
-to{
-transform:rotate(0deg);
-}
-}
-
-/* ===== NAVBAR ===== */
-
-nav{
+header{
 position:fixed;
 top:0;
 width:100%;
-padding:25px 80px;
+padding:24px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(12px);
-background:rgba(0,0,0,0.15);
-border-bottom:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(16px);
+background:rgba(5,10,20,0.45);
+border-bottom:1px solid rgba(255,255,255,0.06);
 z-index:999;
 }
 
 .logo{
-font-size:1.2rem;
-font-weight:700;
-letter-spacing:1px;
+font-weight:800;
+letter-spacing:2px;
+font-size:1rem;
 }
 
-.nav-links{
-display:flex;
-gap:40px;
-}
-
-.nav-links a{
-color:#ccc;
+nav a{
 text-decoration:none;
-transition:0.3s;
+color:#d7e1ec;
+margin-left:28px;
+transition:0.35s;
 font-size:0.95rem;
+position:relative;
 }
 
-.nav-links a:hover{
-color:white;
+nav a:hover{
+color:#6ee7ff;
 }
 
-/* ===== HERO ===== */
+/* ===========================
+HERO
+=========================== */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
+justify-content:center;
 padding:0 8%;
 position:relative;
+overflow:hidden;
 }
 
 .hero-content{
-max-width:800px;
-z-index:10;
+max-width:900px;
+text-align:center;
+z-index:3;
+animation:fadeUp 1.4s ease;
 }
 
-.tag{
+.hero-tag{
 display:inline-block;
-padding:10px 18px;
+padding:12px 20px;
+border-radius:999px;
 border:1px solid rgba(255,255,255,0.08);
-border-radius:50px;
 background:rgba(255,255,255,0.04);
-backdrop-filter:blur(10px);
-font-size:0.85rem;
-letter-spacing:1px;
-margin-bottom:25px;
-color:#8bcfff;
+backdrop-filter:blur(14px);
+color:#8be9ff;
+margin-bottom:28px;
+font-size:0.92rem;
 }
 
 .hero h1{
 font-size:6rem;
-line-height:0.95;
+line-height:0.92;
 font-weight:800;
-margin-bottom:25px;
+margin-bottom:24px;
 }
 
 .hero h1 span{
-background:linear-gradient(90deg,#00d4ff,#7b61ff);
+background:linear-gradient(90deg,#6ee7ff,#00ffae);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .hero p{
+max-width:760px;
+margin:auto;
+line-height:1.9;
+color:#b8c4d3;
 font-size:1.1rem;
-line-height:1.8;
-color:#c9d1d9;
-max-width:700px;
-margin-bottom:40px;
+margin-bottom:42px;
 }
-
-/* boutons */
 
 .buttons{
 display:flex;
-gap:20px;
+justify-content:center;
+gap:18px;
 flex-wrap:wrap;
 }
 
 .btn{
-padding:18px 34px;
-border-radius:14px;
+padding:16px 28px;
+border-radius:18px;
 text-decoration:none;
 font-weight:600;
-transition:0.3s;
-font-size:1rem;
+transition:0.35s;
 }
 
 .btn-primary{
-background:linear-gradient(90deg,#2563eb,#7c3aed);
-color:white;
-box-shadow:0 10px 40px rgba(37,99,235,0.35);
+background:linear-gradient(135deg,#00ffae,#56d8ff);
+color:#041019;
+box-shadow:
+0 0 30px rgba(0,255,200,0.2),
+0 0 80px rgba(0,180,255,0.12);
 }
 
 .btn-primary:hover{
-transform:translateY(-4px);
-box-shadow:0 20px 60px rgba(37,99,235,0.45);
+transform:translateY(-5px) scale(1.02);
 }
 
 .btn-secondary{
-border:1px solid rgba(255,255,255,0.1);
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
 color:white;
 }
 
 .btn-secondary:hover{
-background:rgba(255,255,255,0.08);
-transform:translateY(-4px);
+border-color:#6ee7ff;
+transform:translateY(-5px);
 }
 
-/* stats */
+/* ===========================
+SECTIONS
+=========================== */
 
-.stats{
-display:flex;
-gap:20px;
-margin-top:60px;
-flex-wrap:wrap;
+section{
+padding:120px 8%;
+position:relative;
+z-index:2;
 }
 
-.stat{
-padding:22px 30px;
-border-radius:20px;
+.section-title{
+font-size:3rem;
+margin-bottom:18px;
+font-weight:800;
+}
+
+.section-subtitle{
+max-width:700px;
+line-height:1.8;
+color:#aab6c6;
+margin-bottom:55px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+/* ===========================
+CARDS
+=========================== */
+
+.card{
 background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-backdrop-filter:blur(15px);
-min-width:170px;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:30px;
+padding:35px;
+backdrop-filter:blur(18px);
+overflow:hidden;
+position:relative;
+transition:0.45s;
+transform-style:preserve-3d;
 }
 
-.stat h3{
-font-size:2rem;
-margin-bottom:8px;
+.card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent);
+opacity:0;
+transition:0.4s;
 }
 
-.stat p{
-font-size:0.9rem;
-color:#aaa;
+.card:hover{
+transform:
+translateY(-10px)
+rotateX(4deg)
+rotateY(-4deg);
+border-color:#6ee7ff;
+box-shadow:
+0 0 60px rgba(0,180,255,0.12);
 }
 
-/* ===== responsive ===== */
+.card:hover::before{
+opacity:1;
+}
 
-@media(max-width:900px){
+.card h3{
+color:#8be9ff;
+margin-bottom:18px;
+font-size:1.35rem;
+}
+
+.card p{
+line-height:1.8;
+color:#c4cfdb;
+}
+
+/* ===========================
+PROJECT PREVIEW
+=========================== */
+
+.project-preview{
+height:220px;
+border-radius:24px;
+overflow:hidden;
+margin-bottom:24px;
+border:1px solid rgba(255,255,255,0.08);
+position:relative;
+}
+
+.project-preview img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.6s;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+/* ===========================
+SKILLS
+=========================== */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+}
+
+.skill{
+padding:12px 18px;
+border-radius:999px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.35s;
+}
+
+.skill:hover{
+transform:translateY(-4px);
+border-color:#00ffae;
+}
+
+/* ===========================
+CONTACT
+=========================== */
+
+.contact-box{
+padding:70px 40px;
+border-radius:34px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+text-align:center;
+}
+
+.contact-box p{
+line-height:1.9;
+color:#c5d0db;
+margin-bottom:18px;
+}
+
+.contact-box a{
+color:#8be9ff;
+text-decoration:none;
+font-weight:600;
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:#6e7b8f;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===========================
+ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:768px){
 
 .hero h1{
-font-size:4rem;
+font-size:3.8rem;
 }
 
-nav{
-padding:20px;
-}
-
-.nav-links{
-display:none;
-}
-
-.stats{
+header{
 flex-direction:column;
+gap:18px;
+}
+
+nav a{
+margin:0 10px;
+}
+
+.section-title{
+font-size:2.2rem;
 }
 
 }
@@ -430,94 +406,288 @@ flex-direction:column;
 
 <body>
 
-<div class="space-bg">
+<canvas id="space"></canvas>
 
-<div class="stars"></div>
+<div class="grid-overlay"></div>
 
-<div class="glow"></div>
+<header>
 
-<div class="planet planet1"></div>
-<div class="planet planet2"></div>
-<div class="planet planet3"></div>
-
-<div class="ring ring1"></div>
-<div class="ring ring2"></div>
-
+<div class="logo">
+OCÉANE DEHAUDT
 </div>
 
 <nav>
-
-<div class="logo">
-Océane Dehaudt
-</div>
-
-<div class="nav-links">
-<a href="#">Accueil</a>
-<a href="#">À propos</a>
-<a href="#">Projets</a>
-<a href="#">Compétences</a>
+<a href="#">About</a>
+<a href="#">Skills</a>
+<a href="#">Projects</a>
 <a href="#">Contact</a>
-</div>
-
 </nav>
+
+</header>
 
 <section class="hero">
 
 <div class="hero-content">
 
-<div class="tag">
-ÉTUDIANTE EN CYBERSÉCURITÉ • OFFENSIVE SECURITY • NETWORK ANALYSIS
+<div class="hero-tag">
+Cybersecurity • Offensive Security • Network Analysis
 </div>
 
 <h1>
-Analyste en <span>cybersécurité</span><br>
-passionnée par<br>
-la sécurité offensive.
+OCÉANE<br>
+<span>DEHAUDT</span>
 </h1>
 
 <p>
-Étudiante en cybersécurité à l’IFAPME, spécialisée dans l’analyse réseau, les laboratoires de sécurité offensive et les environnements de tests d’intrusion. J’apprends continuellement à travers des projets pratiques, des analyses techniques et des recherches en cybersécurité afin de développer une expertise concrète et professionnelle.
+Cybersecurity student building practical experience through penetration testing, offensive security labs, network analysis and cybersecurity research with immersive real-world learning.
 </p>
 
 <div class="buttons">
-
-<a href="https://github.com/oceane-dehaudt" class="btn btn-primary">
-Voir mes projets
-</a>
-
-<a href="CV_Oceane_Dehaudt.pdf" class="btn btn-secondary">
-Télécharger mon CV
-</a>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-<h3>5+</h3>
-<p>Laboratoires réalisés</p>
-</div>
-
-<div class="stat">
-<h3>15+</h3>
-<p>Outils maîtrisés</p>
-</div>
-
-<div class="stat">
-<h3>200+</h3>
-<p>Heures de pratique</p>
-</div>
-
-<div class="stat">
-<h3>100%</h3>
-<p>Motivation & progression</p>
-</div>
-
+<a href="#" class="btn btn-primary">View GitHub</a>
+<a href="#" class="btn btn-secondary">Download Resume</a>
+<a href="#" class="btn btn-secondary">View Labs</a>
 </div>
 
 </div>
 
 </section>
+
+<script type="module">
+
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js';
+
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/controls/OrbitControls.js';
+
+const canvas = document.getElementById('space');
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+2000
+);
+
+camera.position.z = 12;
+
+const renderer = new THREE.WebGLRenderer({
+canvas,
+antialias:true
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth,window.innerHeight);
+
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+/* ===========================
+STARS
+=========================== */
+
+const starsGeometry = new THREE.BufferGeometry();
+
+const starsCount = 8000;
+
+const positions = new Float32Array(starsCount * 3);
+
+for(let i=0;i<starsCount*3;i++){
+
+positions[i] = (Math.random()-0.5)*2000;
+
+}
+
+starsGeometry.setAttribute(
+'position',
+new THREE.BufferAttribute(positions,3)
+);
+
+const starsMaterial = new THREE.PointsMaterial({
+size:0.7,
+color:'#8be9ff'
+});
+
+const stars = new THREE.Points(
+starsGeometry,
+starsMaterial
+);
+
+scene.add(stars);
+
+/* ===========================
+EARTH
+=========================== */
+
+const textureLoader = new THREE.TextureLoader();
+
+const earthTexture = textureLoader.load(
+'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
+);
+
+const bumpTexture = textureLoader.load(
+'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
+);
+
+const earthGeometry = new THREE.SphereGeometry(
+4,
+128,
+128
+);
+
+const earthMaterial = new THREE.MeshStandardMaterial({
+map:earthTexture,
+normalMap:bumpTexture,
+metalness:0.4,
+roughness:0.8
+});
+
+const earth = new THREE.Mesh(
+earthGeometry,
+earthMaterial
+);
+
+scene.add(earth);
+
+/* ===========================
+ATMOSPHERE
+=========================== */
+
+const atmosphereGeometry = new THREE.SphereGeometry(
+4.2,
+128,
+128
+);
+
+const atmosphereMaterial = new THREE.MeshBasicMaterial({
+color:'#3cf6ff',
+transparent:true,
+opacity:0.12
+});
+
+const atmosphere = new THREE.Mesh(
+atmosphereGeometry,
+atmosphereMaterial
+);
+
+scene.add(atmosphere);
+
+/* ===========================
+LIGHTING
+=========================== */
+
+const ambientLight = new THREE.AmbientLight(
+0xffffff,
+0.5
+);
+
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(
+0x8be9ff,
+2.5
+);
+
+directionalLight.position.set(10,4,8);
+
+scene.add(directionalLight);
+
+/* ===========================
+SATELLITE CONNECTIONS
+=========================== */
+
+const connectionMaterial = new THREE.LineBasicMaterial({
+color:'#6ee7ff',
+transparent:true,
+opacity:0.25
+});
+
+for(let i=0;i<120;i++){
+
+const points = [];
+
+const radius = 5 + Math.random()*1.5;
+
+for(let j=0;j<2;j++){
+
+const theta = Math.random()*Math.PI*2;
+const phi = Math.random()*Math.PI;
+
+points.push(
+new THREE.Vector3(
+radius*Math.sin(phi)*Math.cos(theta),
+radius*Math.cos(phi),
+radius*Math.sin(phi)*Math.sin(theta)
+)
+);
+
+}
+
+const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+const line = new THREE.Line(
+geometry,
+connectionMaterial
+);
+
+scene.add(line);
+
+}
+
+/* ===========================
+MOUSE PARALLAX
+=========================== */
+
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener('mousemove',(event)=>{
+
+mouseX = (event.clientX/window.innerWidth - 0.5)*2;
+mouseY = (event.clientY/window.innerHeight - 0.5)*2;
+
+});
+
+/* ===========================
+ANIMATION
+=========================== */
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+earth.rotation.y += 0.0018;
+
+stars.rotation.y += 0.0002;
+
+camera.position.x += (mouseX * 2 - camera.position.x)*0.02;
+camera.position.y += (-mouseY * 2 - camera.position.y)*0.02;
+
+camera.lookAt(scene.position);
+
+renderer.render(scene,camera);
+
+}
+
+animate();
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+window.addEventListener('resize',()=>{
+
+camera.aspect = window.innerWidth/window.innerHeight;
+
+camera.updateProjectionMatrix();
+
+renderer.setSize(
+window.innerWidth,
+window.innerHeight
+);
+
+});
+
+</script>
 
 </body>
 </html>
