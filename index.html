@@ -1,12 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Océane Dehaudt | Cybersécurité</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,72 +20,64 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#000;
+background:#020202;
+color:white;
 font-family:'Inter',sans-serif;
 overflow-x:hidden;
-color:white;
 }
 
 /* BACKGROUND */
 
-.background{
+body::before{
+content:"";
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
+
 background:
-linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-z-index:-3;
-animation:bgMove 20s ease-in-out infinite alternate;
+radial-gradient(circle at center,
+rgba(255,0,0,0.14),
+transparent 60%),
+linear-gradient(to bottom,
+rgba(0,0,0,0.1),
+rgba(0,0,0,0.96));
+
+z-index:-5;
 }
 
-@keyframes bgMove{
-0%{
-transform:scale(1);
-}
-100%{
-transform:scale(1.08);
-}
-}
+/* STARS */
 
-/* RED PARTICLES */
-
-.particles{
+.stars{
 position:fixed;
 width:100%;
 height:100%;
 overflow:hidden;
-z-index:-2;
+z-index:-4;
 }
 
-.particles span{
+.stars span{
 position:absolute;
-display:block;
 width:2px;
 height:2px;
-background:red;
+background:#ff2b2b;
 border-radius:50%;
-box-shadow:0 0 10px red;
-animation:animate 10s linear infinite;
-opacity:0.8;
+animation:twinkle 4s linear infinite;
+opacity:0.4;
 }
 
-@keyframes animate{
+@keyframes twinkle{
+
 0%{
-transform:translateY(100vh) scale(0);
-opacity:0;
+opacity:0.2;
 }
+
 50%{
 opacity:1;
 }
+
 100%{
-transform:translateY(-10vh) scale(1);
-opacity:0;
+opacity:0.2;
 }
+
 }
 
 /* NAVBAR */
@@ -91,15 +85,20 @@ opacity:0;
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-padding:25px 70px;
+padding:24px 70px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:1000;
+
 background:rgba(0,0,0,0.35);
-backdrop-filter:blur(8px);
+backdrop-filter:blur(12px);
+
 border-bottom:1px solid rgba(255,0,0,0.15);
+
+z-index:1000;
 }
 
 .logo{
@@ -115,18 +114,18 @@ color:#ff2b2b;
 
 nav ul{
 display:flex;
-gap:40px;
 list-style:none;
+gap:40px;
 }
 
-nav ul li a{
-text-decoration:none;
+nav a{
 color:white;
-font-size:0.95rem;
+text-decoration:none;
+font-weight:500;
 transition:0.3s;
 }
 
-nav ul li a:hover{
+nav a:hover{
 color:#ff2b2b;
 }
 
@@ -137,43 +136,49 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:120px 8%;
-gap:50px;
+padding:140px 8%;
+gap:60px;
+position:relative;
 }
 
+/* LEFT */
+
 .left{
-max-width:650px;
+max-width:720px;
 z-index:2;
 }
 
-.tag{
-color:#ff3a3a;
-font-size:0.8rem;
+.mini{
+color:#ff2b2b;
 letter-spacing:4px;
-margin-bottom:20px;
 text-transform:uppercase;
+font-size:0.85rem;
+margin-bottom:20px;
 }
 
 h1{
 font-family:'Orbitron',sans-serif;
-font-size:5.5rem;
-line-height:0.95;
+font-size:6rem;
+line-height:0.92;
 font-weight:800;
-margin-bottom:25px;
-text-transform:uppercase;
+margin-bottom:30px;
 }
 
 h1 span{
 color:#ff2b2b;
-text-shadow:0 0 20px rgba(255,0,0,0.7);
+
+text-shadow:
+0 0 10px rgba(255,0,0,0.6),
+0 0 30px rgba(255,0,0,0.4),
+0 0 80px rgba(255,0,0,0.3);
 }
 
-.description{
-color:#cfcfcf;
-font-size:1.1rem;
-line-height:1.8;
-max-width:580px;
-margin-bottom:35px;
+.desc{
+font-size:1.15rem;
+line-height:1.9;
+color:#d7d7d7;
+max-width:650px;
+margin-bottom:45px;
 }
 
 /* BUTTONS */
@@ -185,126 +190,172 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 32px;
-border:none;
-text-decoration:none;
+padding:18px 36px;
+border-radius:14px;
 font-weight:600;
-font-size:0.95rem;
-cursor:pointer;
+text-decoration:none;
 transition:0.3s;
-border-radius:6px;
+font-size:1rem;
 }
 
 .btn-red{
-background:#ff2b2b;
+background:#ff1f1f;
 color:white;
-box-shadow:0 0 25px rgba(255,0,0,0.3);
+
+box-shadow:
+0 0 25px rgba(255,0,0,0.4);
 }
 
 .btn-red:hover{
-transform:translateY(-3px);
-box-shadow:0 0 35px rgba(255,0,0,0.6);
+transform:translateY(-5px);
+background:#ff3939;
 }
 
 .btn-dark{
-background:transparent;
 border:1px solid rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(10px);
 color:white;
 }
 
 .btn-dark:hover{
-border:1px solid #ff2b2b;
-color:#ff2b2b;
+border-color:#ff2b2b;
 }
 
-/* GLOBE */
+/* RIGHT */
 
 .right{
-position:relative;
 flex:1;
 display:flex;
 justify-content:center;
 align-items:center;
-}
-
-.globe{
-width:600px;
-height:600px;
-border-radius:50%;
-background:
-radial-gradient(circle at center,
-rgba(255,0,0,0.9) 0%,
-rgba(100,0,0,0.7) 35%,
-rgba(0,0,0,0.95) 70%);
-box-shadow:
-0 0 80px rgba(255,0,0,0.8),
-0 0 160px rgba(255,0,0,0.3);
 position:relative;
-animation:rotateGlobe 18s linear infinite;
-overflow:hidden;
 }
 
-/* network effect */
+/* PLANET */
 
-.globe::before{
-content:'';
+.planet-container{
+position:relative;
+width:650px;
+height:650px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.cyber-earth{
+width:100%;
+height:100%;
+object-fit:contain;
+
+animation:
+floatPlanet 7s ease-in-out infinite,
+rotatePlanet 60s linear infinite;
+
+filter:
+drop-shadow(0 0 30px rgba(255,0,0,0.6))
+drop-shadow(0 0 80px rgba(255,0,0,0.3));
+}
+
+/* glow */
+
+.glow{
 position:absolute;
-inset:0;
-background:
-url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-opacity:0.3;
-mix-blend-mode:screen;
+width:700px;
+height:700px;
+background:radial-gradient(circle,
+rgba(255,0,0,0.18),
+transparent 65%);
+border-radius:50%;
+z-index:-1;
+animation:pulse 5s ease-in-out infinite;
 }
 
-.globe::after{
-content:'';
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle,
-transparent 45%,
-rgba(255,0,0,0.15) 100%);
-}
+/* animations */
 
-@keyframes rotateGlobe{
+@keyframes floatPlanet{
+
 0%{
-transform:rotate(0deg);
-}
-100%{
-transform:rotate(360deg);
-}
+transform:translateY(0px);
 }
 
-/* INFO BOXES */
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes rotatePlanet{
+
+0%{
+rotate:0deg;
+}
+
+100%{
+rotate:360deg;
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+opacity:0.5;
+transform:scale(1);
+}
+
+50%{
+opacity:0.9;
+transform:scale(1.05);
+}
+
+100%{
+opacity:0.5;
+transform:scale(1);
+}
+
+}
+
+/* STATS */
 
 .stats{
 position:absolute;
-right:-20px;
+right:-40px;
 display:flex;
 flex-direction:column;
 gap:20px;
 }
 
 .stat{
-background:rgba(0,0,0,0.5);
-border:1px solid rgba(255,0,0,0.25);
-padding:18px 22px;
-backdrop-filter:blur(8px);
-border-radius:10px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,0,0,0.12);
+
+backdrop-filter:blur(12px);
+
+padding:22px;
+border-radius:18px;
+min-width:180px;
 }
 
 .stat h3{
 font-size:2rem;
+font-family:'Orbitron',sans-serif;
 color:#ff2b2b;
-margin-bottom:5px;
+margin-bottom:8px;
 }
 
 .stat p{
-font-size:0.8rem;
-color:#c9c9c9;
+color:#d7d7d7;
+font-size:0.95rem;
+line-height:1.5;
 }
 
-/* LABS */
+/* SECTION */
 
 .section{
 padding:120px 8%;
@@ -314,63 +365,93 @@ padding:120px 8%;
 font-family:'Orbitron',sans-serif;
 font-size:3rem;
 margin-bottom:60px;
-text-transform:uppercase;
 }
 
 .section-title span{
 color:#ff2b2b;
 }
 
-.labs{
+/* LABS */
+
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
-.lab-card{
-background:rgba(10,10,10,0.75);
-border:1px solid rgba(255,0,0,0.15);
+.card{
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(255,0,0,0.12);
+
 padding:35px;
-border-radius:18px;
+border-radius:24px;
+
+backdrop-filter:blur(12px);
+
 transition:0.4s;
-backdrop-filter:blur(10px);
 }
 
-.lab-card:hover{
+.card:hover{
 transform:translateY(-10px);
+
 border-color:#ff2b2b;
-box-shadow:0 0 40px rgba(255,0,0,0.2);
+
+box-shadow:
+0 0 30px rgba(255,0,0,0.15);
 }
 
-.lab-card h3{
-font-size:1.4rem;
+.card h3{
+font-size:1.5rem;
 margin-bottom:15px;
+
+font-family:'Orbitron',sans-serif;
 color:#ff2b2b;
 }
 
-.lab-card p{
-color:#cfcfcf;
-line-height:1.7;
-margin-bottom:25px;
+.card p{
+line-height:1.8;
+color:#d0d0d0;
+margin-bottom:20px;
 }
 
-.lab-card a{
-color:white;
+.card a{
+color:#ff2b2b;
 text-decoration:none;
 font-weight:600;
 }
 
 /* CONTACT */
 
-.contact{
+.contact-box{
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(255,0,0,0.12);
+
+padding:55px;
+border-radius:30px;
 text-align:center;
-padding-bottom:120px;
 }
 
-.contact a{
+.contact-box p{
+margin-top:20px;
+font-size:1.15rem;
+color:#d0d0d0;
+}
+
+.contact-box a{
 color:#ff2b2b;
 text-decoration:none;
-font-size:1.2rem;
+}
+
+/* FOOTER */
+
+footer{
+padding:50px;
+text-align:center;
+color:#777;
+
+border-top:1px solid rgba(255,255,255,0.06);
 }
 
 /* RESPONSIVE */
@@ -380,33 +461,28 @@ font-size:1.2rem;
 .hero{
 flex-direction:column;
 text-align:center;
-padding-top:160px;
+padding-top:180px;
 }
 
 .left{
-max-width:100%;
-}
-
-.description{
-margin:auto auto 35px;
-}
-
-.buttons{
-justify-content:center;
-}
-
-.globe{
-width:420px;
-height:420px;
-}
-
-.stats{
-display:none;
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 h1{
-font-size:4rem;
+font-size:4.3rem;
 }
+
+.stats{
+position:relative;
+right:auto;
+margin-top:40px;
+flex-direction:row;
+flex-wrap:wrap;
+justify-content:center;
+}
+
 }
 
 @media(max-width:700px){
@@ -416,42 +492,40 @@ padding:20px;
 }
 
 nav ul{
-gap:15px;
+gap:18px;
+font-size:0.9rem;
 }
 
 h1{
-font-size:2.8rem;
+font-size:3rem;
 }
 
-.globe{
-width:300px;
-height:300px;
+.desc{
+font-size:1rem;
+}
+
+.planet-container{
+width:100%;
+height:auto;
 }
 
 .section-title{
-font-size:2rem;
+font-size:2.1rem;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="background"></div>
+<!-- stars -->
 
-<div class="particles">
-<span style="left:10%;animation-delay:0s;"></span>
-<span style="left:20%;animation-delay:2s;"></span>
-<span style="left:30%;animation-delay:4s;"></span>
-<span style="left:40%;animation-delay:1s;"></span>
-<span style="left:50%;animation-delay:6s;"></span>
-<span style="left:60%;animation-delay:3s;"></span>
-<span style="left:70%;animation-delay:5s;"></span>
-<span style="left:80%;animation-delay:2s;"></span>
-<span style="left:90%;animation-delay:7s;"></span>
-</div>
+<div class="stars"></div>
+
+<!-- NAV -->
 
 <nav>
 
@@ -467,20 +541,22 @@ OCÉANE <span>DEHAUDT</span>
 
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="left">
 
-<div class="tag">
+<div class="mini">
 Étudiante en cybersécurité
 </div>
 
 <h1>
-ANALYSTE EN<br>
-<span>CYBERSÉCURITÉ</span>
+ANALYSTE<br>
+EN <span>CYBERSÉCURITÉ</span>
 </h1>
 
-<p class="description">
+<p class="desc">
 Étudiante à l’IFAPME spécialisée en cybersécurité offensive.
 Je développe mes compétences à travers des laboratoires de pentesting,
 l’analyse réseau, l’OSINT et des projets techniques orientés sécurité offensive.
@@ -488,11 +564,15 @@ l’analyse réseau, l’OSINT et des projets techniques orientés sécurité of
 
 <div class="buttons">
 
-<a href="https://github.com/oceane-dehaudt" class="btn btn-red" target="_blank">
+<a class="btn btn-red"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
 Voir GitHub
 </a>
 
-<a href="CV-Oceane-Dehaudt.pdf" class="btn btn-dark" target="_blank">
+<a class="btn btn-dark"
+href="CV_Oceane_Dehaudt.pdf"
+target="_blank">
 Télécharger CV
 </a>
 
@@ -500,9 +580,23 @@ Télécharger CV
 
 </div>
 
+<!-- RIGHT -->
+
 <div class="right">
 
-<div class="globe"></div>
+<div class="planet-container">
+
+<div class="glow"></div>
+
+<!-- IMAGE EXACTE -->
+
+<img
+class="cyber-earth"
+src="https://i.imgur.com/Hh9MZ6x.png"
+alt="Cyber Earth"
+/>
+
+</div>
 
 <div class="stats">
 
@@ -527,58 +621,61 @@ Télécharger CV
 
 </section>
 
+<!-- LABS -->
+
 <section class="section" id="labs">
 
 <h2 class="section-title">
-Mes <span>Labs</span>
+Mes <span>Laboratoires</span>
 </h2>
 
-<div class="labs">
+<div class="cards">
 
-<div class="lab-card">
+<div class="card">
 
-<h3>Nagios XI Pentest Lab</h3>
+<h3>Nagios XI</h3>
 
 <p>
-Reconnaissance réseau, énumération de services,
-analyse de vulnérabilités et post-exploitation
-dans un environnement vulnérable Nagios XI.
+Reconnaissance réseau,
+analyse des services exposés,
+identification de vulnérabilités
+et exploitation dans un environnement de test.
 </p>
 
 <a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank">
-Voir le laboratoire →
+Voir le projet →
 </a>
 
 </div>
 
-<div class="lab-card">
+<div class="card">
 
-<h3>MS17-010 / EternalBlue</h3>
+<h3>Analyse Réseau</h3>
 
 <p>
-Analyse et exploitation de la vulnérabilité SMB
-via Metasploit avec élévation de privilèges
-et validation d’accès SYSTEM.
+Analyse de trafic avec Wireshark,
+inspection de paquets
+et détection d’activités suspectes.
 </p>
 
 <a href="https://github.com/oceane-dehaudt" target="_blank">
-Voir sur GitHub →
+Voir GitHub →
 </a>
 
 </div>
 
-<div class="lab-card">
+<div class="card">
 
-<h3>Analyse Réseau Wireshark</h3>
+<h3>OSINT</h3>
 
 <p>
-Inspection et analyse de trafic réseau,
-identification de comportements suspects
-et compréhension protocolaire.
+Collecte et corrélation d’informations
+via des sources ouvertes
+dans un cadre d’investigation.
 </p>
 
 <a href="https://github.com/oceane-dehaudt" target="_blank">
-Voir sur GitHub →
+Voir GitHub →
 </a>
 
 </div>
@@ -587,17 +684,54 @@ Voir sur GitHub →
 
 </section>
 
-<section class="contact" id="contact">
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<div class="contact-box">
 
 <h2 class="section-title">
-Contact
+Contact <span>Professionnel</span>
 </h2>
 
+<p>
 <a href="mailto:oceane.dehaudt.pro@gmail.com">
 oceane.dehaudt.pro@gmail.com
 </a>
+</p>
+
+</div>
 
 </section>
 
+<footer>
+© 2026 Océane Dehaudt — Cybersecurity Portfolio
+</footer>
+
+<script>
+
+/* stars */
+
+const starsContainer = document.querySelector(".stars");
+
+for(let i=0;i<140;i++){
+
+let star = document.createElement("span");
+
+star.style.top = Math.random()*100 + "%";
+star.style.left = Math.random()*100 + "%";
+
+star.style.animationDuration =
+(2 + Math.random()*5) + "s";
+
+star.style.opacity = Math.random();
+
+starsContainer.appendChild(star);
+
+}
+
+</script>
+
 </body>
 </html>
+```
