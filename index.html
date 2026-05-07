@@ -1,11 +1,10 @@
-# Ultra Cinematic 5K Cybersecurity Portfolio
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Océane Dehaudt | Cybersecurity Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,20 +17,17 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 font-family:'Inter',sans-serif;
-overflow-x:hidden;
 background:black;
+overflow:hidden;
 color:white;
 }
 
 canvas{
 position:fixed;
-inset:0;
+top:0;
+left:0;
 width:100%;
 height:100%;
 z-index:-20;
@@ -42,10 +38,10 @@ content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at center, rgba(0,180,255,0.12), transparent 35%),
+radial-gradient(circle at center, rgba(0,180,255,0.15), transparent 35%),
 linear-gradient(to bottom,#000814,#010b1f,#000814);
-pointer-events:none;
 z-index:-10;
+pointer-events:none;
 }
 
 header{
@@ -56,7 +52,7 @@ padding:24px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 background:rgba(0,0,0,0.25);
 border-bottom:1px solid rgba(255,255,255,0.06);
 z-index:999;
@@ -72,6 +68,7 @@ nav a{
 text-decoration:none;
 color:white;
 margin-left:28px;
+font-weight:500;
 transition:0.3s;
 }
 
@@ -91,7 +88,7 @@ z-index:5;
 }
 
 .hero-content{
-max-width:1100px;
+max-width:1000px;
 }
 
 .hero-tag{
@@ -107,7 +104,7 @@ font-size:0.95rem;
 }
 
 .hero h1{
-font-size:8rem;
+font-size:7rem;
 line-height:0.85;
 font-weight:800;
 margin-bottom:30px;
@@ -121,7 +118,7 @@ background:linear-gradient(90deg,#67e8f9,#00ffae);
 }
 
 .hero p{
-font-size:1.25rem;
+font-size:1.2rem;
 line-height:2;
 max-width:900px;
 margin:auto;
@@ -168,69 +165,35 @@ transform:translateY(-5px);
 border-color:#67e8f9;
 }
 
-.about{
-padding:140px 8%;
-position:relative;
-z-index:10;
+.glow{
+position:absolute;
+width:900px;
+height:900px;
+background:radial-gradient(circle, rgba(0,255,255,0.18), transparent 70%);
+filter:blur(120px);
+z-index:-5;
+animation:pulse 6s infinite ease-in-out;
 }
 
-.section-title{
-font-size:3rem;
-margin-bottom:25px;
-font-weight:800;
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:0.8;
 }
-
-.section-subtitle{
-max-width:800px;
-line-height:1.9;
-color:#c8d3df;
-margin-bottom:60px;
+50%{
+transform:scale(1.1);
+opacity:1;
 }
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:28px;
+100%{
+transform:scale(1);
+opacity:0.8;
 }
-
-.card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-padding:35px;
-border-radius:30px;
-backdrop-filter:blur(18px);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 60px rgba(0,180,255,0.15);
-border-color:#67e8f9;
-}
-
-.card h3{
-margin-bottom:18px;
-color:#7dd3fc;
-font-size:1.4rem;
-}
-
-.card p{
-line-height:1.9;
-color:#d2d9e2;
-}
-
-footer{
-padding:40px;
-text-align:center;
-color:#8b97a8;
-position:relative;
-z-index:5;
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:4.2rem;
+font-size:4rem;
 }
 
 header{
@@ -245,24 +208,32 @@ margin:0 10px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <canvas id="bg"></canvas>
 
+<div class="glow"></div>
+
 <header>
-<div class="logo">OCÉANE DEHAUDT</div>
+
+<div class="logo">
+OCÉANE DEHAUDT
+</div>
 
 <nav>
-<a href="#about">À propos</a>
-<a href="#skills">Compétences</a>
-<a href="#projects">Projets</a>
-<a href="#contact">Contact</a>
+<a href="#">À propos</a>
+<a href="#">Compétences</a>
+<a href="#">Projets</a>
+<a href="#">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero">
+
 <div class="hero-content">
 
 <div class="hero-tag">
@@ -270,15 +241,17 @@ Cybersécurité • Offensive Security • Intelligence Artificielle
 </div>
 
 <h1>
-CYBERSPACE<br>
-<span>5K</span>
+Océane<br>
+<span>Dehaudt</span>
 </h1>
 
 <p>
-Étudiante en cybersécurité à l’IFAPME spécialisée dans les environnements offensifs, l’analyse réseau, les laboratoires de penetration testing et les systèmes de sécurité modernes.
+Étudiante en cybersécurité à l’IFAPME spécialisée en offensive security, analyse réseau, OSINT et penetration testing.
+Passionnée par les environnements cyber futuristes, les infrastructures sécurisées et les technologies avancées.
 </p>
 
 <div class="buttons">
+
 <a href="https://github.com/oceane-dehaudt" target="_blank" class="btn btn-primary">
 Voir GitHub
 </a>
@@ -286,64 +259,18 @@ Voir GitHub
 <a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank" class="btn btn-secondary">
 Voir les Labs
 </a>
-</div>
 
-</div>
-</section>
-
-<section class="about" id="about">
-
-<h2 class="section-title">
-À propos
-</h2>
-
-<p class="section-subtitle">
-Passionnée par la cybersécurité offensive, l’OSINT et l’analyse d’infrastructure réseau. Développement de compétences pratiques via des laboratoires réalistes, la recherche en sécurité et des environnements virtualisés.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Offensive Security</h3>
-<p>
-Reconnaissance, exploitation Metasploit, analyse de vulnérabilités, post-exploitation et méthodologies de penetration testing.
-</p>
-</div>
-
-<div class="card">
-<h3>Analyse Réseau</h3>
-<p>
-Wireshark, Nmap, TCP/IP, enumeration de services et analyse du trafic réseau dans des environnements virtualisés.
-</p>
-</div>
-
-<div class="card">
-<h3>OSINT & Recherche</h3>
-<p>
-Collecte d’informations, corrélation de données et méthodologies d’investigation numérique modernes.
-</p>
 </div>
 
 </div>
 
 </section>
-
-<footer>
-© 2026 Océane Dehaudt — Cybersecurity Portfolio
-</footer>
 
 <script type="module">
 
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js';
-import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/postprocessing/UnrealBloomPass.js';
-
-const canvas = document.getElementById('bg');
 
 const scene = new THREE.Scene();
-
-scene.fog = new THREE.FogExp2(0x010814,0.00055);
 
 const camera = new THREE.PerspectiveCamera(
 60,
@@ -352,44 +279,34 @@ window.innerWidth/window.innerHeight,
 5000
 );
 
-camera.position.set(0,0,14);
+camera.position.z = 14;
 
 const renderer = new THREE.WebGLRenderer({
-canvas,
+canvas:document.getElementById('bg'),
 antialias:true,
-alpha:true,
-powerPreference:'high-performance'
+alpha:true
 });
 
-renderer.setPixelRatio(window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
+
+renderer.setPixelRatio(window.devicePixelRatio);
+
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-const composer = new EffectComposer(renderer);
-
-composer.addPass(new RenderPass(scene,camera));
-
-const bloomPass = new UnrealBloomPass(
-new THREE.Vector2(window.innerWidth,window.innerHeight),
-2.2,
-1,
-0.05
-);
-
-composer.addPass(bloomPass);
 
 /* STARS */
 
 const starsGeometry = new THREE.BufferGeometry();
-const starsCount = 35000;
+
+const starsCount = 30000;
+
 const starsArray = [];
 
 for(let i=0;i<starsCount;i++){
 
 starsArray.push(
-(Math.random()-0.5)*6000,
-(Math.random()-0.5)*6000,
-(Math.random()-0.5)*6000
+(Math.random()-0.5)*5000,
+(Math.random()-0.5)*5000,
+(Math.random()-0.5)*5000
 );
 
 }
@@ -406,85 +323,54 @@ transparent:true,
 opacity:1
 });
 
-const stars = new THREE.Points(starsGeometry,starsMaterial);
+const stars = new THREE.Points(
+starsGeometry,
+starsMaterial
+);
+
 scene.add(stars);
-
-/* NEBULA */
-
-const nebulaGeometry = new THREE.BufferGeometry();
-const nebulaArray = [];
-
-for(let i=0;i<12000;i++){
-
-nebulaArray.push(
-(Math.random()-0.5)*400,
-(Math.random()-0.5)*400,
-(Math.random()-0.5)*400
-);
-
-}
-
-nebulaGeometry.setAttribute(
-'position',
-new THREE.Float32BufferAttribute(nebulaArray,3)
-);
-
-const nebulaMaterial = new THREE.PointsMaterial({
-color:'#4fdcff',
-size:0.16,
-transparent:true,
-opacity:0.18
-});
-
-const nebula = new THREE.Points(nebulaGeometry,nebulaMaterial);
-scene.add(nebula);
-
-/* TEXTURES */
-
-const loader = new THREE.TextureLoader();
-
-const earthTexture = loader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
-const normalTexture = loader.load('https://threejs.org/examples/textures/planets/earth_normal_2048.jpg');
-const cloudTexture = loader.load('https://raw.githubusercontent.com/turban/webgl-earth/master/images/fair_clouds_4k.png');
 
 /* EARTH */
 
-const earthGeometry = new THREE.SphereGeometry(7,256,256);
+const loader = new THREE.TextureLoader();
+
+const earthTexture = loader.load(
+'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
+);
+
+const normalTexture = loader.load(
+'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
+);
+
+const earthGeometry = new THREE.SphereGeometry(
+8,
+256,
+256
+);
 
 const earthMaterial = new THREE.MeshStandardMaterial({
 map:earthTexture,
 normalMap:normalTexture,
-roughness:0.55,
-metalness:0.35,
-emissive:new THREE.Color('#0b2334'),
-emissiveIntensity:0.25
+roughness:0.5,
+metalness:0.3
 });
 
-const earth = new THREE.Mesh(earthGeometry,earthMaterial);
+const earth = new THREE.Mesh(
+earthGeometry,
+earthMaterial
+);
 
-earth.position.set(-8,-2,-8);
+earth.position.set(-10,-5,-15);
 
 scene.add(earth);
 
-/* CLOUDS */
-
-const cloudGeometry = new THREE.SphereGeometry(7.08,256,256);
-
-const cloudMaterial = new THREE.MeshStandardMaterial({
-map:cloudTexture,
-transparent:true,
-opacity:0.4
-});
-
-const clouds = new THREE.Mesh(cloudGeometry,cloudMaterial);
-
-clouds.position.copy(earth.position);
-
-scene.add(clouds);
-
 /* ATMOSPHERE */
 
-const atmosphereGeometry = new THREE.SphereGeometry(7.25,256,256);
+const atmosphereGeometry = new THREE.SphereGeometry(
+8.3,
+256,
+256
+);
 
 const atmosphereMaterial = new THREE.MeshBasicMaterial({
 color:'#4fdcff',
@@ -492,17 +378,33 @@ transparent:true,
 opacity:0.18
 });
 
-const atmosphere = new THREE.Mesh(atmosphereGeometry,atmosphereMaterial);
+const atmosphere = new THREE.Mesh(
+atmosphereGeometry,
+atmosphereMaterial
+);
 
 atmosphere.position.copy(earth.position);
 
 scene.add(atmosphere);
 
-/* SUN */
+/* LIGHT */
 
-const sunLight = new THREE.PointLight(0xffffff,9,400);
-sunLight.position.set(18,8,8);
+const sunLight = new THREE.PointLight(
+0xffffff,
+8,
+300
+);
+
+sunLight.position.set(20,10,10);
+
 scene.add(sunLight);
+
+const ambientLight = new THREE.AmbientLight(
+0xffffff,
+0.5
+);
+
+scene.add(ambientLight);
 
 /* NETWORK */
 
@@ -511,12 +413,12 @@ const networkGroup = new THREE.Group();
 const lineMaterial = new THREE.LineBasicMaterial({
 color:'#ffffff',
 transparent:true,
-opacity:0.28
+opacity:0.25
 });
 
-for(let i=0;i<600;i++){
+for(let i=0;i<500;i++){
 
-const radius = 8.2;
+const radius = 9;
 
 const theta1 = Math.random()*Math.PI*2;
 const phi1 = Math.random()*Math.PI;
@@ -541,7 +443,11 @@ point1,
 point2
 ]);
 
-const line = new THREE.Line(geometry,lineMaterial);
+const line = new THREE.Line(
+geometry,
+lineMaterial
+);
+
 networkGroup.add(line);
 
 }
@@ -550,30 +456,7 @@ networkGroup.position.copy(earth.position);
 
 scene.add(networkGroup);
 
-/* NODES */
-
-const nodeGeometry = new THREE.SphereGeometry(0.045,10,10);
-const nodeMaterial = new THREE.MeshBasicMaterial({color:'#ffffff'});
-
-for(let i=0;i<1000;i++){
-
-const theta = Math.random()*Math.PI*2;
-const phi = Math.random()*Math.PI;
-const radius = 8.1;
-
-const node = new THREE.Mesh(nodeGeometry,nodeMaterial);
-
-node.position.set(
-radius*Math.sin(phi)*Math.cos(theta),
-radius*Math.cos(phi),
-radius*Math.sin(phi)*Math.sin(theta)
-);
-
-networkGroup.add(node);
-
-}
-
-/* PARALLAX */
+/* MOUSE */
 
 let mouseX = 0;
 let mouseY = 0;
@@ -581,6 +464,7 @@ let mouseY = 0;
 window.addEventListener('mousemove',(event)=>{
 
 mouseX = (event.clientX/window.innerWidth - 0.5)*2;
+
 mouseY = (event.clientY/window.innerHeight - 0.5)*2;
 
 });
@@ -592,18 +476,18 @@ function animate(){
 requestAnimationFrame(animate);
 
 earth.rotation.y += 0.0012;
-clouds.rotation.y += 0.0015;
-networkGroup.rotation.y += 0.0009;
+
+networkGroup.rotation.y += 0.0008;
 
 stars.rotation.y += 0.00002;
-nebula.rotation.y += 0.00004;
 
 camera.position.x += (mouseX*2 - camera.position.x)*0.015;
+
 camera.position.y += (-mouseY*1.5 - camera.position.y)*0.015;
 
 camera.lookAt(0,0,0);
 
-composer.render();
+renderer.render(scene,camera);
 
 }
 
@@ -612,10 +496,10 @@ animate();
 window.addEventListener('resize',()=>{
 
 camera.aspect = window.innerWidth/window.innerHeight;
+
 camera.updateProjectionMatrix();
 
 renderer.setSize(window.innerWidth,window.innerHeight);
-composer.setSize(window.innerWidth,window.innerHeight);
 
 });
 
@@ -623,4 +507,3 @@ composer.setSize(window.innerWidth,window.innerHeight);
 
 </body>
 </html>
-```
