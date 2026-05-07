@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersecurity</title>
+<title>Océane Dehaudt | Cybersécurité</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,40 +14,76 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-}
-
-html{
 scroll-behavior:smooth;
 }
 
 body{
 background:#000;
-color:white;
 font-family:'Inter',sans-serif;
 overflow-x:hidden;
+color:white;
 }
 
 /* BACKGROUND */
 
-body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top,#240000 0%,#000 55%),
-linear-gradient(to bottom,#000,#050505);
-z-index:-5;
-}
-
-/* PARTICLES */
-
-canvas{
+.background{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
+background:
+linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
 z-index:-3;
+animation:bgMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.08);
+}
+}
+
+/* RED PARTICLES */
+
+.particles{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particles span{
+position:absolute;
+display:block;
+width:2px;
+height:2px;
+background:red;
+border-radius:50%;
+box-shadow:0 0 10px red;
+animation:animate 10s linear infinite;
+opacity:0.8;
+}
+
+@keyframes animate{
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
 }
 
 /* NAVBAR */
@@ -61,86 +96,84 @@ padding:25px 70px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
-backdrop-filter:blur(10px);
+z-index:1000;
 background:rgba(0,0,0,0.35);
-border-bottom:1px solid rgba(255,0,0,0.1);
+backdrop-filter:blur(8px);
+border-bottom:1px solid rgba(255,0,0,0.15);
 }
 
 .logo{
 font-family:'Orbitron',sans-serif;
-font-size:1.2rem;
-font-weight:700;
+font-size:1.4rem;
+font-weight:800;
 letter-spacing:2px;
-color:white;
 }
 
 .logo span{
-color:#ff1b1b;
+color:#ff2b2b;
 }
 
 nav ul{
 display:flex;
-gap:50px;
+gap:40px;
 list-style:none;
 }
 
-nav a{
+nav ul li a{
 text-decoration:none;
 color:white;
 font-size:0.95rem;
 transition:0.3s;
 }
 
-nav a:hover{
-color:#ff2a2a;
+nav ul li a:hover{
+color:#ff2b2b;
 }
 
 /* HERO */
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 8%;
-position:relative;
-overflow:hidden;
+padding:120px 8%;
+gap:50px;
 }
 
-/* LEFT */
-
 .left{
-width:45%;
-z-index:5;
+max-width:650px;
+z-index:2;
 }
 
 .tag{
-color:#ff2a2a;
+color:#ff3a3a;
+font-size:0.8rem;
 letter-spacing:4px;
-font-size:0.9rem;
+margin-bottom:20px;
+text-transform:uppercase;
+}
+
+h1{
+font-family:'Orbitron',sans-serif;
+font-size:5.5rem;
+line-height:0.95;
+font-weight:800;
 margin-bottom:25px;
 text-transform:uppercase;
 }
 
-.left h1{
-font-size:5.5rem;
-line-height:0.95;
-font-weight:900;
-font-family:'Orbitron',sans-serif;
-margin-bottom:25px;
+h1 span{
+color:#ff2b2b;
+text-shadow:0 0 20px rgba(255,0,0,0.7);
 }
 
-.left h1 span{
-color:#ff1b1b;
-}
-
-.desc{
-font-size:1.05rem;
-line-height:1.9;
-color:#d1d1d1;
-max-width:650px;
-margin-bottom:45px;
+.description{
+color:#cfcfcf;
+font-size:1.1rem;
+line-height:1.8;
+max-width:580px;
+margin-bottom:35px;
 }
 
 /* BUTTONS */
@@ -148,32 +181,29 @@ margin-bottom:45px;
 .buttons{
 display:flex;
 gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
-padding:18px 35px;
+padding:16px 32px;
 border:none;
-cursor:pointer;
-font-size:0.95rem;
-font-weight:600;
-transition:0.4s;
 text-decoration:none;
-display:inline-flex;
-align-items:center;
-justify-content:center;
+font-weight:600;
+font-size:0.95rem;
+cursor:pointer;
+transition:0.3s;
+border-radius:6px;
 }
 
 .btn-red{
-background:#ff1b1b;
+background:#ff2b2b;
 color:white;
-box-shadow:
-0 0 15px rgba(255,0,0,0.5),
-0 0 40px rgba(255,0,0,0.2);
+box-shadow:0 0 25px rgba(255,0,0,0.3);
 }
 
 .btn-red:hover{
 transform:translateY(-3px);
-background:#ff3b3b;
+box-shadow:0 0 35px rgba(255,0,0,0.6);
 }
 
 .btn-dark{
@@ -183,267 +213,223 @@ color:white;
 }
 
 .btn-dark:hover{
-border:1px solid #ff2a2a;
-color:#ff2a2a;
+border:1px solid #ff2b2b;
+color:#ff2b2b;
 }
 
 /* GLOBE */
 
-.globe-container{
-position:absolute;
-right:-5%;
-top:50%;
-transform:translateY(-50%);
-width:900px;
-height:900px;
+.right{
+position:relative;
+flex:1;
 display:flex;
 justify-content:center;
 align-items:center;
-pointer-events:none;
 }
-
-/* PLANET */
 
 .globe{
-position:relative;
-width:650px;
-height:650px;
+width:600px;
+height:600px;
 border-radius:50%;
 background:
-url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1600&auto=format&fit=crop') center/cover;
-
+radial-gradient(circle at center,
+rgba(255,0,0,0.9) 0%,
+rgba(100,0,0,0.7) 35%,
+rgba(0,0,0,0.95) 70%);
 box-shadow:
-0 0 40px rgba(255,0,0,0.5),
-0 0 120px rgba(255,0,0,0.25),
-0 0 220px rgba(255,0,0,0.12);
-
-animation:
-rotatePlanet 120s linear infinite,
-floatPlanet 8s ease-in-out infinite;
+0 0 80px rgba(255,0,0,0.8),
+0 0 160px rgba(255,0,0,0.3);
+position:relative;
+animation:rotateGlobe 18s linear infinite;
+overflow:hidden;
 }
 
-/* RED OVERLAY */
+/* network effect */
 
 .globe::before{
 content:'';
 position:absolute;
 inset:0;
-border-radius:50%;
 background:
-radial-gradient(circle,transparent 20%,rgba(255,0,0,0.35));
+url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+opacity:0.3;
 mix-blend-mode:screen;
 }
-
-/* GRID */
 
 .globe::after{
 content:'';
 position:absolute;
-inset:-30px;
-border-radius:50%;
-border:1px solid rgba(255,0,0,0.15);
-box-shadow:
-0 0 50px rgba(255,0,0,0.15);
-}
-
-/* ORBITS */
-
-.orbit{
-position:absolute;
-border:1px solid rgba(255,0,0,0.12);
-border-radius:50%;
-animation:spin 20s linear infinite;
-}
-
-.orbit1{
-width:760px;
-height:760px;
-}
-
-.orbit2{
-width:850px;
-height:850px;
-animation-direction:reverse;
-animation-duration:35s;
-}
-
-.orbit3{
-width:980px;
-height:980px;
-animation-duration:50s;
-}
-
-/* SCROLL */
-
-.scroll{
-position:absolute;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-font-size:0.85rem;
-letter-spacing:4px;
-color:#bbb;
-text-transform:uppercase;
-animation:bounce 2s infinite;
-}
-
-/* INFO SECTION */
-
-.info{
-min-height:100vh;
-padding:140px 10%;
+inset:0;
 background:
-linear-gradient(to bottom,#000,#080808);
+radial-gradient(circle,
+transparent 45%,
+rgba(255,0,0,0.15) 100%);
+}
+
+@keyframes rotateGlobe{
+0%{
+transform:rotate(0deg);
+}
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* INFO BOXES */
+
+.stats{
+position:absolute;
+right:-20px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.stat{
+background:rgba(0,0,0,0.5);
+border:1px solid rgba(255,0,0,0.25);
+padding:18px 22px;
+backdrop-filter:blur(8px);
+border-radius:10px;
+}
+
+.stat h3{
+font-size:2rem;
+color:#ff2b2b;
+margin-bottom:5px;
+}
+
+.stat p{
+font-size:0.8rem;
+color:#c9c9c9;
+}
+
+/* LABS */
+
+.section{
+padding:120px 8%;
 }
 
 .section-title{
-font-size:3rem;
 font-family:'Orbitron',sans-serif;
-margin-bottom:70px;
-color:white;
+font-size:3rem;
+margin-bottom:60px;
+text-transform:uppercase;
 }
 
 .section-title span{
-color:#ff1b1b;
+color:#ff2b2b;
 }
 
-.cards{
+.labs{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:30px;
 }
 
-.card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.08);
+.lab-card{
+background:rgba(10,10,10,0.75);
+border:1px solid rgba(255,0,0,0.15);
 padding:35px;
-backdrop-filter:blur(15px);
+border-radius:18px;
 transition:0.4s;
+backdrop-filter:blur(10px);
 }
 
-.card:hover{
+.lab-card:hover{
 transform:translateY(-10px);
-border:1px solid rgba(255,0,0,0.4);
-box-shadow:
-0 0 30px rgba(255,0,0,0.12);
+border-color:#ff2b2b;
+box-shadow:0 0 40px rgba(255,0,0,0.2);
 }
 
-.card h3{
-font-size:1.3rem;
-margin-bottom:20px;
-color:#ff2a2a;
+.lab-card h3{
+font-size:1.4rem;
+margin-bottom:15px;
+color:#ff2b2b;
 }
 
-.card p{
-line-height:1.8;
-color:#d5d5d5;
+.lab-card p{
+color:#cfcfcf;
+line-height:1.7;
+margin-bottom:25px;
 }
 
-/* FOOTER */
+.lab-card a{
+color:white;
+text-decoration:none;
+font-weight:600;
+}
 
-footer{
-padding:50px;
+/* CONTACT */
+
+.contact{
 text-align:center;
-color:#777;
-font-size:0.9rem;
+padding-bottom:120px;
 }
 
-/* ANIMATIONS */
-
-@keyframes rotatePlanet{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
+.contact a{
+color:#ff2b2b;
+text-decoration:none;
+font-size:1.2rem;
 }
 
-@keyframes floatPlanet{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-18px);
-}
-100%{
-transform:translateY(0px);
-}
-}
+/* RESPONSIVE */
 
-@keyframes spin{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
-}
-
-@keyframes bounce{
-0%,100%{
-transform:translateX(-50%) translateY(0);
-}
-50%{
-transform:translateX(-50%) translateY(-10px);
-}
-}
-
-/* MOBILE */
-
-@media(max-width:1100px){
+@media(max-width:1200px){
 
 .hero{
 flex-direction:column;
-justify-content:center;
-padding-top:120px;
 text-align:center;
+padding-top:160px;
 }
 
 .left{
-width:100%;
+max-width:100%;
 }
 
-.left h1{
-font-size:3.8rem;
+.description{
+margin:auto auto 35px;
 }
 
-.globe-container{
-position:relative;
-width:100%;
-height:500px;
-right:auto;
-top:auto;
-transform:none;
-margin-top:50px;
+.buttons{
+justify-content:center;
 }
 
 .globe{
-width:350px;
-height:350px;
-}
-
-.orbit1{
 width:420px;
 height:420px;
 }
 
-.orbit2{
-width:500px;
-height:500px;
+.stats{
+display:none;
 }
 
-.orbit3{
-width:620px;
-height:620px;
+h1{
+font-size:4rem;
 }
+}
+
+@media(max-width:700px){
 
 nav{
 padding:20px;
 }
 
 nav ul{
-display:none;
+gap:15px;
+}
+
+h1{
+font-size:2.8rem;
+}
+
+.globe{
+width:300px;
+height:300px;
+}
+
+.section-title{
+font-size:2rem;
 }
 
 }
@@ -453,7 +439,19 @@ display:none;
 
 <body>
 
-<canvas id="particles"></canvas>
+<div class="background"></div>
+
+<div class="particles">
+<span style="left:10%;animation-delay:0s;"></span>
+<span style="left:20%;animation-delay:2s;"></span>
+<span style="left:30%;animation-delay:4s;"></span>
+<span style="left:40%;animation-delay:1s;"></span>
+<span style="left:50%;animation-delay:6s;"></span>
+<span style="left:60%;animation-delay:3s;"></span>
+<span style="left:70%;animation-delay:5s;"></span>
+<span style="left:80%;animation-delay:2s;"></span>
+<span style="left:90%;animation-delay:7s;"></span>
+</div>
 
 <nav>
 
@@ -462,8 +460,8 @@ OCÉANE <span>DEHAUDT</span>
 </div>
 
 <ul>
-<li><a href="#">Accueil</a></li>
-<li><a href="#infos">Infos</a></li>
+<li><a href="#labs">Labs</a></li>
+<li><a href="#contact">Contact</a></li>
 <li><a href="https://github.com/oceane-dehaudt" target="_blank">GitHub</a></li>
 </ul>
 
@@ -482,21 +480,19 @@ ANALYSTE EN<br>
 <span>CYBERSÉCURITÉ</span>
 </h1>
 
-<p class="desc">
+<p class="description">
 Étudiante à l’IFAPME spécialisée en cybersécurité offensive.
-Je développe mes compétences à travers des laboratoires de pentesting, l’analyse réseau, l’OSINT et des projets techniques orientés sécurité offensive.
+Je développe mes compétences à travers des laboratoires de pentesting,
+l’analyse réseau, l’OSINT et des projets techniques orientés sécurité offensive.
 </p>
 
 <div class="buttons">
 
-<a class="btn btn-red"
-href="https://github.com/oceane-dehaudt"
-target="_blank">
+<a href="https://github.com/oceane-dehaudt" class="btn btn-red" target="_blank">
 Voir GitHub
 </a>
 
-<a class="btn btn-dark"
-href="#">
+<a href="CV-Oceane-Dehaudt.pdf" class="btn btn-dark" target="_blank">
 Télécharger CV
 </a>
 
@@ -504,148 +500,104 @@ Télécharger CV
 
 </div>
 
-<div class="globe-container">
-
-<div class="orbit orbit1"></div>
-<div class="orbit orbit2"></div>
-<div class="orbit orbit3"></div>
+<div class="right">
 
 <div class="globe"></div>
 
+<div class="stats">
+
+<div class="stat">
+<h3>15+</h3>
+<p>Laboratoires réalisés</p>
 </div>
 
-<div class="scroll">
-Défiler pour explorer
+<div class="stat">
+<h3>OSINT</h3>
+<p>Analyse & investigation</p>
+</div>
+
+<div class="stat">
+<h3>Nmap</h3>
+<p>Reconnaissance réseau</p>
+</div>
+
+</div>
+
 </div>
 
 </section>
 
-<section class="info" id="infos">
+<section class="section" id="labs">
 
 <h2 class="section-title">
-MES <span>INFORMATIONS</span>
+Mes <span>Labs</span>
 </h2>
 
-<div class="cards">
+<div class="labs">
 
-<div class="card">
-<h3>Contact</h3>
+<div class="lab-card">
+
+<h3>Nagios XI Pentest Lab</h3>
+
 <p>
-📍 Charleroi, Belgique<br><br>
-📧 oceane.dehaudt.pro@gmail.com<br><br>
-🌐 github.com/oceane-dehaudt
+Reconnaissance réseau, énumération de services,
+analyse de vulnérabilités et post-exploitation
+dans un environnement vulnérable Nagios XI.
 </p>
+
+<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab" target="_blank">
+Voir le laboratoire →
+</a>
+
 </div>
 
-<div class="card">
-<h3>Compétences</h3>
+<div class="lab-card">
+
+<h3>MS17-010 / EternalBlue</h3>
+
 <p>
-• Kali Linux<br>
-• Nmap<br>
-• Metasploit<br>
-• Wireshark<br>
-• Analyse réseau<br>
-• OSINT<br>
-• Linux / Windows
+Analyse et exploitation de la vulnérabilité SMB
+via Metasploit avec élévation de privilèges
+et validation d’accès SYSTEM.
 </p>
+
+<a href="https://github.com/oceane-dehaudt" target="_blank">
+Voir sur GitHub →
+</a>
+
 </div>
 
-<div class="card">
-<h3>Objectif</h3>
+<div class="lab-card">
+
+<h3>Analyse Réseau Wireshark</h3>
+
 <p>
-Développer des compétences avancées en sécurité offensive, analyse réseau et pentesting à travers des laboratoires pratiques et des projets techniques.
+Inspection et analyse de trafic réseau,
+identification de comportements suspects
+et compréhension protocolaire.
 </p>
+
+<a href="https://github.com/oceane-dehaudt" target="_blank">
+Voir sur GitHub →
+</a>
+
 </div>
 
 </div>
 
 </section>
 
-<footer>
-© 2026 — Océane Dehaudt
-</footer>
+<section class="contact" id="contact">
 
-<script>
+<h2 class="section-title">
+Contact
+</h2>
 
-/* PARTICLES */
+<a href="mailto:oceane.dehaudt.pro@gmail.com">
+oceane.dehaudt.pro@gmail.com
+</a>
 
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-
-class Particle{
-
-constructor(){
-this.x = Math.random()*canvas.width;
-this.y = Math.random()*canvas.height;
-this.size = Math.random()*2;
-this.speedX = (Math.random()-0.5)*0.4;
-this.speedY = (Math.random()-0.5)*0.4;
-}
-
-update(){
-this.x += this.speedX;
-this.y += this.speedY;
-
-if(this.x > canvas.width) this.x = 0;
-if(this.x < 0) this.x = canvas.width;
-
-if(this.y > canvas.height) this.y = 0;
-if(this.y < 0) this.y = canvas.height;
-}
-
-draw(){
-ctx.fillStyle = "rgba(255,0,0,0.8)";
-ctx.beginPath();
-ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-ctx.fill();
-}
-
-}
-
-function initParticles(){
-
-particlesArray = [];
-
-for(let i=0;i<180;i++){
-particlesArray.push(new Particle());
-}
-
-}
-
-initParticles();
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-for(let i=0;i<particlesArray.length;i++){
-
-particlesArray[i].update();
-particlesArray[i].draw();
-
-}
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
-
-window.addEventListener("resize",()=>{
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-initParticles();
-
-});
-
-</script>
+</section>
 
 </body>
 </html>
