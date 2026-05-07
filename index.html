@@ -48,8 +48,8 @@ height:100%;
 background:
 radial-gradient(
 circle at center,
-rgba(255,0,0,0.12),
-black 70%
+rgba(255,0,0,0.10),
+black 72%
 );
 
 z-index:-5;
@@ -73,8 +73,8 @@ height:100%;
 background:
 repeating-linear-gradient(
 to bottom,
-rgba(255,255,255,0.015),
-rgba(255,255,255,0.015) 1px,
+rgba(255,255,255,0.012),
+rgba(255,255,255,0.012) 1px,
 transparent 1px,
 transparent 3px
 );
@@ -96,7 +96,7 @@ left:0;
 
 width:100%;
 
-padding:30px 80px;
+padding:28px 80px;
 
 display:flex;
 
@@ -108,7 +108,7 @@ background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
 
 border-bottom:
-1px solid rgba(255,0,0,0.15);
+1px solid rgba(255,0,0,0.12);
 
 z-index:100;
 
@@ -129,7 +129,7 @@ letter-spacing:3px;
 color:#ff2a2a;
 
 text-shadow:
-0 0 10px rgba(255,0,0,0.7);
+0 0 10px rgba(255,0,0,0.5);
 
 }
 
@@ -152,6 +152,8 @@ font-weight:600;
 
 transition:0.3s;
 
+font-size:0.95rem;
+
 }
 
 nav a:hover{
@@ -159,7 +161,7 @@ nav a:hover{
 color:#ff2a2a;
 
 text-shadow:
-0 0 15px red;
+0 0 12px red;
 
 }
 
@@ -201,7 +203,7 @@ letter-spacing:6px;
 
 margin-bottom:25px;
 
-font-size:0.85rem;
+font-size:0.82rem;
 
 line-height:1.8;
 
@@ -228,8 +230,8 @@ h1 span{
 color:#ff2a2a;
 
 text-shadow:
-0 0 10px #ff0000,
-0 0 20px #ff0000;
+0 0 8px #ff0000,
+0 0 16px #ff0000;
 
 }
 
@@ -237,13 +239,13 @@ text-shadow:
 
 .description{
 
-font-size:1.05rem;
+font-size:1rem;
 
-line-height:2.2;
+line-height:2.3;
 
-max-width:650px;
+max-width:640px;
 
-color:#d2d2d2;
+color:#cfcfcf;
 
 }
 
@@ -280,16 +282,16 @@ background:#ff2a2a;
 color:white;
 
 box-shadow:
-0 0 20px rgba(255,0,0,0.4);
+0 0 18px rgba(255,0,0,0.35);
 
 }
 
 .red:hover{
 
-transform:translateY(-5px);
+transform:translateY(-4px);
 
 box-shadow:
-0 0 35px rgba(255,0,0,0.7);
+0 0 28px rgba(255,0,0,0.6);
 
 }
 
@@ -314,19 +316,19 @@ align-items:center;
 
 position:absolute;
 
-right:-250px;
+right:-320px;
 top:50%;
 
 transform:translateY(-50%);
 
-width:900px;
-height:900px;
+width:950px;
+height:950px;
 
 background:
 radial-gradient(
 circle,
-rgba(255,0,0,0.18),
-transparent 70%
+rgba(255,0,0,0.14),
+transparent 72%
 );
 
 filter:blur(120px);
@@ -339,21 +341,21 @@ z-index:0;
 
 .earth{
 
-width:850px;
+width:860px;
 
 position:relative;
 
-right:-120px;
+right:-180px;
 
-opacity:0.92;
+opacity:0.93;
 
 mix-blend-mode:screen;
 
 animation:float 7s ease-in-out infinite;
 
 filter:
-drop-shadow(0 0 25px #ff0000)
-drop-shadow(0 0 90px rgba(255,0,0,0.35));
+drop-shadow(0 0 20px #ff0000)
+drop-shadow(0 0 80px rgba(255,0,0,0.30));
 
 z-index:2;
 
@@ -368,7 +370,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-18px);
+transform:translateY(-16px);
 }
 
 100%{
@@ -390,7 +392,7 @@ background:red;
 
 border-radius:50%;
 
-opacity:0.5;
+opacity:0.45;
 
 animation:particleMove linear infinite;
 
@@ -439,7 +441,7 @@ width:100%;
 
 .right{
 
-margin-top:80px;
+margin-top:60px;
 
 }
 
@@ -465,15 +467,22 @@ right:0;
 
 nav{
 
-gap:20px;
+gap:18px;
 
-font-size:0.8rem;
+font-size:0.75rem;
 
 }
 
 header{
 
 padding:25px 30px;
+
+}
+
+.description{
+
+font-size:0.95rem;
+line-height:2;
 
 }
 
@@ -535,15 +544,14 @@ EN<br>
 
 <p class="description">
 
-Portfolio orienté cybersécurité offensive
-et analyse technique.
+Portfolio spécialisé en cybersécurité offensive,
+analyse réseau et investigation technique.
 
 Développement de compétences en
-pentesting, investigation OSINT,
-identification de vulnérabilités,
-sécurité Linux et analyse réseau
-à travers des laboratoires pratiques
-et projets spécialisés.
+pentesting, identification de vulnérabilités,
+OSINT, sécurité Linux et méthodologies
+d’analyse à travers des laboratoires
+pratiques et projets orientés sécurité.
 
 </p>
 
@@ -575,7 +583,7 @@ Voir GitHub
 
 /* PARTICLES */
 
-for(let i=0;i<50;i++){
+for(let i=0;i<45;i++){
 
 const particle=document.createElement('div');
 
@@ -586,7 +594,7 @@ particle.style.left=Math.random()*100+'vw';
 particle.style.top=Math.random()*100+'vh';
 
 particle.style.animationDuration=
-(6+Math.random()*12)+'s';
+(7+Math.random()*10)+'s';
 
 particle.style.opacity=Math.random();
 
