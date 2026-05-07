@@ -25,3 +25,16 @@ Validation des entrées
 CSP
 Cookies HTTPOnly
 Encodage HTML
+## Captures d’écran
+
+### Payload XSS exécuté
+
+![XSS](nom-de-ton-image.png)
+
+### Modification du contenu HTML
+
+![Hacked](nom-de-ton-image2.png)
+
+### Docker actif
+
+![Docker](nom-de-ton-image3.png)
