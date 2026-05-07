@@ -444,6 +444,134 @@ opacity:1;
 
 }
 
+/* SKILLS */
+
+.skills{
+
+padding:120px 8%;
+
+text-align:center;
+
+}
+
+.skills h2{
+
+font-size:3rem;
+
+margin-bottom:60px;
+
+color:#ff2a2a;
+
+}
+
+.skills-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+}
+
+.skill{
+
+padding:18px 30px;
+
+border:1px solid rgba(255,0,0,0.2);
+
+background:rgba(255,255,255,0.03);
+
+border-radius:12px;
+
+font-weight:700;
+
+transition:0.3s;
+
+}
+
+.skill:hover{
+
+transform:translateY(-5px);
+
+border-color:#ff2a2a;
+
+box-shadow:0 0 20px rgba(255,0,0,0.3);
+
+}
+
+/* PROJECTS */
+
+.projects{
+
+padding:120px 8%;
+
+text-align:center;
+
+}
+
+.projects h2{
+
+font-size:3rem;
+
+margin-bottom:60px;
+
+color:#ff2a2a;
+
+}
+
+.project-card{
+
+max-width:700px;
+
+margin:auto;
+
+padding:40px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(255,0,0,0.15);
+
+}
+
+.project-card h3{
+
+margin-bottom:20px;
+
+font-size:2rem;
+
+}
+
+.project-card p{
+
+line-height:2;
+
+margin-bottom:30px;
+
+color:#cfcfcf;
+
+}
+
+/* FOOTER */
+
+footer{
+
+padding:40px;
+
+text-align:center;
+
+color:#777;
+
+border-top:1px solid rgba(255,0,0,0.1);
+
+margin-top:100px;
+
+}
+
 /* RESPONSIVE */
 
 @media(max-width:1200px){
@@ -496,11 +624,19 @@ nav{
 gap:18px;
 font-size:0.75rem;
 
+flex-wrap:wrap;
+
+justify-content:center;
+
 }
 
 header{
 
 padding:25px 30px;
+
+flex-direction:column;
+
+gap:20px;
 
 }
 
@@ -569,14 +705,19 @@ EN<br>
 
 <p class="description">
 
-Portfolio spécialisé en cybersécurité offensive,
-analyse réseau et investigation technique.
+Étudiante en cybersécurité passionnée par
+la sécurité offensive, l’analyse réseau et
+la recherche de vulnérabilités.
 
-Développement de compétences en
-pentesting, identification de vulnérabilités,
-OSINT, sécurité Linux et méthodologies
-d’analyse à travers des laboratoires
-pratiques et projets orientés sécurité.
+Développement de laboratoires pratiques
+autour du pentesting, Docker, Linux,
+OWASP, Active Directory et techniques
+d’investigation en environnement contrôlé.
+
+Travail orienté sur l’apprentissage des
+méthodologies d’analyse, la compréhension
+des attaques et la mise en place de
+mesures de mitigation et de sécurisation.
 
 </p>
 
@@ -611,6 +752,58 @@ Voir le laboratoire XSS
 </div>
 
 </section>
+
+<section class="skills">
+
+<h2>COMPÉTENCES</h2>
+
+<div class="skills-grid">
+
+<div class="skill">Linux</div>
+<div class="skill">Nmap</div>
+<div class="skill">Docker</div>
+<div class="skill">Wireshark</div>
+<div class="skill">OWASP</div>
+<div class="skill">OSINT</div>
+<div class="skill">Burp Suite</div>
+<div class="skill">Kali Linux</div>
+
+</div>
+
+</section>
+
+<section class="projects">
+
+<h2>LABORATOIRES</h2>
+
+<div class="project-card">
+
+<h3>XSS Lab - OWASP Juice Shop</h3>
+
+<p>
+
+Démonstration d’une vulnérabilité XSS
+avec Docker et OWASP Juice Shop.
+
+</p>
+
+<a href="https://github.com/Oceane-Dehaudt/oceane-dehaudt.github.io/tree/main/xss-lab"
+target="_blank"
+class="btn red">
+
+Voir le laboratoire
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Océane Dehaudt — Cybersécurité
+
+</footer>
 
 <script>
 
