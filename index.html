@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersécurité Offensive</title>
+<title>Océane Dehaudt | Cybersécurité</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 <style>
 
@@ -17,418 +19,284 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
-background:#020202;
-color:white;
-font-family:'Inter',sans-serif;
+background:black;
+font-family:'Orbitron',sans-serif;
 overflow-x:hidden;
+color:white;
 }
 
-/* ================= BACKGROUND ================= */
+/* BACKGROUND */
 
 body::before{
 content:'';
 position:fixed;
-inset:0;
-background:
-radial-gradient(circle at center,
-rgba(255,0,0,0.08),
-transparent 60%);
-z-index:-5;
-}
-
-/* ================= PARTICLES ================= */
-
-.particles{
-position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-overflow:hidden;
-z-index:-1;
-pointer-events:none;
+background:
+radial-gradient(circle at center,
+rgba(255,0,0,0.15),
+black 60%);
+z-index:-3;
 }
 
-.particles span{
-position:absolute;
-width:2px;
-height:2px;
-background:#ff2d2d;
-border-radius:50%;
-opacity:0.6;
-animation:float 18s linear infinite;
-}
+/* SCANLINES */
 
-@keyframes float{
-
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-10vh);
-opacity:0;
-}
-
-}
-
-/* ================= NAVBAR ================= */
-
-nav{
+body::after{
+content:'';
 position:fixed;
 top:0;
+left:0;
 width:100%;
-padding:28px 70px;
+height:100%;
+background:
+repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.02) 1px,
+transparent 1px,
+transparent 3px
+);
+pointer-events:none;
+z-index:999;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:30px 80px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
+background:rgba(0,0,0,0.4);
 backdrop-filter:blur(10px);
-background:rgba(0,0,0,0.15);
-border-bottom:1px solid rgba(255,0,0,0.1);
+z-index:100;
+border-bottom:1px solid rgba(255,0,0,0.2);
 }
 
 .logo{
-font-family:'Orbitron',sans-serif;
-font-size:1.8rem;
+font-size:2rem;
 font-weight:900;
-letter-spacing:2px;
+letter-spacing:3px;
 }
 
 .logo span{
-color:#ff2d2d;
-}
-
-nav ul{
-display:flex;
-gap:40px;
-list-style:none;
+color:#ff2a2a;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-font-size:0.95rem;
+margin-left:40px;
+font-weight:600;
 transition:0.3s;
-font-weight:500;
 }
 
 nav a:hover{
-color:#ff2d2d;
+color:#ff2a2a;
+text-shadow:0 0 15px red;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 8%;
-gap:50px;
+padding:140px 8%;
 position:relative;
 }
+
+/* LEFT */
 
 .left{
-max-width:720px;
-z-index:10;
+width:50%;
+z-index:2;
 }
 
-.tag{
-font-size:0.8rem;
-letter-spacing:6px;
-color:#ff4b4b;
-margin-bottom:25px;
-font-family:'Orbitron',sans-serif;
-}
-
-h1{
-font-family:'Orbitron',sans-serif;
-font-size:6.3rem;
-line-height:0.92;
-font-weight:900;
-text-transform:uppercase;
-margin-bottom:30px;
-}
-
-h1 span{
-color:#ff2d2d;
-
-text-shadow:
-0 0 10px rgba(255,0,0,0.8),
-0 0 25px rgba(255,0,0,0.6),
-0 0 60px rgba(255,0,0,0.3);
-}
-
-.description{
-font-size:1.15rem;
-line-height:1.9;
-color:#d0d0d0;
-margin-bottom:45px;
-max-width:650px;
-}
-
-/* ================= BUTTONS ================= */
-
-.buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:17px 35px;
-border-radius:12px;
-text-decoration:none;
-font-weight:600;
-transition:0.35s;
-position:relative;
-overflow:hidden;
-}
-
-.btn-primary{
-background:#ff2d2d;
-color:white;
-box-shadow:0 0 25px rgba(255,0,0,0.35);
-}
-
-.btn-primary:hover{
-transform:translateY(-4px);
-box-shadow:0 0 40px rgba(255,0,0,0.7);
-}
-
-.btn-secondary{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.15);
-color:white;
-backdrop-filter:blur(8px);
-}
-
-.btn-secondary:hover{
-border-color:#ff2d2d;
-box-shadow:0 0 25px rgba(255,0,0,0.3);
-}
-
-/* ================= GLOBE ================= */
-
-.globe-section{
-position:relative;
-width:520px;
-height:520px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.glow{
-position:absolute;
-width:320px;
-height:320px;
-background:#ff0000;
-filter:blur(120px);
-opacity:0.22;
-border-radius:50%;
-animation:pulse 5s ease-in-out infinite;
-}
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-.globe{
-width:100%;
-height:100%;
-object-fit:contain;
-animation:rotateGlobe 18s linear infinite;
-filter:
-drop-shadow(0 0 25px rgba(255,0,0,0.5))
-drop-shadow(0 0 60px rgba(255,0,0,0.2));
-}
-
-@keyframes rotateGlobe{
-
-0%{
-transform:rotate(0deg);
-}
-
-50%{
-transform:rotate(2deg);
-}
-
-100%{
-transform:rotate(0deg);
-}
-
-}
-
-/* ================= STATS ================= */
-
-.stats{
-position:absolute;
-right:4%;
-top:50%;
-transform:translateY(-50%);
-display:flex;
-flex-direction:column;
-gap:22px;
-}
-
-.stat{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.12);
-padding:22px;
-border-radius:18px;
-backdrop-filter:blur(8px);
-min-width:170px;
-}
-
-.stat h3{
-font-family:'Orbitron';
-font-size:2rem;
-color:#ff2d2d;
-margin-bottom:8px;
-}
-
-.stat p{
-color:#bcbcbc;
+.small{
+color:#ff4d4d;
+letter-spacing:4px;
+margin-bottom:20px;
 font-size:0.9rem;
 }
 
-/* ================= SECTION ================= */
-
-section{
-padding:120px 8%;
+h1{
+font-size:6rem;
+line-height:0.95;
+font-weight:900;
+text-transform:uppercase;
 }
 
-.section-title{
-font-family:'Orbitron';
-font-size:3rem;
-margin-bottom:60px;
-text-align:center;
+h1 span{
+color:#ff2a2a;
+text-shadow:
+0 0 10px #ff0000,
+0 0 30px #ff0000;
 }
 
-.section-title span{
-color:#ff2d2d;
+.description{
+margin-top:35px;
+font-size:1.1rem;
+line-height:2;
+max-width:700px;
+color:#d0d0d0;
 }
 
-/* ================= CARDS ================= */
+/* BUTTONS */
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
+.buttons{
+margin-top:50px;
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:18px 40px;
+border-radius:10px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.red{
+background:#ff2a2a;
+color:white;
+box-shadow:0 0 25px rgba(255,0,0,0.5);
+}
+
+.red:hover{
+transform:translateY(-5px);
+box-shadow:0 0 40px red;
+}
+
+.dark{
+border:1px solid rgba(255,255,255,0.2);
+color:white;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(5px);
+}
+
+.dark:hover{
+border-color:#ff2a2a;
+box-shadow:0 0 20px rgba(255,0,0,0.4);
+}
+
+/* RIGHT */
+
+.right{
+width:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* GLOBE */
+
+#globe-container{
+width:550px;
+height:550px;
+animation:float 6s ease-in-out infinite;
+filter:
+drop-shadow(0 0 40px red)
+drop-shadow(0 0 80px rgba(255,0,0,0.5));
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-20px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* STATS */
+
+.stats{
+position:absolute;
+right:0;
+display:flex;
+flex-direction:column;
+gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,0,0,0.12);
-padding:35px;
-border-radius:22px;
-backdrop-filter:blur(8px);
-transition:0.4s;
-position:relative;
-overflow:hidden;
+background:rgba(255,0,0,0.08);
+border:1px solid rgba(255,0,0,0.2);
+padding:25px;
+width:220px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:#ff2d2d;
-box-shadow:0 0 35px rgba(255,0,0,0.15);
+transform:translateX(-10px);
+box-shadow:0 0 25px rgba(255,0,0,0.3);
 }
 
-.card h3{
-font-family:'Orbitron';
-color:#ff4b4b;
-margin-bottom:20px;
-font-size:1.2rem;
+.card h2{
+font-size:3rem;
+color:#ff2a2a;
+margin-bottom:10px;
 }
 
 .card p{
-line-height:1.8;
-color:#d0d0d0;
-margin-bottom:25px;
+color:#cfcfcf;
 }
 
-.card a{
-text-decoration:none;
-color:#ff2d2d;
-font-weight:600;
+/* PARTICLES */
+
+.particle{
+position:absolute;
+width:3px;
+height:3px;
+background:red;
+border-radius:50%;
+opacity:0.7;
+animation:particleMove linear infinite;
 }
 
-/* ================= CONTACT ================= */
-
-.contact{
-text-align:center;
+@keyframes particleMove{
+from{
+transform:translateY(0);
+opacity:0;
+}
+to{
+transform:translateY(-100vh);
+opacity:1;
+}
 }
 
-.contact p{
-font-size:1.15rem;
-color:#d0d0d0;
-margin-top:20px;
-}
+/* RESPONSIVE */
 
-/* ================= SCANLINES ================= */
-
-.scanlines{
-position:fixed;
-inset:0;
-pointer-events:none;
-background:
-linear-gradient(
-to bottom,
-rgba(255,255,255,0.03) 1px,
-transparent 1px
-);
-
-background-size:100% 4px;
-opacity:0.05;
-z-index:9999;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1300px){
+@media(max-width:1200px){
 
 .hero{
 flex-direction:column;
-justify-content:center;
 text-align:center;
-padding-top:170px;
+padding-top:180px;
 }
 
-.left{
-display:flex;
-flex-direction:column;
-align-items:center;
+.left,
+.right{
+width:100%;
 }
 
-.buttons{
-justify-content:center;
-}
-
-.globe-section{
-width:400px;
-height:400px;
+.right{
+margin-top:80px;
 }
 
 .stats{
@@ -436,95 +304,38 @@ display:none;
 }
 
 h1{
-font-size:4.5rem;
+font-size:4rem;
 }
 
-}
-
-@media(max-width:700px){
-
-h1{
-font-size:3.2rem;
-}
-
-.globe-section{
-width:300px;
-height:300px;
-}
-
-nav{
-padding:20px;
-}
-
-nav ul{
-gap:20px;
+.buttons{
+justify-content:center;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- PARTICLES -->
-
-<div class="particles">
-
-<span style="left:10%; animation-delay:0s;"></span>
-<span style="left:20%; animation-delay:2s;"></span>
-<span style="left:30%; animation-delay:5s;"></span>
-<span style="left:40%; animation-delay:1s;"></span>
-<span style="left:50%; animation-delay:7s;"></span>
-<span style="left:60%; animation-delay:4s;"></span>
-<span style="left:70%; animation-delay:3s;"></span>
-<span style="left:80%; animation-delay:6s;"></span>
-<span style="left:90%; animation-delay:8s;"></span>
-
-</div>
-
-<div class="scanlines"></div>
-
-<!-- NAVBAR -->
-
-<nav>
+<header>
 
 <div class="logo">
 OCÉANE <span>DEHAUDT</span>
 </div>
 
-<ul>
-
-<li>
-<a href="#labs">Labs</a>
-</li>
-
-<li>
-<a href="#skills">Compétences</a>
-</li>
-
-<li>
-<a href="#contact">Contact</a>
-</li>
-
-<li>
-<a href="https://github.com/oceane-dehaudt" target="_blank">
-GitHub
-</a>
-</li>
-
-</ul>
-
+<nav>
+<a href="https://github.com/oceane-dehaudt" target="_blank">GitHub</a>
+<a href="mailto:oceane.dehaudt.pro@gmail.com">Contact</a>
 </nav>
 
-<!-- HERO -->
+</header>
 
 <section class="hero">
 
 <div class="left">
 
-<div class="tag">
+<div class="small">
 ÉTUDIANTE EN CYBERSÉCURITÉ
 </div>
 
@@ -536,71 +347,45 @@ EN<br>
 
 <p class="description">
 
-Étudiante à l’IFAPME spécialisée en cybersécurité offensive.
-Je développe mes compétences à travers des laboratoires de pentesting,
-l’analyse réseau, l’OSINT et l’étude des infrastructures systèmes et réseaux.
-
-Passionnée par la cybersécurité, je m’intéresse particulièrement
-à l’analyse des vulnérabilités, à l’investigation numérique
-et aux méthodologies défensives et offensives.
+Étudiante à l’IFAPME spécialisée en cybersécurité offensive.  
+Je développe mes compétences à travers des laboratoires de pentesting, l’analyse réseau, l’OSINT et des projets techniques orientés sécurité offensive.
 
 </p>
 
 <div class="buttons">
 
-<a href="https://github.com/oceane-dehaudt"
-class="btn btn-primary"
-target="_blank">
-
+<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn red">
 Voir GitHub
-
 </a>
 
-<a href="Oceane_Dehaudt_.pdf"
-class="btn btn-secondary"
-target="_blank">
-
+<a href="Oceane_Dehaudt_.pdf" target="_blank" class="btn dark">
 Télécharger CV
-
 </a>
 
 </div>
 
 </div>
 
-<!-- GLOBE -->
+<div class="right">
 
-<div class="globe-section">
-
-<div class="glow"></div>
-
-<img src="red-earth.png"
-class="globe">
-
-</div>
-
-<!-- STATS -->
+<div id="globe-container"></div>
 
 <div class="stats">
 
-<div class="stat">
-
-<h3>15+</h3>
+<div class="card">
+<h2>15+</h2>
 <p>Labs réalisés</p>
-
 </div>
 
-<div class="stat">
+<div class="card">
+<h2>24/7</h2>
+<p>Veille cyber</p>
+</div>
 
-<h3>OSINT</h3>
+<div class="card">
+<h2>OSINT</h2>
 <p>Investigation & analyse</p>
-
 </div>
-
-<div class="stat">
-
-<h3>24/7</h3>
-<p>Veille cybersécurité</p>
 
 </div>
 
@@ -608,152 +393,140 @@ class="globe">
 
 </section>
 
-<!-- LABS -->
+<script>
 
-<section id="labs">
+/* PARTICLES */
 
-<h2 class="section-title">
-MES <span>LABS</span>
-</h2>
+for(let i=0;i<40;i++){
 
-<div class="cards">
+const particle=document.createElement('div');
 
-<div class="card">
+particle.classList.add('particle');
 
-<h3>Nagios XI Pentest Lab</h3>
+particle.style.left=Math.random()*100+'vw';
 
-<p>
+particle.style.top=Math.random()*100+'vh';
 
-Reconnaissance réseau via Nmap,
-identification de services vulnérables,
-analyse de surface d’attaque
-et exploitation avec Metasploit.
+particle.style.animationDuration=
+(5+Math.random()*10)+'s';
 
-Post-exploitation avec création d’utilisateur
-et élévation de privilèges.
+particle.style.opacity=Math.random();
 
-</p>
+document.body.appendChild(particle);
 
-<a href="https://github.com/oceane-dehaudt/NagiosXI-Pentest-Lab"
-target="_blank">
+}
 
-Voir le projet →
+/* THREE JS */
 
-</a>
+const scene = new THREE.Scene();
 
-</div>
+const camera = new THREE.PerspectiveCamera(
+45,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
 
-<div class="card">
+const renderer = new THREE.WebGLRenderer({
+alpha:true,
+antialias:true
+});
 
-<h3>Analyse Réseau Wireshark</h3>
+renderer.setSize(550,550);
 
-<p>
+document
+.getElementById("globe-container")
+.appendChild(renderer.domElement);
 
-Inspection de trafic réseau,
-analyse de paquets,
-identification d’activités suspectes
-et compréhension des communications réseau.
+camera.position.z = 2.2;
 
-</p>
+/* TEXTURE */
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
+const textureLoader = new THREE.TextureLoader();
 
-Voir le projet →
+const texture = textureLoader.load(
+'red-earth.png'
+);
 
-</a>
+/* GLOBE */
 
-</div>
+const geometry = new THREE.SphereGeometry(
+1,
+128,
+128
+);
 
-<div class="card">
+const material = new THREE.MeshStandardMaterial({
 
-<h3>Investigation OSINT</h3>
+map:texture,
 
-<p>
+emissive:new THREE.Color(0xff0000),
 
-Recherche et corrélation d’informations
-issues de sources ouvertes,
-analyse d’empreinte numérique
-et méthodologies d’investigation.
+emissiveIntensity:1,
 
-</p>
+metalness:0.7,
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
+roughness:0.2
 
-Voir le projet →
+});
 
-</a>
+const globe = new THREE.Mesh(
+geometry,
+material
+);
 
-</div>
+scene.add(globe);
 
-</div>
+/* LIGHTS */
 
-</section>
+const light = new THREE.PointLight(
+0xff0000,
+3,
+100
+);
 
-<!-- SKILLS -->
+light.position.set(5,3,5);
 
-<section id="skills">
+scene.add(light);
 
-<h2 class="section-title">
-COMPÉTENCES <span>TECHNIQUES</span>
-</h2>
+const ambient = new THREE.AmbientLight(
+0xffffff,
+0.25
+);
 
-<div class="cards">
+scene.add(ambient);
 
-<div class="card">
+/* PARALLAX */
 
-<h3>Réseau & Analyse</h3>
+document.addEventListener('mousemove',(e)=>{
 
-<p>
+const mouseX =
+(e.clientX/window.innerWidth - 0.5);
 
-Wireshark • Analyse réseau • TCP/IP • Enumeration • Monitoring • Investigation
+const mouseY =
+(e.clientY/window.innerHeight - 0.5);
 
-</p>
+globe.rotation.y += mouseX*0.01;
 
-</div>
+globe.rotation.x += mouseY*0.005;
 
-<div class="card">
+});
 
-<h3>Sécurité Offensive</h3>
+/* ANIMATION */
 
-<p>
+function animate(){
 
-Nmap • Metasploit • Analyse de vulnérabilités • Pentesting • Linux
+requestAnimationFrame(animate);
 
-</p>
+globe.rotation.y += 0.0025;
 
-</div>
+renderer.render(scene,camera);
 
-<div class="card">
+}
 
-<h3>OSINT & Systèmes</h3>
+animate();
 
-<p>
-
-OSINT Framework • Recherche avancée • Linux • Windows • GitHub
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2 class="section-title">
-CONTACT
-</h2>
-
-<p>
-oceane.dehaudt.pro@gmail.com
-</p>
-
-</section>
+</script>
 
 </body>
 </html>
