@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,9 +9,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-<style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
-/* RESET */
+<style>
 
 *{
 margin:0;
@@ -20,334 +19,242 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* BODY */
-
 body{
-
-background:black;
-
+background:#050505;
 font-family:'Orbitron',sans-serif;
-
-overflow:hidden;
-
+overflow-x:hidden;
 color:white;
-
 }
 
-/* CYBER BACKGROUND */
+/* BACKGROUND */
 
-.cyber-bg{
-
+body::before{
+content:'';
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:
 radial-gradient(circle at center,
-rgba(255,0,0,0.18),
-black 65%);
-
+rgba(255,0,0,0.12),
+black 70%);
 z-index:-5;
-
-overflow:hidden;
-
 }
 
 /* SCANLINES */
 
 body::after{
-
 content:'';
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:
 repeating-linear-gradient(
 to bottom,
-rgba(255,255,255,0.02),
-rgba(255,255,255,0.02) 1px,
+rgba(255,255,255,0.015),
+rgba(255,255,255,0.015) 1px,
 transparent 1px,
 transparent 3px
 );
-
 pointer-events:none;
-
 z-index:999;
-
 }
 
 /* HEADER */
 
 header{
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
-
 padding:30px 80px;
-
 display:flex;
-
 justify-content:space-between;
 align-items:center;
-
 background:rgba(0,0,0,0.45);
-
-backdrop-filter:blur(10px);
-
-border-bottom:1px solid rgba(255,0,0,0.15);
-
+backdrop-filter:blur(12px);
 z-index:100;
-
+border-bottom:1px solid rgba(255,0,0,0.15);
 }
 
-/* LOGO */
-
 .logo{
-
-font-size:2.3rem;
-
+font-size:2.2rem;
 font-weight:900;
-
 letter-spacing:3px;
-
 }
 
 .logo span{
-
 color:#ff2a2a;
-
 text-shadow:
-0 0 10px red,
-0 0 25px red;
-
+0 0 10px rgba(255,0,0,0.7);
 }
 
-/* NAVIGATION */
-
 nav{
-
 display:flex;
 gap:40px;
-
 }
 
 nav a{
-
 color:white;
-
 text-decoration:none;
-
 font-weight:600;
-
 transition:0.3s;
-
 }
 
 nav a:hover{
-
 color:#ff2a2a;
-
-text-shadow:
-0 0 10px red,
-0 0 25px red;
-
+text-shadow:0 0 15px red;
 }
 
 /* HERO */
 
 .hero{
-
-height:100vh;
-
+min-height:100vh;
 display:flex;
-
 align-items:center;
-
-padding:0 8%;
-
+justify-content:space-between;
+padding:140px 8%;
 position:relative;
-
 overflow:hidden;
-
 }
 
-/* LEFT SIDE */
+/* LEFT */
 
 .left{
-
-width:50%;
-
-z-index:10;
-
+width:48%;
+z-index:5;
 }
-
-/* SMALL TEXT */
 
 .small{
-
-color:#ff4040;
-
-font-size:0.9rem;
-
+color:#ff4d4d;
 letter-spacing:6px;
-
 margin-bottom:25px;
-
+font-size:0.85rem;
 line-height:1.8;
-
 }
-
-/* TITLE */
 
 h1{
-
-font-size:9rem;
-
-line-height:0.85;
-
+font-size:7rem;
+line-height:0.9;
 font-weight:900;
-
-letter-spacing:-4px;
-
 text-transform:uppercase;
-
+margin-bottom:40px;
 }
 
-/* CYBERSECURITE */
-
 h1 span{
-
 color:#ff2a2a;
 
 text-shadow:
-0 0 15px red,
-0 0 35px red,
-0 0 70px rgba(255,0,0,0.7);
-
+0 0 10px #ff0000,
+0 0 20px #ff0000;
 }
 
-/* DESCRIPTION */
-
 .description{
-
-max-width:520px;
-
-font-size:1rem;
-
-line-height:1.9;
-
-color:#cfcfcf;
-
-margin-top:35px;
-
+font-size:1.05rem;
+line-height:2.2;
+max-width:650px;
+color:#d2d2d2;
 }
 
 /* BUTTON */
 
 .buttons{
-
 margin-top:50px;
-
 display:flex;
-
 gap:20px;
-
 }
 
 .btn{
-
-padding:18px 45px;
-
+padding:18px 42px;
 border-radius:12px;
-
 text-decoration:none;
-
 font-weight:700;
-
 transition:0.3s;
-
 }
 
 .red{
-
 background:#ff2a2a;
-
 color:white;
 
 box-shadow:
-0 0 25px rgba(255,0,0,0.5);
-
+0 0 20px rgba(255,0,0,0.4);
 }
 
 .red:hover{
-
 transform:translateY(-5px);
 
 box-shadow:
-0 0 45px red;
-
+0 0 35px rgba(255,0,0,0.7);
 }
 
-/* PLANET */
+/* RIGHT */
 
-.earth-image{
+.right{
+width:52%;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
+/* GLOW */
+
+.glow-bg{
 position:absolute;
-
-right:-120px;
-
+right:-150px;
 top:50%;
-
 transform:translateY(-50%);
+width:850px;
+height:850px;
 
-width:1000px;
-height:1000px;
+background:
+radial-gradient(
+circle,
+rgba(255,0,0,0.18),
+transparent 70%
+);
 
-object-fit:cover;
+filter:blur(120px);
 
-border-radius:50%;
+z-index:0;
+}
 
-opacity:0.96;
+/* GLOBE */
 
-animation:
-float 6s ease-in-out infinite;
+#globe-container{
+width:620px;
+height:620px;
+
+position:relative;
+
+z-index:2;
+
+mix-blend-mode:screen;
+
+opacity:0.95;
+
+animation:float 7s ease-in-out infinite;
 
 filter:
-drop-shadow(0 0 35px #ff0000)
-drop-shadow(0 0 120px rgba(255,0,0,0.9));
-
-z-index:1;
-
+drop-shadow(0 0 40px #ff0000)
+drop-shadow(0 0 100px rgba(255,0,0,0.35));
 }
-
-/* FLOAT */
 
 @keyframes float{
 
 0%{
-transform:translateY(-50%);
+transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-53%);
+transform:translateY(-18px);
 }
 
 100%{
-transform:translateY(-50%);
+transform:translateY(0px);
 }
 
 }
@@ -355,40 +262,25 @@ transform:translateY(-50%);
 /* PARTICLES */
 
 .particle{
-
 position:absolute;
-
-width:3px;
-height:3px;
-
+width:2px;
+height:2px;
 background:red;
-
 border-radius:50%;
-
-opacity:0.7;
-
+opacity:0.5;
 animation:particleMove linear infinite;
-
 }
-
-/* PARTICLE ANIMATION */
 
 @keyframes particleMove{
 
 from{
-
 transform:translateY(0);
-
 opacity:0;
-
 }
 
 to{
-
-transform:translateY(-100vh);
-
+transform:translateY(-120vh);
 opacity:1;
-
 }
 
 }
@@ -398,103 +290,62 @@ opacity:1;
 @media(max-width:1200px){
 
 .hero{
-
 flex-direction:column;
-
-justify-content:center;
-
 text-align:center;
-
 padding-top:180px;
-
 }
 
-.left{
-
+.left,
+.right{
 width:100%;
-
 }
 
-.description{
-
-margin:auto;
-margin-top:30px;
-
-}
-
-.buttons{
-
-justify-content:center;
-
+.right{
+margin-top:80px;
 }
 
 h1{
-
 font-size:4.5rem;
-
 }
 
-.earth-image{
+.buttons{
+justify-content:center;
+}
 
-position:relative;
-
-right:auto;
-top:auto;
-
-transform:none;
-
-width:500px;
-height:500px;
-
-margin-top:60px;
-
+#globe-container{
+width:420px;
+height:420px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="cyber-bg"></div>
-
 <header>
 
 <div class="logo">
-
 OCÉANE <span>DEHAUDT</span>
-
 </div>
 
 <nav>
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
-
+<a href="https://github.com/oceane-dehaudt" target="_blank">
 GitHub
-
 </a>
 
-<a href="certificate-zscaler-cybersecurity.pdf.pdf"
-target="_blank">
-
+<a href="certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">
 Certification 1
-
 </a>
 
-<a href="certificate-zscaler-networking.pdf.pdf"
-target="_blank">
-
+<a href="certificate-zscaler-networking.pdf.pdf" target="_blank">
 Certification 2
-
 </a>
 
 <a href="mailto:oceane.dehaudt.pro@gmail.com">
-
 Contact
-
 </a>
 
 </nav>
@@ -506,24 +357,24 @@ Contact
 <div class="left">
 
 <div class="small">
-
 CYBERSÉCURITÉ • ANALYSE RÉSEAU • OSINT
-
 </div>
 
 <h1>
-
 ANALYSTE<br>
 EN<br>
 <span>CYBERSÉCURITÉ</span>
-
 </h1>
 
 <p class="description">
 
-Portfolio orienté cybersécurité offensive et analyse technique.
+Portfolio orienté cybersécurité offensive,
+analyse réseau et investigation technique.
 
-Développement de compétences en sécurité réseau, investigation OSINT, identification de vulnérabilités et environnements Linux à travers des laboratoires pratiques et projets spécialisés sécurité offensive.
+Développement de compétences en
+pentesting, identification de vulnérabilités,
+OSINT et sécurité Linux à travers des
+laboratoires pratiques et projets spécialisés.
 
 </p>
 
@@ -541,8 +392,13 @@ Voir GitHub
 
 </div>
 
-<img src="red-earth.png_.png"
-class="earth-image">
+<div class="right">
+
+<div class="glow-bg"></div>
+
+<div id="globe-container"></div>
+
+</div>
 
 </section>
 
@@ -561,7 +417,7 @@ particle.style.left=Math.random()*100+'vw';
 particle.style.top=Math.random()*100+'vh';
 
 particle.style.animationDuration=
-(5+Math.random()*10)+'s';
+(6+Math.random()*12)+'s';
 
 particle.style.opacity=Math.random();
 
@@ -569,8 +425,117 @@ document.body.appendChild(particle);
 
 }
 
+/* THREE JS */
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+45,
+1,
+0.1,
+1000
+);
+
+const renderer = new THREE.WebGLRenderer({
+alpha:true,
+antialias:true
+});
+
+renderer.setSize(620,620);
+
+document
+.getElementById("globe-container")
+.appendChild(renderer.domElement);
+
+camera.position.z = 2.2;
+
+/* TEXTURE */
+
+const textureLoader = new THREE.TextureLoader();
+
+const texture = textureLoader.load(
+'red-earth.png_.png'
+);
+
+/* GLOBE */
+
+const geometry = new THREE.SphereGeometry(
+1,
+128,
+128
+);
+
+const material = new THREE.MeshStandardMaterial({
+
+map:texture,
+
+emissive:new THREE.Color(0xff0000),
+
+emissiveIntensity:0.9,
+
+metalness:0.6,
+
+roughness:0.25
+
+});
+
+const globe = new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(globe);
+
+/* LIGHTS */
+
+const light = new THREE.PointLight(
+0xff2a2a,
+3,
+100
+);
+
+light.position.set(5,3,5);
+
+scene.add(light);
+
+const ambient = new THREE.AmbientLight(
+0xffffff,
+0.25
+);
+
+scene.add(ambient);
+
+/* PARALLAX */
+
+document.addEventListener('mousemove',(e)=>{
+
+const mouseX =
+(e.clientX/window.innerWidth - 0.5);
+
+const mouseY =
+(e.clientY/window.innerHeight - 0.5);
+
+globe.rotation.y += mouseX*0.003;
+
+globe.rotation.x += mouseY*0.0015;
+
+});
+
+/* ANIMATION */
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+globe.rotation.y += 0.0018;
+
+renderer.render(scene,camera);
+
+}
+
+animate();
+
 </script>
 
 </body>
-
 </html>
