@@ -28,7 +28,7 @@ scroll-behavior:smooth;
 
 body{
 
-background:#040404;
+background:#050505;
 font-family:'Inter',sans-serif;
 color:white;
 overflow-x:hidden;
@@ -69,13 +69,13 @@ animation:bgPulse 8s infinite alternate;
 @keyframes bgPulse{
 
 from{
-transform:translate(-50%,-50%) scale(1);
 opacity:0.5;
+transform:translate(-50%,-50%) scale(1);
 }
 
 to{
-transform:translate(-50%,-50%) scale(1.15);
 opacity:1;
+transform:translate(-50%,-50%) scale(1.15);
 }
 
 }
@@ -128,7 +128,7 @@ z-index:999;
 
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:10px;
 
 }
 
@@ -136,11 +136,9 @@ gap:12px;
 
 font-family:'Orbitron';
 
-font-size:2.8rem;
+font-size:2.7rem;
 
 font-weight:800;
-
-line-height:0.9;
 
 letter-spacing:3px;
 
@@ -198,7 +196,7 @@ font-size:0.75rem;
 
 letter-spacing:4px;
 
-color:#cfcfcf;
+color:#d0d0d0;
 
 }
 
@@ -310,7 +308,7 @@ gap:12px;
 
 .live-box p{
 
-font-size:0.85rem;
+font-size:0.82rem;
 
 letter-spacing:3px;
 
@@ -322,7 +320,7 @@ color:#d0d0d0;
 
 font-family:'Orbitron';
 
-font-size:5.5rem;
+font-size:5.3rem;
 
 line-height:0.9;
 
@@ -521,22 +519,58 @@ box-shadow:
 
 }
 
-/* ========================= */
-/* MAP */
-/* ========================= */
-
 .map{
 
 position:absolute;
 inset:0;
 
-background:url('https://i.imgur.com/2Ug5N8F.png') center/cover;
+background:
+
+radial-gradient(circle at 20% 30%,
+rgba(255,0,60,0.18),
+transparent 25%),
+
+radial-gradient(circle at 70% 40%,
+rgba(255,0,60,0.12),
+transparent 30%),
+
+radial-gradient(circle at 50% 70%,
+rgba(255,0,60,0.16),
+transparent 25%),
+
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+transparent
+);
+
+}
+
+.world-particles{
+
+position:absolute;
+inset:0;
+
+background-image:
+radial-gradient(#ff003c 1px, transparent 1px);
+
+background-size:28px 28px;
 
 opacity:0.18;
 
-filter:
-brightness(1.5)
-contrast(1.2);
+animation:particlesMove 25s linear infinite;
+
+}
+
+@keyframes particlesMove{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(-80px);
+}
 
 }
 
@@ -637,10 +671,6 @@ transform:translateX(40px);
 
 }
 
-/* ========================= */
-/* MAP TITLE */
-/* ========================= */
-
 .map-title{
 
 position:absolute;
@@ -648,7 +678,7 @@ position:absolute;
 top:25px;
 left:25px;
 
-font-size:1.2rem;
+font-size:1.15rem;
 
 font-weight:700;
 
@@ -659,7 +689,7 @@ letter-spacing:2px;
 }
 
 /* ========================= */
-/* GRAPH BOXES */
+/* BOTTOM BOXES */
 /* ========================= */
 
 .bottom-boxes{
@@ -751,10 +781,6 @@ color:#d0d0d0;
 color:#ff003c;
 
 }
-
-/* ========================= */
-/* TERMINAL */
-/* ========================= */
 
 #terminal{
 
@@ -852,19 +878,17 @@ OCÉANE
 
 <ul>
 
-<li><a href="#">À PROPOS</a></li>
-<li><a href="#">COMPÉTENCES</a></li>
-<li><a href="#">PROJETS</a></li>
-<li><a href="#">CERTIFICATIONS</a></li>
-<li><a href="#">CONTACT</a></li>
+<li><a href="#apropos">À PROPOS</a></li>
+<li><a href="#competences">COMPÉTENCES</a></li>
+<li><a href="#projets">PROJETS</a></li>
+<li><a href="#certifications">CERTIFICATIONS</a></li>
+<li><a href="#contact">CONTACT</a></li>
 
 </ul>
 
 </nav>
 
 <section class="hero">
-
-<!-- LEFT -->
 
 <div class="left-panel">
 
@@ -873,35 +897,38 @@ OCÉANE
 <div class="dot"></div>
 
 <p>
-STATUT : EN LIGNE
+SURVEILLANCE ACTIVE • SYSTÈMES EN LIGNE
 </p>
 
 </div>
 
 <h2 class="hero-title">
 
-DÉFENDRE
+ANALYSER
 
-<span>AUJOURD’HUI</span>
+<span>PROTÉGER</span>
 
 </h2>
 
 <p class="hero-text">
 
-Passionnée par la cybersécurité offensive,
-l’OSINT, la surveillance réseau
+Étudiante en cybersécurité passionnée
+par la sécurité offensive,
+l’OSINT,
+la surveillance réseau
 et l’analyse des menaces numériques.
 
-Je développe des projets centrés
-sur la détection d’intrusions,
-la recherche de vulnérabilités
-et la surveillance en temps réel.
+Je développe des projets orientés
+détection d’intrusions,
+monitoring en temps réel,
+analyse de vulnérabilités
+et cybersurveillance moderne.
 
 </p>
 
 <div class="buttons">
 
-<a href="#" class="btn btn-red">
+<a href="#projets" class="btn btn-red">
 VOIR MES PROJETS →
 </a>
 
@@ -919,7 +946,7 @@ MON GITHUB ⚡
 
 <div class="stat">
 <h3>128K+</h3>
-<p>ATTAQUES DÉTECTÉES</p>
+<p>ATTAQUES ANALYSÉES</p>
 </div>
 
 <div class="stat">
@@ -941,16 +968,16 @@ MON GITHUB ⚡
 
 </div>
 
-<!-- CENTER -->
-
 <div class="center-panel">
 
 <div class="map-box">
 
 <div class="map"></div>
 
+<div class="world-particles"></div>
+
 <div class="map-title">
-CARTE DES MENACES EN TEMPS RÉEL
+ACTIVITÉ MONDIALE DES MENACES CYBER
 </div>
 
 <div class="attack-line attack1"></div>
@@ -972,7 +999,7 @@ TYPE D’ATTAQUES
 DDoS — 35%<br>
 Malware — 25%<br>
 Phishing — 20%<br>
-Exploit — 12%<br>
+Exploits — 12%<br>
 Autres — 8%
 </p>
 
@@ -984,24 +1011,20 @@ Autres — 8%
 ACTIVITÉ RÉSEAU
 </h3>
 
-<div style="
-height:90px;
-border-radius:12px;
-background:
-linear-gradient(
-180deg,
-rgba(255,0,60,0.25),
-transparent
-);
-margin-top:20px;
-"></div>
+<p style="color:#b4b4b4;line-height:2;">
+Analyse du trafic réseau,
+surveillance active des connexions,
+détection d’anomalies
+et monitoring temps réel.
+
+</p>
 
 </div>
 
 <div class="box">
 
 <h3 style="color:#ff003c;margin-bottom:20px;">
-SÉCURITÉ
+NIVEAU DE SÉCURITÉ
 </h3>
 
 <div style="
@@ -1018,8 +1041,8 @@ font-weight:700;
 box-shadow:
 0 0 30px rgba(255,0,60,0.25);
 ">
+
 98%
-</div>
 
 </div>
 
@@ -1027,7 +1050,7 @@ box-shadow:
 
 </div>
 
-<!-- RIGHT -->
+</div>
 
 <div class="right-panel">
 
@@ -1128,10 +1151,11 @@ const lines = [
 
 "> Initialisation du système...",
 "> Connexion au réseau mondial...",
-"> Surveillance active...",
-"> Détection d’activité suspecte...",
+"> Surveillance active des menaces...",
 "> Analyse des paquets réseau...",
+"> Détection d’activité suspecte...",
 "> Belgique : activité anormale détectée...",
+"> Monitoring des systèmes actifs...",
 "> Mise à jour des défenses...",
 "> Surveillance active 24/7..."
 
