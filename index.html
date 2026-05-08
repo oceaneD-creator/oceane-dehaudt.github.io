@@ -15,10 +15,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
-/* ========================= */
-/* RESET */
-/* ========================= */
-
 *{
 margin:0;
 padding:0;
@@ -38,9 +34,7 @@ overflow-x:hidden;
 
 }
 
-/* ========================= */
 /* BACKGROUND */
-/* ========================= */
 
 body::before{
 
@@ -58,28 +52,12 @@ height:1200px;
 
 background:
 radial-gradient(circle,
-rgba(255,0,60,0.07),
+rgba(255,0,60,0.08),
 transparent 70%);
 
 filter:blur(120px);
 
 z-index:-2;
-
-animation:bgPulse 10s infinite alternate;
-
-}
-
-@keyframes bgPulse{
-
-from{
-opacity:0.5;
-transform:translate(-50%,-50%) scale(1);
-}
-
-to{
-opacity:1;
-transform:translate(-50%,-50%) scale(1.08);
-}
 
 }
 
@@ -98,9 +76,7 @@ z-index:-1;
 
 }
 
-/* ========================= */
 /* NAVBAR */
-/* ========================= */
 
 nav{
 
@@ -145,8 +121,6 @@ font-weight:800;
 
 letter-spacing:3px;
 
-text-transform:uppercase;
-
 line-height:0.9;
 
 }
@@ -186,17 +160,6 @@ background:#ff003c;
 box-shadow:
 0 0 10px #ff003c;
 
-animation:blink 1.5s infinite;
-
-}
-
-@keyframes blink{
-
-50%{
-opacity:0.4;
-transform:scale(1.5);
-}
-
 }
 
 nav ul{
@@ -220,26 +183,6 @@ font-weight:600;
 
 transition:0.3s;
 
-position:relative;
-
-}
-
-nav a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:2px;
-
-background:#ff003c;
-
-transition:0.3s;
-
 }
 
 nav a:hover{
@@ -248,15 +191,7 @@ color:#ff003c;
 
 }
 
-nav a:hover::after{
-
-width:100%;
-
-}
-
-/* ========================= */
 /* HERO */
-/* ========================= */
 
 .hero{
 
@@ -272,9 +207,7 @@ padding:160px 70px 70px;
 
 }
 
-/* ========================= */
 /* LEFT */
-/* ========================= */
 
 .left{
 
@@ -325,8 +258,6 @@ line-height:0.95;
 
 font-weight:800;
 
-text-transform:uppercase;
-
 }
 
 .hero-title span{
@@ -350,9 +281,7 @@ color:#b4b4b4;
 
 }
 
-/* ========================= */
 /* BUTTONS */
-/* ========================= */
 
 .buttons{
 
@@ -396,12 +325,6 @@ box-shadow:
 
 }
 
-.btn-red:hover{
-
-transform:translateY(-5px);
-
-}
-
 .btn-outline{
 
 border:1px solid rgba(255,255,255,0.12);
@@ -412,19 +335,13 @@ color:white;
 
 }
 
-.btn-outline:hover{
-
-border-color:#ff003c;
-
-color:#ff003c;
+.btn:hover{
 
 transform:translateY(-5px);
 
 }
 
-/* ========================= */
 /* ABOUT */
-/* ========================= */
 
 .about-box{
 
@@ -449,8 +366,6 @@ color:#ff003c;
 
 margin-bottom:20px;
 
-font-size:1rem;
-
 }
 
 .about-box p{
@@ -459,13 +374,9 @@ color:#b4b4b4;
 
 line-height:2;
 
-font-size:0.95rem;
-
 }
 
-/* ========================= */
 /* CENTER */
-/* ========================= */
 
 .center{
 
@@ -474,6 +385,8 @@ flex-direction:column;
 gap:28px;
 
 }
+
+/* MAP */
 
 .map-box{
 
@@ -501,26 +414,9 @@ height:100%;
 
 object-fit:cover;
 
-opacity:0.92;
+opacity:0.95;
 
-filter:
-contrast(1.1)
-brightness(0.95);
-
-}
-
-.map-overlay{
-
-position:absolute;
-inset:0;
-
-background:
-
-linear-gradient(
-180deg,
-rgba(0,0,0,0.1),
-rgba(0,0,0,0.4)
-);
+display:block;
 
 }
 
@@ -539,23 +435,23 @@ color:#ff003c;
 
 letter-spacing:2px;
 
+z-index:10;
+
 }
 
-/* ========================= */
-/* PROJECTS */
-/* ========================= */
+/* CERTIFICATIONS */
 
-.projects{
+.certifications{
 
 display:grid;
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(2,1fr);
 
 gap:20px;
 
 }
 
-.project{
+.cert{
 
 padding:24px;
 
@@ -574,49 +470,43 @@ transition:0.35s;
 
 }
 
-.project:hover{
+.cert:hover{
 
-transform:translateY(-6px);
+transform:translateY(-5px);
 
 border-color:rgba(255,0,60,0.3);
 
 }
 
-.project h3{
-
-margin-bottom:18px;
+.cert h3{
 
 color:#ff003c;
 
-font-size:1.05rem;
+margin-bottom:15px;
 
 }
 
-.project p{
+.cert p{
 
 color:#b4b4b4;
 
-line-height:1.9;
+line-height:1.8;
 
-font-size:0.92rem;
-
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
-.project a{
-
-text-decoration:none;
+.cert a{
 
 color:#ff003c;
+
+text-decoration:none;
 
 font-weight:600;
 
 }
 
-/* ========================= */
 /* SKILLS */
-/* ========================= */
 
 .skills{
 
@@ -677,9 +567,7 @@ color:#ff003c;
 
 }
 
-/* ========================= */
 /* RIGHT */
-/* ========================= */
 
 .right{
 
@@ -711,8 +599,6 @@ border:1px solid rgba(255,0,60,0.12);
 color:#ff003c;
 
 margin-bottom:22px;
-
-font-size:1rem;
 
 }
 
@@ -749,9 +635,7 @@ white-space:pre-line;
 
 }
 
-/* ========================= */
 /* RESPONSIVE */
-/* ========================= */
 
 @media(max-width:1450px){
 
@@ -761,7 +645,7 @@ grid-template-columns:1fr;
 
 }
 
-.projects{
+.certifications{
 
 grid-template-columns:1fr;
 
@@ -831,8 +715,7 @@ OCÉANE
 
 <li><a href="#apropos">À PROPOS</a></li>
 <li><a href="#competences">COMPÉTENCES</a></li>
-<li><a href="#projets">PROJETS</a></li>
-<li><a href="https://github.com/oceane-dehaudt" target="_blank">CERTIFICATIONS</a></li>
+<li><a href="#certifications">CERTIFICATIONS</a></li>
 <li><a href="#contact">CONTACT</a></li>
 
 </ul>
@@ -880,8 +763,8 @@ et cybersurveillance moderne.
 
 <div class="buttons">
 
-<a href="#projets" class="btn btn-red">
-VOIR MES PROJETS →
+<a href="#certifications" class="btn btn-red">
+VOIR MES CERTIFICATIONS →
 </a>
 
 <a href="mailto:oceane.dehaudt.pro@gmail.com" class="btn btn-outline">
@@ -894,7 +777,7 @@ MON GITHUB ⚡
 
 </div>
 
-<div class="about-box">
+<div class="about-box" id="apropos">
 
 <h3>
 À PROPOS
@@ -932,84 +815,14 @@ et analyse des menaces numériques.
 CARTE DES MENACES EN TEMPS RÉEL
 </div>
 
-<img src="images/world.png" alt="Cyber Threat Map">
-
-<div class="map-overlay"></div>
-
-</div>
-
-<div class="projects" id="projets">
-
-<div class="project">
-
-<h3>
-XSS LAB
-</h3>
-
-<p>
-
-Environnement de test
-pour l’apprentissage
-et l’analyse
-des vulnérabilités web XSS.
-
-</p>
-
-<a href="https://github.com/oceane-dehaudt" target="_blank">
-VOIR LE PROJET →
-</a>
-
-</div>
-
-<div class="project">
-
-<h3>
-REDMI PROJECT
-</h3>
-
-<p>
-
-Projet personnel
-orienté système Android,
-analyse,
-personnalisation
-et expérimentation technique.
-
-</p>
-
-<a href="https://github.com/oceane-dehaudt" target="_blank">
-VOIR LE PROJET →
-</a>
-
-</div>
-
-<div class="project">
-
-<h3>
-OSINT TOOLKIT
-</h3>
-
-<p>
-
-Toolkit OSINT
-destiné à la collecte,
-l’analyse
-et la corrélation d’informations.
-
-</p>
-
-<a href="https://github.com/oceane-dehaudt" target="_blank">
-VOIR LE PROJET →
-</a>
-
-</div>
+<img src="red-earth.png_png" alt="Cyber Threat Map">
 
 </div>
 
 <div class="skills" id="competences">
 
 <h3>
-OUTILS & TECHNOLOGIES
+COMPÉTENCES TECHNIQUES
 </h3>
 
 <div class="skill-list">
@@ -1045,8 +858,8 @@ Docker
 </div>
 
 <div class="skill">
-<i class="fa-brands fa-git-alt"></i>
-Git
+<i class="fa-solid fa-globe"></i>
+OSINT
 </div>
 
 <div class="skill">
@@ -1055,9 +868,57 @@ SQL
 </div>
 
 <div class="skill">
-<i class="fa-solid fa-globe"></i>
-OSINT
+<i class="fa-brands fa-git-alt"></i>
+Git
 </div>
+
+</div>
+
+</div>
+
+<div class="certifications" id="certifications">
+
+<div class="cert">
+
+<h3>
+ZSCALER CYBERSECURITY
+</h3>
+
+<p>
+
+Certification orientée cybersécurité,
+réseau
+et sécurité cloud.
+
+</p>
+
+<a href="certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">
+
+VOIR CERTIFICATION →
+
+</a>
+
+</div>
+
+<div class="cert">
+
+<h3>
+ZSCALER NETWORKING
+</h3>
+
+<p>
+
+Certification réseau
+et fondamentaux
+de la cybersurveillance moderne.
+
+</p>
+
+<a href="certificate-zscaler-networking.pdf.pdf" target="_blank">
+
+VOIR CERTIFICATION →
+
+</a>
 
 </div>
 
