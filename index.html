@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,7 +8,7 @@
 
 <title>Océane Dehaudt | Cyber Security</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
@@ -28,18 +29,61 @@ scroll-behavior:smooth;
 }
 
 body{
+
 background:#020202;
 font-family:'Inter',sans-serif;
 color:white;
 overflow-x:hidden;
-cursor:default;
+
 }
 
 /* ========================= */
 /* BACKGROUND */
 /* ========================= */
 
-.bg-grid{
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:1400px;
+height:1400px;
+
+background:
+radial-gradient(circle,
+rgba(255,0,60,0.12),
+transparent 70%);
+
+filter:blur(120px);
+
+z-index:-2;
+
+animation:glowPulse 8s infinite alternate;
+
+}
+
+@keyframes glowPulse{
+
+from{
+transform:translate(-50%,-50%) scale(1);
+opacity:0.5;
+}
+
+to{
+transform:translate(-50%,-50%) scale(1.2);
+opacity:1;
+}
+
+}
+
+.grid{
+
 position:fixed;
 inset:0;
 
@@ -49,32 +93,8 @@ linear-gradient(90deg, rgba(255,0,60,0.05) 1px, transparent 1px);
 
 background-size:50px 50px;
 
-z-index:-3;
-}
+z-index:-1;
 
-.red-glow{
-position:fixed;
-width:1000px;
-height:1000px;
-background:radial-gradient(circle, rgba(255,0,60,0.12), transparent 70%);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:-2;
-filter:blur(100px);
-animation:pulse 6s infinite alternate;
-}
-
-@keyframes pulse{
-from{
-opacity:0.4;
-transform:translate(-50%,-50%) scale(1);
-}
-
-to{
-opacity:0.8;
-transform:translate(-50%,-50%) scale(1.2);
-}
 }
 
 /* ========================= */
@@ -82,79 +102,180 @@ transform:translate(-50%,-50%) scale(1.2);
 /* ========================= */
 
 nav{
+
 position:fixed;
 top:0;
 left:0;
+
 width:100%;
-padding:25px 80px;
+
+padding:28px 80px;
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
 background:rgba(0,0,0,0.45);
-backdrop-filter:blur(12px);
+
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid rgba(255,0,60,0.08);
 
 z-index:999;
 
-border-bottom:1px solid rgba(255,0,60,0.08);
 }
 
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
 .logo{
+
 display:flex;
 flex-direction:column;
+gap:16px;
+
 }
 
 .logo h1{
-font-family:'Orbitron';
-font-size:2rem;
-letter-spacing:3px;
+
+font-family:'Orbitron',sans-serif;
+
+font-size:4.5rem;
+
+line-height:0.85;
+
 font-weight:800;
+
+letter-spacing:5px;
+
+display:flex;
+flex-direction:column;
+
+text-transform:uppercase;
+
+color:white;
+
+text-shadow:
+0 0 20px rgba(255,255,255,0.1);
+
 }
 
 .logo h1 span{
+
 color:#ff003c;
+
+text-shadow:
+0 0 15px rgba(255,0,60,0.9),
+0 0 40px rgba(255,0,60,0.4),
+0 0 80px rgba(255,0,60,0.15);
+
 }
 
-.logo p{
-margin-top:5px;
-font-size:0.75rem;
-letter-spacing:2px;
-color:#999;
+.student-status{
+
+display:flex;
+align-items:center;
+gap:14px;
+
 }
+
+.status-dot{
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+background:#ff003c;
+
+box-shadow:
+0 0 10px #ff003c,
+0 0 20px #ff003c,
+0 0 40px rgba(255,0,60,0.5);
+
+animation:pulseDot 1.5s infinite;
+
+}
+
+@keyframes pulseDot{
+
+50%{
+opacity:0.4;
+transform:scale(1.4);
+}
+
+}
+
+.student-status p{
+
+font-size:0.9rem;
+
+letter-spacing:5px;
+
+color:#cfcfcf;
+
+font-weight:500;
+
+}
+
+/* ========================= */
+/* NAV LINKS */
+/* ========================= */
 
 nav ul{
+
 display:flex;
 gap:45px;
+
 list-style:none;
+
 }
 
 nav a{
+
 text-decoration:none;
+
 color:white;
+
 font-size:0.95rem;
-font-weight:500;
+
+font-weight:600;
+
 transition:0.3s;
+
 position:relative;
+
 }
 
 nav a::after{
+
 content:"";
+
 position:absolute;
+
 left:0;
 bottom:-8px;
+
 width:0%;
 height:2px;
+
 background:#ff003c;
+
 transition:0.3s;
+
 }
 
 nav a:hover{
+
 color:#ff003c;
+
 }
 
 nav a:hover::after{
+
 width:100%;
+
 }
 
 /* ========================= */
@@ -162,64 +283,84 @@ width:100%;
 /* ========================= */
 
 .hero{
+
 min-height:100vh;
+
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:140px 80px 80px;
-position:relative;
+align-items:center;
+
+padding:180px 80px 80px;
+
 gap:50px;
+
+position:relative;
+
 }
 
 .hero-left{
+
 max-width:760px;
 z-index:2;
+
 }
 
 .live-status{
+
 display:flex;
 align-items:center;
 gap:12px;
+
 color:#ff003c;
-letter-spacing:4px;
+
 font-size:0.8rem;
-margin-bottom:30px;
-}
 
-.live-dot{
-width:8px;
-height:8px;
-border-radius:50%;
-background:#ff003c;
-box-shadow:0 0 15px #ff003c;
-animation:blink 1.2s infinite;
-}
+letter-spacing:4px;
 
-@keyframes blink{
-50%{
-opacity:0.3;
-}
+margin-bottom:35px;
+
 }
 
 .hero h2{
+
 font-family:'Orbitron';
+
 font-size:7rem;
+
 line-height:0.9;
+
 font-weight:800;
+
 margin-bottom:40px;
+
+text-transform:uppercase;
+
 }
 
 .hero h2 span{
-color:#ff003c;
+
 display:block;
+
+color:#ff003c;
+
+text-shadow:
+0 0 15px rgba(255,0,60,0.7),
+0 0 50px rgba(255,0,60,0.3);
+
 }
 
 .hero-description{
+
 font-size:1.15rem;
+
 line-height:2;
-color:#b4b4b4;
+
+color:#b7b7b7;
+
 max-width:650px;
+
 margin-bottom:50px;
+
 }
 
 /* ========================= */
@@ -227,109 +368,101 @@ margin-bottom:50px;
 /* ========================= */
 
 .buttons{
+
 display:flex;
 gap:20px;
 flex-wrap:wrap;
+
+margin-bottom:40px;
+
 }
 
 .btn{
-padding:18px 38px;
-border-radius:14px;
+
+padding:18px 36px;
+
+border-radius:16px;
+
 font-weight:600;
-letter-spacing:1px;
+
 text-decoration:none;
+
 transition:0.35s;
-position:relative;
-overflow:hidden;
+
+letter-spacing:1px;
+
 }
 
 .btn-red{
-background:#ff003c;
+
+background:
+linear-gradient(
+135deg,
+#ff003c,
+#ff174f
+);
+
 color:white;
+
 box-shadow:
-0 0 25px rgba(255,0,60,0.5),
-0 0 50px rgba(255,0,60,0.2);
+0 0 25px rgba(255,0,60,0.45),
+0 0 70px rgba(255,0,60,0.15);
+
 }
 
 .btn-red:hover{
-transform:translateY(-5px);
+
+transform:translateY(-5px) scale(1.03);
+
 box-shadow:
 0 0 40px rgba(255,0,60,0.7),
-0 0 80px rgba(255,0,60,0.3);
+0 0 100px rgba(255,0,60,0.2);
+
 }
 
 .btn-outline{
-border:1px solid rgba(255,255,255,0.15);
-color:white;
+
+border:1px solid rgba(255,255,255,0.12);
+
 background:rgba(255,255,255,0.03);
-backdrop-filter:blur(10px);
+
+backdrop-filter:blur(12px);
+
+color:white;
+
 }
 
 .btn-outline:hover{
+
 border-color:#ff003c;
+
 color:#ff003c;
+
 transform:translateY(-5px);
-}
-
-/* ========================= */
-/* GLOBE */
-/* ========================= */
-
-.hero-right{
-position:relative;
-width:700px;
-height:700px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-#globe-container{
-width:100%;
-height:100%;
-}
-
-/* ========================= */
-/* ATTACK PANEL */
-/* ========================= */
-
-.attack-panel{
-position:absolute;
-right:0;
-top:80px;
-
-width:320px;
-
-background:rgba(8,8,8,0.85);
-
-border:1px solid rgba(255,0,60,0.2);
-
-backdrop-filter:blur(20px);
-
-padding:28px;
-border-radius:24px;
 
 box-shadow:
-0 0 40px rgba(255,0,60,0.08);
+0 0 25px rgba(255,0,60,0.15);
+
 }
 
-.attack-panel h3{
-color:#ff003c;
-margin-bottom:25px;
+/* ========================= */
+/* MAIL */
+/* ========================= */
+
+.contact-mail{
+
+color:#888;
+
 font-size:1rem;
-letter-spacing:1px;
+
+margin-bottom:50px;
+
 }
 
-.attack-row{
-display:flex;
-justify-content:space-between;
-margin-bottom:18px;
-font-size:0.95rem;
-color:#bdbdbd;
-}
+.contact-mail span{
 
-.attack-row span{
 color:#ff003c;
+
 }
 
 /* ========================= */
@@ -337,170 +470,334 @@ color:#ff003c;
 /* ========================= */
 
 .stats{
+
 display:grid;
+
 grid-template-columns:repeat(4,1fr);
+
 gap:20px;
-margin-top:60px;
+
 max-width:900px;
+
 }
 
 .stat-card{
-background:rgba(10,10,10,0.8);
-border:1px solid rgba(255,0,60,0.1);
+
 padding:25px;
-border-radius:18px;
-transition:0.3s;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+180deg,
+rgba(18,18,18,0.95),
+rgba(6,6,6,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.14);
+
+backdrop-filter:blur(20px);
+
+transition:0.35s;
+
+box-shadow:
+0 0 30px rgba(255,0,60,0.05);
+
 }
 
 .stat-card:hover{
+
 transform:translateY(-8px);
-border-color:#ff003c;
-box-shadow:0 0 25px rgba(255,0,60,0.12);
+
+border-color:rgba(255,0,60,0.35);
+
+box-shadow:
+0 0 45px rgba(255,0,60,0.12);
+
 }
 
 .stat-card h4{
+
 font-size:2rem;
-margin-bottom:8px;
+
+margin-bottom:10px;
+
 color:#ff003c;
+
 }
 
 .stat-card p{
+
 font-size:0.9rem;
+
 color:#888;
+
 }
 
 /* ========================= */
-/* TERMINAL */
+/* GLOBE */
 /* ========================= */
 
+.hero-right{
+
+position:relative;
+
+width:780px;
+height:780px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+#globe-container{
+
+width:100%;
+height:100%;
+
+}
+
+/* ========================= */
+/* PANELS */
+/* ========================= */
+
+.attack-panel,
 .terminal-box{
+
 position:absolute;
+
+background:
+linear-gradient(
+180deg,
+rgba(15,15,15,0.92),
+rgba(5,5,5,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.18);
+
+border-radius:26px;
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 0 40px rgba(255,0,60,0.08);
+
+padding:28px;
+
+transition:0.35s;
+
+}
+
+.attack-panel:hover,
+.terminal-box:hover{
+
+transform:translateY(-6px);
+
+border-color:rgba(255,0,60,0.3);
+
+}
+
+.attack-panel{
+
+top:80px;
 right:0;
-bottom:20px;
 
 width:340px;
 
-background:rgba(5,5,5,0.92);
+}
 
-border:1px solid rgba(255,0,60,0.15);
+.attack-panel h3{
 
-padding:25px;
-border-radius:24px;
+color:#ff003c;
 
-backdrop-filter:blur(15px);
+margin-bottom:25px;
+
+font-size:1rem;
+
+letter-spacing:1px;
+
+}
+
+.attack-row{
+
+display:flex;
+justify-content:space-between;
+
+margin-bottom:18px;
+
+font-size:0.95rem;
+
+color:#c7c7c7;
+
+}
+
+.attack-row span{
+
+color:#ff003c;
+
+}
+
+.terminal-box{
+
+bottom:0;
+right:0;
+
+width:360px;
+
 }
 
 .terminal-title{
+
 margin-bottom:20px;
-color:white;
-font-size:0.9rem;
+
 letter-spacing:2px;
+
+font-size:0.9rem;
+
 }
 
 #terminal{
+
 font-family:monospace;
-color:#00ff95;
+
+color:#00ff99;
+
 line-height:1.8;
-font-size:0.88rem;
+
 white-space:pre-line;
-}
 
-/* ========================= */
-/* CONTACT */
-/* ========================= */
+font-size:0.88rem;
 
-.contact-mail{
-margin-top:40px;
-font-size:1rem;
-color:#999;
-}
-
-.contact-mail span{
-color:#ff003c;
 }
 
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
 
-@media(max-width:1400px){
+@media(max-width:1450px){
 
 .hero{
+
 flex-direction:column;
+
 text-align:center;
+
 }
 
 .hero-left{
+
 display:flex;
 flex-direction:column;
 align-items:center;
+
 }
 
 .stats{
+
 grid-template-columns:repeat(2,1fr);
-}
 
-.attack-panel{
-position:relative;
-margin-top:30px;
-}
-
-.terminal-box{
-position:relative;
-margin-top:30px;
-bottom:auto;
-right:auto;
 }
 
 .hero-right{
-height:auto;
-}
+
+width:100%;
+height:700px;
 
 }
 
-@media(max-width:800px){
+.attack-panel,
+.terminal-box{
 
-.hero h2{
-font-size:4rem;
+position:relative;
+
+right:auto;
+bottom:auto;
+top:auto;
+
+margin-top:25px;
+
 }
 
-.stats{
-grid-template-columns:1fr;
 }
+
+@media(max-width:900px){
 
 nav{
+
 padding:20px;
+
 }
 
 nav ul{
+
 display:none;
+
 }
 
 .hero{
-padding:120px 25px;
+
+padding:160px 25px 60px;
+
+}
+
+.logo h1{
+
+font-size:3rem;
+
+}
+
+.hero h2{
+
+font-size:4rem;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.student-status p{
+
+font-size:0.7rem;
+
+letter-spacing:3px;
+
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="bg-grid"></div>
-<div class="red-glow"></div>
+<div class="grid"></div>
 
 <nav>
 
 <div class="logo">
 
 <h1>
-OCÉANE <span>DEHAUDT</span>
+
+OCÉANE
+
+<span>DEHAUDT</span>
+
 </h1>
+
+<div class="student-status">
+
+<div class="status-dot"></div>
 
 <p>
 ÉTUDIANTE EN CYBERSÉCURITÉ
 </p>
+
+</div>
 
 </div>
 
@@ -509,6 +806,7 @@ OCÉANE <span>DEHAUDT</span>
 <li><a href="#">À PROPOS</a></li>
 <li><a href="#">COMPÉTENCES</a></li>
 <li><a href="#">PROJETS</a></li>
+<li><a href="#">CERTIFICATIONS</a></li>
 <li><a href="#">CONTACT</a></li>
 
 </ul>
@@ -521,7 +819,7 @@ OCÉANE <span>DEHAUDT</span>
 
 <div class="live-status">
 
-<div class="live-dot"></div>
+<div class="status-dot"></div>
 
 CARTE DES MENACES CYBERNÉTIQUES EN DIRECT
 
@@ -709,13 +1007,15 @@ alpha:true,
 antialias:true
 });
 
-renderer.setSize(700,700);
+renderer.setSize(780,780);
 
 document
 .getElementById("globe-container")
 .appendChild(renderer.domElement);
 
 camera.position.z = 3;
+
+/* GLOBE */
 
 const globeGeometry = new THREE.SphereGeometry(1,64,64);
 
@@ -731,13 +1031,11 @@ globeMaterial
 
 scene.add(globe);
 
-/* ========================= */
-/* RED PARTICLES */
-/* ========================= */
+/* PARTICLES */
 
 const particlesGeometry = new THREE.BufferGeometry();
 
-const particlesCount = 6000;
+const particlesCount = 7000;
 
 const posArray = new Float32Array(particlesCount * 3);
 
@@ -764,9 +1062,7 @@ particlesMaterial
 
 scene.add(particlesMesh);
 
-/* ========================= */
-/* ATTACK LINES */
-/* ========================= */
+/* CYBER LINES */
 
 const lineMaterial = new THREE.LineBasicMaterial({
 color:0xff003c
@@ -774,23 +1070,29 @@ color:0xff003c
 
 function createAttackLine(){
 
-const points = [];
+const curve = new THREE.QuadraticBezierCurve3(
 
-points.push(
+new THREE.Vector3(
+(Math.random()-0.5)*2,
+(Math.random()-0.5)*2,
+(Math.random()-0.5)*2
+),
+
+new THREE.Vector3(
+(Math.random()-0.5)*3,
+(Math.random()-0.5)*3,
+(Math.random()-0.5)*3
+),
+
 new THREE.Vector3(
 (Math.random()-0.5)*2,
 (Math.random()-0.5)*2,
 (Math.random()-0.5)*2
 )
+
 );
 
-points.push(
-new THREE.Vector3(
-(Math.random()-0.5)*2,
-(Math.random()-0.5)*2,
-(Math.random()-0.5)*2
-)
-);
+const points = curve.getPoints(50);
 
 const geometry = new THREE.BufferGeometry().setFromPoints(points);
 
@@ -802,15 +1104,13 @@ setTimeout(() => {
 
 scene.remove(line);
 
-},2000);
+},2500);
 
 }
 
-setInterval(createAttackLine,300);
+setInterval(createAttackLine,250);
 
-/* ========================= */
 /* ANIMATION */
-/* ========================= */
 
 function animate(){
 
@@ -818,7 +1118,7 @@ requestAnimationFrame(animate);
 
 globe.rotation.y += 0.0015;
 
-particlesMesh.rotation.y += 0.0008;
+particlesMesh.rotation.y += 0.0007;
 
 renderer.render(scene,camera);
 
@@ -829,4 +1129,5 @@ animate();
 </script>
 
 </body>
+
 </html>
