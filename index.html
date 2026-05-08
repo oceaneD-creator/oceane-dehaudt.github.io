@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cyber Security</title>
+<title>Océane Dehaudt | Portfolio Cybersécurité</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -50,19 +50,19 @@ left:50%;
 
 transform:translate(-50%,-50%);
 
-width:1400px;
-height:1400px;
+width:1200px;
+height:1200px;
 
 background:
 radial-gradient(circle,
-rgba(255,0,60,0.08),
+rgba(255,0,60,0.07),
 transparent 70%);
 
 filter:blur(120px);
 
 z-index:-2;
 
-animation:bgPulse 8s infinite alternate;
+animation:bgPulse 10s infinite alternate;
 
 }
 
@@ -75,7 +75,7 @@ transform:translate(-50%,-50%) scale(1);
 
 to{
 opacity:1;
-transform:translate(-50%,-50%) scale(1.15);
+transform:translate(-50%,-50%) scale(1.08);
 }
 
 }
@@ -86,10 +86,10 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,0,60,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,60,0.04) 1px, transparent 1px);
+linear-gradient(rgba(255,0,60,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,60,0.03) 1px, transparent 1px);
 
-background-size:50px 50px;
+background-size:55px 55px;
 
 z-index:-1;
 
@@ -108,15 +108,15 @@ left:0;
 
 width:100%;
 
-padding:24px 60px;
+padding:24px 70px;
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.45);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(16px);
 
 border-bottom:1px solid rgba(255,0,60,0.08);
 
@@ -144,6 +144,8 @@ letter-spacing:3px;
 
 text-transform:uppercase;
 
+line-height:0.9;
+
 }
 
 .logo h1 span{
@@ -151,16 +153,21 @@ text-transform:uppercase;
 color:#ff003c;
 
 text-shadow:
-0 0 15px rgba(255,0,60,0.8),
-0 0 40px rgba(255,0,60,0.25);
+0 0 15px rgba(255,0,60,0.7);
 
 }
 
-.status{
+.logo p{
+
+font-size:0.72rem;
+
+letter-spacing:4px;
+
+color:#bdbdbd;
 
 display:flex;
 align-items:center;
-gap:12px;
+gap:10px;
 
 }
 
@@ -174,8 +181,7 @@ border-radius:50%;
 background:#ff003c;
 
 box-shadow:
-0 0 10px #ff003c,
-0 0 25px #ff003c;
+0 0 10px #ff003c;
 
 animation:blink 1.5s infinite;
 
@@ -184,19 +190,9 @@ animation:blink 1.5s infinite;
 @keyframes blink{
 
 50%{
-opacity:0.3;
+opacity:0.4;
 transform:scale(1.5);
 }
-
-}
-
-.status p{
-
-font-size:0.75rem;
-
-letter-spacing:4px;
-
-color:#d0d0d0;
 
 }
 
@@ -219,9 +215,9 @@ font-size:0.92rem;
 
 font-weight:600;
 
-position:relative;
-
 transition:0.3s;
+
+position:relative;
 
 }
 
@@ -263,21 +259,21 @@ width:100%;
 
 min-height:100vh;
 
-padding:150px 60px 60px;
-
 display:grid;
 
-grid-template-columns:420px 1fr 330px;
+grid-template-columns:420px 1fr 320px;
 
-gap:30px;
+gap:35px;
+
+padding:160px 70px 70px;
 
 }
 
 /* ========================= */
-/* LEFT PANEL */
+/* LEFT */
 /* ========================= */
 
-.left-panel{
+.left{
 
 display:flex;
 flex-direction:column;
@@ -294,11 +290,11 @@ border-radius:18px;
 background:
 linear-gradient(
 180deg,
-rgba(18,18,18,0.92),
+rgba(10,10,10,0.98),
 rgba(5,5,5,0.98)
 );
 
-border:1px solid rgba(255,0,60,0.15);
+border:1px solid rgba(255,0,60,0.12);
 
 display:flex;
 align-items:center;
@@ -308,7 +304,7 @@ gap:12px;
 
 .live-box p{
 
-font-size:0.82rem;
+font-size:0.8rem;
 
 letter-spacing:3px;
 
@@ -320,7 +316,7 @@ color:#d0d0d0;
 
 font-family:'Orbitron';
 
-font-size:5.3rem;
+font-size:5rem;
 
 line-height:0.9;
 
@@ -337,14 +333,13 @@ display:block;
 color:#ff003c;
 
 text-shadow:
-0 0 20px rgba(255,0,60,0.8),
-0 0 50px rgba(255,0,60,0.2);
+0 0 18px rgba(255,0,60,0.7);
 
 }
 
 .hero-text{
 
-font-size:1.05rem;
+font-size:1rem;
 
 line-height:2;
 
@@ -370,9 +365,9 @@ padding:18px 24px;
 
 border-radius:16px;
 
-font-weight:600;
-
 text-decoration:none;
+
+font-weight:600;
 
 transition:0.35s;
 
@@ -394,7 +389,7 @@ linear-gradient(
 color:white;
 
 box-shadow:
-0 0 25px rgba(255,0,60,0.4);
+0 0 25px rgba(255,0,60,0.35);
 
 }
 
@@ -408,7 +403,7 @@ transform:translateY(-5px);
 
 border:1px solid rgba(255,255,255,0.12);
 
-background:rgba(255,255,255,0.03);
+background:rgba(255,255,255,0.02);
 
 color:white;
 
@@ -425,75 +420,61 @@ transform:translateY(-5px);
 }
 
 /* ========================= */
-/* STATS */
+/* ABOUT */
 /* ========================= */
 
-.stats{
+.about-box{
 
-display:grid;
+padding:26px;
 
-grid-template-columns:repeat(2,1fr);
-
-gap:16px;
-
-}
-
-.stat{
-
-padding:22px;
-
-border-radius:20px;
+border-radius:24px;
 
 background:
 linear-gradient(
 180deg,
-rgba(18,18,18,0.95),
+rgba(10,10,10,0.98),
 rgba(5,5,5,0.98)
 );
 
-border:1px solid rgba(255,0,60,0.14);
-
-transition:0.35s;
+border:1px solid rgba(255,0,60,0.12);
 
 }
 
-.stat:hover{
-
-transform:translateY(-6px);
-
-border-color:rgba(255,0,60,0.3);
-
-}
-
-.stat h3{
-
-font-size:2rem;
-
-margin-bottom:8px;
+.about-box h3{
 
 color:#ff003c;
 
+margin-bottom:20px;
+
+font-size:1rem;
+
 }
 
-.stat p{
+.about-box p{
 
-font-size:0.85rem;
+color:#b4b4b4;
 
-color:#888;
+line-height:2;
+
+font-size:0.95rem;
 
 }
 
 /* ========================= */
-/* CENTER PANEL */
+/* CENTER */
 /* ========================= */
 
-.center-panel{
+.center{
 
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:28px;
 
 }
+
+/* ========================= */
+/* MAP */
+/* ========================= */
 
 .map-box{
 
@@ -505,169 +486,46 @@ border-radius:28px;
 
 overflow:hidden;
 
-background:
-linear-gradient(
-180deg,
-rgba(18,18,18,0.95),
-rgba(5,5,5,0.98)
-);
+background:#020202;
 
-border:1px solid rgba(255,0,60,0.15);
+border:1px solid rgba(255,0,60,0.14);
 
 box-shadow:
-0 0 50px rgba(255,0,60,0.08);
+0 0 40px rgba(255,0,60,0.08);
 
 }
 
-.map{
+.map-box img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+opacity:0.92;
+
+filter:
+contrast(1.1)
+brightness(0.95);
+
+}
+
+/* ========================= */
+/* MAP OVERLAY */
+/* ========================= */
+
+.map-overlay{
 
 position:absolute;
 inset:0;
 
 background:
 
-radial-gradient(circle at 20% 30%,
-rgba(255,0,60,0.18),
-transparent 25%),
-
-radial-gradient(circle at 70% 40%,
-rgba(255,0,60,0.12),
-transparent 30%),
-
-radial-gradient(circle at 50% 70%,
-rgba(255,0,60,0.16),
-transparent 25%),
-
 linear-gradient(
 180deg,
-rgba(255,255,255,0.02),
-transparent
+rgba(0,0,0,0.1),
+rgba(0,0,0,0.4)
 );
-
-}
-
-.world-particles{
-
-position:absolute;
-inset:0;
-
-background-image:
-radial-gradient(#ff003c 1px, transparent 1px);
-
-background-size:28px 28px;
-
-opacity:0.18;
-
-animation:particlesMove 25s linear infinite;
-
-}
-
-@keyframes particlesMove{
-
-from{
-transform:translateY(0px);
-}
-
-to{
-transform:translateY(-80px);
-}
-
-}
-
-/* ========================= */
-/* ATTACK LINES */
-/* ========================= */
-
-.attack-line{
-
-position:absolute;
-
-height:2px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-#ff3355,
-transparent
-);
-
-box-shadow:
-0 0 12px rgba(255,0,60,0.9);
-
-opacity:0.8;
-
-animation:moveAttack linear infinite;
-
-}
-
-.attack1{
-
-width:500px;
-
-top:180px;
-left:120px;
-
-transform:rotate(12deg);
-
-animation-duration:4s;
-
-}
-
-.attack2{
-
-width:420px;
-
-top:260px;
-left:220px;
-
-transform:rotate(-18deg);
-
-animation-duration:6s;
-
-}
-
-.attack3{
-
-width:520px;
-
-top:330px;
-left:60px;
-
-transform:rotate(28deg);
-
-animation-duration:5s;
-
-}
-
-.attack4{
-
-width:480px;
-
-top:120px;
-left:260px;
-
-transform:rotate(-12deg);
-
-animation-duration:7s;
-
-}
-
-@keyframes moveAttack{
-
-0%{
-opacity:0;
-transform:translateX(-40px);
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-opacity:0;
-transform:translateX(40px);
-}
 
 }
 
@@ -675,8 +533,8 @@ transform:translateX(40px);
 
 position:absolute;
 
-top:25px;
-left:25px;
+top:28px;
+left:28px;
 
 font-size:1.15rem;
 
@@ -689,10 +547,10 @@ letter-spacing:2px;
 }
 
 /* ========================= */
-/* BOTTOM BOXES */
+/* PROJECTS */
 /* ========================= */
 
-.bottom-boxes{
+.projects{
 
 display:grid;
 
@@ -702,34 +560,127 @@ gap:20px;
 
 }
 
-.box{
+.project{
 
 padding:24px;
 
-border-radius:22px;
+border-radius:24px;
 
 background:
 linear-gradient(
 180deg,
-rgba(18,18,18,0.95),
+rgba(10,10,10,0.98),
 rgba(5,5,5,0.98)
 );
 
-border:1px solid rgba(255,0,60,0.14);
+border:1px solid rgba(255,0,60,0.12);
 
-height:190px;
+transition:0.35s;
+
+}
+
+.project:hover{
+
+transform:translateY(-6px);
+
+border-color:rgba(255,0,60,0.3);
+
+}
+
+.project h3{
+
+margin-bottom:18px;
+
+color:#ff003c;
+
+font-size:1.05rem;
+
+}
+
+.project p{
+
+color:#b4b4b4;
+
+line-height:1.9;
+
+font-size:0.92rem;
+
+margin-bottom:20px;
+
+}
+
+.project a{
+
+text-decoration:none;
+
+color:#ff003c;
+
+font-weight:600;
 
 }
 
 /* ========================= */
-/* RIGHT PANEL */
+/* TECH STACK */
 /* ========================= */
 
-.right-panel{
+.skills{
+
+padding:26px;
+
+border-radius:24px;
+
+background:
+linear-gradient(
+180deg,
+rgba(10,10,10,0.98),
+rgba(5,5,5,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.12);
+
+}
+
+.skills h3{
+
+color:#ff003c;
+
+margin-bottom:24px;
+
+}
+
+.skill-list{
+
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+
+}
+
+.skill{
+
+padding:12px 18px;
+
+border-radius:12px;
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(255,0,60,0.1);
+
+font-size:0.9rem;
+
+color:#d0d0d0;
+
+}
+
+/* ========================= */
+/* RIGHT */
+/* ========================= */
+
+.right{
 
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:24px;
 
 }
 
@@ -742,14 +693,11 @@ border-radius:24px;
 background:
 linear-gradient(
 180deg,
-rgba(18,18,18,0.95),
+rgba(10,10,10,0.98),
 rgba(5,5,5,0.98)
 );
 
-border:1px solid rgba(255,0,60,0.15);
-
-box-shadow:
-0 0 40px rgba(255,0,60,0.06);
+border:1px solid rgba(255,0,60,0.12);
 
 }
 
@@ -763,7 +711,7 @@ font-size:1rem;
 
 }
 
-.attack{
+.alert{
 
 display:flex;
 justify-content:space-between;
@@ -776,17 +724,21 @@ color:#d0d0d0;
 
 }
 
-.attack span{
+.alert span{
 
 color:#ff003c;
 
 }
 
+/* ========================= */
+/* TERMINAL */
+/* ========================= */
+
 #terminal{
 
 font-family:monospace;
 
-font-size:0.86rem;
+font-size:0.84rem;
 
 line-height:1.8;
 
@@ -800,7 +752,7 @@ white-space:pre-line;
 /* RESPONSIVE */
 /* ========================= */
 
-@media(max-width:1400px){
+@media(max-width:1450px){
 
 .hero{
 
@@ -808,7 +760,7 @@ grid-template-columns:1fr;
 
 }
 
-.bottom-boxes{
+.projects{
 
 grid-template-columns:1fr;
 
@@ -832,7 +784,7 @@ display:none;
 
 .hero{
 
-padding:140px 20px 40px;
+padding:150px 20px 40px;
 
 }
 
@@ -864,15 +816,13 @@ OCÉANE
 
 </h1>
 
-<div class="status">
+<p>
 
 <div class="dot"></div>
 
-<p>
 ÉTUDIANTE EN CYBERSÉCURITÉ
-</p>
 
-</div>
+</p>
 
 </div>
 
@@ -881,7 +831,6 @@ OCÉANE
 <li><a href="#apropos">À PROPOS</a></li>
 <li><a href="#competences">COMPÉTENCES</a></li>
 <li><a href="#projets">PROJETS</a></li>
-<li><a href="#certifications">CERTIFICATIONS</a></li>
 <li><a href="#contact">CONTACT</a></li>
 
 </ul>
@@ -890,14 +839,16 @@ OCÉANE
 
 <section class="hero">
 
-<div class="left-panel">
+<!-- LEFT -->
+
+<div class="left">
 
 <div class="live-box">
 
 <div class="dot"></div>
 
 <p>
-SURVEILLANCE ACTIVE • SYSTÈMES EN LIGNE
+SURVEILLANCE ACTIVE • TEMPS RÉEL
 </p>
 
 </div>
@@ -912,16 +863,15 @@ ANALYSER
 
 <p class="hero-text">
 
-Étudiante en cybersécurité passionnée
-par la sécurité offensive,
+Étudiante en cybersécurité à l’IFAPME,
+passionnée par la sécurité offensive,
 l’OSINT,
-la surveillance réseau
-et l’analyse des menaces numériques.
+l’analyse réseau
+et la recherche de vulnérabilités.
 
-Je développe des projets orientés
-détection d’intrusions,
-monitoring en temps réel,
-analyse de vulnérabilités
+Je développe des projets personnels
+orientés monitoring,
+veille cyber
 et cybersurveillance moderne.
 
 </p>
@@ -942,107 +892,140 @@ MON GITHUB ⚡
 
 </div>
 
-<div class="stats">
+<div class="about-box">
 
-<div class="stat">
-<h3>128K+</h3>
-<p>ATTAQUES ANALYSÉES</p>
+<h3>
+À PROPOS
+</h3>
+
+<p>
+
+Formation :
+Bachelier en cybersécurité (IFAPME)
+
+<br><br>
+
+Spécialités :
+OSINT,
+sécurité offensive,
+analyse réseau,
+monitoring.
+
+<br><br>
+
+Objectif :
+obtenir un premier stage
+dans le domaine de la cybersécurité
+afin de développer mes compétences
+sur le terrain.
+
+</p>
+
 </div>
 
-<div class="stat">
-<h3>74</h3>
-<p>PAYS SURVEILLÉS</p>
 </div>
 
-<div class="stat">
-<h3>24/7</h3>
-<p>SURVEILLANCE ACTIVE</p>
-</div>
+<!-- CENTER -->
 
-<div class="stat">
-<h3>98.7%</h3>
-<p>PRÉCISION DÉTECTION</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="center-panel">
+<div class="center">
 
 <div class="map-box">
 
-<div class="map"></div>
-
-<div class="world-particles"></div>
-
 <div class="map-title">
-ACTIVITÉ MONDIALE DES MENACES CYBER
+CARTE DES MENACES EN TEMPS RÉEL
 </div>
 
-<div class="attack-line attack1"></div>
-<div class="attack-line attack2"></div>
-<div class="attack-line attack3"></div>
-<div class="attack-line attack4"></div>
+<img src="images/world.png" alt="Cyber Threat Map">
+
+<div class="map-overlay"></div>
 
 </div>
 
-<div class="bottom-boxes">
+<div class="projects" id="projets">
 
-<div class="box">
+<div class="project">
 
-<h3 style="color:#ff003c;margin-bottom:20px;">
-TYPE D’ATTAQUES
+<h3>
+LAB XSS
 </h3>
 
-<p style="color:#b4b4b4;line-height:2;">
-DDoS — 35%<br>
-Malware — 25%<br>
-Phishing — 20%<br>
-Exploits — 12%<br>
-Autres — 8%
-</p>
+<p>
 
-</div>
-
-<div class="box">
-
-<h3 style="color:#ff003c;margin-bottom:20px;">
-ACTIVITÉ RÉSEAU
-</h3>
-
-<p style="color:#b4b4b4;line-height:2;">
-Analyse du trafic réseau,
-surveillance active des connexions,
-détection d’anomalies
-et monitoring temps réel.
+Environnement de test
+pour l’apprentissage
+et l’analyse
+des vulnérabilités web XSS.
 
 </p>
 
+<a href="#">
+VOIR LE PROJET →
+</a>
+
 </div>
 
-<div class="box">
+<div class="project">
 
-<h3 style="color:#ff003c;margin-bottom:20px;">
-NIVEAU DE SÉCURITÉ
+<h3>
+MONITORING RÉSEAU
 </h3>
 
-<div style="
-width:120px;
-height:120px;
-border-radius:50%;
-border:8px solid #ff003c;
-display:flex;
-justify-content:center;
-align-items:center;
-margin:auto;
-font-size:2rem;
-font-weight:700;
-box-shadow:
-0 0 30px rgba(255,0,60,0.25);
-">
+<p>
 
-98%
+Projet personnel
+de surveillance réseau
+et détection d’activités suspectes
+en temps réel.
+
+</p>
+
+<a href="#">
+VOIR LE PROJET →
+</a>
+
+</div>
+
+<div class="project">
+
+<h3>
+OSINT TOOLKIT
+</h3>
+
+<p>
+
+Toolkit OSINT
+destiné à la collecte,
+l’analyse
+et la corrélation d’informations.
+
+</p>
+
+<a href="#">
+VOIR LE PROJET →
+</a>
+
+</div>
+
+</div>
+
+<div class="skills" id="competences">
+
+<h3>
+OUTILS & TECHNOLOGIES
+</h3>
+
+<div class="skill-list">
+
+<div class="skill">Linux</div>
+<div class="skill">Nmap</div>
+<div class="skill">Wireshark</div>
+<div class="skill">Burp Suite</div>
+<div class="skill">Python</div>
+<div class="skill">Docker</div>
+<div class="skill">OSINT</div>
+<div class="skill">Git</div>
+<div class="skill">SQL</div>
+<div class="skill">Réseau</div>
 
 </div>
 
@@ -1050,9 +1033,9 @@ box-shadow:
 
 </div>
 
-</div>
+<!-- RIGHT -->
 
-<div class="right-panel">
+<div class="right">
 
 <div class="panel">
 
@@ -1060,27 +1043,27 @@ box-shadow:
 ALERTES EN TEMPS RÉEL
 </h3>
 
-<div class="attack">
+<div class="alert">
 <p>🇩🇪 Allemagne</p>
 <span>DDoS</span>
 </div>
 
-<div class="attack">
+<div class="alert">
 <p>🇧🇪 Belgique</p>
 <span>Ransomware</span>
 </div>
 
-<div class="attack">
+<div class="alert">
 <p>🇨🇳 Chine</p>
 <span>SQL Injection</span>
 </div>
 
-<div class="attack">
+<div class="alert">
 <p>🇺🇸 États-Unis</p>
 <span>Brute Force</span>
 </div>
 
-<div class="attack">
+<div class="alert">
 <p>🇷🇺 Russie</p>
 <span>Phishing</span>
 </div>
@@ -1094,48 +1077,6 @@ MONITEUR SYSTÈME
 </h3>
 
 <div id="terminal"></div>
-
-</div>
-
-<div class="panel">
-
-<h3>
-SCAN RÉSEAU
-</h3>
-
-<p style="margin-bottom:18px;color:#b4b4b4;">
-192.168.1.1/24
-</p>
-
-<div style="
-height:12px;
-border-radius:20px;
-background:#111;
-overflow:hidden;
-">
-
-<div style="
-width:72%;
-height:100%;
-background:
-linear-gradient(
-90deg,
-#ff003c,
-#ff3355
-);
-box-shadow:
-0 0 20px rgba(255,0,60,0.5);
-"></div>
-
-</div>
-
-<p style="
-margin-top:18px;
-color:#ff003c;
-font-weight:700;
-">
-72%
-</p>
 
 </div>
 
@@ -1154,8 +1095,6 @@ const lines = [
 "> Surveillance active des menaces...",
 "> Analyse des paquets réseau...",
 "> Détection d’activité suspecte...",
-"> Belgique : activité anormale détectée...",
-"> Monitoring des systèmes actifs...",
 "> Mise à jour des défenses...",
 "> Surveillance active 24/7..."
 
