@@ -28,7 +28,7 @@ scroll-behavior:smooth;
 
 body{
 
-background:#050505;
+background:#040404;
 font-family:'Inter',sans-serif;
 color:white;
 overflow-x:hidden;
@@ -50,32 +50,32 @@ left:50%;
 
 transform:translate(-50%,-50%);
 
-width:1200px;
-height:1200px;
+width:1400px;
+height:1400px;
 
 background:
 radial-gradient(circle,
-rgba(255,0,60,0.10),
+rgba(255,0,60,0.08),
 transparent 70%);
 
 filter:blur(120px);
 
 z-index:-2;
 
-animation:pulseGlow 8s infinite alternate;
+animation:bgPulse 8s infinite alternate;
 
 }
 
-@keyframes pulseGlow{
+@keyframes bgPulse{
 
 from{
-opacity:0.5;
 transform:translate(-50%,-50%) scale(1);
+opacity:0.5;
 }
 
 to{
-opacity:1;
 transform:translate(-50%,-50%) scale(1.15);
+opacity:1;
 }
 
 }
@@ -86,8 +86,8 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,0,60,0.05) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,60,0.05) 1px, transparent 1px);
+linear-gradient(rgba(255,0,60,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,60,0.04) 1px, transparent 1px);
 
 background-size:50px 50px;
 
@@ -108,13 +108,13 @@ left:0;
 
 width:100%;
 
-padding:24px 70px;
+padding:24px 60px;
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.4);
 
 backdrop-filter:blur(15px);
 
@@ -123,10 +123,6 @@ border-bottom:1px solid rgba(255,0,60,0.08);
 z-index:999;
 
 }
-
-/* ========================= */
-/* LOGO */
-/* ========================= */
 
 .logo{
 
@@ -140,15 +136,15 @@ gap:12px;
 
 font-family:'Orbitron';
 
-font-size:3rem;
+font-size:2.8rem;
 
 font-weight:800;
 
-letter-spacing:4px;
+line-height:0.9;
+
+letter-spacing:3px;
 
 text-transform:uppercase;
-
-color:white;
 
 }
 
@@ -162,7 +158,7 @@ text-shadow:
 
 }
 
-.student-status{
+.status{
 
 display:flex;
 align-items:center;
@@ -191,12 +187,12 @@ animation:blink 1.5s infinite;
 
 50%{
 opacity:0.3;
-transform:scale(1.4);
+transform:scale(1.5);
 }
 
 }
 
-.student-status p{
+.status p{
 
 font-size:0.75rem;
 
@@ -205,10 +201,6 @@ letter-spacing:4px;
 color:#cfcfcf;
 
 }
-
-/* ========================= */
-/* NAV LINKS */
-/* ========================= */
 
 nav ul{
 
@@ -229,9 +221,9 @@ font-size:0.92rem;
 
 font-weight:600;
 
-transition:0.3s;
-
 position:relative;
+
+transition:0.3s;
 
 }
 
@@ -273,41 +265,56 @@ width:100%;
 
 min-height:100vh;
 
+padding:150px 60px 60px;
+
+display:grid;
+
+grid-template-columns:420px 1fr 330px;
+
+gap:30px;
+
+}
+
+/* ========================= */
+/* LEFT PANEL */
+/* ========================= */
+
+.left-panel{
+
 display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:170px 70px 80px;
-
-gap:60px;
+flex-direction:column;
+gap:25px;
 
 }
 
-/* ========================= */
-/* LEFT SIDE */
-/* ========================= */
+.live-box{
 
-.hero-left{
+padding:18px 22px;
 
-max-width:650px;
+border-radius:18px;
 
-z-index:2;
+background:
+linear-gradient(
+180deg,
+rgba(18,18,18,0.92),
+rgba(5,5,5,0.98)
+);
 
-}
-
-.live{
+border:1px solid rgba(255,0,60,0.15);
 
 display:flex;
 align-items:center;
 gap:12px;
 
-margin-bottom:35px;
+}
 
-color:#ff003c;
+.live-box p{
 
-font-size:0.8rem;
+font-size:0.85rem;
 
-letter-spacing:4px;
+letter-spacing:3px;
+
+color:#d0d0d0;
 
 }
 
@@ -315,15 +322,13 @@ letter-spacing:4px;
 
 font-family:'Orbitron';
 
-font-size:6rem;
+font-size:5.5rem;
 
-line-height:0.95;
+line-height:0.9;
 
 font-weight:800;
 
 text-transform:uppercase;
-
-margin-bottom:35px;
 
 }
 
@@ -339,15 +344,13 @@ text-shadow:
 
 }
 
-.hero-description{
+.hero-text{
 
-font-size:1.1rem;
+font-size:1.05rem;
 
 line-height:2;
 
 color:#b4b4b4;
-
-margin-bottom:45px;
 
 }
 
@@ -358,16 +361,14 @@ margin-bottom:45px;
 .buttons{
 
 display:flex;
-gap:18px;
-flex-wrap:wrap;
-
-margin-bottom:35px;
+flex-direction:column;
+gap:16px;
 
 }
 
 .btn{
 
-padding:18px 34px;
+padding:18px 24px;
 
 border-radius:16px;
 
@@ -377,7 +378,9 @@ text-decoration:none;
 
 transition:0.35s;
 
-letter-spacing:1px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
 }
 
@@ -393,8 +396,7 @@ linear-gradient(
 color:white;
 
 box-shadow:
-0 0 25px rgba(255,0,60,0.5),
-0 0 80px rgba(255,0,60,0.15);
+0 0 25px rgba(255,0,60,0.4);
 
 }
 
@@ -402,19 +404,13 @@ box-shadow:
 
 transform:translateY(-5px);
 
-box-shadow:
-0 0 40px rgba(255,0,60,0.7),
-0 0 100px rgba(255,0,60,0.2);
-
 }
 
 .btn-outline{
 
-border:1px solid rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.12);
 
 background:rgba(255,255,255,0.03);
-
-backdrop-filter:blur(12px);
 
 color:white;
 
@@ -431,127 +427,191 @@ transform:translateY(-5px);
 }
 
 /* ========================= */
-/* EMAIL */
+/* STATS */
 /* ========================= */
 
-.email{
+.stats{
 
-font-size:0.95rem;
+display:grid;
 
-color:#888;
+grid-template-columns:repeat(2,1fr);
+
+gap:16px;
 
 }
 
-.email span{
+.stat{
+
+padding:22px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+180deg,
+rgba(18,18,18,0.95),
+rgba(5,5,5,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.14);
+
+transition:0.35s;
+
+}
+
+.stat:hover{
+
+transform:translateY(-6px);
+
+border-color:rgba(255,0,60,0.3);
+
+}
+
+.stat h3{
+
+font-size:2rem;
+
+margin-bottom:8px;
 
 color:#ff003c;
 
 }
 
-/* ========================= */
-/* RIGHT SIDE */
-/* ========================= */
+.stat p{
 
-.hero-right{
+font-size:0.85rem;
 
-position:relative;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-width:650px;
-height:650px;
+color:#888;
 
 }
 
 /* ========================= */
-/* CYBER GLOBE */
+/* CENTER PANEL */
 /* ========================= */
 
-.cyber-globe{
+.center-panel{
+
+display:flex;
+flex-direction:column;
+gap:25px;
+
+}
+
+.map-box{
 
 position:relative;
 
-width:520px;
 height:520px;
 
-border-radius:50%;
-
-background:
-radial-gradient(circle at center,
-rgba(255,0,60,0.15),
-rgba(15,15,15,1));
-
-border:1px solid rgba(255,0,60,0.15);
+border-radius:28px;
 
 overflow:hidden;
 
+background:
+linear-gradient(
+180deg,
+rgba(18,18,18,0.95),
+rgba(5,5,5,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.15);
+
 box-shadow:
-0 0 80px rgba(255,0,60,0.15),
-inset 0 0 50px rgba(255,0,60,0.08);
-
-animation:rotateSphere 30s linear infinite;
-
-}
-
-@keyframes rotateSphere{
-
-from{
-transform:rotate(0deg);
-}
-
-to{
-transform:rotate(360deg);
-}
+0 0 50px rgba(255,0,60,0.08);
 
 }
 
 /* ========================= */
-/* CYBER LINES */
+/* MAP */
 /* ========================= */
 
-.line{
+.map{
+
+position:absolute;
+inset:0;
+
+background:url('https://i.imgur.com/2Ug5N8F.png') center/cover;
+
+opacity:0.18;
+
+filter:
+brightness(1.5)
+contrast(1.2);
+
+}
+
+/* ========================= */
+/* ATTACK LINES */
+/* ========================= */
+
+.attack-line{
 
 position:absolute;
 
-background:linear-gradient(
+height:2px;
+
+background:
+linear-gradient(
 90deg,
 transparent,
 #ff3355,
 transparent
 );
 
-height:2px;
-
-opacity:0.7;
-
 box-shadow:
-0 0 12px rgba(255,0,60,0.8);
+0 0 12px rgba(255,0,60,0.9);
 
-animation:moveLine linear infinite;
+opacity:0.8;
+
+animation:moveAttack linear infinite;
 
 }
 
-.line1{
+.attack1{
 
-width:400px;
+width:500px;
 
-top:120px;
-left:40px;
+top:180px;
+left:120px;
 
-transform:rotate(25deg);
+transform:rotate(12deg);
+
+animation-duration:4s;
+
+}
+
+.attack2{
+
+width:420px;
+
+top:260px;
+left:220px;
+
+transform:rotate(-18deg);
+
+animation-duration:6s;
+
+}
+
+.attack3{
+
+width:520px;
+
+top:330px;
+left:60px;
+
+transform:rotate(28deg);
 
 animation-duration:5s;
 
 }
 
-.line2{
+.attack4{
 
-width:500px;
+width:480px;
 
-top:250px;
-left:-20px;
+top:120px;
+left:260px;
 
 transform:rotate(-12deg);
 
@@ -559,33 +619,7 @@ animation-duration:7s;
 
 }
 
-.line3{
-
-width:350px;
-
-top:320px;
-left:80px;
-
-transform:rotate(40deg);
-
-animation-duration:6s;
-
-}
-
-.line4{
-
-width:450px;
-
-top:170px;
-left:10px;
-
-transform:rotate(-35deg);
-
-animation-duration:8s;
-
-}
-
-@keyframes moveLine{
+@keyframes moveAttack{
 
 0%{
 opacity:0;
@@ -604,67 +638,88 @@ transform:translateX(40px);
 }
 
 /* ========================= */
-/* PARTICLES */
+/* MAP TITLE */
 /* ========================= */
 
-.particles{
+.map-title{
 
 position:absolute;
-inset:0;
 
-background-image:
-radial-gradient(#ff003c 1px, transparent 1px);
+top:25px;
+left:25px;
 
-background-size:22px 22px;
+font-size:1.2rem;
 
-opacity:0.25;
+font-weight:700;
 
-animation:particlesMove 25s linear infinite;
+color:#ff003c;
 
-}
-
-@keyframes particlesMove{
-
-from{
-transform:translateY(0px);
-}
-
-to{
-transform:translateY(-80px);
-}
+letter-spacing:2px;
 
 }
 
 /* ========================= */
-/* PANELS */
+/* GRAPH BOXES */
 /* ========================= */
+
+.bottom-boxes{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+}
+
+.box{
+
+padding:24px;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+180deg,
+rgba(18,18,18,0.95),
+rgba(5,5,5,0.98)
+);
+
+border:1px solid rgba(255,0,60,0.14);
+
+height:190px;
+
+}
+
+/* ========================= */
+/* RIGHT PANEL */
+/* ========================= */
+
+.right-panel{
+
+display:flex;
+flex-direction:column;
+gap:25px;
+
+}
 
 .panel{
 
-position:absolute;
-
-right:-40px;
-top:60px;
-
-width:320px;
-
-padding:28px;
+padding:26px;
 
 border-radius:24px;
 
 background:
 linear-gradient(
 180deg,
-rgba(15,15,15,0.92),
+rgba(18,18,18,0.95),
 rgba(5,5,5,0.98)
 );
 
-border:1px solid rgba(255,0,60,0.18);
-
-backdrop-filter:blur(20px);
+border:1px solid rgba(255,0,60,0.15);
 
 box-shadow:
-0 0 40px rgba(255,0,60,0.08);
+0 0 40px rgba(255,0,60,0.06);
 
 }
 
@@ -685,7 +740,7 @@ justify-content:space-between;
 
 margin-bottom:18px;
 
-font-size:0.94rem;
+font-size:0.92rem;
 
 color:#d0d0d0;
 
@@ -701,48 +756,11 @@ color:#ff003c;
 /* TERMINAL */
 /* ========================= */
 
-.terminal{
-
-position:absolute;
-
-right:-20px;
-bottom:20px;
-
-width:340px;
-
-padding:28px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-180deg,
-rgba(15,15,15,0.92),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.18);
-
-box-shadow:
-0 0 40px rgba(255,0,60,0.08);
-
-}
-
-.terminal h3{
-
-margin-bottom:20px;
-
-font-size:0.9rem;
-
-letter-spacing:2px;
-
-}
-
-#terminalText{
+#terminal{
 
 font-family:monospace;
 
-font-size:0.85rem;
+font-size:0.86rem;
 
 line-height:1.8;
 
@@ -756,40 +774,17 @@ white-space:pre-line;
 /* RESPONSIVE */
 /* ========================= */
 
-@media(max-width:1350px){
+@media(max-width:1400px){
 
 .hero{
 
-flex-direction:column;
-
-text-align:center;
+grid-template-columns:1fr;
 
 }
 
-.hero-left{
+.bottom-boxes{
 
-display:flex;
-flex-direction:column;
-align-items:center;
-
-}
-
-.hero-right{
-
-width:100%;
-
-}
-
-.panel,
-.terminal{
-
-position:relative;
-
-right:auto;
-top:auto;
-bottom:auto;
-
-margin-top:25px;
+grid-template-columns:1fr;
 
 }
 
@@ -811,47 +806,13 @@ display:none;
 
 .hero{
 
-padding:150px 25px 60px;
-
-}
-
-.logo h1{
-
-font-size:2.2rem;
+padding:140px 20px 40px;
 
 }
 
 .hero-title{
 
 font-size:4rem;
-
-}
-
-.hero-right{
-
-height:auto;
-
-}
-
-.cyber-globe{
-
-width:340px;
-height:340px;
-
-}
-
-.panel,
-.terminal{
-
-width:100%;
-
-}
-
-.student-status p{
-
-font-size:0.65rem;
-
-letter-spacing:2px;
 
 }
 
@@ -871,11 +832,13 @@ letter-spacing:2px;
 
 <h1>
 
-OCÉANE <span>DEHAUDT</span>
+OCÉANE
+
+<span>DEHAUDT</span>
 
 </h1>
 
-<div class="student-status">
+<div class="status">
 
 <div class="dot"></div>
 
@@ -901,79 +864,177 @@ OCÉANE <span>DEHAUDT</span>
 
 <section class="hero">
 
-<div class="hero-left">
+<!-- LEFT -->
 
-<div class="live">
+<div class="left-panel">
+
+<div class="live-box">
 
 <div class="dot"></div>
 
-CARTE DES MENACES CYBERNÉTIQUES EN DIRECT
+<p>
+STATUT : EN LIGNE
+</p>
 
 </div>
 
 <h2 class="hero-title">
 
-SURVEILLER
+DÉFENDRE
 
-<span>LE MONDE NUMÉRIQUE</span>
+<span>AUJOURD’HUI</span>
 
 </h2>
 
-<p class="hero-description">
+<p class="hero-text">
 
 Passionnée par la cybersécurité offensive,
-l’OSINT et l’analyse des menaces numériques.
+l’OSINT, la surveillance réseau
+et l’analyse des menaces numériques.
 
 Je développe des projets centrés
-sur la surveillance réseau,
+sur la détection d’intrusions,
 la recherche de vulnérabilités
-et les systèmes de monitoring en temps réel.
+et la surveillance en temps réel.
 
 </p>
 
 <div class="buttons">
 
 <a href="#" class="btn btn-red">
-VOIR MES PROJETS
+VOIR MES PROJETS →
 </a>
 
 <a href="mailto:oceane.dehaudt.pro@gmail.com" class="btn btn-outline">
-ME CONTACTER
+ME CONTACTER ✉
 </a>
 
 <a href="https://github.com/oceane-dehaudt" target="_blank" class="btn btn-outline">
-MON GITHUB
+MON GITHUB ⚡
 </a>
 
 </div>
 
-<div class="email">
+<div class="stats">
 
-<span>EMAIL PROFESSIONNEL :</span>
+<div class="stat">
+<h3>128K+</h3>
+<p>ATTAQUES DÉTECTÉES</p>
+</div>
 
-oceane.dehaudt.pro@gmail.com
+<div class="stat">
+<h3>74</h3>
+<p>PAYS SURVEILLÉS</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>SURVEILLANCE ACTIVE</p>
+</div>
+
+<div class="stat">
+<h3>98.7%</h3>
+<p>PRÉCISION DÉTECTION</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- CENTER -->
+
+<div class="center-panel">
+
+<div class="map-box">
+
+<div class="map"></div>
+
+<div class="map-title">
+CARTE DES MENACES EN TEMPS RÉEL
+</div>
+
+<div class="attack-line attack1"></div>
+<div class="attack-line attack2"></div>
+<div class="attack-line attack3"></div>
+<div class="attack-line attack4"></div>
+
+</div>
+
+<div class="bottom-boxes">
+
+<div class="box">
+
+<h3 style="color:#ff003c;margin-bottom:20px;">
+TYPE D’ATTAQUES
+</h3>
+
+<p style="color:#b4b4b4;line-height:2;">
+DDoS — 35%<br>
+Malware — 25%<br>
+Phishing — 20%<br>
+Exploit — 12%<br>
+Autres — 8%
+</p>
+
+</div>
+
+<div class="box">
+
+<h3 style="color:#ff003c;margin-bottom:20px;">
+ACTIVITÉ RÉSEAU
+</h3>
+
+<div style="
+height:90px;
+border-radius:12px;
+background:
+linear-gradient(
+180deg,
+rgba(255,0,60,0.25),
+transparent
+);
+margin-top:20px;
+"></div>
+
+</div>
+
+<div class="box">
+
+<h3 style="color:#ff003c;margin-bottom:20px;">
+SÉCURITÉ
+</h3>
+
+<div style="
+width:120px;
+height:120px;
+border-radius:50%;
+border:8px solid #ff003c;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:2rem;
+font-weight:700;
+box-shadow:
+0 0 30px rgba(255,0,60,0.25);
+">
+98%
+</div>
+
+</div>
 
 </div>
 
 </div>
 
-<div class="hero-right">
+<!-- RIGHT -->
 
-<div class="cyber-globe">
-
-<div class="particles"></div>
-
-<div class="line line1"></div>
-<div class="line line2"></div>
-<div class="line line3"></div>
-<div class="line line4"></div>
-
-</div>
+<div class="right-panel">
 
 <div class="panel">
 
 <h3>
-ATTAQUES EN TEMPS RÉEL
+ALERTES EN TEMPS RÉEL
 </h3>
 
 <div class="attack">
@@ -987,11 +1048,6 @@ ATTAQUES EN TEMPS RÉEL
 </div>
 
 <div class="attack">
-<p>🇷🇺 Russie</p>
-<span>Hameçonnage</span>
-</div>
-
-<div class="attack">
 <p>🇨🇳 Chine</p>
 <span>SQL Injection</span>
 </div>
@@ -1001,15 +1057,62 @@ ATTAQUES EN TEMPS RÉEL
 <span>Brute Force</span>
 </div>
 
+<div class="attack">
+<p>🇷🇺 Russie</p>
+<span>Phishing</span>
 </div>
 
-<div class="terminal">
+</div>
+
+<div class="panel">
 
 <h3>
 MONITEUR SYSTÈME
 </h3>
 
-<div id="terminalText"></div>
+<div id="terminal"></div>
+
+</div>
+
+<div class="panel">
+
+<h3>
+SCAN RÉSEAU
+</h3>
+
+<p style="margin-bottom:18px;color:#b4b4b4;">
+192.168.1.1/24
+</p>
+
+<div style="
+height:12px;
+border-radius:20px;
+background:#111;
+overflow:hidden;
+">
+
+<div style="
+width:72%;
+height:100%;
+background:
+linear-gradient(
+90deg,
+#ff003c,
+#ff3355
+);
+box-shadow:
+0 0 20px rgba(255,0,60,0.5);
+"></div>
+
+</div>
+
+<p style="
+margin-top:18px;
+color:#ff003c;
+font-weight:700;
+">
+72%
+</p>
 
 </div>
 
@@ -1019,18 +1122,18 @@ MONITEUR SYSTÈME
 
 <script>
 
-const terminal = document.getElementById("terminalText");
+const terminal = document.getElementById("terminal");
 
 const lines = [
 
 "> Initialisation du système...",
 "> Connexion au réseau mondial...",
-"> Surveillance des menaces activée...",
-"> Belgique : activité suspecte détectée...",
+"> Surveillance active...",
+"> Détection d’activité suspecte...",
 "> Analyse des paquets réseau...",
-"> Surveillance active 24/7...",
+"> Belgique : activité anormale détectée...",
 "> Mise à jour des défenses...",
-"> Connexion sécurisée."
+"> Surveillance active 24/7..."
 
 ];
 
