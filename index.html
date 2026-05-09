@@ -103,7 +103,7 @@ inset:0;
 
 background:
 radial-gradient(circle at center,
-rgba(120,0,20,0.14),
+rgba(120,0,20,0.12),
 transparent 70%);
 
 filter:blur(120px);
@@ -383,115 +383,137 @@ box-shadow:
 }
 
 /* =========================================================
-CYBER MAP ZONE
+LOGO SIDE
 ========================================================= */
 
-.cyber-map-zone{
+.logo-zone{
 
 position:relative;
-
-height:700px;
 
 display:flex;
 justify-content:center;
 align-items:center;
+
+height:700px;
 }
 
 /* =========================================================
-BACKGROUND GLOW
+BACKGROUND CIRCLES
 ========================================================= */
 
-.map-glow{
+.circle{
 
 position:absolute;
-
-width:800px;
-height:800px;
 
 border-radius:50%;
 
-background:
-radial-gradient(circle,
-rgba(255,0,60,0.10),
-transparent 70%);
+border:
+1px solid rgba(255,0,60,0.08);
+}
 
-filter:blur(120px);
+.c1{
+
+width:500px;
+height:500px;
+}
+
+.c2{
+
+width:680px;
+height:680px;
+}
+
+.c3{
+
+width:860px;
+height:860px;
 }
 
 /* =========================================================
-MAP CONTAINER
+LOGO WRAPPER
 ========================================================= */
 
-.cyber-map{
+.logo-wrapper{
 
 position:relative;
 
-width:760px;
-height:430px;
+width:420px;
+height:220px;
 
-border-radius:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-overflow:hidden;
+/* =========================================================
+OD LOGO
+========================================================= */
+
+.od-logo{
+
+position:relative;
+
+display:flex;
+align-items:center;
+
+gap:24px;
+
+filter:
+drop-shadow(0 0 24px rgba(255,0,60,0.18));
+}
+
+/* =========================================================
+O
+========================================================= */
+
+.o-letter{
+
+position:relative;
+
+width:150px;
+height:150px;
+
+border-radius:42px;
 
 background:
 linear-gradient(
-180deg,
-rgba(15,0,0,0.2),
-rgba(0,0,0,0.05)
+145deg,
+rgba(20,20,20,1),
+rgba(0,0,0,1)
 );
 
+box-shadow:
+
+inset 0 0 18px rgba(255,255,255,0.04),
+inset 0 0 40px rgba(255,0,60,0.06),
+0 0 18px rgba(255,0,60,0.08);
+}
+
+.o-letter::before{
+
+content:"";
+
+position:absolute;
+
+inset:14px;
+
+border-radius:32px;
+
 border:
-1px solid rgba(255,0,60,0.08);
-
-backdrop-filter:blur(12px);
+1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================================================
-WORLD IMAGE
-========================================================= */
+.o-letter::after{
 
-.world{
-
-position:absolute;
-inset:0;
-
-background:
-url('https://i.imgur.com/7vMZpYU.png');
-
-background-size:cover;
-background-position:center;
-
-opacity:0.28;
-
-mix-blend-mode:screen;
-
-filter:
-brightness(1.8)
-contrast(1.3);
-
-animation:mapFloat 12s ease-in-out infinite;
-}
-
-@keyframes mapFloat{
-
-0%,100%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.02);
-}
-}
-
-/* =========================================================
-ARCS
-========================================================= */
-
-.arc{
+content:"";
 
 position:absolute;
 
-height:1.5px;
+bottom:0;
+left:0;
+
+width:100%;
+height:2px;
 
 background:
 linear-gradient(
@@ -502,146 +524,99 @@ transparent
 );
 
 box-shadow:
-0 0 12px rgba(255,0,60,0.8);
-
-transform-origin:left center;
-
-animation:arcPulse 3s ease-in-out infinite;
+0 0 12px rgba(255,0,60,0.9);
 }
 
-.arc::after{
+/* =========================================================
+D
+========================================================= */
+
+.d-letter{
+
+position:relative;
+
+width:190px;
+height:150px;
+
+border-radius:0 42px 42px 0;
+
+background:
+linear-gradient(
+145deg,
+rgba(18,18,18,1),
+rgba(0,0,0,1)
+);
+
+overflow:hidden;
+
+box-shadow:
+
+inset 0 0 18px rgba(255,255,255,0.04),
+inset 0 0 40px rgba(255,0,60,0.05),
+0 0 18px rgba(255,0,60,0.08);
+}
+
+.d-letter::before{
 
 content:"";
 
 position:absolute;
 
-right:-6px;
-top:-3px;
+top:14px;
+left:14px;
+right:14px;
+bottom:14px;
 
-width:8px;
-height:8px;
+border-radius:0 28px 28px 0;
 
-background:#ff003c;
-
-clip-path:polygon(0 0, 100% 50%, 0 100%);
-
-filter:
-drop-shadow(0 0 8px rgba(255,0,60,0.9));
+border:
+1px solid rgba(255,0,60,0.16);
 }
 
-.arc1{
+.d-letter::after{
 
-width:260px;
-
-top:150px;
-left:180px;
-
-transform:
-rotate(-8deg);
-}
-
-.arc2{
-
-width:320px;
-
-top:210px;
-left:260px;
-
-transform:
-rotate(14deg);
-}
-
-.arc3{
-
-width:240px;
-
-top:120px;
-left:360px;
-
-transform:
-rotate(-18deg);
-}
-
-.arc4{
-
-width:280px;
-
-top:270px;
-left:160px;
-
-transform:
-rotate(10deg);
-}
-
-@keyframes arcPulse{
-
-0%,100%{
-opacity:0.35;
-}
-
-50%{
-opacity:1;
-}
-}
-
-/* =========================================================
-NODES
-========================================================= */
-
-.node{
+content:"";
 
 position:absolute;
 
-width:10px;
-height:10px;
+top:0;
+right:0;
+
+width:100%;
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#ff003c
+);
+
+box-shadow:
+0 0 12px rgba(255,0,60,0.9);
+}
+
+/* =========================================================
+LIGHT GLOW
+========================================================= */
+
+.logo-glow{
+
+position:absolute;
+
+width:520px;
+height:520px;
 
 border-radius:50%;
 
-background:#ff003c;
+background:
+radial-gradient(circle,
+rgba(255,0,60,0.12),
+transparent 70%);
 
-box-shadow:
-0 0 12px rgba(255,0,60,1),
-0 0 28px rgba(255,0,60,0.8);
+filter:blur(120px);
 
-animation:nodePulse 3s ease-in-out infinite;
-}
-
-.n1{
-top:120px;
-left:220px;
-}
-
-.n2{
-top:170px;
-left:420px;
-}
-
-.n3{
-top:240px;
-left:520px;
-}
-
-.n4{
-top:300px;
-left:300px;
-}
-
-.n5{
-top:140px;
-left:600px;
-}
-
-@keyframes nodePulse{
-
-0%,100%{
-transform:scale(1);
-opacity:0.7;
-}
-
-50%{
-transform:scale(1.8);
-opacity:1;
-}
+z-index:-1;
 }
 
 /* =========================================================
@@ -652,39 +627,50 @@ PARTICLES
 
 position:absolute;
 
-width:2px;
-height:2px;
+width:6px;
+height:6px;
 
 border-radius:50%;
 
-background:#ff335f;
+background:#ff003c;
 
 box-shadow:
-0 0 10px rgba(255,0,60,0.9);
+0 0 12px rgba(255,0,60,1),
+0 0 28px rgba(255,0,60,0.8);
 
-animation:particleFloat 6s linear infinite;
+animation:float 4s ease-in-out infinite;
 }
 
-.p1{top:18%;left:20%;}
-.p2{top:40%;left:80%;}
-.p3{top:70%;left:30%;}
-.p4{top:24%;left:65%;}
-.p5{top:60%;left:52%;}
+.p1{
+top:20%;
+left:20%;
+}
 
-@keyframes particleFloat{
+.p2{
+top:30%;
+right:18%;
+}
 
-0%{
+.p3{
+bottom:24%;
+left:30%;
+}
+
+.p4{
+bottom:18%;
+right:24%;
+}
+
+@keyframes float{
+
+0%,100%{
 transform:translateY(0px);
-opacity:0;
+opacity:0.5;
 }
 
-20%{
+50%{
+transform:translateY(-14px);
 opacity:1;
-}
-
-100%{
-transform:translateY(-16px);
-opacity:0;
 }
 }
 
@@ -845,10 +831,9 @@ grid-template-columns:1fr;
 display:none;
 }
 
-.cyber-map{
+.logo-zone{
 
-width:100%;
-height:320px;
+height:420px;
 }
 }
 
@@ -867,15 +852,9 @@ font-size:18px;
 line-height:1.8;
 }
 
-.cyber-map-zone{
+.logo-wrapper{
 
-height:320px;
-margin-top:-40px;
-}
-
-.cyber-map{
-
-height:240px;
+transform:scale(0.72);
 }
 }
 
@@ -993,33 +972,31 @@ Voir mes projets
 </div>
 
 <!-- =========================================================
-CYBER MAP
+LOGO SIDE
 ========================================================= -->
 
-<div class="cyber-map-zone">
+<div class="logo-zone">
 
-<div class="map-glow"></div>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
 
-<div class="cyber-map">
-
-<div class="world"></div>
-
-<div class="arc arc1"></div>
-<div class="arc arc2"></div>
-<div class="arc arc3"></div>
-<div class="arc arc4"></div>
-
-<div class="node n1"></div>
-<div class="node n2"></div>
-<div class="node n3"></div>
-<div class="node n4"></div>
-<div class="node n5"></div>
+<div class="logo-glow"></div>
 
 <div class="particle p1"></div>
 <div class="particle p2"></div>
 <div class="particle p3"></div>
 <div class="particle p4"></div>
-<div class="particle p5"></div>
+
+<div class="logo-wrapper">
+
+<div class="od-logo">
+
+<div class="o-letter"></div>
+
+<div class="d-letter"></div>
+
+</div>
 
 </div>
 
