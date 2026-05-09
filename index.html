@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Océane Dehaudt | Cybersécurité</title>
+  <title>Océane Dehaudt | Cybersécurité</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
@@ -27,317 +29,347 @@ html{
 }
 
 body{
-    background:#050505;
+    background:#040404;
     color:white;
-    font-family:'Inter',sans-serif;
     overflow-x:hidden;
+    font-family:'Inter',sans-serif;
 }
 
 /* =========================
 BACKGROUND
 ========================= */
 
-.cyber-bg{
+.background{
     position:fixed;
     inset:0;
-    z-index:-1;
-    overflow:hidden;
+    z-index:-5;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.82)),
+    url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    filter:brightness(0.45);
+}
+
+/* =========================
+OVERLAY
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+
     background:
     radial-gradient(circle at top,
-    rgba(110,0,35,0.35),
+    rgba(120,0,40,0.25),
     transparent 40%),
-    #050505;
+
+    radial-gradient(circle at bottom,
+    rgba(90,0,25,0.22),
+    transparent 45%);
 }
+
+/* =========================
+GRID
+========================= */
 
 .grid{
-    position:absolute;
+    position:fixed;
     inset:0;
+    z-index:-3;
 
     background-image:
-    linear-gradient(rgba(120,20,45,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120,20,45,0.12) 1px, transparent 1px);
+    linear-gradient(rgba(255,0,80,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,80,0.06) 1px, transparent 1px);
 
-    background-size:60px 60px;
-    opacity:0.35;
-}
+    background-size:55px 55px;
 
-.flow{
-    position:absolute;
-    width:180%;
-    height:2px;
-
-    background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,50,120,0.8),
-    transparent);
-
-    opacity:0.15;
-}
-
-.flow-1{
-    top:25%;
-    left:-40%;
-    transform:rotate(7deg);
-    animation:flow1 20s linear infinite;
-}
-
-.flow-2{
-    top:55%;
-    left:-40%;
-    transform:rotate(-4deg);
-    animation:flow2 24s linear infinite;
-}
-
-.flow-3{
-    top:78%;
-    left:-40%;
-    transform:rotate(2deg);
-    animation:flow3 30s linear infinite;
-}
-
-@keyframes flow1{
-    from{transform:translateX(-10%) rotate(7deg);}
-    to{transform:translateX(10%) rotate(7deg);}
-}
-
-@keyframes flow2{
-    from{transform:translateX(10%) rotate(-4deg);}
-    to{transform:translateX(-10%) rotate(-4deg);}
-}
-
-@keyframes flow3{
-    from{transform:translateX(-5%) rotate(2deg);}
-    to{transform:translateX(10%) rotate(2deg);}
-}
-
-.server-glow{
-    position:absolute;
-    top:0;
-    width:140px;
-    height:100%;
-
-    background:linear-gradient(
-    to bottom,
-    rgba(255,50,120,0.12),
-    transparent 20%,
-    rgba(255,50,120,0.06),
-    transparent 80%);
-
-    filter:blur(15px);
-
-    animation:pulse 4s ease-in-out infinite;
-}
-
-.server-glow.left{
-    left:0;
-}
-
-.server-glow.right{
-    right:0;
-}
-
-@keyframes pulse{
-    0%,100%{opacity:0.4;}
-    50%{opacity:0.8;}
+    opacity:0.22;
 }
 
 /* =========================
-LAYOUT
+FLOATING LIGHTS
 ========================= */
 
-.container{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
-    padding-top:60px;
-    padding-bottom:80px;
-}
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
 
-/* =========================
-HEADER
-========================= */
-
-.hero{
-    margin-bottom:60px;
-}
-
-.hero h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:clamp(50px,10vw,100px);
-    line-height:0.9;
-
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
-
-.hero h1 span{
-    color:#ff296d;
-
-    text-shadow:
-    0 0 12px rgba(255,41,109,0.4),
-    0 0 35px rgba(255,41,109,0.2);
-}
-
-.subtitle{
-    margin-top:30px;
-
-    font-size:clamp(20px,4vw,38px);
-    font-weight:300;
-
-    letter-spacing:2px;
-}
-
-.dot{
-    width:14px;
-    height:14px;
     border-radius:50%;
 
-    background:#ff296d;
+    background:
+    radial-gradient(circle,
+    rgba(255,20,90,0.12),
+    transparent 70%);
 
-    margin-bottom:20px;
+    filter:blur(40px);
 
-    box-shadow:
-    0 0 12px rgba(255,41,109,0.8);
+    animation:floatGlow 12s ease-in-out infinite;
+}
+
+.glow1{
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    bottom:-150px;
+    right:-150px;
+
+    animation-delay:4s;
+}
+
+@keyframes floatGlow{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
 }
 
 /* =========================
-CARDS
+TOP NAV
 ========================= */
 
-.section{
-    margin-top:40px;
-}
+.topbar{
 
-.card{
-    background:rgba(8,8,8,0.82);
+    position:fixed;
+    top:0;
+    left:0;
 
-    border:1px solid rgba(255,41,109,0.12);
+    width:100%;
+    z-index:999;
 
-    border-radius:28px;
+    display:flex;
+    justify-content:center;
 
-    padding:35px;
+    padding:22px;
 
     backdrop-filter:blur(12px);
 
-    box-shadow:
-    0 0 30px rgba(90,0,25,0.2);
+    background:rgba(0,0,0,0.25);
 
-    transition:0.35s ease;
+    border-bottom:1px solid rgba(255,0,90,0.08);
 }
 
-.card:hover{
-
-    transform:translateY(-4px);
-
-    border:1px solid rgba(255,41,109,0.25);
-
-    box-shadow:
-    0 0 40px rgba(255,41,109,0.18);
+.topbar nav{
+    display:flex;
+    gap:40px;
 }
 
-.card h2{
-    color:#ff296d;
+.topbar a{
+    color:#e4e4e4;
+    text-decoration:none;
 
-    margin-bottom:25px;
-
-    font-size:34px;
-
-    font-family:'Orbitron',sans-serif;
-}
-
-/* =========================
-SKILLS
-========================= */
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:18px;
-}
-
-.skill{
-    background:#0a0a0a;
-
-    border:1px solid rgba(255,41,109,0.12);
-
-    padding:20px;
-
-    border-radius:18px;
-
-    text-align:center;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
 
     transition:0.3s ease;
 }
 
-.skill:hover{
+.topbar a:hover{
+    color:#ff2f72;
+}
+
+/* =========================
+SOCIAL BAR
+========================= */
+
+.social-bar{
+
+    position:fixed;
+    left:35px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:999;
+
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+.social-bar a{
+
+    color:white;
+
+    font-size:20px;
+
+    transition:0.3s ease;
+}
+
+.social-bar a:hover{
+
+    color:#ff2f72;
+
     transform:translateY(-3px);
-
-    border:1px solid rgba(255,41,109,0.3);
-
-    box-shadow:
-    0 0 20px rgba(255,41,109,0.15);
 }
 
 /* =========================
-CERTIFICATIONS
+RIGHT MENU
 ========================= */
 
-.cert-grid{
-    display:grid;
-    gap:25px;
+.side-menu{
+
+    position:fixed;
+    right:35px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:95px;
+
+    padding:25px 12px;
+
+    border-radius:28px;
+
+    background:rgba(5,5,5,0.6);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,0,90,0.1);
+
+    z-index:999;
 }
 
-.cert-card{
-    background:#080808;
+.side-menu ul{
+    list-style:none;
 
-    border:1px solid rgba(255,41,109,0.12);
-
-    border-radius:24px;
-
-    padding:30px;
-
-    transition:0.3s ease;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
 }
 
-.cert-card:hover{
-    transform:translateY(-4px);
-
-    border:1px solid rgba(255,41,109,0.28);
+.side-menu li{
+    text-align:center;
 }
 
-.cert-card h3{
-    color:#ff296d;
-
-    margin-bottom:18px;
-
-    font-size:28px;
-}
-
-.cert-card p{
-    color:#d2d2d2;
-
-    line-height:1.8;
-
-    font-size:18px;
-}
-
-.cert-link{
-    display:inline-block;
-
-    margin-top:25px;
-
-    color:#ff296d;
+.side-menu a{
 
     text-decoration:none;
 
-    font-weight:600;
+    color:#d2d2d2;
+
+    font-size:12px;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 
     transition:0.3s ease;
 }
 
-.cert-link:hover{
-    opacity:0.7;
+.side-menu a:hover{
+    color:#ff2f72;
+}
+
+/* =========================
+MAIN
+========================= */
+
+.container{
+    width:90%;
+    max-width:1350px;
+
+    margin:auto;
+
+    padding-top:140px;
+    padding-bottom:100px;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.hero-mini{
+
+    color:#ff2f72;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    line-height:0.9;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hero h1 .white{
+    display:block;
+
+    color:white;
+
+    font-size:clamp(65px,10vw,140px);
+}
+
+.hero h1 .red{
+    display:block;
+
+    color:#ff2f72;
+
+    font-size:clamp(65px,10vw,140px);
+
+    text-shadow:
+    0 0 20px rgba(255,47,114,0.35);
+}
+
+.dot{
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#ff2f72;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 0 20px rgba(255,47,114,0.8);
+}
+
+.hero p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#d2d2d2;
+
+    max-width:700px;
 }
 
 /* =========================
@@ -345,86 +377,242 @@ BUTTONS
 ========================= */
 
 .buttons{
-    margin-top:35px;
 
     display:flex;
     gap:18px;
+
+    margin-top:45px;
 
     flex-wrap:wrap;
 }
 
 .btn{
+
     padding:18px 28px;
 
-    border-radius:16px;
+    border-radius:14px;
 
     text-decoration:none;
 
-    font-weight:600;
+    text-transform:uppercase;
 
-    transition:0.3s ease;
+    letter-spacing:1px;
+
+    font-size:14px;
+
+    transition:0.35s ease;
 }
 
-.btn-primary{
-    background:linear-gradient(
+.primary{
+
+    background:
+    linear-gradient(
     135deg,
-    #680022,
-    #b30045);
+    #680021,
+    #c00046);
 
     color:white;
 
     box-shadow:
-    0 0 18px rgba(255,41,109,0.22);
+    0 0 25px rgba(255,0,90,0.2);
 }
 
-.btn-secondary{
-    border:1px solid rgba(255,255,255,0.1);
+.secondary{
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    background:rgba(0,0,0,0.5);
 
     color:white;
 
-    background:#0a0a0a;
+    backdrop-filter:blur(12px);
 }
 
 .btn:hover{
+
     transform:translateY(-3px);
 }
 
 /* =========================
-ABOUT
+CARDS
 ========================= */
 
-.about{
-    line-height:1.9;
+.cards{
 
-    font-size:20px;
+    display:grid;
 
-    color:#d2d2d2;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+    margin-top:80px;
+}
+
+.card{
+
+    background:
+    rgba(8,8,8,0.55);
+
+    border:1px solid rgba(255,0,90,0.1);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    backdrop-filter:blur(18px);
+
+    transition:0.35s ease;
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    border:1px solid rgba(255,0,90,0.22);
+
+    box-shadow:
+    0 0 35px rgba(255,0,90,0.12);
+}
+
+.card-title{
+
+    color:#ff2f72;
+
+    margin-bottom:25px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:18px;
 }
 
 /* =========================
-RESPONSIVE
+LISTS
 ========================= */
+
+.list{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.list div{
+
+    padding-bottom:14px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.06);
+}
+
+/* =========================
+PROGRESS
+========================= */
+
+.progress-item{
+    margin-bottom:22px;
+}
+
+.progress-header{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    color:#d6d6d6;
+}
+
+.bar{
+
+    width:100%;
+    height:8px;
+
+    border-radius:999px;
+
+    background:#111;
+
+    overflow:hidden;
+}
+
+.fill{
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    #700024,
+    #ff2f72);
+
+    box-shadow:
+    0 0 15px rgba(255,0,90,0.4);
+}
+
+/* =========================
+STATUS
+========================= */
+
+.status{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+
+    color:#d6d6d6;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:1100px){
+
+    .side-menu{
+        display:none;
+    }
+
+    .social-bar{
+        display:none;
+    }
+
+    .topbar nav{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
 
 @media(max-width:768px){
 
-    .card{
-        padding:28px;
+    .container{
+        width:92%;
+        padding-top:120px;
     }
 
-    .hero h1{
-        font-size:62px;
+    .hero{
+        min-height:auto;
     }
 
-    .subtitle{
-        font-size:20px;
+    .hero p{
+        font-size:17px;
     }
 
-    .card h2{
-        font-size:28px;
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    .about{
-        font-size:18px;
+    .topbar{
+        padding:16px;
+    }
+
+    .topbar nav{
+        gap:12px;
+    }
+
+    .topbar a{
+        font-size:11px;
     }
 }
 
@@ -435,141 +623,246 @@ RESPONSIVE
 
 <!-- BACKGROUND -->
 
-<div class="cyber-bg">
-    <div class="grid"></div>
+<div class="background"></div>
+<div class="overlay"></div>
+<div class="grid"></div>
 
-    <div class="flow flow-1"></div>
-    <div class="flow flow-2"></div>
-    <div class="flow flow-3"></div>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
 
-    <div class="server-glow left"></div>
-    <div class="server-glow right"></div>
+<!-- TOPBAR -->
+
+<div class="topbar">
+<nav>
+<a href="#home">Accueil</a>
+<a href="#about">À propos</a>
+<a href="#skills">Compétences</a>
+<a href="#certifications">Certifications</a>
+<a href="#projects">Projets</a>
+<a href="#contact">Contact</a>
+</nav>
 </div>
+
+<!-- LEFT SOCIAL -->
+
+<div class="social-bar">
+
+<a href="https://github.com/oceane-dehaudt" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="https://linkedin.com" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="mailto:tonmail@example.com">
+<i class="fa-regular fa-envelope"></i>
+</a>
+
+</div>
+
+<!-- RIGHT MENU -->
+
+<div class="side-menu">
+
+<ul>
+
+<li>
+<a href="#home">
+<i class="fa-solid fa-house"></i>
+<span>Accueil</span>
+</a>
+</li>
+
+<li>
+<a href="#about">
+<i class="fa-regular fa-user"></i>
+<span>À propos</span>
+</a>
+</li>
+
+<li>
+<a href="#skills">
+<i class="fa-solid fa-chart-column"></i>
+<span>Compétences</span>
+</a>
+</li>
+
+<li>
+<a href="#certifications">
+<i class="fa-solid fa-shield-halved"></i>
+<span>Certifs</span>
+</a>
+</li>
+
+<li>
+<a href="#projects">
+<i class="fa-regular fa-folder"></i>
+<span>Projets</span>
+</a>
+</li>
+
+<li>
+<a href="#contact">
+<i class="fa-regular fa-paper-plane"></i>
+<span>Contact</span>
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- MAIN -->
 
 <div class="container">
 
-    <!-- HERO -->
+<!-- HERO -->
 
-    <section class="hero">
+<section class="hero" id="home">
 
-        <h1>
-            OCÉANE <br>
-            <span>DEHAUDT</span>
-        </h1>
+<div class="hero-content">
 
-        <div class="dot"></div>
+<div class="hero-mini">
+ÉTUDIANTE EN CYBERSÉCURITÉ
+</div>
 
-        <p class="subtitle">
-            ÉTUDIANTE EN CYBERSÉCURITÉ
-        </p>
+<h1>
+<span class="white">OCÉANE</span>
+<span class="red">DEHAUDT</span>
+</h1>
 
-        <div class="buttons">
+<div class="dot"></div>
 
-            <a href="#certifications" class="btn btn-primary">
-                Voir mes certifications
-            </a>
+<p>
+Passionnée par la cybersécurité offensive,
+l’analyse réseau et la protection des systèmes.
 
-            <a href="mailto:tonmail@gmail.com" class="btn btn-secondary">
-                Me contacter
-            </a>
+Je transforme la curiosité en expertise
+et les failles en force.
+</p>
 
-        </div>
+<div class="buttons">
 
-    </section>
+<a href="#certifications" class="btn primary">
+Voir mes certifications
+</a>
 
-    <!-- SKILLS -->
+<a href="mailto:tonmail@example.com" class="btn secondary">
+Me contacter
+</a>
 
-    <section class="section">
+</div>
 
-        <div class="card">
+</div>
 
-            <div class="skills">
+</section>
 
-                <div class="skill">Linux</div>
-                <div class="skill">Nmap</div>
-                <div class="skill">Wireshark</div>
-                <div class="skill">Burp Suite</div>
-                <div class="skill">Python</div>
-                <div class="skill">Docker</div>
-                <div class="skill">OSINT</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Git</div>
+<!-- CARDS -->
 
-            </div>
+<div class="cards">
 
-        </div>
+<!-- SPECIALITES -->
 
-    </section>
+<div class="card" id="about">
 
-    <!-- CERTIFICATIONS -->
+<div class="card-title">
+Spécialités
+</div>
 
-    <section class="section" id="certifications">
+<div class="list">
 
-        <div class="cert-grid">
+<div>Cybersécurité offensive</div>
+<div>Analyse réseau & monitoring</div>
+<div>OSINT & cybersurveillance</div>
+<div>Sécurité des infrastructures</div>
 
-            <div class="cert-card">
+</div>
 
-                <h3>ZSCALER CYBERSECURITY</h3>
+</div>
 
-                <p>
-                    Certification orientée cybersécurité,
-                    réseau et sécurité cloud.
-                </p>
+<!-- EXPERTISE -->
 
-                <a href="#" class="cert-link">
-                    Voir certification →
-                </a>
+<div class="card" id="skills">
 
-            </div>
+<div class="card-title">
+Niveau d’expertise
+</div>
 
-            <div class="cert-card">
+<div class="progress-item">
 
-                <h3>ZSCALER NETWORKING</h3>
+<div class="progress-header">
+<span>Sécurité offensive</span>
+<span>90%</span>
+</div>
 
-                <p>
-                    Certification réseau et fondamentaux
-                    de la cybersurveillance moderne.
-                </p>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
 
-                <a href="#" class="cert-link">
-                    Voir certification →
-                </a>
+</div>
 
-            </div>
+<div class="progress-item">
 
-        </div>
+<div class="progress-header">
+<span>Analyse réseau</span>
+<span>85%</span>
+</div>
 
-    </section>
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
 
-    <!-- ABOUT -->
+</div>
 
-    <section class="section">
+<div class="progress-item">
 
-        <div class="card">
+<div class="progress-header">
+<span>OSINT</span>
+<span>80%</span>
+</div>
 
-            <h2>À PROPOS</h2>
+<div class="bar">
+<div class="fill" style="width:80%"></div>
+</div>
 
-            <div class="about">
+</div>
 
-                <p>
-                    Spécialités : sécurité offensive,
-                    OSINT, analyse réseau,
-                    monitoring et cybersurveillance moderne.
-                </p>
+<div class="progress-item">
 
-                <br>
+<div class="progress-header">
+<span>Python</span>
+<span>75%</span>
+</div>
 
-                <p>
-                    Développement de projets personnels orientés
-                    détection d’intrusions,
-                    veille cyber et analyse des menaces numériques.
-                </p>
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </section>
+<!-- STATUS -->
+
+<div class="card">
+
+<div class="card-title">
+Statut système
+</div>
+
+<div class="status">
+
+<div>> Connexion sécurisée établie...</div>
+<div>> Système opérationnel</div>
+<div>> Surveillance active</div>
+<div>> Aucune menace détectée</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
