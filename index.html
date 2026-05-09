@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,8 +32,10 @@ scroll-behavior:smooth;
 }
 
 body{
+
 background:#050505;
 overflow-x:hidden;
+
 font-family:'Inter',sans-serif;
 color:white;
 }
@@ -50,8 +53,8 @@ inset:0;
 
 background:
 linear-gradient(
-rgba(0,0,0,0.97),
-rgba(0,0,0,0.99)
+rgba(0,0,0,0.96),
+rgba(0,0,0,0.98)
 );
 
 z-index:-100;
@@ -69,12 +72,12 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
 
-background-size:52px 52px;
+background-size:48px 48px;
 
-opacity:0.35;
+opacity:0.45;
 
 z-index:-99;
 }
@@ -91,7 +94,7 @@ left:0;
 
 width:100%;
 
-padding:22px;
+padding:24px;
 
 display:flex;
 justify-content:center;
@@ -99,7 +102,7 @@ justify-content:center;
 background:
 rgba(0,0,0,0.74);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
 
 border-bottom:
 1px solid rgba(255,255,255,0.03);
@@ -115,7 +118,7 @@ gap:46px;
 
 .topbar a{
 
-color:#9b9b9b;
+color:#b7b7b7;
 
 text-decoration:none;
 
@@ -129,6 +132,7 @@ transition:0.3s ease;
 }
 
 .topbar a:hover{
+
 color:white;
 }
 
@@ -148,16 +152,16 @@ transform:translateY(-50%);
 display:flex;
 flex-direction:column;
 
-gap:34px;
+gap:30px;
 
 z-index:999;
 }
 
 .social a{
 
-color:#d0d0d0;
+color:#d4d4d4;
 
-font-size:24px;
+font-size:22px;
 
 transition:0.3s ease;
 }
@@ -180,7 +184,7 @@ max-width:1450px;
 
 margin:auto;
 
-padding-top:120px;
+padding-top:130px;
 padding-bottom:120px;
 }
 
@@ -208,25 +212,8 @@ TEXT
 
 .hero-text{
 
-opacity:0;
-
-animation:
-fadeText 2s ease forwards;
-
-animation-delay:0.2s;
-}
-
-@keyframes fadeText{
-
-from{
-opacity:0;
-transform:translateY(12px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+position:relative;
+z-index:20;
 }
 
 .hero-mini{
@@ -237,60 +224,61 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#666;
+color:#6d6d6d;
 
-margin-bottom:24px;
+margin-bottom:28px;
+
+opacity:0;
+
+animation:heroFade 1s ease forwards;
+animation-delay:0.2s;
 }
 
 .hero h1{
 
 font-family:'Orbitron',sans-serif;
 
-line-height:0.94;
+line-height:0.95;
 
 text-transform:uppercase;
 
 margin-bottom:34px;
 
-font-size:clamp(52px,4vw,74px);
+font-size:clamp(50px,4vw,74px);
 
 font-weight:800;
 
-letter-spacing:-2px;
+letter-spacing:-3px;
 
-animation:titleGlow 8s ease-in-out infinite;
-}
+opacity:0;
 
-@keyframes titleGlow{
-
-0%{
-text-shadow:0 0 0 rgba(255,255,255,0);
-}
-
-50%{
-text-shadow:0 0 12px rgba(255,255,255,0.04);
-}
-
-100%{
-text-shadow:0 0 0 rgba(255,255,255,0);
-}
+animation:heroFade 1s ease forwards;
+animation-delay:0.5s;
 }
 
 .hero h1 span{
+
 display:block;
+
+color:#f2f2f2;
 }
 
 .hero p{
 
-max-width:620px;
+max-width:650px;
 
-font-size:17px;
+font-size:18px;
 
 line-height:2.1;
 
-color:#b7b7b7;
+color:#b8b8b8;
 
 margin-bottom:34px;
+
+opacity:0;
+
+animation:heroFade 1s ease forwards;
+animation-delay:0.9s;
 }
 
 .hero-bottom{
@@ -301,9 +289,45 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#525252;
+color:#575757;
 
-margin-bottom:44px;
+margin-bottom:24px;
+
+opacity:0;
+
+animation:heroFade 1s ease forwards;
+animation-delay:1.2s;
+}
+
+.hero-status{
+
+font-size:10px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:rgba(255,255,255,0.22);
+
+margin-bottom:42px;
+
+opacity:0;
+
+animation:heroFade 1s ease forwards;
+animation-delay:1.5s;
+}
+
+@keyframes heroFade{
+
+from{
+opacity:0;
+transform:translateY(18px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 /* =========================================================
@@ -314,7 +338,13 @@ BUTTONS
 
 display:flex;
 gap:18px;
+
 flex-wrap:wrap;
+
+opacity:0;
+
+animation:heroFade 1s ease forwards;
+animation-delay:1.8s;
 }
 
 .btn{
@@ -339,18 +369,21 @@ transition:0.35s ease;
 background:transparent;
 
 border:
-1px solid rgba(255,0,70,0.28);
+1px solid rgba(255,0,70,0.35);
 
 color:white;
 
 box-shadow:
-0 0 14px rgba(255,0,70,0.04);
+0 0 18px rgba(255,0,70,0.06);
 }
 
 .primary:hover{
 
 background:
-rgba(255,0,70,0.04);
+rgba(255,0,70,0.06);
+
+border:
+1px solid rgba(255,0,70,0.55);
 
 transform:translateY(-3px);
 }
@@ -360,15 +393,15 @@ transform:translateY(-3px);
 background:transparent;
 
 border:
-1px solid rgba(255,255,255,0.06);
+1px solid rgba(255,255,255,0.08);
 
-color:#cfcfcf;
+color:#d8d8d8;
 }
 
 .secondary:hover{
 
 border:
-1px solid rgba(255,255,255,0.14);
+1px solid rgba(255,255,255,0.18);
 
 transform:translateY(-3px);
 }
@@ -388,27 +421,6 @@ justify-content:center;
 align-items:center;
 }
 
-.visual-zone::before{
-
-content:"";
-
-position:absolute;
-
-width:600px;
-height:600px;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-circle,
-rgba(255,0,70,0.035),
-transparent 70%
-);
-
-filter:blur(40px);
-}
-
 /* =========================================================
 CIRCLES
 ========================================================= */
@@ -420,7 +432,7 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,70,0.03);
+1px solid rgba(255,0,70,0.04);
 }
 
 .c1{
@@ -439,101 +451,23 @@ height:820px;
 }
 
 /* =========================================================
-NODES
-========================================================= */
-
-.node{
-
-position:absolute;
-
-width:10px;
-height:10px;
-
-border-radius:50%;
-
-background:#ff0055;
-
-opacity:0;
-
-box-shadow:
-0 0 14px rgba(255,0,70,0.55);
-
-animation:
-nodeFade 2s ease forwards;
-}
-
-@keyframes nodeFade{
-
-from{
-opacity:0;
-transform:scale(0.7);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-.n1{
-top:20%;
-right:20%;
-animation-delay:1.3s;
-}
-
-.n2{
-top:40%;
-left:20%;
-animation-delay:1.7s;
-}
-
-.n3{
-bottom:22%;
-right:16%;
-animation-delay:2.1s;
-}
-
-.n4{
-bottom:16%;
-left:28%;
-animation-delay:2.5s;
-}
-
-/* =========================================================
-OD
+OD LOGO
 ========================================================= */
 
 .od-wrapper{
 
 position:relative;
 
-transform:
-scale(0.86)
-translateY(24px);
+transform:scale(0.92);
 
-opacity:0;
+opacity:0.94;
 
-animation:
-odAppear 2s ease forwards;
-
-animation-delay:0.8s;
+transition:0.6s ease;
 }
 
-@keyframes odAppear{
+.od-wrapper:hover{
 
-from{
-opacity:0;
-transform:
-scale(0.82)
-translateY(40px);
-}
-
-to{
-opacity:0.92;
-transform:
-scale(0.86)
-translateY(24px);
-}
+transform:scale(0.935);
 }
 
 .od-logo{
@@ -542,8 +476,7 @@ position:relative;
 
 display:flex;
 align-items:center;
-
-gap:26px;
+gap:24px;
 }
 
 .od-o,
@@ -555,11 +488,11 @@ background:
 linear-gradient(
 145deg,
 #090909,
-#040404
+#050505
 );
 
 border:
-1px solid rgba(255,255,255,0.03);
+1px solid rgba(255,255,255,0.035);
 
 overflow:hidden;
 
@@ -571,21 +504,12 @@ backdrop-filter:blur(10px);
 width:170px;
 height:170px;
 
-border-radius:42px;
+border-radius:40px;
 
 box-shadow:
-inset 0 0 24px rgba(255,255,255,0.02);
-}
 
-.od-d{
-
-width:250px;
-height:170px;
-
-border-radius:0 42px 42px 0;
-
-box-shadow:
-inset 0 0 24px rgba(255,255,255,0.02);
+inset 0 0 24px rgba(255,255,255,0.02),
+0 0 35px rgba(255,0,70,0.03);
 }
 
 .od-o::before{
@@ -599,7 +523,20 @@ inset:16px;
 border-radius:28px;
 
 border:
-1px solid rgba(255,255,255,0.03);
+1px solid rgba(255,255,255,0.04);
+}
+
+.od-d{
+
+width:250px;
+height:170px;
+
+border-radius:0 40px 40px 0;
+
+box-shadow:
+
+inset 0 0 24px rgba(255,255,255,0.02),
+0 0 35px rgba(255,0,70,0.03);
 }
 
 .od-d::before{
@@ -613,7 +550,7 @@ inset:16px;
 border-radius:0 28px 28px 0;
 
 border:
-1px solid rgba(255,255,255,0.03);
+1px solid rgba(255,255,255,0.04);
 }
 
 /* =========================================================
@@ -634,38 +571,54 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,0,70,0.7),
+rgba(255,0,70,0.75),
 transparent
 );
 
 box-shadow:
-0 0 12px rgba(255,0,70,0.32);
+0 0 14px rgba(255,0,70,0.45);
+
+opacity:0;
 
 animation:
-scanMove 13s ease-in-out infinite;
+scanAppear 1s ease forwards,
+scanMove 6s ease-in-out infinite;
 
-animation-delay:1s;
+animation-delay:
+1.8s,
+2.1s;
+}
+
+@keyframes scanAppear{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
 }
 
 @keyframes scanMove{
 
 0%{
-transform:translateX(-90px);
+transform:translateX(-80px);
 opacity:0;
 }
 
 50%{
-opacity:0.75;
+opacity:0.9;
 }
 
 100%{
-transform:translateX(90px);
+transform:translateX(80px);
 opacity:0;
 }
 }
 
 /* =========================================================
-REFLECT
+REFLECTION
 ========================================================= */
 
 .reflect{
@@ -682,14 +635,13 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,0.025),
+rgba(255,255,255,0.03),
 transparent
 );
 
 transform:rotate(18deg);
 
-animation:
-reflectMove 12s linear infinite;
+animation:reflectMove 10s linear infinite;
 }
 
 @keyframes reflectMove{
@@ -704,6 +656,83 @@ left:140%;
 }
 
 /* =========================================================
+NODES
+========================================================= */
+
+.node{
+
+position:absolute;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#ff004c;
+
+box-shadow:
+0 0 12px rgba(255,0,70,0.6);
+
+opacity:0;
+
+animation:
+nodeAppear 1.2s ease forwards,
+nodePulse 4s ease-in-out infinite;
+}
+
+.n1{
+top:20%;
+right:20%;
+animation-delay:1.4s;
+}
+
+.n2{
+top:38%;
+left:20%;
+animation-delay:1.8s;
+}
+
+.n3{
+bottom:22%;
+right:16%;
+animation-delay:2.2s;
+}
+
+.n4{
+bottom:16%;
+left:28%;
+animation-delay:2.6s;
+}
+
+@keyframes nodeAppear{
+
+from{
+opacity:0;
+transform:scale(0.5);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes nodePulse{
+
+0%{
+box-shadow:0 0 8px rgba(255,0,70,0.35);
+}
+
+50%{
+box-shadow:0 0 20px rgba(255,0,70,0.85);
+}
+
+100%{
+box-shadow:0 0 8px rgba(255,0,70,0.35);
+}
+}
+
+/* =========================================================
 TERMINAL
 ========================================================= */
 
@@ -712,11 +741,11 @@ TERMINAL
 position:absolute;
 
 bottom:80px;
-right:20px;
+right:10px;
 
-width:270px;
+width:260px;
 
-padding:22px;
+padding:20px;
 
 border-radius:18px;
 
@@ -724,7 +753,7 @@ background:
 rgba(8,8,8,0.42);
 
 border:
-1px solid rgba(255,255,255,0.03);
+1px solid rgba(255,255,255,0.04);
 
 backdrop-filter:blur(12px);
 
@@ -736,47 +765,24 @@ line-height:2;
 
 letter-spacing:1px;
 
-color:#9a9a9a;
+color:#7e7e7e;
 
-opacity:0.14;
+opacity:0;
+
+animation:terminalFade 1.5s ease forwards;
+animation-delay:2.2s;
 }
 
-.terminal-line{
-
-overflow:hidden;
-
-white-space:nowrap;
-
-width:0;
-
-animation:
-typing 2s steps(40,end) forwards;
-}
-
-.l1{
-animation-delay:1.6s;
-}
-
-.l2{
-animation-delay:3s;
-}
-
-.l3{
-animation-delay:4.6s;
-}
-
-.l4{
-animation-delay:6s;
-}
-
-@keyframes typing{
+@keyframes terminalFade{
 
 from{
-width:0;
+opacity:0;
+transform:translateY(10px);
 }
 
 to{
-width:100%;
+opacity:0.34;
+transform:translateY(0);
 }
 }
 
@@ -784,10 +790,10 @@ width:100%;
 
 display:inline-block;
 
-width:7px;
+width:8px;
 height:14px;
 
-background:#ff0055;
+background:#ff004c;
 
 margin-left:4px;
 
@@ -810,6 +816,7 @@ SECTION
 ========================================================= */
 
 .section{
+
 margin-top:140px;
 }
 
@@ -817,9 +824,9 @@ margin-top:140px;
 
 font-family:'Orbitron',sans-serif;
 
-font-size:52px;
+font-size:54px;
 
-margin-bottom:42px;
+margin-bottom:40px;
 
 text-transform:uppercase;
 }
@@ -837,8 +844,8 @@ border-radius:28px;
 background:
 linear-gradient(
 145deg,
-rgba(10,10,10,0.96),
-rgba(5,5,5,0.98)
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
 );
 
 border:
@@ -892,7 +899,8 @@ transition:0.3s ease;
 }
 
 .skill i{
-color:#ff0055;
+
+color:#ff004c;
 }
 
 .skill:hover{
@@ -900,14 +908,15 @@ color:#ff0055;
 transform:translateY(-3px);
 
 border:
-1px solid rgba(255,0,70,0.12);
+1px solid rgba(255,255,255,0.1);
 }
 
 /* =========================================================
 CARDS
 ========================================================= */
 
-.grid{
+.certifications,
+.projects{
 
 display:grid;
 
@@ -927,7 +936,7 @@ background:
 linear-gradient(
 145deg,
 rgba(10,10,10,0.95),
-rgba(5,5,5,0.98)
+rgba(5,5,5,0.97)
 );
 
 border:
@@ -961,6 +970,96 @@ line-height:1.9;
 }
 
 /* =========================================================
+CONTACT
+========================================================= */
+
+.contact-box{
+
+padding:42px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
+);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+}
+
+.contact-status{
+
+font-size:13px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#8b8b8b;
+}
+
+.contact-links{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+}
+
+.contact-links a{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+padding:16px 22px;
+
+border-radius:16px;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+text-decoration:none;
+
+color:#d8d8d8;
+
+transition:0.3s ease;
+}
+
+.contact-links a:hover{
+
+transform:translateY(-3px);
+
+border:
+1px solid rgba(255,0,70,0.2);
+
+box-shadow:
+0 0 18px rgba(255,0,70,0.08);
+}
+
+.contact-links i{
+
+color:#ff004c;
+}
+
+/* =========================================================
 RESPONSIVE
 ========================================================= */
 
@@ -982,7 +1081,7 @@ display:none;
 @media(max-width:768px){
 
 .hero h1{
-font-size:56px;
+font-size:58px;
 }
 
 .topbar nav{
@@ -1016,10 +1115,6 @@ display:none;
 
 <body>
 
-<!-- =========================================================
-TOPBAR
-========================================================= -->
-
 <div class="topbar">
 
 <nav>
@@ -1044,10 +1139,6 @@ Contact
 
 </div>
 
-<!-- =========================================================
-SOCIAL
-========================================================= -->
-
 <div class="social">
 
 <a href="https://github.com/oceane-dehaudt"
@@ -1065,15 +1156,9 @@ target="_blank">
 
 </div>
 
-<!-- =========================================================
-MAIN
-========================================================= -->
-
 <div class="container">
 
 <section class="hero" id="home">
-
-<!-- LEFT -->
 
 <div class="hero-text">
 
@@ -1100,6 +1185,10 @@ Développement de laboratoires sécurisés, veille OSINT et analyse des menaces 
 ANALYSER • COMPRENDRE • ANTICIPER
 </div>
 
+<div class="hero-status">
+Passive monitoring enabled
+</div>
+
 <div class="buttons">
 
 <a href="#certifications"
@@ -1119,8 +1208,6 @@ Voir mes projets
 </div>
 
 </div>
-
-<!-- RIGHT -->
 
 <div class="visual-zone">
 
@@ -1155,34 +1242,15 @@ Voir mes projets
 
 </div>
 
-<!-- TERMINAL -->
-
 <div class="terminal">
 
-<div class="terminal-line l1">
-root@od-sec:~ active
-</div>
-
-<div class="terminal-line l2">
-monitoring traffic...
-</div>
-
-<div class="terminal-line l3">
-threats detected: 0
-</div>
-
-<div class="terminal-line l4">
-network integrity: 98%
-<span class="cursor"></span>
-</div>
+<div id="terminal-text"></div>
 
 </div>
 
 </div>
 
 </section>
-
-<!-- ABOUT -->
 
 <section class="section" id="about">
 
@@ -1250,17 +1318,15 @@ OSINT
 
 </section>
 
-<!-- CERTIFICATIONS -->
-
 <section class="section" id="certifications">
 
 <h2 class="section-title">
 CERTIFICATIONS
 </h2>
 
-<div class="grid">
+<div class="certifications">
 
-<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-cybersecurity.pdf.pdf?raw=true"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-cybersecurity.pdf.pdf"
 target="_blank"
 style="text-decoration:none;">
 
@@ -1278,7 +1344,7 @@ Certification orientée sécurité cloud, protection réseau et architecture Zer
 
 </a>
 
-<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-networking.pdf.pdf?raw=true"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-networking.pdf.pdf"
 target="_blank"
 style="text-decoration:none;">
 
@@ -1324,19 +1390,13 @@ Entraînement continu en cybersécurité offensive, investigation et analyse ré
 
 </section>
 
-<!-- PROJECTS -->
-
 <section class="section" id="projects">
 
 <h2 class="section-title">
 PROJETS
 </h2>
 
-<div class="grid">
-
-<a href="https://github.com/oceane-dehaudt"
-target="_blank"
-style="text-decoration:none;">
+<div class="projects">
 
 <div class="card">
 
@@ -1350,12 +1410,6 @@ Mise en pratique d’attaques XSS dans un environnement sécurisé afin de compr
 
 </div>
 
-</a>
-
-<a href="https://github.com/oceane-dehaudt"
-target="_blank"
-style="text-decoration:none;">
-
 <div class="card">
 
 <h3>NGS Investigation</h3>
@@ -1368,13 +1422,94 @@ Projet orienté analyse réseau et investigation technique avec approche offensi
 
 </div>
 
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<div class="contact-box">
+
+<div class="contact-status">
+Disponible pour stage en cybersécurité
+</div>
+
+<div class="contact-links">
+
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
+<i class="fab fa-github"></i>
+GitHub
+
 </a>
+
+<a href="mailto:tonmail@example.com">
+
+<i class="fa-regular fa-envelope"></i>
+tonmail@example.com
+
+</a>
+
+</div>
 
 </div>
 
 </section>
 
 </div>
+
+<script>
+
+const terminal = document.getElementById("terminal-text");
+
+const lines = [
+
+"root@od-sec:~ active",
+"monitoring traffic...",
+"packet inspection enabled",
+"threats detected: 0",
+"network integrity: 98%"
+
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeTerminal(){
+
+if(lineIndex < lines.length){
+
+if(charIndex < lines[lineIndex].length){
+
+terminal.innerHTML += lines[lineIndex].charAt(charIndex);
+
+charIndex++;
+
+setTimeout(typeTerminal,40);
+
+}else{
+
+terminal.innerHTML += "<br>";
+
+lineIndex++;
+charIndex = 0;
+
+setTimeout(typeTerminal,220);
+
+}
+
+}else{
+
+terminal.innerHTML += '<span class="cursor"></span>';
+
+}
+
+}
+
+setTimeout(typeTerminal,2400);
+
+</script>
 
 </body>
 </html>
