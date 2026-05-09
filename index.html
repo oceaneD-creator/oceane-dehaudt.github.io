@@ -38,6 +38,7 @@ overflow-x:hidden;
 
 font-family:'Inter',sans-serif;
 color:white;
+position:relative;
 }
 
 /* =========================================================
@@ -53,8 +54,8 @@ inset:0;
 
 background:
 linear-gradient(
-rgba(0,0,0,0.96),
-rgba(0,0,0,0.985)
+rgba(0,0,0,0.965),
+rgba(0,0,0,0.99)
 );
 
 z-index:-100;
@@ -72,14 +73,35 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
 
 background-size:48px 48px;
 
-opacity:0.4;
+opacity:0.38;
 
 z-index:-99;
+}
+
+/* =========================================================
+NOISE
+========================================================= */
+
+.noise{
+
+position:fixed;
+inset:0;
+
+opacity:0.015;
+
+pointer-events:none;
+
+mix-blend-mode:screen;
+
+background-image:
+url("https://grainy-gradients.vercel.app/noise.svg");
+
+z-index:-98;
 }
 
 /* =========================================================
@@ -100,7 +122,7 @@ display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.74);
+rgba(0,0,0,0.72);
 
 backdrop-filter:blur(18px);
 
@@ -204,6 +226,8 @@ grid-template-columns:
 gap:60px;
 
 align-items:center;
+
+padding-top:40px;
 }
 
 /* =========================================================
@@ -215,7 +239,10 @@ TEXT
 position:relative;
 z-index:20;
 
+margin-top:-40px;
+
 animation:fadeUp 1.2s ease forwards;
+
 opacity:0;
 }
 
@@ -236,13 +263,13 @@ margin-bottom:28px;
 
 font-family:'Orbitron',sans-serif;
 
-line-height:0.94;
+line-height:0.95;
 
 text-transform:uppercase;
 
 margin-bottom:34px;
 
-font-size:clamp(48px,4vw,72px);
+font-size:clamp(50px,4vw,74px);
 
 font-weight:800;
 
@@ -277,7 +304,7 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#565656;
+color:#575757;
 
 margin-bottom:44px;
 }
@@ -321,7 +348,7 @@ border:
 color:white;
 
 box-shadow:
-0 0 12px rgba(255,0,70,0.03);
+0 0 10px rgba(255,0,70,0.03);
 }
 
 .primary:hover{
@@ -379,7 +406,7 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,70,0.035);
+1px solid rgba(255,0,70,0.03);
 }
 
 .c1{
@@ -405,12 +432,12 @@ OD LOGO
 
 position:relative;
 
-transform:scale(0.88);
+transform:scale(0.95);
 
 opacity:0;
 
 animation:
-fadeUp 1.4s ease forwards;
+fadeUp 1.5s ease forwards;
 
 animation-delay:0.4s;
 }
@@ -456,7 +483,7 @@ border-radius:40px;
 box-shadow:
 
 inset 0 0 24px rgba(255,255,255,0.015),
-0 0 22px rgba(255,0,70,0.02);
+0 0 20px rgba(255,0,70,0.02);
 }
 
 .od-o::before{
@@ -485,7 +512,7 @@ border-radius:0 40px 40px 0;
 box-shadow:
 
 inset 0 0 24px rgba(255,255,255,0.015),
-0 0 22px rgba(255,0,70,0.02);
+0 0 20px rgba(255,0,70,0.02);
 }
 
 .od-d::before{
@@ -520,12 +547,12 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,0,70,0.55),
+rgba(255,0,70,0.65),
 transparent
 );
 
 box-shadow:
-0 0 10px rgba(255,0,70,0.25);
+0 0 14px rgba(255,0,70,0.30);
 
 animation:
 scanMove 8s ease-in-out infinite;
@@ -541,7 +568,7 @@ opacity:0;
 }
 
 50%{
-opacity:0.7;
+opacity:0.75;
 }
 
 100%{
@@ -568,7 +595,7 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,0.025),
+rgba(255,255,255,0.022),
 transparent
 );
 
@@ -596,15 +623,15 @@ NODES
 
 position:absolute;
 
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 
 border-radius:50%;
 
 background:#ff004c;
 
 box-shadow:
-0 0 12px rgba(255,0,70,0.35);
+0 0 10px rgba(255,0,70,0.25);
 
 opacity:0;
 
@@ -656,7 +683,7 @@ TERMINAL
 
 position:absolute;
 
-bottom:80px;
+bottom:40px;
 right:10px;
 
 width:260px;
@@ -941,6 +968,8 @@ display:none;
 </head>
 
 <body>
+
+<div class="noise"></div>
 
 <div class="topbar">
 
