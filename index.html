@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Océane Dehaudt | Cybersécurité</title>
+<title>Océane Dehaudt | Cybersécurité</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
@@ -29,9 +31,12 @@ html{
 }
 
 body{
-    background:#040404;
+
+    background:#050505;
     color:white;
+
     overflow-x:hidden;
+
     font-family:'Inter',sans-serif;
 }
 
@@ -40,37 +45,45 @@ BACKGROUND
 ========================= */
 
 .background{
+
     position:fixed;
     inset:0;
+
     z-index:-5;
 
     background:
-    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.82)),
-    url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070&auto=format&fit=crop');
+    linear-gradient(
+    rgba(0,0,0,0.78),
+    rgba(0,0,0,0.88)),
+
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1974&auto=format&fit=crop');
 
     background-size:cover;
     background-position:center;
 
-    filter:brightness(0.45);
+    filter:brightness(0.35);
 }
 
 /* =========================
-OVERLAY
+DARK OVERLAY
 ========================= */
 
 .overlay{
+
     position:fixed;
     inset:0;
+
     z-index:-4;
 
     background:
+
     radial-gradient(circle at top,
-    rgba(120,0,40,0.25),
-    transparent 40%),
+    rgba(90,0,20,0.22),
+    transparent 45%),
 
     radial-gradient(circle at bottom,
-    rgba(90,0,25,0.22),
-    transparent 45%);
+    rgba(50,0,10,0.3),
+    transparent 55%);
 }
 
 /* =========================
@@ -78,65 +91,53 @@ GRID
 ========================= */
 
 .grid{
+
     position:fixed;
     inset:0;
+
     z-index:-3;
 
     background-image:
-    linear-gradient(rgba(255,0,80,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,0,80,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(120,0,25,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,0,25,0.08) 1px, transparent 1px);
 
     background-size:55px 55px;
 
-    opacity:0.22;
+    opacity:0.25;
 }
 
 /* =========================
-FLOATING LIGHTS
+VERTICAL LIGHTS
 ========================= */
 
-.glow{
-    position:fixed;
-    width:500px;
-    height:500px;
+.vertical-light{
 
-    border-radius:50%;
+    position:fixed;
+
+    width:2px;
+    height:100%;
 
     background:
-    radial-gradient(circle,
-    rgba(255,20,90,0.12),
-    transparent 70%);
+    linear-gradient(
+    transparent,
+    rgba(160,0,40,0.6),
+    transparent);
 
-    filter:blur(40px);
+    filter:blur(1px);
 
-    animation:floatGlow 12s ease-in-out infinite;
+    opacity:0.5;
 }
 
-.glow1{
-    top:-100px;
-    left:-100px;
+.light1{
+    left:8%;
 }
 
-.glow2{
-    bottom:-150px;
-    right:-150px;
-
-    animation-delay:4s;
-}
-
-@keyframes floatGlow{
-
-    0%,100%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-25px);
-    }
+.light2{
+    right:12%;
 }
 
 /* =========================
-TOP NAV
+TOP NAVBAR
 ========================= */
 
 .topbar{
@@ -146,48 +147,56 @@ TOP NAV
     left:0;
 
     width:100%;
+
     z-index:999;
 
     display:flex;
     justify-content:center;
 
-    padding:22px;
+    padding:24px;
 
-    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,0.3);
 
-    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(14px);
 
-    border-bottom:1px solid rgba(255,0,90,0.08);
+    border-bottom:
+    1px solid rgba(120,0,25,0.15);
 }
 
 .topbar nav{
+
     display:flex;
-    gap:40px;
+    gap:42px;
 }
 
 .topbar a{
-    color:#e4e4e4;
+
+    color:#dadada;
+
     text-decoration:none;
 
     font-size:13px;
-    letter-spacing:2px;
+
+    letter-spacing:3px;
+
     text-transform:uppercase;
 
     transition:0.3s ease;
 }
 
 .topbar a:hover{
-    color:#ff2f72;
+    color:#8f001f;
 }
 
 /* =========================
-SOCIAL BAR
+LEFT SOCIAL BAR
 ========================= */
 
 .social-bar{
 
     position:fixed;
-    left:35px;
+
+    left:28px;
     top:50%;
 
     transform:translateY(-50%);
@@ -196,12 +205,13 @@ SOCIAL BAR
 
     display:flex;
     flex-direction:column;
-    gap:28px;
+
+    gap:26px;
 }
 
 .social-bar a{
 
-    color:white;
+    color:#d2d2d2;
 
     font-size:20px;
 
@@ -210,7 +220,7 @@ SOCIAL BAR
 
 .social-bar a:hover{
 
-    color:#ff2f72;
+    color:#8f001f;
 
     transform:translateY(-3px);
 }
@@ -222,22 +232,24 @@ RIGHT MENU
 .side-menu{
 
     position:fixed;
-    right:35px;
+
+    right:28px;
     top:50%;
 
     transform:translateY(-50%);
 
-    width:95px;
+    width:110px;
 
-    padding:25px 12px;
+    padding:24px 14px;
 
     border-radius:28px;
 
-    background:rgba(5,5,5,0.6);
+    background:rgba(5,5,5,0.62);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,0,90,0.1);
+    border:
+    1px solid rgba(120,0,25,0.18);
 
     z-index:999;
 }
@@ -247,6 +259,7 @@ RIGHT MENU
 
     display:flex;
     flex-direction:column;
+
     gap:28px;
 }
 
@@ -256,35 +269,37 @@ RIGHT MENU
 
 .side-menu a{
 
-    text-decoration:none;
-
     color:#d2d2d2;
 
-    font-size:12px;
+    text-decoration:none;
 
     display:flex;
     flex-direction:column;
+
     gap:10px;
+
+    font-size:12px;
 
     transition:0.3s ease;
 }
 
 .side-menu a:hover{
-    color:#ff2f72;
+    color:#8f001f;
 }
 
 /* =========================
-MAIN
+MAIN CONTAINER
 ========================= */
 
 .container{
-    width:90%;
-    max-width:1350px;
+
+    width:88%;
+    max-width:1400px;
 
     margin:auto;
 
-    padding-top:140px;
-    padding-bottom:100px;
+    padding-top:160px;
+    padding-bottom:120px;
 }
 
 /* =========================
@@ -300,12 +315,13 @@ HERO
 }
 
 .hero-content{
-    max-width:750px;
+
+    max-width:720px;
 }
 
-.hero-mini{
+.hero-small{
 
-    color:#ff2f72;
+    color:#8f001f;
 
     text-transform:uppercase;
 
@@ -320,30 +336,32 @@ HERO
 
     font-family:'Orbitron',sans-serif;
 
-    line-height:0.9;
+    line-height:0.88;
 
     text-transform:uppercase;
 
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
-.hero h1 .white{
+.hero .white{
+
     display:block;
 
     color:white;
 
-    font-size:clamp(65px,10vw,140px);
+    font-size:clamp(70px,10vw,150px);
 }
 
-.hero h1 .red{
+.hero .red{
+
     display:block;
 
-    color:#ff2f72;
+    color:#8f001f;
 
-    font-size:clamp(65px,10vw,140px);
+    font-size:clamp(70px,10vw,150px);
 
     text-shadow:
-    0 0 20px rgba(255,47,114,0.35);
+    0 0 18px rgba(143,0,31,0.4);
 }
 
 .dot{
@@ -353,23 +371,23 @@ HERO
 
     border-radius:50%;
 
-    background:#ff2f72;
+    background:#8f001f;
 
-    margin-bottom:35px;
+    margin-bottom:32px;
 
     box-shadow:
-    0 0 20px rgba(255,47,114,0.8);
+    0 0 16px rgba(143,0,31,0.7);
 }
 
 .hero p{
+
+    color:#d2d2d2;
 
     font-size:20px;
 
     line-height:1.9;
 
-    color:#d2d2d2;
-
-    max-width:700px;
+    max-width:650px;
 }
 
 /* =========================
@@ -388,7 +406,7 @@ BUTTONS
 
 .btn{
 
-    padding:18px 28px;
+    padding:18px 30px;
 
     border-radius:14px;
 
@@ -396,9 +414,9 @@ BUTTONS
 
     text-transform:uppercase;
 
-    letter-spacing:1px;
+    font-size:13px;
 
-    font-size:14px;
+    letter-spacing:2px;
 
     transition:0.35s ease;
 }
@@ -408,33 +426,34 @@ BUTTONS
     background:
     linear-gradient(
     135deg,
-    #680021,
-    #c00046);
+    #5c0014,
+    #8f001f);
 
     color:white;
 
     box-shadow:
-    0 0 25px rgba(255,0,90,0.2);
+    0 0 20px rgba(143,0,31,0.22);
 }
 
 .secondary{
 
-    border:1px solid rgba(255,255,255,0.08);
+    border:
+    1px solid rgba(255,255,255,0.08);
 
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.55);
+
+    backdrop-filter:blur(14px);
 
     color:white;
-
-    backdrop-filter:blur(12px);
 }
 
 .btn:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
 /* =========================
-CARDS
+CARDS SECTION
 ========================= */
 
 .cards{
@@ -442,11 +461,11 @@ CARDS
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
     gap:28px;
 
-    margin-top:80px;
+    margin-top:60px;
 }
 
 .card{
@@ -454,13 +473,14 @@ CARDS
     background:
     rgba(8,8,8,0.55);
 
-    border:1px solid rgba(255,0,90,0.1);
+    border:
+    1px solid rgba(120,0,25,0.16);
 
     border-radius:28px;
 
-    padding:35px;
+    padding:34px;
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(16px);
 
     transition:0.35s ease;
 }
@@ -469,23 +489,24 @@ CARDS
 
     transform:translateY(-6px);
 
-    border:1px solid rgba(255,0,90,0.22);
+    border:
+    1px solid rgba(143,0,31,0.32);
 
     box-shadow:
-    0 0 35px rgba(255,0,90,0.12);
+    0 0 30px rgba(143,0,31,0.12);
 }
 
 .card-title{
 
-    color:#ff2f72;
+    color:#8f001f;
 
-    margin-bottom:25px;
+    margin-bottom:26px;
+
+    font-size:18px;
 
     text-transform:uppercase;
 
     letter-spacing:2px;
-
-    font-size:18px;
 }
 
 /* =========================
@@ -496,23 +517,24 @@ LISTS
 
     display:flex;
     flex-direction:column;
-    gap:20px;
+
+    gap:18px;
 }
 
 .list div{
 
-    padding-bottom:14px;
+    padding-bottom:12px;
 
     border-bottom:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(255,255,255,0.05);
 }
 
 /* =========================
-PROGRESS
+PROGRESS BARS
 ========================= */
 
 .progress-item{
-    margin-bottom:22px;
+    margin-bottom:24px;
 }
 
 .progress-header{
@@ -520,19 +542,19 @@ PROGRESS
     display:flex;
     justify-content:space-between;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
 
-    color:#d6d6d6;
+    color:#d2d2d2;
 }
 
 .bar{
 
     width:100%;
-    height:8px;
+    height:7px;
+
+    background:#121212;
 
     border-radius:999px;
-
-    background:#111;
 
     overflow:hidden;
 }
@@ -544,11 +566,11 @@ PROGRESS
     background:
     linear-gradient(
     90deg,
-    #700024,
-    #ff2f72);
+    #5c0014,
+    #8f001f);
 
     box-shadow:
-    0 0 15px rgba(255,0,90,0.4);
+    0 0 12px rgba(143,0,31,0.4);
 }
 
 /* =========================
@@ -556,15 +578,175 @@ STATUS
 ========================= */
 
 .status{
+
     display:flex;
     flex-direction:column;
-    gap:14px;
 
-    color:#d6d6d6;
+    gap:16px;
+
+    color:#d2d2d2;
 }
 
 /* =========================
-MOBILE
+SECTION TITLES
+========================= */
+
+.section-title{
+
+    margin-top:120px;
+    margin-bottom:40px;
+
+    color:white;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:48px;
+
+    text-transform:uppercase;
+}
+
+.section-title span{
+    color:#8f001f;
+}
+
+/* =========================
+CERTIFICATIONS
+========================= */
+
+.cert-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+}
+
+.cert-card{
+
+    background:
+    rgba(8,8,8,0.58);
+
+    border:
+    1px solid rgba(120,0,25,0.15);
+
+    border-radius:26px;
+
+    padding:32px;
+
+    backdrop-filter:blur(16px);
+
+    transition:0.35s ease;
+}
+
+.cert-card:hover{
+
+    transform:translateY(-5px);
+
+    border:
+    1px solid rgba(143,0,31,0.3);
+}
+
+.cert-card h3{
+
+    color:#8f001f;
+
+    margin-bottom:18px;
+
+    font-size:26px;
+}
+
+.cert-card p{
+
+    color:#d2d2d2;
+
+    line-height:1.8;
+}
+
+.cert-card a{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#8f001f;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.project-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+}
+
+.project-card{
+
+    background:
+    rgba(8,8,8,0.58);
+
+    border:
+    1px solid rgba(120,0,25,0.15);
+
+    border-radius:26px;
+
+    padding:32px;
+
+    backdrop-filter:blur(16px);
+
+    transition:0.35s ease;
+}
+
+.project-card:hover{
+
+    transform:translateY(-5px);
+
+    border:
+    1px solid rgba(143,0,31,0.3);
+}
+
+.project-card h3{
+
+    color:#8f001f;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+}
+
+.project-card p{
+
+    color:#d2d2d2;
+
+    line-height:1.8;
+}
+
+.project-card a{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#8f001f;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+/* =========================
+RESPONSIVE
 ========================= */
 
 @media(max-width:1100px){
@@ -578,7 +760,7 @@ MOBILE
     }
 
     .topbar nav{
-        gap:20px;
+        gap:18px;
         flex-wrap:wrap;
         justify-content:center;
     }
@@ -588,7 +770,7 @@ MOBILE
 
     .container{
         width:92%;
-        padding-top:120px;
+        padding-top:130px;
     }
 
     .hero{
@@ -596,15 +778,18 @@ MOBILE
     }
 
     .hero p{
-        font-size:17px;
+        font-size:18px;
     }
 
-    .cards{
+    .cards,
+    .cert-grid,
+    .project-grid{
+
         grid-template-columns:1fr;
     }
 
     .topbar{
-        padding:16px;
+        padding:18px;
     }
 
     .topbar nav{
@@ -621,26 +806,28 @@ MOBILE
 
 <body>
 
-<!-- BACKGROUND -->
-
 <div class="background"></div>
 <div class="overlay"></div>
 <div class="grid"></div>
 
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
+<div class="vertical-light light1"></div>
+<div class="vertical-light light2"></div>
 
 <!-- TOPBAR -->
 
 <div class="topbar">
+
 <nav>
+
 <a href="#home">Accueil</a>
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
 <a href="#certifications">Certifications</a>
 <a href="#projects">Projets</a>
 <a href="#contact">Contact</a>
+
 </nav>
+
 </div>
 
 <!-- LEFT SOCIAL -->
@@ -723,23 +910,27 @@ MOBILE
 
 <div class="hero-content">
 
-<div class="hero-mini">
+<div class="hero-small">
 ÉTUDIANTE EN CYBERSÉCURITÉ
 </div>
 
 <h1>
+
 <span class="white">OCÉANE</span>
 <span class="red">DEHAUDT</span>
+
 </h1>
 
 <div class="dot"></div>
 
 <p>
+
 Passionnée par la cybersécurité offensive,
 l’analyse réseau et la protection des systèmes.
 
 Je transforme la curiosité en expertise
 et les failles en force.
+
 </p>
 
 <div class="buttons">
@@ -762,8 +953,6 @@ Me contacter
 
 <div class="cards">
 
-<!-- SPECIALITES -->
-
 <div class="card" id="about">
 
 <div class="card-title">
@@ -780,8 +969,6 @@ Spécialités
 </div>
 
 </div>
-
-<!-- EXPERTISE -->
 
 <div class="card" id="skills">
 
@@ -843,8 +1030,6 @@ Niveau d’expertise
 
 </div>
 
-<!-- STATUS -->
-
 <div class="card">
 
 <div class="card-title">
@@ -861,6 +1046,113 @@ Statut système
 </div>
 
 </div>
+
+</div>
+
+<!-- CERTIFICATIONS -->
+
+<h2 class="section-title" id="certifications">
+MES <span>CERTIFICATIONS</span>
+</h2>
+
+<div class="cert-grid">
+
+<div class="cert-card">
+
+<h3>ZSCALER CYBERSECURITY</h3>
+
+<p>
+Certification cybersécurité,
+réseau et sécurité cloud.
+</p>
+
+<a href="LIEN_CERTIFICATION_ICI" target="_blank">
+Voir certification →
+</a>
+
+</div>
+
+<div class="cert-card">
+
+<h3>ZSCALER NETWORKING</h3>
+
+<p>
+Certification réseau
+et cybersurveillance moderne.
+</p>
+
+<a href="LIEN_CERTIFICATION_ICI" target="_blank">
+Voir certification →
+</a>
+
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<h2 class="section-title" id="projects">
+MES <span>PROJETS</span>
+</h2>
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<h3>LAB XSS</h3>
+
+<p>
+Environnement de test dédié
+à l’exploitation et à l’analyse
+des vulnérabilités XSS.
+</p>
+
+<a href="LIEN_GITHUB_XSS" target="_blank">
+Voir projet →
+</a>
+
+</div>
+
+<div class="project-card">
+
+<h3>OSINT TOOLKIT</h3>
+
+<p>
+Projet personnel orienté
+collecte d’informations
+et investigation numérique.
+</p>
+
+<a href="LIEN_GITHUB_OSINT" target="_blank">
+Voir projet →
+</a>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
+
+<h2 class="section-title" id="contact">
+ME <span>CONTACTER</span>
+</h2>
+
+<div class="buttons">
+
+<a href="mailto:tonmail@example.com"
+class="btn primary">
+
+Envoyer un mail
+
+</a>
+
+<a href="https://github.com/oceane-dehaudt"
+target="_blank"
+class="btn secondary">
+
+Mon GitHub
+
+</a>
 
 </div>
 
