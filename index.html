@@ -52,10 +52,9 @@ position:fixed;
 inset:0;
 
 background:
-
 linear-gradient(
-rgba(0,0,0,0.92),
-rgba(0,0,0,0.96)
+rgba(0,0,0,0.95),
+rgba(0,0,0,0.98)
 );
 
 z-index:-100;
@@ -72,18 +71,18 @@ inset:0;
 
 background-image:
 
-linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
 
-background-size:56px 56px;
+background-size:58px 58px;
 
-opacity:0.4;
+opacity:0.35;
 
 z-index:-99;
 }
 
 /* =========================================================
-RED AMBIENT
+AMBIENT RED
 ========================================================= */
 
 .red-glow{
@@ -91,19 +90,19 @@ RED AMBIENT
 position:fixed;
 
 top:50%;
-right:-200px;
+right:-280px;
 
 transform:translateY(-50%);
 
-width:700px;
-height:700px;
+width:900px;
+height:900px;
 
 border-radius:50%;
 
 background:
 radial-gradient(circle,
-rgba(120,0,20,0.18),
-transparent 70%);
+rgba(120,0,25,0.13),
+transparent 72%);
 
 filter:blur(120px);
 
@@ -122,7 +121,7 @@ left:0;
 
 width:100%;
 
-padding:28px 0;
+padding:26px 0;
 
 display:flex;
 justify-content:center;
@@ -130,7 +129,7 @@ justify-content:center;
 background:
 rgba(0,0,0,0.35);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(18px);
 
 border-bottom:
 1px solid rgba(255,255,255,0.04);
@@ -141,7 +140,7 @@ z-index:999;
 .topbar nav{
 
 display:flex;
-gap:58px;
+gap:56px;
 }
 
 .topbar a{
@@ -212,7 +211,6 @@ background:#ff003c;
 
 box-shadow:
 0 0 20px rgba(255,0,60,0.9);
-
 }
 
 /* =========================================================
@@ -254,7 +252,7 @@ TEXT
 
 .hero-text{
 
-max-width:720px;
+max-width:680px;
 }
 
 .mini{
@@ -265,7 +263,7 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#8a8a8a;
+color:#787878;
 
 margin-bottom:24px;
 }
@@ -274,7 +272,7 @@ margin-bottom:24px;
 
 font-family:'Orbitron',sans-serif;
 
-font-size:clamp(72px,7vw,120px);
+font-size:clamp(62px,6vw,102px);
 
 line-height:0.92;
 
@@ -313,7 +311,7 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#707070;
+color:#6f6f6f;
 }
 
 /* =========================================================
@@ -323,9 +321,9 @@ BUTTONS
 .buttons{
 
 display:flex;
-gap:20px;
+gap:18px;
 
-margin-top:48px;
+margin-top:52px;
 
 flex-wrap:wrap;
 }
@@ -349,19 +347,24 @@ transition:0.35s ease;
 
 .primary{
 
-background:#a3002d;
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,0,60,0.35);
 
 color:white;
 
 box-shadow:
-0 0 30px rgba(163,0,45,0.2);
+0 0 30px rgba(255,0,60,0.08);
 }
 
 .primary:hover{
 
-background:#c20036;
-
 transform:translateY(-4px);
+
+background:
+rgba(255,0,60,0.08);
 }
 
 .secondary{
@@ -380,7 +383,7 @@ color:white;
 transform:translateY(-4px);
 
 border:
-1px solid rgba(255,255,255,0.18);
+1px solid rgba(255,255,255,0.16);
 }
 
 /* =========================================================
@@ -406,14 +409,13 @@ RADAR
 
 position:absolute;
 
-width:780px;
-height:780px;
+width:760px;
+height:760px;
 
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,60,0.05);
-
+1px solid rgba(255,0,60,0.04);
 }
 
 .radar::before,
@@ -423,21 +425,24 @@ content:"";
 
 position:absolute;
 
-inset:90px;
-
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,60,0.04);
+1px solid rgba(255,0,60,0.035);
+}
+
+.radar::before{
+
+inset:100px;
 }
 
 .radar::after{
 
-inset:180px;
+inset:200px;
 }
 
 /* =========================================================
-OD LOGO
+OD WRAPPER
 ========================================================= */
 
 .od-wrapper{
@@ -445,40 +450,41 @@ OD LOGO
 position:relative;
 
 width:520px;
-height:220px;
+height:240px;
 
 display:flex;
 align-items:center;
-justify-content:center;
 
-gap:28px;
+gap:26px;
 }
 
-/* O */
+/* =========================================================
+OD O
+========================================================= */
 
 .od-o{
+
+position:relative;
 
 width:170px;
 height:170px;
 
 border-radius:42px;
 
-border:
-2px solid rgba(255,255,255,0.08);
-
 background:
 linear-gradient(
 145deg,
-rgba(255,255,255,0.02),
-rgba(0,0,0,0.4)
+rgba(255,255,255,0.03),
+rgba(0,0,0,0.45)
 );
 
-position:relative;
+border:
+1px solid rgba(255,255,255,0.08);
 
 box-shadow:
 
 inset 0 0 30px rgba(255,255,255,0.02),
-0 0 60px rgba(255,0,60,0.04);
+0 0 80px rgba(255,0,60,0.03);
 }
 
 .od-o::before{
@@ -495,31 +501,33 @@ border:
 1px solid rgba(255,255,255,0.05);
 }
 
-/* D */
+/* =========================================================
+OD D
+========================================================= */
 
 .od-d{
 
-width:240px;
+position:relative;
+
+width:250px;
 height:170px;
 
 border-radius:0 42px 42px 0;
 
-border:
-2px solid rgba(255,255,255,0.08);
-
 background:
 linear-gradient(
 145deg,
-rgba(255,255,255,0.02),
-rgba(0,0,0,0.4)
+rgba(255,255,255,0.03),
+rgba(0,0,0,0.45)
 );
 
-position:relative;
+border:
+1px solid rgba(255,255,255,0.08);
 
 box-shadow:
 
 inset 0 0 30px rgba(255,255,255,0.02),
-0 0 60px rgba(255,0,60,0.04);
+0 0 80px rgba(255,0,60,0.03);
 }
 
 .od-d::before{
@@ -537,24 +545,31 @@ border:
 }
 
 /* =========================================================
-RED SCAN
+SCAN LINE
 ========================================================= */
 
-.scan-line{
+.scan{
 
 position:absolute;
 
-width:420px;
+left:-20px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+width:460px;
 height:2px;
 
 background:
 linear-gradient(
 90deg,
 transparent,
-#ff003c,
+rgba(255,0,60,0.9),
 transparent);
 
-filter:blur(0.5px);
+box-shadow:
+0 0 18px rgba(255,0,60,0.4);
 
 animation:scanMove 5s ease-in-out infinite;
 }
@@ -562,23 +577,74 @@ animation:scanMove 5s ease-in-out infinite;
 @keyframes scanMove{
 
 0%{
-transform:translateY(-60px);
-opacity:0.3;
+opacity:0.2;
+transform:translateY(-50%) translateX(-20px);
 }
 
 50%{
-transform:translateY(60px);
 opacity:1;
+transform:translateY(-50%) translateX(20px);
 }
 
 100%{
-transform:translateY(-60px);
-opacity:0.3;
+opacity:0.2;
+transform:translateY(-50%) translateX(-20px);
 }
 }
 
 /* =========================================================
-NODES
+INNER NODES
+========================================================= */
+
+.inner-node{
+
+position:absolute;
+
+width:7px;
+height:7px;
+
+border-radius:50%;
+
+background:#ff003c;
+
+box-shadow:
+0 0 14px rgba(255,0,60,1);
+
+animation:pulse 3s ease-in-out infinite;
+}
+
+.i1{
+top:42%;
+left:30%;
+}
+
+.i2{
+top:48%;
+right:24%;
+animation-delay:1s;
+}
+
+.i3{
+bottom:34%;
+left:58%;
+animation-delay:2s;
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+opacity:0.5;
+}
+
+50%{
+transform:scale(1.8);
+opacity:1;
+}
+}
+
+/* =========================================================
+OUTSIDE NODES
 ========================================================= */
 
 .node{
@@ -600,21 +666,8 @@ animation:pulse 3s ease-in-out infinite;
 
 .n1{top:18%;right:18%;}
 .n2{bottom:18%;right:12%;}
-.n3{top:28%;left:18%;}
+.n3{top:30%;left:18%;}
 .n4{bottom:30%;left:28%;}
-
-@keyframes pulse{
-
-0%,100%{
-transform:scale(1);
-opacity:0.5;
-}
-
-50%{
-transform:scale(1.8);
-opacity:1;
-}
-}
 
 /* =========================================================
 STATUS
@@ -624,8 +677,8 @@ STATUS
 
 position:absolute;
 
-bottom:80px;
-right:20px;
+bottom:90px;
+right:30px;
 
 font-size:11px;
 
@@ -635,7 +688,7 @@ line-height:2.1;
 
 text-transform:uppercase;
 
-color:#5f5f5f;
+color:#5d5d5d;
 }
 
 /* =========================================================
@@ -660,9 +713,9 @@ text-transform:uppercase;
 
 .about-card{
 
-max-width:900px;
+max-width:980px;
 
-padding:40px;
+padding:42px;
 
 border-radius:26px;
 
@@ -677,7 +730,7 @@ backdrop-filter:blur(18px);
 
 .about-card p{
 
-line-height:2;
+line-height:2.1;
 
 font-size:18px;
 
@@ -695,17 +748,21 @@ flex-wrap:wrap;
 
 gap:14px;
 
-margin-top:28px;
+margin-top:34px;
 }
 
 .skill{
+
+display:flex;
+align-items:center;
+gap:10px;
 
 padding:14px 18px;
 
 border-radius:12px;
 
 background:
-rgba(255,255,255,0.03);
+rgba(255,255,255,0.025);
 
 border:
 1px solid rgba(255,255,255,0.05);
@@ -715,6 +772,13 @@ font-size:14px;
 color:#d6d6d6;
 
 transition:0.3s ease;
+}
+
+.skill i{
+
+font-size:15px;
+
+color:#bdbdbd;
 }
 
 .skill:hover{
@@ -746,9 +810,9 @@ gap:24px;
 
 .cert-card{
 
-padding:28px;
+padding:30px;
 
-border-radius:20px;
+border-radius:22px;
 
 background:
 rgba(255,255,255,0.02);
@@ -769,7 +833,7 @@ border:
 
 .cert-card h3{
 
-margin-bottom:12px;
+margin-bottom:14px;
 
 font-size:16px;
 
@@ -780,9 +844,9 @@ text-transform:uppercase;
 
 .cert-card p{
 
-color:#9a9a9a;
+color:#9f9f9f;
 
-line-height:1.8;
+line-height:1.9;
 }
 
 /* =========================================================
@@ -818,7 +882,6 @@ grid-template-columns:1fr;
 }
 
 .visual-zone{
-
 height:500px;
 }
 
@@ -827,20 +890,17 @@ display:none;
 }
 
 .od-wrapper{
-
-transform:scale(0.8);
+transform:scale(0.82);
 }
 }
 
 @media(max-width:768px){
 
 .hero h1{
-
 font-size:70px;
 }
 
 .hero p{
-
 font-size:18px;
 line-height:1.8;
 }
@@ -850,12 +910,10 @@ line-height:1.8;
 gap:22px;
 
 flex-wrap:wrap;
-
 justify-content:center;
 }
 
 .od-wrapper{
-
 transform:scale(0.62);
 }
 }
@@ -941,6 +999,7 @@ CYBERSÉCURITÉ • OSINT • ANALYSE RÉSEAU
 <p>
 
 Cybersécurité offensive, analyse réseau et recherche de vulnérabilités.
+
 Développement de laboratoires sécurisés, veille OSINT et analyse des menaces dans des environnements techniques.
 
 </p>
@@ -980,7 +1039,11 @@ Voir mes projets
 
 <div class="od-wrapper">
 
-<div class="scan-line"></div>
+<div class="scan"></div>
+
+<div class="inner-node i1"></div>
+<div class="inner-node i2"></div>
+<div class="inner-node i3"></div>
 
 <div class="od-o"></div>
 <div class="od-d"></div>
@@ -1012,6 +1075,7 @@ NETWORK MONITORED
 <p>
 
 Étudiante en cybersécurité orientée sécurité offensive, analyse réseau et investigation OSINT.
+
 Développement de laboratoires personnels, compréhension des infrastructures sécurisées et veille autour des menaces modernes.
 
 Participation active à des environnements pratiques via Hack The Box et TryHackMe afin de renforcer les compétences techniques en conditions réelles.
@@ -1020,16 +1084,55 @@ Participation active à des environnements pratiques via Hack The Box et TryHack
 
 <div class="skills" id="skills">
 
-<div class="skill">Linux</div>
-<div class="skill">Wireshark</div>
-<div class="skill">Nmap</div>
-<div class="skill">Burp Suite</div>
-<div class="skill">OSINT</div>
-<div class="skill">Python</div>
-<div class="skill">Docker</div>
-<div class="skill">Git</div>
-<div class="skill">SQL</div>
-<div class="skill">BloodHound</div>
+<div class="skill">
+<i class="fab fa-linux"></i>
+Linux
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-network-wired"></i>
+Wireshark
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-radar"></i>
+Nmap
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-bug"></i>
+Burp Suite
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-globe"></i>
+OSINT
+</div>
+
+<div class="skill">
+<i class="fab fa-python"></i>
+Python
+</div>
+
+<div class="skill">
+<i class="fab fa-docker"></i>
+Docker
+</div>
+
+<div class="skill">
+<i class="fab fa-git-alt"></i>
+Git
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-database"></i>
+SQL
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-shield-halved"></i>
+BloodHound
+</div>
 
 </div>
 
@@ -1052,7 +1155,7 @@ CERTIFICATIONS
 <h3>ZSCALER</h3>
 
 <p>
-Formation sécurité cloud et protection réseau.
+Formation orientée sécurité cloud et protection des infrastructures réseau.
 </p>
 
 </div>
@@ -1062,7 +1165,7 @@ Formation sécurité cloud et protection réseau.
 <h3>TRYHACKME</h3>
 
 <p>
-Plateforme pratique d’apprentissage cybersécurité offensive.
+Entraînement pratique sur laboratoires de cybersécurité offensive et analyse de vulnérabilités.
 </p>
 
 </div>
@@ -1072,7 +1175,7 @@ Plateforme pratique d’apprentissage cybersécurité offensive.
 <h3>HACK THE BOX</h3>
 
 <p>
-Entraînement technique sur laboratoires et machines vulnérables.
+Développement des compétences techniques via environnements réalistes et machines vulnérables.
 </p>
 
 </div>
