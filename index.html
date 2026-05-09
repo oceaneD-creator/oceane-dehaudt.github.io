@@ -8,11 +8,12 @@
 <title>Océane Dehaudt | Cybersécurité</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <style>
 
@@ -31,12 +32,9 @@ html{
 }
 
 body{
-
     background:#050505;
     color:white;
-
     overflow-x:hidden;
-
     font-family:'Inter',sans-serif;
 }
 
@@ -48,41 +46,41 @@ BACKGROUND
 
     position:fixed;
     inset:0;
-
-    z-index:-5;
+    z-index:-10;
 
     background:
     linear-gradient(
     rgba(0,0,0,0.78),
-    rgba(0,0,0,0.88)),
+    rgba(0,0,0,0.92)),
 
-    url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1974&auto=format&fit=crop');
+    url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1974&auto=format&fit=crop');
 
     background-size:cover;
     background-position:center;
 
-    filter:brightness(0.35);
+    filter:brightness(0.32) blur(1px);
+
+    transform:scale(1.03);
 }
 
 /* =========================
-DARK OVERLAY
+OVERLAY
 ========================= */
 
 .overlay{
 
     position:fixed;
     inset:0;
-
-    z-index:-4;
+    z-index:-9;
 
     background:
 
     radial-gradient(circle at top,
-    rgba(90,0,20,0.22),
-    transparent 45%),
+    rgba(110,0,25,0.16),
+    transparent 42%),
 
     radial-gradient(circle at bottom,
-    rgba(50,0,10,0.3),
+    rgba(60,0,10,0.28),
     transparent 55%);
 }
 
@@ -95,49 +93,73 @@ GRID
     position:fixed;
     inset:0;
 
-    z-index:-3;
+    z-index:-8;
 
     background-image:
-    linear-gradient(rgba(120,0,25,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120,0,25,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(90,0,20,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90,0,20,0.12) 1px, transparent 1px);
 
-    background-size:55px 55px;
+    background-size:60px 60px;
 
-    opacity:0.25;
+    opacity:0.18;
 }
 
 /* =========================
-VERTICAL LIGHTS
+LIGHTS
 ========================= */
 
-.vertical-light{
+.light{
 
     position:fixed;
 
-    width:2px;
+    width:1px;
     height:100%;
 
     background:
     linear-gradient(
     transparent,
-    rgba(160,0,40,0.6),
+    rgba(130,0,30,0.7),
     transparent);
 
-    filter:blur(1px);
+    opacity:0.4;
 
-    opacity:0.5;
+    z-index:-7;
+
+    animation:pulse 4s ease-in-out infinite;
 }
 
 .light1{
-    left:8%;
+    left:7%;
 }
 
 .light2{
-    right:12%;
+    right:10%;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:0.18;
+    }
+
+    50%{
+        opacity:0.5;
+    }
 }
 
 /* =========================
-TOP NAVBAR
+PARTICLES
+========================= */
+
+#tsparticles{
+
+    position:fixed;
+    inset:0;
+    z-index:-6;
+}
+
+/* =========================
+TOPBAR
 ========================= */
 
 .topbar{
@@ -155,12 +177,12 @@ TOP NAVBAR
 
     padding:24px;
 
-    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(18px);
 
-    backdrop-filter:blur(14px);
+    background:rgba(0,0,0,0.28);
 
     border-bottom:
-    1px solid rgba(120,0,25,0.15);
+    1px solid rgba(110,0,25,0.18);
 }
 
 .topbar nav{
@@ -171,32 +193,57 @@ TOP NAVBAR
 
 .topbar a{
 
-    color:#dadada;
+    color:#d6d6d6;
 
     text-decoration:none;
 
-    font-size:13px;
+    text-transform:uppercase;
+
+    font-size:12px;
 
     letter-spacing:3px;
 
-    text-transform:uppercase;
+    position:relative;
+
+    transition:0.3s ease;
+}
+
+.topbar a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:1px;
+
+    background:#7c0018;
 
     transition:0.3s ease;
 }
 
 .topbar a:hover{
-    color:#8f001f;
+
+    color:white;
+}
+
+.topbar a:hover::after{
+
+    width:100%;
 }
 
 /* =========================
-LEFT SOCIAL BAR
+SOCIAL BAR
 ========================= */
 
 .social-bar{
 
     position:fixed;
 
-    left:28px;
+    left:30px;
     top:50%;
 
     transform:translateY(-50%);
@@ -211,22 +258,22 @@ LEFT SOCIAL BAR
 
 .social-bar a{
 
-    color:#d2d2d2;
+    color:#cfcfcf;
 
-    font-size:20px;
+    font-size:19px;
 
     transition:0.3s ease;
 }
 
 .social-bar a:hover{
 
-    color:#8f001f;
+    color:#7c0018;
 
     transform:translateY(-3px);
 }
 
 /* =========================
-RIGHT MENU
+SIDE MENU
 ========================= */
 
 .side-menu{
@@ -238,23 +285,24 @@ RIGHT MENU
 
     transform:translateY(-50%);
 
-    width:110px;
+    width:105px;
 
-    padding:24px 14px;
+    padding:26px 14px;
 
     border-radius:28px;
 
-    background:rgba(5,5,5,0.62);
+    background:rgba(7,7,7,0.58);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
     border:
-    1px solid rgba(120,0,25,0.18);
+    1px solid rgba(120,0,25,0.14);
 
     z-index:999;
 }
 
 .side-menu ul{
+
     list-style:none;
 
     display:flex;
@@ -269,7 +317,7 @@ RIGHT MENU
 
 .side-menu a{
 
-    color:#d2d2d2;
+    color:#d6d6d6;
 
     text-decoration:none;
 
@@ -278,17 +326,18 @@ RIGHT MENU
 
     gap:10px;
 
-    font-size:12px;
+    font-size:11px;
 
     transition:0.3s ease;
 }
 
 .side-menu a:hover{
-    color:#8f001f;
+
+    color:#7c0018;
 }
 
 /* =========================
-MAIN CONTAINER
+CONTAINER
 ========================= */
 
 .container{
@@ -316,16 +365,16 @@ HERO
 
 .hero-content{
 
-    max-width:720px;
+    max-width:760px;
 }
 
-.hero-small{
+.hero-mini{
 
-    color:#8f001f;
+    color:#7c0018;
 
     text-transform:uppercase;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     font-size:13px;
 
@@ -340,7 +389,7 @@ HERO
 
     text-transform:uppercase;
 
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
 .hero .white{
@@ -349,19 +398,19 @@ HERO
 
     color:white;
 
-    font-size:clamp(70px,10vw,150px);
+    font-size:clamp(75px,10vw,155px);
 }
 
 .hero .red{
 
     display:block;
 
-    color:#8f001f;
+    color:#7c0018;
 
-    font-size:clamp(70px,10vw,150px);
+    font-size:clamp(75px,10vw,155px);
 
     text-shadow:
-    0 0 18px rgba(143,0,31,0.4);
+    0 0 18px rgba(124,0,24,0.45);
 }
 
 .dot{
@@ -371,23 +420,23 @@ HERO
 
     border-radius:50%;
 
-    background:#8f001f;
+    background:#7c0018;
 
-    margin-bottom:32px;
+    margin-bottom:34px;
 
     box-shadow:
-    0 0 16px rgba(143,0,31,0.7);
+    0 0 18px rgba(124,0,24,0.7);
 }
 
 .hero p{
 
-    color:#d2d2d2;
+    color:#d0d0d0;
 
-    font-size:20px;
+    font-size:21px;
 
-    line-height:1.9;
+    line-height:2;
 
-    max-width:650px;
+    max-width:640px;
 }
 
 /* =========================
@@ -399,7 +448,7 @@ BUTTONS
     display:flex;
     gap:18px;
 
-    margin-top:45px;
+    margin-top:48px;
 
     flex-wrap:wrap;
 }
@@ -414,7 +463,7 @@ BUTTONS
 
     text-transform:uppercase;
 
-    font-size:13px;
+    font-size:12px;
 
     letter-spacing:2px;
 
@@ -426,37 +475,62 @@ BUTTONS
     background:
     linear-gradient(
     135deg,
-    #5c0014,
-    #8f001f);
+    #4d000f,
+    #7c0018);
 
     color:white;
 
     box-shadow:
-    0 0 20px rgba(143,0,31,0.22);
+    0 0 25px rgba(124,0,24,0.22);
 }
 
 .secondary{
 
+    background:
+    rgba(0,0,0,0.55);
+
     border:
     1px solid rgba(255,255,255,0.08);
 
-    background:rgba(0,0,0,0.55);
+    color:white;
 
     backdrop-filter:blur(14px);
-
-    color:white;
 }
 
 .btn:hover{
 
     transform:translateY(-4px);
+
+    box-shadow:
+    0 0 25px rgba(124,0,24,0.28);
 }
 
 /* =========================
-CARDS SECTION
+SECTION TITLE
 ========================= */
 
-.cards{
+.section-title{
+
+    margin-top:120px;
+    margin-bottom:40px;
+
+    font-size:46px;
+
+    font-family:'Orbitron',sans-serif;
+
+    text-transform:uppercase;
+}
+
+.section-title span{
+
+    color:#7c0018;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.grid-layout{
 
     display:grid;
 
@@ -464,23 +538,21 @@ CARDS SECTION
     repeat(auto-fit,minmax(320px,1fr));
 
     gap:28px;
-
-    margin-top:60px;
 }
 
 .card{
 
     background:
-    rgba(8,8,8,0.55);
+    rgba(8,8,8,0.52);
 
     border:
-    1px solid rgba(120,0,25,0.16);
+    1px solid rgba(120,0,25,0.14);
 
     border-radius:28px;
 
     padding:34px;
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 
     transition:0.35s ease;
 }
@@ -490,259 +562,98 @@ CARDS SECTION
     transform:translateY(-6px);
 
     border:
-    1px solid rgba(143,0,31,0.32);
+    1px solid rgba(124,0,24,0.28);
 
     box-shadow:
-    0 0 30px rgba(143,0,31,0.12);
+    0 0 35px rgba(124,0,24,0.1);
 }
 
-.card-title{
+.card h3{
 
-    color:#8f001f;
+    color:#7c0018;
 
-    margin-bottom:26px;
-
-    font-size:18px;
+    margin-bottom:22px;
 
     text-transform:uppercase;
 
     letter-spacing:2px;
 }
 
-/* =========================
-LISTS
-========================= */
+.card p{
 
-.list{
+    color:#d0d0d0;
 
-    display:flex;
-    flex-direction:column;
-
-    gap:18px;
-}
-
-.list div{
-
-    padding-bottom:12px;
-
-    border-bottom:
-    1px solid rgba(255,255,255,0.05);
+    line-height:1.9;
 }
 
 /* =========================
-PROGRESS BARS
+SKILLS
 ========================= */
 
-.progress-item{
-    margin-bottom:24px;
-}
-
-.progress-header{
+.skills{
 
     display:flex;
-    justify-content:space-between;
+    flex-wrap:wrap;
 
-    margin-bottom:10px;
-
-    color:#d2d2d2;
+    gap:14px;
 }
 
-.bar{
+.skill{
 
-    width:100%;
-    height:7px;
+    padding:12px 18px;
 
-    background:#121212;
-
-    border-radius:999px;
-
-    overflow:hidden;
-}
-
-.fill{
-
-    height:100%;
+    border-radius:12px;
 
     background:
-    linear-gradient(
-    90deg,
-    #5c0014,
-    #8f001f);
+    rgba(0,0,0,0.45);
 
-    box-shadow:
-    0 0 12px rgba(143,0,31,0.4);
+    border:
+    1px solid rgba(120,0,25,0.12);
+
+    transition:0.3s ease;
+}
+
+.skill:hover{
+
+    transform:translateY(-3px);
+
+    border:
+    1px solid rgba(124,0,24,0.25);
 }
 
 /* =========================
-STATUS
+PROJECT LINKS
 ========================= */
 
-.status{
+.project-link{
 
-    display:flex;
-    flex-direction:column;
+    display:inline-block;
 
-    gap:16px;
+    margin-top:25px;
 
-    color:#d2d2d2;
+    color:#7c0018;
+
+    text-decoration:none;
+
+    font-weight:600;
 }
 
 /* =========================
-SECTION TITLES
+FOOTER
 ========================= */
 
-.section-title{
+.footer{
 
     margin-top:120px;
-    margin-bottom:40px;
 
-    color:white;
+    padding-top:40px;
 
-    font-family:'Orbitron',sans-serif;
+    border-top:
+    1px solid rgba(120,0,25,0.12);
 
-    font-size:48px;
+    color:#7f7f7f;
 
-    text-transform:uppercase;
-}
-
-.section-title span{
-    color:#8f001f;
-}
-
-/* =========================
-CERTIFICATIONS
-========================= */
-
-.cert-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:28px;
-}
-
-.cert-card{
-
-    background:
-    rgba(8,8,8,0.58);
-
-    border:
-    1px solid rgba(120,0,25,0.15);
-
-    border-radius:26px;
-
-    padding:32px;
-
-    backdrop-filter:blur(16px);
-
-    transition:0.35s ease;
-}
-
-.cert-card:hover{
-
-    transform:translateY(-5px);
-
-    border:
-    1px solid rgba(143,0,31,0.3);
-}
-
-.cert-card h3{
-
-    color:#8f001f;
-
-    margin-bottom:18px;
-
-    font-size:26px;
-}
-
-.cert-card p{
-
-    color:#d2d2d2;
-
-    line-height:1.8;
-}
-
-.cert-card a{
-
-    display:inline-block;
-
-    margin-top:25px;
-
-    color:#8f001f;
-
-    text-decoration:none;
-
-    font-weight:600;
-}
-
-/* =========================
-PROJECTS
-========================= */
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:28px;
-}
-
-.project-card{
-
-    background:
-    rgba(8,8,8,0.58);
-
-    border:
-    1px solid rgba(120,0,25,0.15);
-
-    border-radius:26px;
-
-    padding:32px;
-
-    backdrop-filter:blur(16px);
-
-    transition:0.35s ease;
-}
-
-.project-card:hover{
-
-    transform:translateY(-5px);
-
-    border:
-    1px solid rgba(143,0,31,0.3);
-}
-
-.project-card h3{
-
-    color:#8f001f;
-
-    margin-bottom:18px;
-
-    font-size:24px;
-}
-
-.project-card p{
-
-    color:#d2d2d2;
-
-    line-height:1.8;
-}
-
-.project-card a{
-
-    display:inline-block;
-
-    margin-top:25px;
-
-    color:#8f001f;
-
-    text-decoration:none;
-
-    font-weight:600;
+    text-align:center;
 }
 
 /* =========================
@@ -751,15 +662,13 @@ RESPONSIVE
 
 @media(max-width:1100px){
 
+    .social-bar,
     .side-menu{
         display:none;
     }
 
-    .social-bar{
-        display:none;
-    }
-
     .topbar nav{
+
         gap:18px;
         flex-wrap:wrap;
         justify-content:center;
@@ -779,12 +688,10 @@ RESPONSIVE
 
     .hero p{
         font-size:18px;
+        line-height:1.9;
     }
 
-    .cards,
-    .cert-grid,
-    .project-grid{
-
+    .grid-layout{
         grid-template-columns:1fr;
     }
 
@@ -810,10 +717,12 @@ RESPONSIVE
 <div class="overlay"></div>
 <div class="grid"></div>
 
-<div class="vertical-light light1"></div>
-<div class="vertical-light light2"></div>
+<div class="light light1"></div>
+<div class="light light2"></div>
 
-<!-- TOPBAR -->
+<div id="tsparticles"></div>
+
+<!-- NAVBAR -->
 
 <div class="topbar">
 
@@ -830,7 +739,7 @@ RESPONSIVE
 
 </div>
 
-<!-- LEFT SOCIAL -->
+<!-- SOCIAL -->
 
 <div class="social-bar">
 
@@ -838,7 +747,7 @@ RESPONSIVE
 <i class="fab fa-github"></i>
 </a>
 
-<a href="https://linkedin.com" target="_blank">
+<a href="https://linkedin.com/" target="_blank">
 <i class="fab fa-linkedin-in"></i>
 </a>
 
@@ -848,7 +757,7 @@ RESPONSIVE
 
 </div>
 
-<!-- RIGHT MENU -->
+<!-- SIDE MENU -->
 
 <div class="side-menu">
 
@@ -871,7 +780,7 @@ RESPONSIVE
 <li>
 <a href="#skills">
 <i class="fa-solid fa-chart-column"></i>
-<span>Compétences</span>
+<span>Skills</span>
 </a>
 </li>
 
@@ -910,7 +819,7 @@ RESPONSIVE
 
 <div class="hero-content">
 
-<div class="hero-small">
+<div class="hero-mini">
 ÉTUDIANTE EN CYBERSÉCURITÉ
 </div>
 
@@ -926,10 +835,11 @@ RESPONSIVE
 <p>
 
 Passionnée par la cybersécurité offensive,
-l’analyse réseau et la protection des systèmes.
+l’analyse réseau, l’OSINT
+et la protection des infrastructures.
 
-Je transforme la curiosité en expertise
-et les failles en force.
+Développement de labs personnels,
+analyse des menaces et recherche de vulnérabilités.
 
 </p>
 
@@ -939,8 +849,11 @@ et les failles en force.
 Voir mes certifications
 </a>
 
-<a href="mailto:tonmail@example.com" class="btn secondary">
+<a href="mailto:tonmail@example.com"
+class="btn secondary">
+
 Me contacter
+
 </a>
 
 </div>
@@ -949,99 +862,44 @@ Me contacter
 
 </section>
 
-<!-- CARDS -->
+<!-- ABOUT -->
 
-<div class="cards">
+<h2 class="section-title" id="about">
+À <span>PROPOS</span>
+</h2>
 
-<div class="card" id="about">
+<div class="grid-layout">
 
-<div class="card-title">
-Spécialités
-</div>
+<div class="card">
 
-<div class="list">
+<h3>Profil</h3>
 
-<div>Cybersécurité offensive</div>
-<div>Analyse réseau & monitoring</div>
-<div>OSINT & cybersurveillance</div>
-<div>Sécurité des infrastructures</div>
+<p>
 
-</div>
+Étudiante en cybersécurité passionnée
+par l’analyse offensive,
+la cybersurveillance,
+la veille numérique
+et la sécurité réseau.
 
-</div>
-
-<div class="card" id="skills">
-
-<div class="card-title">
-Niveau d’expertise
-</div>
-
-<div class="progress-item">
-
-<div class="progress-header">
-<span>Sécurité offensive</span>
-<span>90%</span>
-</div>
-
-<div class="bar">
-<div class="fill" style="width:90%"></div>
-</div>
-
-</div>
-
-<div class="progress-item">
-
-<div class="progress-header">
-<span>Analyse réseau</span>
-<span>85%</span>
-</div>
-
-<div class="bar">
-<div class="fill" style="width:85%"></div>
-</div>
-
-</div>
-
-<div class="progress-item">
-
-<div class="progress-header">
-<span>OSINT</span>
-<span>80%</span>
-</div>
-
-<div class="bar">
-<div class="fill" style="width:80%"></div>
-</div>
-
-</div>
-
-<div class="progress-item">
-
-<div class="progress-header">
-<span>Python</span>
-<span>75%</span>
-</div>
-
-<div class="bar">
-<div class="fill" style="width:75%"></div>
-</div>
-
-</div>
+</p>
 
 </div>
 
 <div class="card">
 
-<div class="card-title">
-Statut système
-</div>
+<h3>Spécialités</h3>
 
-<div class="status">
+<div class="skills">
 
-<div>> Connexion sécurisée établie...</div>
-<div>> Système opérationnel</div>
-<div>> Surveillance active</div>
-<div>> Aucune menace détectée</div>
+<div class="skill">Linux</div>
+<div class="skill">Wireshark</div>
+<div class="skill">Burp Suite</div>
+<div class="skill">OSINT</div>
+<div class="skill">Python</div>
+<div class="skill">Docker</div>
+<div class="skill">Nmap</div>
+<div class="skill">SQL</div>
 
 </div>
 
@@ -1055,34 +913,69 @@ Statut système
 MES <span>CERTIFICATIONS</span>
 </h2>
 
-<div class="cert-grid">
+<div class="grid-layout">
 
-<div class="cert-card">
+<div class="card">
 
 <h3>ZSCALER CYBERSECURITY</h3>
 
 <p>
-Certification cybersécurité,
-réseau et sécurité cloud.
+
+Certification orientée cybersécurité,
+réseau et sécurité cloud moderne.
+
 </p>
 
-<a href="LIEN_CERTIFICATION_ICI" target="_blank">
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir certification →
+
 </a>
 
 </div>
 
-<div class="cert-card">
+<div class="card">
 
 <h3>ZSCALER NETWORKING</h3>
 
 <p>
-Certification réseau
+
+Certification réseau,
+monitoring
 et cybersurveillance moderne.
+
 </p>
 
-<a href="LIEN_CERTIFICATION_ICI" target="_blank">
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir certification →
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>GOOGLE CYBERSECURITY</h3>
+
+<p>
+
+Analyse des menaces,
+sécurité réseau
+et gestion des incidents.
+
+</p>
+
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
+Voir certification →
+
 </a>
 
 </div>
@@ -1095,36 +988,71 @@ Voir certification →
 MES <span>PROJETS</span>
 </h2>
 
-<div class="project-grid">
+<div class="grid-layout">
 
-<div class="project-card">
+<div class="card">
 
 <h3>LAB XSS</h3>
 
 <p>
-Environnement de test dédié
-à l’exploitation et à l’analyse
+
+Lab personnel dédié
+à l’analyse
+et l’exploitation
 des vulnérabilités XSS.
+
 </p>
 
-<a href="LIEN_GITHUB_XSS" target="_blank">
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir projet →
+
 </a>
 
 </div>
 
-<div class="project-card">
+<div class="card">
+
+<h3>NAGIOS MONITORING</h3>
+
+<p>
+
+Projet de supervision réseau,
+monitoring système
+et détection d’anomalies.
+
+</p>
+
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
+Voir projet →
+
+</a>
+
+</div>
+
+<div class="card">
 
 <h3>OSINT TOOLKIT</h3>
 
 <p>
-Projet personnel orienté
-collecte d’informations
-et investigation numérique.
+
+Outils et recherches
+orientés investigation numérique
+et collecte d’informations.
+
 </p>
 
-<a href="LIEN_GITHUB_OSINT" target="_blank">
+<a class="project-link"
+href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Voir projet →
+
 </a>
 
 </div>
@@ -1156,7 +1084,56 @@ Mon GitHub
 
 </div>
 
+<div class="footer">
+
+© 2026 • OCÉANE DEHAUDT
+
 </div>
+
+</div>
+
+<script>
+
+tsParticles.load("tsparticles", {
+
+    fpsLimit:60,
+
+    particles:{
+        number:{
+            value:30
+        },
+
+        color:{
+            value:"#5e0012"
+        },
+
+        links:{
+            enable:true,
+            color:"#3a000b",
+            distance:150,
+            opacity:0.15
+        },
+
+        move:{
+            enable:true,
+            speed:0.6
+        },
+
+        opacity:{
+            value:0.25
+        },
+
+        size:{
+            value:2
+        }
+    },
+
+    background:{
+        color:"transparent"
+    }
+});
+
+</script>
 
 </body>
 </html>
