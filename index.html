@@ -1,1018 +1,377 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!-- HERO BACKGROUND -->
+<div class="cyber-bg">
+  <div class="grid"></div>
+  <div class="gradient"></div>
+  <div class="particles"></div>
 
-<head>
+  <!-- DATA FLOW -->
+  <div class="flow flow-1"></div>
+  <div class="flow flow-2"></div>
+  <div class="flow flow-3"></div>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SERVER LIGHTS -->
+  <div class="server-glow left"></div>
+  <div class="server-glow right"></div>
 
-<title>Océane Dehaudt | Portfolio Cybersécurité</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <!-- FLOATING DATA -->
+  <div class="floating-data data-1">SECURE CONNECTION</div>
+  <div class="floating-data data-2">THREAT ANALYSIS ACTIVE</div>
+  <div class="floating-data data-3">MONITORING NETWORK</div>
+</div>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+/* =========================
+   GLOBAL
+========================= */
 
 body{
-
-background:#050505;
-font-family:'Inter',sans-serif;
-color:white;
-overflow-x:hidden;
-
+    background:#050505;
+    overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* =========================
+   MAIN CYBER BACKGROUND
+========================= */
 
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:1200px;
-height:1200px;
-
-background:
-radial-gradient(circle,
-rgba(255,0,60,0.08),
-transparent 70%);
-
-filter:blur(120px);
-
-z-index:-2;
-
+.cyber-bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top,
+    rgba(90,0,25,0.35),
+    transparent 45%),
+    #050505;
 }
+
+/* =========================
+   GRID
+========================= */
 
 .grid{
+    position:absolute;
+    inset:0;
 
-position:fixed;
-inset:0;
+    background-image:
+    linear-gradient(rgba(120,20,45,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,20,45,0.12) 1px, transparent 1px);
 
-background-image:
-linear-gradient(rgba(255,0,60,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,60,0.03) 1px, transparent 1px);
+    background-size:60px 60px;
 
-background-size:55px 55px;
+    opacity:0.35;
+}
 
-z-index:-1;
+/* =========================
+   BORDEAUX AMBIANCE
+========================= */
+
+.gradient{
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle at 20% 30%,
+    rgba(120,0,35,0.25),
+    transparent 25%),
+
+    radial-gradient(circle at 80% 70%,
+    rgba(90,0,25,0.25),
+    transparent 30%),
+
+    radial-gradient(circle at center,
+    rgba(255,0,80,0.05),
+    transparent 45%);
+
+    filter:blur(60px);
+}
+
+/* =========================
+   DATA FLOW LINES
+========================= */
+
+.flow{
+    position:absolute;
+    width:180%;
+    height:2px;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(180,20,70,0.0),
+    rgba(255,40,100,0.9),
+    rgba(180,20,70,0.0),
+    transparent);
+
+    opacity:0.22;
+
+    filter:blur(1px);
+}
+
+.flow-1{
+    top:28%;
+    left:-40%;
+    transform:rotate(8deg);
+
+    animation:flowMove1 18s linear infinite;
+}
+
+.flow-2{
+    top:56%;
+    left:-40%;
+    transform:rotate(-5deg);
+
+    animation:flowMove2 22s linear infinite;
+}
+
+.flow-3{
+    top:78%;
+    left:-40%;
+    transform:rotate(3deg);
+
+    animation:flowMove3 26s linear infinite;
+}
+
+@keyframes flowMove1{
+    0%{ transform:translateX(-10%) rotate(8deg);}
+    100%{ transform:translateX(10%) rotate(8deg);}
+}
+
+@keyframes flowMove2{
+    0%{ transform:translateX(10%) rotate(-5deg);}
+    100%{ transform:translateX(-10%) rotate(-5deg);}
+}
+
+@keyframes flowMove3{
+    0%{ transform:translateX(-5%) rotate(3deg);}
+    100%{ transform:translateX(10%) rotate(3deg);}
+}
+
+/* =========================
+   SERVER ROOM LIGHTS
+========================= */
+
+.server-glow{
+    position:absolute;
+    top:0;
+    width:180px;
+    height:100%;
+
+    background:linear-gradient(
+    to bottom,
+    rgba(255,40,100,0.14),
+    transparent 20%,
+    rgba(255,40,100,0.08),
+    transparent 70%);
+
+    filter:blur(18px);
+
+    animation:pulseGlow 4s ease-in-out infinite;
+}
+
+.server-glow.left{
+    left:0;
+}
+
+.server-glow.right{
+    right:0;
+}
+
+@keyframes pulseGlow{
+    0%,100%{
+        opacity:0.45;
+    }
+
+    50%{
+        opacity:0.85;
+    }
+}
+
+/* =========================
+   FLOATING DATA TEXT
+========================= */
+
+.floating-data{
+    position:absolute;
+
+    color:rgba(255,90,140,0.28);
+
+    font-size:11px;
+    letter-spacing:4px;
+
+    font-family:monospace;
+
+    text-transform:uppercase;
+
+    animation:floating 12s ease-in-out infinite;
+}
+
+.data-1{
+    top:22%;
+    left:12%;
+}
+
+.data-2{
+    top:58%;
+    right:10%;
+}
+
+.data-3{
+    bottom:14%;
+    left:20%;
+}
+
+@keyframes floating{
+    0%,100%{
+        transform:translateY(0px);
+        opacity:0.25;
+    }
+
+    50%{
+        transform:translateY(-10px);
+        opacity:0.5;
+    }
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles::before,
+.particles::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(circle,
+    rgba(255,90,140,0.7) 1px,
+    transparent 1px);
+
+    background-size:140px 140px;
+
+    opacity:0.08;
+
+    animation:particlesMove 50s linear infinite;
+}
+
+.particles::after{
+    background-size:200px 200px;
+
+    opacity:0.04;
+
+    animation-duration:80s;
+}
+
+@keyframes particlesMove{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-200px);
+    }
+}
+
+/* =========================
+   CARD IMPROVEMENTS
+========================= */
+
+.card,
+.skill-card,
+.cert-card{
+    background:rgba(8,8,8,0.82) !important;
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,70,120,0.12);
+
+    box-shadow:
+    0 0 0 rgba(255,0,80,0),
+    0 0 35px rgba(80,0,20,0.25);
+
+    transition:0.35s ease;
+}
+
+.card:hover,
+.skill-card:hover,
+.cert-card:hover{
+
+    transform:translateY(-4px);
+
+    border:1px solid rgba(255,90,140,0.3);
+
+    box-shadow:
+    0 0 18px rgba(255,40,100,0.18),
+    0 0 50px rgba(80,0,20,0.35);
+}
+
+/* =========================
+   TITLES
+========================= */
+
+h1,h2,h3{
+
+    text-shadow:
+    0 0 12px rgba(255,40,100,0.25);
 
 }
 
-/* NAVBAR */
-
-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:24px 70px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-background:rgba(0,0,0,0.45);
-
-backdrop-filter:blur(16px);
-
-border-bottom:1px solid rgba(255,0,60,0.08);
-
-z-index:999;
-
-}
-
-.logo{
-
-display:flex;
-flex-direction:column;
-gap:10px;
-
-}
-
-.logo h1{
-
-font-family:'Orbitron';
-
-font-size:2.7rem;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-line-height:0.9;
-
-}
-
-.logo h1 span{
-
-color:#ff003c;
-
-text-shadow:
-0 0 15px rgba(255,0,60,0.7);
-
-}
-
-.logo p{
-
-font-size:0.72rem;
-
-letter-spacing:4px;
-
-color:#bdbdbd;
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.dot{
-
-width:10px;
-height:10px;
-
-border-radius:50%;
-
-background:#ff003c;
-
-box-shadow:
-0 0 10px #ff003c;
-
-}
-
-nav ul{
-
-display:flex;
-gap:40px;
-
-list-style:none;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-font-size:0.92rem;
-
-font-weight:600;
-
-transition:0.3s;
-
-}
-
-nav a:hover{
-
-color:#ff003c;
-
-}
-
-/* HERO */
-
-.hero{
-
-min-height:100vh;
-
-display:grid;
-
-grid-template-columns:390px 1fr 320px;
-
-gap:35px;
-
-padding:160px 70px 70px;
-
-}
-
-/* LEFT */
-
-.left{
-
-display:flex;
-flex-direction:column;
-gap:25px;
-
-}
-
-.live-box{
-
-padding:18px 22px;
-
-border-radius:18px;
-
-background:
-linear-gradient(
-180deg,
-rgba(10,10,10,0.98),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.12);
-
-display:flex;
-align-items:center;
-gap:12px;
-
-}
-
-.live-box p{
-
-font-size:0.8rem;
-
-letter-spacing:3px;
-
-color:#d0d0d0;
-
-}
-
-.hero-title{
-
-font-family:'Orbitron';
-
-font-size:4rem;
-
-line-height:0.95;
-
-font-weight:800;
-
-}
-
-.hero-title span{
-
-display:block;
-
-color:#ff003c;
-
-text-shadow:
-0 0 18px rgba(255,0,60,0.7);
-
-}
-
-.hero-text{
-
-font-size:1rem;
-
-line-height:2;
-
-color:#b4b4b4;
-
-}
-
-/* BUTTONS */
-
-.buttons{
-
-display:flex;
-flex-direction:column;
-gap:16px;
-
-}
-
+/* =========================
+   BUTTONS
+========================= */
+
+button,
 .btn{
 
-padding:18px 24px;
+    background:linear-gradient(
+    135deg,
+    #5e001f,
+    #a30038);
 
-border-radius:16px;
+    border:none;
 
-text-decoration:none;
+    box-shadow:
+    0 0 18px rgba(255,40,100,0.2);
 
-font-weight:600;
-
-transition:0.35s;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
+    transition:0.3s ease;
 }
 
-.btn-red{
-
-background:
-linear-gradient(
-135deg,
-#ff003c,
-#ff174f
-);
-
-color:white;
-
-box-shadow:
-0 0 25px rgba(255,0,60,0.35);
-
-}
-
-.btn-outline{
-
-border:1px solid rgba(255,255,255,0.12);
-
-background:rgba(255,255,255,0.02);
-
-color:white;
-
-}
-
+button:hover,
 .btn:hover{
 
-transform:translateY(-5px);
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 24px rgba(255,40,100,0.35);
 
 }
 
-/* ABOUT */
-
-.about-box{
-
-padding:26px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-180deg,
-rgba(10,10,10,0.98),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.12);
-
-}
-
-.about-box h3{
-
-color:#ff003c;
-
-margin-bottom:20px;
-
-}
-
-.about-box p{
-
-color:#b4b4b4;
-
-line-height:2;
-
-}
-
-/* CENTER */
-
-.center{
-
-display:flex;
-flex-direction:column;
-gap:28px;
-
-}
-
-/* MAP */
-
-.map-box{
-
-position:relative;
-
-height:520px;
-
-border-radius:28px;
-
-overflow:hidden;
-
-background:#020202;
-
-border:1px solid rgba(255,0,60,0.14);
-
-box-shadow:
-0 0 40px rgba(255,0,60,0.08);
-
-}
-
-.map-box img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-opacity:0.95;
-
-display:block;
-
-}
-
-.map-title{
-
-position:absolute;
-
-top:28px;
-left:28px;
-
-font-size:1.15rem;
-
-font-weight:700;
-
-color:#ff003c;
-
-letter-spacing:2px;
-
-z-index:10;
-
-}
-
-/* CERTIFICATIONS */
-
-.certifications{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:20px;
-
-}
-
-.cert{
-
-padding:24px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-180deg,
-rgba(10,10,10,0.98),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.12);
-
-transition:0.35s;
-
-}
-
-.cert:hover{
-
-transform:translateY(-5px);
-
-border-color:rgba(255,0,60,0.3);
-
-}
-
-.cert h3{
-
-color:#ff003c;
-
-margin-bottom:15px;
-
-}
-
-.cert p{
-
-color:#b4b4b4;
-
-line-height:1.8;
-
-margin-bottom:18px;
-
-}
-
-.cert a{
-
-color:#ff003c;
-
-text-decoration:none;
-
-font-weight:600;
-
-}
-
-/* SKILLS */
-
-.skills{
-
-padding:26px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-180deg,
-rgba(10,10,10,0.98),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.12);
-
-}
-
-.skills h3{
-
-color:#ff003c;
-
-margin-bottom:24px;
-
-}
-
-.skill-list{
-
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-
-}
-
-.skill{
-
-padding:12px 18px;
-
-border-radius:12px;
-
-background:rgba(255,255,255,0.03);
-
-border:1px solid rgba(255,0,60,0.1);
-
-font-size:0.9rem;
-
-color:#d0d0d0;
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.skill i{
-
-color:#ff003c;
-
-}
-
-/* RIGHT */
-
-.right{
-
-display:flex;
-flex-direction:column;
-gap:24px;
-
-}
-
-.panel{
-
-padding:26px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-180deg,
-rgba(10,10,10,0.98),
-rgba(5,5,5,0.98)
-);
-
-border:1px solid rgba(255,0,60,0.12);
-
-}
-
-.panel h3{
-
-color:#ff003c;
-
-margin-bottom:22px;
-
-}
-
-.alert{
-
-display:flex;
-justify-content:space-between;
-
-margin-bottom:18px;
-
-font-size:0.92rem;
-
-color:#d0d0d0;
-
-}
-
-.alert span{
-
-color:#ff003c;
-
-}
-
-#terminal{
-
-font-family:monospace;
-
-font-size:0.84rem;
-
-line-height:1.8;
-
-color:#00ff99;
-
-white-space:pre-line;
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1450px){
-
-.hero{
-
-grid-template-columns:1fr;
-
-}
-
-.certifications{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
-@media(max-width:900px){
-
-nav{
-
-padding:20px;
-
-}
-
-nav ul{
-
-display:none;
-
-}
-
-.hero{
-
-padding:150px 20px 40px;
-
-}
-
-.hero-title{
-
-font-size:3rem;
-
-}
-
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .grid{
+        background-size:40px 40px;
+    }
+
+    .floating-data{
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .server-glow{
+        width:80px;
+    }
+
+    .flow{
+        opacity:0.14;
+    }
 }
 
 </style>
-
-</head>
-
-<body>
-
-<div class="grid"></div>
-
-<nav>
-
-<div class="logo">
-
-<h1>
-
-OCÉANE
-
-<span>DEHAUDT</span>
-
-</h1>
-
-<p>
-
-<div class="dot"></div>
-
-ÉTUDIANTE EN CYBERSÉCURITÉ
-
-</p>
-
-</div>
-
-<ul>
-
-<li><a href="#apropos">À PROPOS</a></li>
-<li><a href="#competences">COMPÉTENCES</a></li>
-<li><a href="#certifications">CERTIFICATIONS</a></li>
-<li><a href="#contact">CONTACT</a></li>
-
-</ul>
-
-</nav>
-
-<section class="hero">
-
-<!-- LEFT -->
-
-<div class="left">
-
-<div class="live-box">
-
-<div class="dot"></div>
-
-<p>
-SURVEILLANCE ACTIVE • TEMPS RÉEL
-</p>
-
-</div>
-
-<h2 class="hero-title">
-
-ANALYSER
-
-<span>PROTÉGER</span>
-
-</h2>
-
-<p class="hero-text">
-
-Étudiante en cybersécurité à l’IFAPME,
-passionnée par la sécurité offensive,
-l’OSINT,
-l’analyse réseau
-et la recherche de vulnérabilités.
-
-Je développe des projets personnels
-orientés monitoring,
-veille cyber
-et cybersurveillance moderne.
-
-</p>
-
-<div class="buttons">
-
-<a href="#certifications" class="btn btn-red">
-VOIR MES CERTIFICATIONS →
-</a>
-
-<a href="mailto:oceane.dehaudt.pro@gmail.com" class="btn btn-outline">
-ME CONTACTER ✉
-</a>
-
-<a href="https://github.com/oceane-dehaudt" target="_blank" class="btn btn-outline">
-MON GITHUB ⚡
-</a>
-
-</div>
-
-<div class="about-box" id="apropos">
-
-<h3>
-À PROPOS
-</h3>
-
-<p>
-
-Spécialités :
-sécurité offensive,
-OSINT,
-analyse réseau,
-monitoring
-et cybersurveillance moderne.
-
-<br><br>
-
-Développement de projets personnels
-orientés détection d’intrusions,
-veille cyber
-et analyse des menaces numériques.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- CENTER -->
-
-<div class="center">
-
-<div class="map-box">
-
-<div class="map-title">
-CARTE DES MENACES EN TEMPS RÉEL
-</div>
-
-<img src="world.png" alt="Cyber Threat Map">
-
-</div>
-
-<div class="skills" id="competences">
-
-<h3>
-COMPÉTENCES TECHNIQUES
-</h3>
-
-<div class="skill-list">
-
-<div class="skill">
-<i class="fa-brands fa-linux"></i>
-Linux
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-network-wired"></i>
-Nmap
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-wifi"></i>
-Wireshark
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-bug"></i>
-Burp Suite
-</div>
-
-<div class="skill">
-<i class="fa-brands fa-python"></i>
-Python
-</div>
-
-<div class="skill">
-<i class="fa-brands fa-docker"></i>
-Docker
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-globe"></i>
-OSINT
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-database"></i>
-SQL
-</div>
-
-<div class="skill">
-<i class="fa-brands fa-git-alt"></i>
-Git
-</div>
-
-</div>
-
-</div>
-
-<div class="certifications" id="certifications">
-
-<div class="cert">
-
-<h3>
-ZSCALER CYBERSECURITY
-</h3>
-
-<p>
-
-Certification orientée cybersécurité,
-réseau
-et sécurité cloud.
-
-</p>
-
-<a href="certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">
-
-VOIR CERTIFICATION →
-
-</a>
-
-</div>
-
-<div class="cert">
-
-<h3>
-ZSCALER NETWORKING
-</h3>
-
-<p>
-
-Certification réseau
-et fondamentaux
-de la cybersurveillance moderne.
-
-</p>
-
-<a href="certificate-zscaler-networking.pdf.pdf" target="_blank">
-
-VOIR CERTIFICATION →
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="right">
-
-<div class="panel">
-
-<h3>
-ALERTES EN TEMPS RÉEL
-</h3>
-
-<div class="alert">
-<p>🇩🇪 Allemagne</p>
-<span>DDoS</span>
-</div>
-
-<div class="alert">
-<p>🇧🇪 Belgique</p>
-<span>Ransomware</span>
-</div>
-
-<div class="alert">
-<p>🇨🇳 Chine</p>
-<span>SQL Injection</span>
-</div>
-
-<div class="alert">
-<p>🇺🇸 États-Unis</p>
-<span>Brute Force</span>
-</div>
-
-<div class="alert">
-<p>🇷🇺 Russie</p>
-<span>Phishing</span>
-</div>
-
-</div>
-
-<div class="panel">
-
-<h3>
-MONITEUR SYSTÈME
-</h3>
-
-<div id="terminal"></div>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-
-const terminal = document.getElementById("terminal");
-
-const lines = [
-
-"> Initialisation du système...",
-"> Connexion au réseau mondial...",
-"> Surveillance active des menaces...",
-"> Analyse des paquets réseau...",
-"> Détection d’activité suspecte...",
-"> Mise à jour des défenses...",
-"> Surveillance active 24/7..."
-
-];
-
-let index = 0;
-
-setInterval(() => {
-
-terminal.innerHTML += lines[index] + "\n";
-
-index++;
-
-if(index >= lines.length){
-
-terminal.innerHTML = "";
-
-index = 0;
-
-}
-
-},1400);
-
-</script>
-
-</body>
-
-</html>
