@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersecurity</title>
+<title>Océane Dehaudt | Cybersécurité</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -52,9 +52,10 @@ position:fixed;
 inset:0;
 
 background:
+
 linear-gradient(
-rgba(0,0,0,0.88),
-rgba(0,0,0,0.95)
+rgba(0,0,0,0.9),
+rgba(0,0,0,0.96)
 ),
 
 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
@@ -63,12 +64,12 @@ background-size:cover;
 background-position:center;
 
 filter:
-brightness(0.18)
+brightness(0.16)
 blur(2px);
 
-transform:scale(1.04);
+transform:scale(1.05);
 
-z-index:-50;
+z-index:-100;
 }
 
 /* =========================================================
@@ -81,18 +82,18 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(140,0,20,0.06) 1px, transparent 1px),
-linear-gradient(90deg, rgba(140,0,20,0.06) 1px, transparent 1px);
+linear-gradient(rgba(120,0,20,0.06) 1px, transparent 1px),
+linear-gradient(90deg, rgba(120,0,20,0.06) 1px, transparent 1px);
 
 background-size:58px 58px;
 
-opacity:0.15;
+opacity:0.14;
 
-z-index:-49;
+z-index:-99;
 }
 
 /* =========================================================
-RED FOG
+FOG
 ========================================================= */
 
 .fog{
@@ -102,14 +103,14 @@ inset:0;
 
 background:
 radial-gradient(circle at center,
-rgba(120,0,20,0.18),
-transparent 65%);
+rgba(130,0,20,0.18),
+transparent 70%);
 
 filter:blur(120px);
 
-animation:fogMove 10s ease-in-out infinite;
+animation:fogMove 12s ease-in-out infinite;
 
-z-index:-48;
+z-index:-98;
 }
 
 @keyframes fogMove{
@@ -119,7 +120,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-25px);
+transform:translateY(-30px);
 }
 }
 
@@ -139,12 +140,12 @@ height:100%;
 background:
 linear-gradient(
 transparent,
-rgba(130,0,20,0.45),
+rgba(130,0,20,0.4),
 transparent);
 
 filter:blur(1px);
 
-z-index:-47;
+z-index:-97;
 }
 
 .left-light{
@@ -177,12 +178,12 @@ display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.2);
+rgba(0,0,0,0.22);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
 
 border-bottom:
-1px solid rgba(120,0,20,0.08);
+1px solid rgba(130,0,20,0.08);
 
 z-index:999;
 }
@@ -195,7 +196,7 @@ gap:42px;
 
 .topbar a{
 
-color:#d7d7d7;
+color:#d6d6d6;
 
 text-decoration:none;
 
@@ -210,7 +211,7 @@ transition:0.3s ease;
 
 .topbar a:hover{
 
-color:#96001f;
+color:#8d001d;
 }
 
 /* =========================================================
@@ -221,7 +222,7 @@ SOCIAL
 
 position:fixed;
 
-left:32px;
+left:30px;
 top:50%;
 
 transform:translateY(-50%);
@@ -236,7 +237,7 @@ z-index:999;
 
 .social a{
 
-color:#d0d0d0;
+color:#d6d6d6;
 
 font-size:20px;
 
@@ -245,7 +246,7 @@ transition:0.3s ease;
 
 .social a:hover{
 
-color:#96001f;
+color:#8d001d;
 
 transform:translateY(-3px);
 }
@@ -317,7 +318,7 @@ text-transform:uppercase;
 margin-bottom:28px;
 }
 
-.hero .white{
+.white{
 
 display:block;
 
@@ -326,7 +327,7 @@ font-size:clamp(70px,9vw,170px);
 color:white;
 }
 
-.hero .red{
+.red{
 
 display:block;
 
@@ -335,7 +336,7 @@ font-size:clamp(70px,9vw,170px);
 color:#8d001d;
 
 text-shadow:
-0 0 28px rgba(141,0,29,0.35);
+0 0 30px rgba(141,0,29,0.3);
 }
 
 .dot{
@@ -347,7 +348,7 @@ border-radius:50%;
 
 background:#8d001d;
 
-margin-bottom:36px;
+margin-bottom:34px;
 
 box-shadow:
 0 0 18px rgba(141,0,29,0.8);
@@ -373,7 +374,7 @@ BUTTONS
 display:flex;
 gap:18px;
 
-margin-top:45px;
+margin-top:42px;
 
 flex-wrap:wrap;
 }
@@ -388,9 +389,9 @@ text-decoration:none;
 
 font-size:12px;
 
-text-transform:uppercase;
-
 letter-spacing:2px;
+
+text-transform:uppercase;
 
 transition:0.35s ease;
 }
@@ -406,20 +407,20 @@ linear-gradient(
 color:white;
 
 box-shadow:
-0 0 28px rgba(141,0,29,0.22);
+0 0 28px rgba(141,0,29,0.2);
 }
 
 .secondary{
 
 background:
-rgba(0,0,0,0.45);
+rgba(0,0,0,0.4);
 
 border:
 1px solid rgba(255,255,255,0.08);
 
-backdrop-filter:blur(14px);
-
 color:white;
+
+backdrop-filter:blur(12px);
 }
 
 .btn:hover{
@@ -427,11 +428,11 @@ color:white;
 transform:translateY(-4px);
 
 box-shadow:
-0 0 32px rgba(141,0,29,0.28);
+0 0 34px rgba(141,0,29,0.25);
 }
 
 /* =========================================================
-PLANET
+PLANET ZONE
 ========================================================= */
 
 .planet-zone{
@@ -446,38 +447,38 @@ align-items:center;
 }
 
 /* =========================================================
-PLANET GLOW
+ATMOSPHERE
 ========================================================= */
 
-.planet-glow{
+.planet-atmosphere{
 
 position:absolute;
 
-width:640px;
-height:640px;
+width:820px;
+height:820px;
 
 border-radius:50%;
 
 background:
 radial-gradient(circle,
-rgba(160,0,35,0.25),
-transparent 70%);
+rgba(255,0,60,0.18),
+transparent 68%);
 
-filter:blur(90px);
+filter:blur(120px);
 
-animation:glowPulse 5s ease-in-out infinite;
+animation:atmospherePulse 6s ease-in-out infinite;
 }
 
-@keyframes glowPulse{
+@keyframes atmospherePulse{
 
 0%,100%{
-opacity:0.55;
+opacity:0.45;
 transform:scale(1);
 }
 
 50%{
 opacity:1;
-transform:scale(1.04);
+transform:scale(1.03);
 }
 }
 
@@ -485,7 +486,7 @@ transform:scale(1.04);
 PLANET
 ========================================================= */
 
-.planet{
+.cyber-planet{
 
 position:relative;
 
@@ -498,59 +499,86 @@ overflow:hidden;
 
 background:
 radial-gradient(circle at center,
-rgba(255,0,60,0.08),
-rgba(0,0,0,0.96) 65%);
+rgba(255,0,40,0.05),
+rgba(0,0,0,0.98) 70%);
 
 box-shadow:
 
-0 0 80px rgba(255,0,50,0.2),
-0 0 160px rgba(120,0,20,0.2),
-inset 0 0 120px rgba(255,0,50,0.14);
+0 0 120px rgba(255,0,50,0.2),
+0 0 240px rgba(120,0,20,0.16),
+inset 0 0 160px rgba(255,0,50,0.12);
 
-animation:planetRotate 24s linear infinite;
+animation:planetRotate 120s linear infinite;
 }
 
 /* =========================================================
-NETWORK MAP
+WORLD MAP
 ========================================================= */
 
-.planet::before{
-
-content:"";
+.world-map{
 
 position:absolute;
 inset:0;
 
 background:
-
-url('https://i.imgur.com/4NJlZxK.png');
+url('https://i.imgur.com/yDiSk8B.png');
 
 background-size:cover;
 background-position:center;
 
 mix-blend-mode:screen;
 
-opacity:0.9;
+opacity:0.95;
 
-animation:mapMove 40s linear infinite;
+filter:
+brightness(1.5)
+contrast(1.35)
+saturate(1.2);
+
+animation:mapFloat 20s ease-in-out infinite;
+}
+
+@keyframes mapFloat{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
 }
 
 /* =========================================================
-NETWORK GLOW
+SHADOW
 ========================================================= */
 
-.planet::after{
-
-content:"";
+.planet-shadow{
 
 position:absolute;
 inset:0;
 
 background:
+radial-gradient(circle at 30% 30%,
+transparent,
+rgba(0,0,0,0.45) 75%);
 
+mix-blend-mode:multiply;
+}
+
+/* =========================================================
+INNER GLOW
+========================================================= */
+
+.inner-glow{
+
+position:absolute;
+inset:0;
+
+background:
 radial-gradient(circle,
 rgba(255,0,60,0.12),
-transparent 70%);
+transparent 72%);
 
 mix-blend-mode:screen;
 }
@@ -570,99 +598,122 @@ transform:rotate(360deg);
 }
 }
 
-@keyframes mapMove{
-
-from{
-transform:translateX(0px);
-}
-
-to{
-transform:translateX(-25px);
-}
-}
-
 /* =========================================================
-CONNECTIONS
+ARCS
 ========================================================= */
 
-.connection{
+.arc{
 
 position:absolute;
 
 border-top:
-1px solid rgba(255,0,50,0.32);
+1px solid rgba(255,0,60,0.48);
 
 border-radius:50%;
 
-filter:drop-shadow(0 0 8px rgba(255,0,50,0.4));
+filter:
+drop-shadow(0 0 12px rgba(255,0,60,0.8));
 
-animation:connectionPulse 4s ease-in-out infinite;
+animation:arcPulse 4s ease-in-out infinite;
 }
 
-.c1{
+.arc1{
 
 width:520px;
-height:240px;
+height:220px;
 
-top:130px;
+top:120px;
 left:20px;
 
-transform:rotate(-12deg);
+transform:rotate(14deg);
 }
 
-.c2{
+.arc2{
 
 width:420px;
 height:180px;
 
-top:200px;
+top:210px;
 left:70px;
 
-transform:rotate(22deg);
+transform:rotate(-20deg);
 }
 
-.c3{
+.arc3{
 
-width:470px;
-height:220px;
+width:540px;
+height:240px;
 
 top:170px;
-left:50px;
+left:10px;
 
-transform:rotate(48deg);
+transform:rotate(42deg);
 }
 
-@keyframes connectionPulse{
+.arc4{
+
+width:470px;
+height:190px;
+
+top:150px;
+left:40px;
+
+transform:rotate(-48deg);
+}
+
+.arc5{
+
+width:390px;
+height:150px;
+
+top:260px;
+left:90px;
+
+transform:rotate(8deg);
+}
+
+@keyframes arcPulse{
 
 0%,100%{
 opacity:0.2;
 }
 
 50%{
-opacity:0.8;
+opacity:0.9;
 }
 }
 
 /* =========================================================
-NETWORK DOTS
+NODES
 ========================================================= */
 
 .node{
 
 position:absolute;
 
-width:8px;
-height:8px;
+width:12px;
+height:12px;
 
 border-radius:50%;
 
 background:#ff003c;
 
 box-shadow:
-0 0 16px rgba(255,0,60,0.9);
+0 0 14px rgba(255,0,60,1),
+0 0 30px rgba(255,0,60,0.8),
+0 0 60px rgba(255,0,60,0.4);
 
 animation:nodePulse 3s ease-in-out infinite;
 }
+
+.n1{top:18%;left:62%;}
+.n2{top:38%;left:28%;}
+.n3{top:52%;left:70%;}
+.n4{top:68%;left:46%;}
+.n5{top:32%;left:52%;}
+.n6{top:58%;left:22%;}
+.n7{top:44%;left:78%;}
+.n8{top:26%;left:36%;}
 
 @keyframes nodePulse{
 
@@ -672,8 +723,57 @@ opacity:0.7;
 }
 
 50%{
-transform:scale(1.5);
+transform:scale(1.8);
 opacity:1;
+}
+}
+
+/* =========================================================
+PARTICLES
+========================================================= */
+
+.particle{
+
+position:absolute;
+
+width:2px;
+height:2px;
+
+border-radius:50%;
+
+background:#ff335f;
+
+box-shadow:
+0 0 10px rgba(255,0,60,0.9);
+
+animation:particleFloat 6s linear infinite;
+}
+
+.p1{top:14%;left:44%;}
+.p2{top:30%;left:82%;}
+.p3{top:66%;left:14%;}
+.p4{top:74%;left:66%;}
+.p5{top:52%;left:42%;}
+.p6{top:40%;left:16%;}
+.p7{top:22%;left:72%;}
+.p8{top:82%;left:48%;}
+.p9{top:58%;left:60%;}
+.p10{top:46%;left:36%;}
+
+@keyframes particleFloat{
+
+0%{
+transform:translateY(0px);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-16px);
+opacity:0;
 }
 }
 
@@ -688,26 +788,35 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,50,0.08);
+1px solid rgba(255,0,60,0.08);
 
 animation:orbitRotate linear infinite;
 }
 
-.o1{
+.orbit-1{
 
-width:650px;
-height:650px;
+width:700px;
+height:700px;
 
-animation-duration:35s;
+animation-duration:44s;
 }
 
-.o2{
+.orbit-2{
 
-width:760px;
-height:760px;
+width:820px;
+height:820px;
 
-animation-duration:60s;
+animation-duration:72s;
+
 animation-direction:reverse;
+}
+
+.orbit-3{
+
+width:940px;
+height:940px;
+
+animation-duration:120s;
 }
 
 @keyframes orbitRotate{
@@ -722,7 +831,7 @@ transform:rotate(360deg);
 }
 
 /* =========================================================
-SECTION TITLE
+SECTIONS
 ========================================================= */
 
 .section-title{
@@ -884,20 +993,25 @@ height:420px;
 margin-top:-80px;
 }
 
-.planet{
+.cyber-planet{
 
 width:320px;
 height:320px;
 }
 
-.o1{
-width:380px;
-height:380px;
+.orbit-1{
+width:420px;
+height:420px;
 }
 
-.o2{
-width:460px;
-height:460px;
+.orbit-2{
+width:520px;
+height:520px;
+}
+
+.orbit-3{
+width:620px;
+height:620px;
 }
 }
 
@@ -918,14 +1032,14 @@ line-height:1.8;
 
 .planet-zone{
 
-height:280px;
+height:260px;
 
-margin-top:-110px;
+margin-top:-120px;
 
 opacity:0.82;
 }
 
-.planet{
+.cyber-planet{
 
 width:240px;
 height:240px;
@@ -957,18 +1071,12 @@ TOPBAR
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
 
-<a href="https://github.com/oceane-dehaudt?tab=repositories"
-target="_blank">
-
+<a href="https://github.com/oceane-dehaudt?tab=repositories" target="_blank">
 Projets
-
 </a>
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
-
+<a href="https://github.com/oceane-dehaudt" target="_blank">
 Certifications
-
 </a>
 
 <a href="#contact">Contact</a>
@@ -983,11 +1091,8 @@ SOCIAL
 
 <div class="social">
 
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
-
+<a href="https://github.com/oceane-dehaudt" target="_blank">
 <i class="fab fa-github"></i>
-
 </a>
 
 <a href="#">
@@ -1068,32 +1173,51 @@ PLANET
 
 <div class="planet-zone">
 
-<div class="planet-glow"></div>
+<div class="planet-atmosphere"></div>
 
-<div class="orbit o1"></div>
-<div class="orbit o2"></div>
+<div class="orbit orbit-1"></div>
+<div class="orbit orbit-2"></div>
+<div class="orbit orbit-3"></div>
 
-<div class="planet">
+<div class="cyber-planet">
 
-<div class="connection c1"></div>
-<div class="connection c2"></div>
-<div class="connection c3"></div>
+<div class="world-map"></div>
 
-<div class="node" style="top:20%;left:68%;"></div>
-<div class="node" style="top:44%;left:30%;"></div>
-<div class="node" style="top:58%;left:74%;"></div>
-<div class="node" style="top:72%;left:45%;"></div>
-<div class="node" style="top:36%;left:55%;"></div>
+<div class="planet-shadow"></div>
+
+<div class="arc arc1"></div>
+<div class="arc arc2"></div>
+<div class="arc arc3"></div>
+<div class="arc arc4"></div>
+<div class="arc arc5"></div>
+
+<div class="node n1"></div>
+<div class="node n2"></div>
+<div class="node n3"></div>
+<div class="node n4"></div>
+<div class="node n5"></div>
+<div class="node n6"></div>
+<div class="node n7"></div>
+<div class="node n8"></div>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+<div class="particle p6"></div>
+<div class="particle p7"></div>
+<div class="particle p8"></div>
+<div class="particle p9"></div>
+<div class="particle p10"></div>
+
+<div class="inner-glow"></div>
 
 </div>
 
 </div>
 
 </section>
-
-<!-- =========================================================
-ABOUT
-========================================================= -->
 
 <h2 class="section-title" id="about">
 À <span>PROPOS</span>
@@ -1177,10 +1301,6 @@ Git
 </div>
 
 </div>
-
-<!-- =========================================================
-FOOTER
-========================================================= -->
 
 <div class="footer" id="contact">
 
