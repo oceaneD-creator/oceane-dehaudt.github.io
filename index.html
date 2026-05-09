@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
@@ -32,10 +31,8 @@ scroll-behavior:smooth;
 }
 
 body{
-
-background:#040404;
+background:#050505;
 overflow-x:hidden;
-
 font-family:'Inter',sans-serif;
 color:white;
 }
@@ -53,9 +50,8 @@ inset:0;
 
 background:
 linear-gradient(
-180deg,
-#050505 0%,
-#020202 100%
+rgba(0,0,0,0.97),
+rgba(0,0,0,0.99)
 );
 
 z-index:-100;
@@ -73,12 +69,12 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
 
-background-size:48px 48px;
+background-size:52px 52px;
 
-opacity:0.34;
+opacity:0.35;
 
 z-index:-99;
 }
@@ -95,15 +91,15 @@ left:0;
 
 width:100%;
 
-padding:24px;
+padding:22px;
 
 display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.72);
+rgba(0,0,0,0.74);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(16px);
 
 border-bottom:
 1px solid rgba(255,255,255,0.03);
@@ -114,18 +110,18 @@ z-index:999;
 .topbar nav{
 
 display:flex;
-gap:52px;
+gap:46px;
 }
 
 .topbar a{
 
-color:#9f9f9f;
+color:#9b9b9b;
 
 text-decoration:none;
 
-font-size:11px;
+font-size:12px;
 
-letter-spacing:5px;
+letter-spacing:4px;
 
 text-transform:uppercase;
 
@@ -133,7 +129,6 @@ transition:0.3s ease;
 }
 
 .topbar a:hover{
-
 color:white;
 }
 
@@ -145,7 +140,7 @@ SOCIAL
 
 position:fixed;
 
-left:24px;
+left:28px;
 top:50%;
 
 transform:translateY(-50%);
@@ -160,7 +155,7 @@ z-index:999;
 
 .social a{
 
-color:#d3d3d3;
+color:#d0d0d0;
 
 font-size:24px;
 
@@ -202,7 +197,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:70px;
+gap:60px;
 
 align-items:center;
 }
@@ -213,22 +208,19 @@ TEXT
 
 .hero-text{
 
-position:relative;
-
-z-index:20;
-
-margin-top:-70px;
-
 opacity:0;
 
-animation:fadeText 1.5s ease forwards;
+animation:
+fadeText 2s ease forwards;
+
+animation-delay:0.2s;
 }
 
 @keyframes fadeText{
 
 from{
 opacity:0;
-transform:translateY(20px);
+transform:translateY(12px);
 }
 
 to{
@@ -245,7 +237,7 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#5f5f5f;
+color:#666;
 
 margin-bottom:24px;
 }
@@ -254,37 +246,51 @@ margin-bottom:24px;
 
 font-family:'Orbitron',sans-serif;
 
-line-height:0.92;
+line-height:0.94;
 
 text-transform:uppercase;
 
-margin-bottom:38px;
+margin-bottom:34px;
 
-font-size:clamp(42px,4vw,70px);
+font-size:clamp(52px,4vw,74px);
 
-font-weight:700;
+font-weight:800;
 
 letter-spacing:-2px;
+
+animation:titleGlow 8s ease-in-out infinite;
+}
+
+@keyframes titleGlow{
+
+0%{
+text-shadow:0 0 0 rgba(255,255,255,0);
+}
+
+50%{
+text-shadow:0 0 12px rgba(255,255,255,0.04);
+}
+
+100%{
+text-shadow:0 0 0 rgba(255,255,255,0);
+}
 }
 
 .hero h1 span{
-
 display:block;
-
-color:#f1f1f1;
 }
 
 .hero p{
 
 max-width:620px;
 
-font-size:18px;
+font-size:17px;
 
 line-height:2.1;
 
 color:#b7b7b7;
 
-margin-bottom:36px;
+margin-bottom:34px;
 }
 
 .hero-bottom{
@@ -295,32 +301,9 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#4f4f4f;
+color:#525252;
 
-margin-bottom:46px;
-}
-
-/* =========================================================
-VERTICAL LINE
-========================================================= */
-
-.vertical-line{
-
-position:absolute;
-
-right:-70px;
-top:90px;
-
-width:1px;
-height:140px;
-
-background:
-linear-gradient(
-180deg,
-transparent,
-rgba(255,0,70,0.18),
-transparent
-);
+margin-bottom:44px;
 }
 
 /* =========================================================
@@ -331,7 +314,6 @@ BUTTONS
 
 display:flex;
 gap:18px;
-
 flex-wrap:wrap;
 }
 
@@ -362,16 +344,13 @@ border:
 color:white;
 
 box-shadow:
-0 0 18px rgba(255,0,70,0.04);
+0 0 14px rgba(255,0,70,0.04);
 }
 
 .primary:hover{
 
 background:
-rgba(255,0,70,0.05);
-
-border:
-1px solid rgba(255,0,70,0.45);
+rgba(255,0,70,0.04);
 
 transform:translateY(-3px);
 }
@@ -381,15 +360,15 @@ transform:translateY(-3px);
 background:transparent;
 
 border:
-1px solid rgba(255,255,255,0.07);
+1px solid rgba(255,255,255,0.06);
 
-color:#d8d8d8;
+color:#cfcfcf;
 }
 
 .secondary:hover{
 
 border:
-1px solid rgba(255,255,255,0.16);
+1px solid rgba(255,255,255,0.14);
 
 transform:translateY(-3px);
 }
@@ -409,29 +388,25 @@ justify-content:center;
 align-items:center;
 }
 
-/* =========================================================
-RED GLOW
-========================================================= */
-
 .visual-zone::before{
 
 content:"";
 
 position:absolute;
 
-width:420px;
-height:420px;
+width:600px;
+height:600px;
 
 border-radius:50%;
 
 background:
-radial-gradient(circle,
-rgba(255,0,70,0.06),
-transparent 72%);
+radial-gradient(
+circle,
+rgba(255,0,70,0.035),
+transparent 70%
+);
 
 filter:blur(40px);
-
-z-index:0;
 }
 
 /* =========================================================
@@ -445,50 +420,119 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,70,0.035);
+1px solid rgba(255,0,70,0.03);
 }
 
 .c1{
-width:380px;
-height:380px;
+width:420px;
+height:420px;
 }
 
 .c2{
-width:580px;
-height:580px;
+width:620px;
+height:620px;
 }
 
 .c3{
-width:780px;
-height:780px;
+width:820px;
+height:820px;
 }
 
 /* =========================================================
-OD LOGO
+NODES
+========================================================= */
+
+.node{
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+background:#ff0055;
+
+opacity:0;
+
+box-shadow:
+0 0 14px rgba(255,0,70,0.55);
+
+animation:
+nodeFade 2s ease forwards;
+}
+
+@keyframes nodeFade{
+
+from{
+opacity:0;
+transform:scale(0.7);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.n1{
+top:20%;
+right:20%;
+animation-delay:1.3s;
+}
+
+.n2{
+top:40%;
+left:20%;
+animation-delay:1.7s;
+}
+
+.n3{
+bottom:22%;
+right:16%;
+animation-delay:2.1s;
+}
+
+.n4{
+bottom:16%;
+left:28%;
+animation-delay:2.5s;
+}
+
+/* =========================================================
+OD
 ========================================================= */
 
 .od-wrapper{
 
 position:relative;
 
-transform:scale(0.88);
+transform:
+scale(0.86)
+translateY(24px);
 
 opacity:0;
 
-animation:fadeOD 1.8s ease forwards;
-animation-delay:0.6s;
+animation:
+odAppear 2s ease forwards;
+
+animation-delay:0.8s;
 }
 
-@keyframes fadeOD{
+@keyframes odAppear{
 
 from{
 opacity:0;
-transform:scale(0.82);
+transform:
+scale(0.82)
+translateY(40px);
 }
 
 to{
-opacity:0.97;
-transform:scale(0.88);
+opacity:0.92;
+transform:
+scale(0.86)
+translateY(24px);
 }
 }
 
@@ -498,7 +542,8 @@ position:relative;
 
 display:flex;
 align-items:center;
-gap:28px;
+
+gap:26px;
 }
 
 .od-o,
@@ -514,24 +559,33 @@ linear-gradient(
 );
 
 border:
-1px solid rgba(255,255,255,0.06);
+1px solid rgba(255,255,255,0.03);
 
 overflow:hidden;
 
 backdrop-filter:blur(10px);
-
-box-shadow:
-
-inset 0 0 24px rgba(255,255,255,0.02),
-0 0 20px rgba(255,0,70,0.04);
 }
 
 .od-o{
 
-width:180px;
-height:180px;
+width:170px;
+height:170px;
 
 border-radius:42px;
+
+box-shadow:
+inset 0 0 24px rgba(255,255,255,0.02);
+}
+
+.od-d{
+
+width:250px;
+height:170px;
+
+border-radius:0 42px 42px 0;
+
+box-shadow:
+inset 0 0 24px rgba(255,255,255,0.02);
 }
 
 .od-o::before{
@@ -542,18 +596,10 @@ position:absolute;
 
 inset:16px;
 
-border-radius:30px;
+border-radius:28px;
 
 border:
-1px solid rgba(255,255,255,0.04);
-}
-
-.od-d{
-
-width:270px;
-height:180px;
-
-border-radius:0 42px 42px 0;
+1px solid rgba(255,255,255,0.03);
 }
 
 .od-d::before{
@@ -564,10 +610,10 @@ position:absolute;
 
 inset:16px;
 
-border-radius:0 30px 30px 0;
+border-radius:0 28px 28px 0;
 
 border:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.03);
 }
 
 /* =========================================================
@@ -588,14 +634,15 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,0,70,0.55),
+rgba(255,0,70,0.7),
 transparent
 );
 
 box-shadow:
-0 0 10px rgba(255,0,70,0.28);
+0 0 12px rgba(255,0,70,0.32);
 
-animation:scanMove 9s ease-in-out infinite;
+animation:
+scanMove 13s ease-in-out infinite;
 
 animation-delay:1s;
 }
@@ -608,7 +655,7 @@ opacity:0;
 }
 
 50%{
-opacity:0.55;
+opacity:0.75;
 }
 
 100%{
@@ -618,7 +665,7 @@ opacity:0;
 }
 
 /* =========================================================
-REFLECTION
+REFLECT
 ========================================================= */
 
 .reflect{
@@ -635,13 +682,14 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,0.03),
+rgba(255,255,255,0.025),
 transparent
 );
 
 transform:rotate(18deg);
 
-animation:reflectMove 10s linear infinite;
+animation:
+reflectMove 12s linear infinite;
 }
 
 @keyframes reflectMove{
@@ -656,85 +704,6 @@ left:140%;
 }
 
 /* =========================================================
-NODES
-========================================================= */
-
-.node{
-
-position:absolute;
-
-width:10px;
-height:10px;
-
-border-radius:50%;
-
-background:#ff0055;
-
-box-shadow:
-0 0 12px rgba(255,0,70,0.55);
-
-opacity:0;
-
-animation:nodeFade 2s ease forwards,
-pulse 4s ease-in-out infinite;
-}
-
-@keyframes nodeFade{
-
-from{
-opacity:0;
-transform:scale(0.5);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-@keyframes pulse{
-
-0%{
-opacity:0.5;
-transform:scale(1);
-}
-
-50%{
-opacity:1;
-transform:scale(1.15);
-}
-
-100%{
-opacity:0.5;
-transform:scale(1);
-}
-}
-
-.n1{
-top:22%;
-right:20%;
-animation-delay:1s;
-}
-
-.n2{
-top:40%;
-left:18%;
-animation-delay:1.4s;
-}
-
-.n3{
-bottom:18%;
-right:16%;
-animation-delay:1.8s;
-}
-
-.n4{
-bottom:15%;
-left:26%;
-animation-delay:2.2s;
-}
-
-/* =========================================================
 TERMINAL
 ========================================================= */
 
@@ -742,41 +711,80 @@ TERMINAL
 
 position:absolute;
 
-bottom:120px;
+bottom:80px;
 right:20px;
 
-width:290px;
+width:270px;
 
 padding:22px;
 
 border-radius:18px;
 
 background:
-rgba(8,8,8,0.72);
+rgba(8,8,8,0.42);
 
 border:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.03);
 
 backdrop-filter:blur(12px);
 
 font-family:'Courier New',monospace;
 
-font-size:10px;
+font-size:11px;
 
-line-height:2.1;
+line-height:2;
 
 letter-spacing:1px;
 
-color:#8a8a8a;
+color:#9a9a9a;
 
-opacity:0.22;
+opacity:0.14;
+}
+
+.terminal-line{
+
+overflow:hidden;
+
+white-space:nowrap;
+
+width:0;
+
+animation:
+typing 2s steps(40,end) forwards;
+}
+
+.l1{
+animation-delay:1.6s;
+}
+
+.l2{
+animation-delay:3s;
+}
+
+.l3{
+animation-delay:4.6s;
+}
+
+.l4{
+animation-delay:6s;
+}
+
+@keyframes typing{
+
+from{
+width:0;
+}
+
+to{
+width:100%;
+}
 }
 
 .cursor{
 
 display:inline-block;
 
-width:8px;
+width:7px;
 height:14px;
 
 background:#ff0055;
@@ -802,20 +810,23 @@ SECTION
 ========================================================= */
 
 .section{
-
-margin-top:120px;
+margin-top:140px;
 }
 
 .section-title{
 
 font-family:'Orbitron',sans-serif;
 
-font-size:54px;
+font-size:52px;
 
-margin-bottom:40px;
+margin-bottom:42px;
 
 text-transform:uppercase;
 }
+
+/* =========================================================
+ABOUT
+========================================================= */
 
 .about-box{
 
@@ -881,8 +892,7 @@ transition:0.3s ease;
 }
 
 .skill i{
-
-color:#ff004c;
+color:#ff0055;
 }
 
 .skill:hover{
@@ -890,14 +900,14 @@ color:#ff004c;
 transform:translateY(-3px);
 
 border:
-1px solid rgba(255,255,255,0.1);
+1px solid rgba(255,0,70,0.12);
 }
 
 /* =========================================================
-CERTIFICATIONS
+CARDS
 ========================================================= */
 
-.certifications{
+.grid{
 
 display:grid;
 
@@ -907,7 +917,7 @@ repeat(auto-fit,minmax(280px,1fr));
 gap:24px;
 }
 
-.cert-card{
+.card{
 
 padding:34px;
 
@@ -917,7 +927,7 @@ background:
 linear-gradient(
 145deg,
 rgba(10,10,10,0.95),
-rgba(5,5,5,0.97)
+rgba(5,5,5,0.98)
 );
 
 border:
@@ -926,15 +936,15 @@ border:
 transition:0.3s ease;
 }
 
-.cert-card:hover{
+.card:hover{
 
 transform:translateY(-4px);
 
 border:
-1px solid rgba(255,0,70,0.12);
+1px solid rgba(255,0,70,0.14);
 }
 
-.cert-card h3{
+.card h3{
 
 font-size:22px;
 
@@ -943,7 +953,7 @@ margin-bottom:16px;
 color:white;
 }
 
-.cert-card p{
+.card p{
 
 color:#9d9d9d;
 
@@ -967,16 +977,12 @@ height:460px;
 .social{
 display:none;
 }
-
-.vertical-line{
-display:none;
-}
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:52px;
+font-size:56px;
 }
 
 .topbar nav{
@@ -1010,7 +1016,9 @@ display:none;
 
 <body>
 
-<!-- TOPBAR -->
+<!-- =========================================================
+TOPBAR
+========================================================= -->
 
 <div class="topbar">
 
@@ -1020,11 +1028,8 @@ display:none;
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
 
-<a href="https://github.com/oceane-dehaudt?tab=repositories"
-target="_blank">
-
+<a href="#projects">
 Projets
-
 </a>
 
 <a href="#certifications">
@@ -1039,7 +1044,9 @@ Contact
 
 </div>
 
-<!-- SOCIAL -->
+<!-- =========================================================
+SOCIAL
+========================================================= -->
 
 <div class="social">
 
@@ -1058,7 +1065,9 @@ target="_blank">
 
 </div>
 
-<!-- MAIN -->
+<!-- =========================================================
+MAIN
+========================================================= -->
 
 <div class="container">
 
@@ -1100,8 +1109,7 @@ Voir mes certifications
 
 </a>
 
-<a href="https://github.com/oceane-dehaudt?tab=repositories"
-target="_blank"
+<a href="#projects"
 class="btn secondary">
 
 Voir mes projets
@@ -1109,8 +1117,6 @@ Voir mes projets
 </a>
 
 </div>
-
-<div class="vertical-line"></div>
 
 </div>
 
@@ -1149,12 +1155,26 @@ Voir mes projets
 
 </div>
 
+<!-- TERMINAL -->
+
 <div class="terminal">
 
-root@od-sec:~ active<br>
-monitoring traffic...<br>
-threats detected: 0<br>
-network integrity: 98%<span class="cursor"></span>
+<div class="terminal-line l1">
+root@od-sec:~ active
+</div>
+
+<div class="terminal-line l2">
+monitoring traffic...
+</div>
+
+<div class="terminal-line l3">
+threats detected: 0
+</div>
+
+<div class="terminal-line l4">
+network integrity: 98%
+<span class="cursor"></span>
+</div>
 
 </div>
 
@@ -1210,11 +1230,6 @@ Burp Suite
 </div>
 
 <div class="skill">
-<i class="fa-solid fa-globe"></i>
-OSINT
-</div>
-
-<div class="skill">
 <i class="fab fa-docker"></i>
 Docker
 </div>
@@ -1222,6 +1237,11 @@ Docker
 <div class="skill">
 <i class="fab fa-git-alt"></i>
 Git
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-globe"></i>
+OSINT
 </div>
 
 </div>
@@ -1238,19 +1258,19 @@ Git
 CERTIFICATIONS
 </h2>
 
-<div class="certifications">
+<div class="grid">
 
-<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-cybersecurity.pdf.pdf"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-cybersecurity.pdf.pdf?raw=true"
 target="_blank"
 style="text-decoration:none;">
 
-<div class="cert-card">
+<div class="card">
 
 <h3>Zscaler Cybersecurity</h3>
 
 <p>
 
-Certification orientée sécurité cloud, architecture Zero Trust et protection réseau.
+Certification orientée sécurité cloud, protection réseau et architecture Zero Trust.
 
 </p>
 
@@ -1258,11 +1278,11 @@ Certification orientée sécurité cloud, architecture Zero Trust et protection 
 
 </a>
 
-<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-networking.pdf.pdf"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/blob/main/certificate-zscaler-networking.pdf.pdf?raw=true"
 target="_blank"
 style="text-decoration:none;">
 
-<div class="cert-card">
+<div class="card">
 
 <h3>Zscaler Networking</h3>
 
@@ -1276,29 +1296,79 @@ Validation des compétences réseau et sécurisation des infrastructures moderne
 
 </a>
 
-<div class="cert-card">
+<div class="card">
 
 <h3>Hack The Box</h3>
 
 <p>
 
-Pratique offensive sur laboratoires réalistes et environnement de simulation avancé.
+Pratique active sur laboratoires offensifs et environnements de simulation réalistes.
 
 </p>
 
 </div>
 
-<div class="cert-card">
+<div class="card">
 
 <h3>TryHackMe</h3>
 
 <p>
 
-Entraînement continu en cybersécurité offensive, analyse réseau et investigation.
+Entraînement continu en cybersécurité offensive, investigation et analyse réseau.
 
 </p>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<h2 class="section-title">
+PROJETS
+</h2>
+
+<div class="grid">
+
+<a href="https://github.com/oceane-dehaudt"
+target="_blank"
+style="text-decoration:none;">
+
+<div class="card">
+
+<h3>XSS Lab</h3>
+
+<p>
+
+Mise en pratique d’attaques XSS dans un environnement sécurisé afin de comprendre les mécanismes d’exploitation web et les méthodes de protection.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="https://github.com/oceane-dehaudt"
+target="_blank"
+style="text-decoration:none;">
+
+<div class="card">
+
+<h3>NGS Investigation</h3>
+
+<p>
+
+Projet orienté analyse réseau et investigation technique avec approche offensive et méthodologie d’observation des flux.
+
+</p>
+
+</div>
+
+</a>
 
 </div>
 
