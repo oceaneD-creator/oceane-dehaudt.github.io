@@ -1,590 +1,1226 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Océane Dehaudt | Cybersecurity Portfolio</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Océane Dehaudt | Cybersécurité</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
+
+/* =========================================================
+RESET
+========================================================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
+
 background:#050505;
+overflow-x:hidden;
+
 font-family:'Inter',sans-serif;
 color:white;
-overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* =========================================================
+BACKGROUND
+========================================================= */
 
 body::before{
+
 content:"";
+
 position:fixed;
 inset:0;
+
 background:
-linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-background-size:48px 48px;
-pointer-events:none;
-z-index:-2;
+linear-gradient(
+rgba(0,0,0,0.96),
+rgba(0,0,0,0.985)
+);
+
+z-index:-100;
 }
+
+/* =========================================================
+GRID
+========================================================= */
 
 body::after{
+
 content:"";
+
 position:fixed;
-top:0;
-right:0;
-width:900px;
-height:900px;
-background:radial-gradient(circle, rgba(255,0,76,0.10) 0%, transparent 70%);
-pointer-events:none;
-z-index:-1;
+inset:0;
+
+background-image:
+linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+
+background-size:48px 48px;
+
+opacity:0.4;
+
+z-index:-99;
 }
 
-/* NAVBAR */
+/* =========================================================
+TOPBAR
+========================================================= */
 
-nav{
+.topbar{
+
 position:fixed;
 top:0;
 left:0;
+
 width:100%;
-height:70px;
+
+padding:24px;
+
 display:flex;
 justify-content:center;
-align-items:center;
-gap:60px;
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.04);
+
+background:
+rgba(0,0,0,0.74);
+
+backdrop-filter:blur(18px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.03);
+
 z-index:999;
 }
 
-nav a{
-color:#d8d8d8;
+.topbar nav{
+
+display:flex;
+gap:46px;
+}
+
+.topbar a{
+
+color:#b7b7b7;
+
 text-decoration:none;
-font-size:13px;
+
+font-size:12px;
+
 letter-spacing:4px;
-transition:0.3s;
+
+text-transform:uppercase;
+
+transition:0.3s ease;
 }
 
-nav a:hover{
-color:#ff004c;
+.topbar a:hover{
+
+color:white;
 }
 
-/* SIDE ICONS */
+/* =========================================================
+SOCIAL
+========================================================= */
 
-.side-icons{
+.social{
+
 position:fixed;
+
 left:28px;
 top:50%;
+
 transform:translateY(-50%);
+
 display:flex;
 flex-direction:column;
-gap:28px;
+
+gap:30px;
+
 z-index:999;
 }
 
-.side-icons a{
+.social a{
+
+color:#d4d4d4;
+
+font-size:22px;
+
+transition:0.3s ease;
+}
+
+.social a:hover{
+
+transform:translateY(-3px);
+
 color:white;
-font-size:28px;
-text-decoration:none;
-opacity:0.8;
-transition:0.3s;
 }
 
-.side-icons a:hover{
-color:#ff004c;
-transform:scale(1.1);
+/* =========================================================
+MAIN
+========================================================= */
+
+.container{
+
+width:88%;
+max-width:1450px;
+
+margin:auto;
+
+padding-top:130px;
+padding-bottom:120px;
 }
 
-/* HERO */
+/* =========================================================
+HERO
+========================================================= */
 
 .hero{
+
 min-height:100vh;
-display:flex;
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:60px;
+
 align-items:center;
-justify-content:space-between;
-padding:0 90px;
-position:relative;
 }
 
-/* LEFT */
+/* =========================================================
+TEXT
+========================================================= */
 
-.left{
-max-width:650px;
-animation:fadeIn 1.8s ease forwards;
+.hero-text{
+
+position:relative;
+z-index:20;
+
+animation:fadeUp 1.2s ease forwards;
 opacity:0;
 }
 
-.top-mini{
-font-size:12px;
-letter-spacing:8px;
-color:#727272;
-margin-bottom:25px;
-}
+.hero-mini{
 
-.name{
-font-family:'Orbitron',sans-serif;
-font-size:6rem;
-font-weight:800;
-line-height:0.95;
-letter-spacing:-5px;
-margin-bottom:40px;
-}
-
-.description{
-font-size:18px;
-line-height:2;
-color:#c8c8c8;
-max-width:700px;
-margin-bottom:35px;
-}
-
-.bottom-phrase{
 font-size:11px;
+
 letter-spacing:8px;
-color:#6e6e6e;
-margin-bottom:40px;
+
+text-transform:uppercase;
+
+color:#666;
+
+margin-bottom:28px;
 }
 
-/* BUTTONS */
+.hero h1{
+
+font-family:'Orbitron',sans-serif;
+
+line-height:0.94;
+
+text-transform:uppercase;
+
+margin-bottom:34px;
+
+font-size:clamp(48px,4vw,72px);
+
+font-weight:800;
+
+letter-spacing:-1px;
+}
+
+.hero h1 span{
+
+display:block;
+
+color:#f2f2f2;
+}
+
+.hero p{
+
+max-width:650px;
+
+font-size:18px;
+
+line-height:2.1;
+
+color:#b8b8b8;
+
+margin-bottom:34px;
+}
+
+.hero-bottom{
+
+font-size:11px;
+
+letter-spacing:8px;
+
+text-transform:uppercase;
+
+color:#565656;
+
+margin-bottom:44px;
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
 
 .buttons{
+
 display:flex;
-gap:20px;
-margin-bottom:50px;
+gap:18px;
+
+flex-wrap:wrap;
 }
 
 .btn{
-padding:18px 34px;
-border-radius:14px;
+
+padding:20px 34px;
+
+border-radius:16px;
+
 text-decoration:none;
-font-size:13px;
+
+font-size:11px;
+
 letter-spacing:3px;
-transition:0.4s;
+
+text-transform:uppercase;
+
+transition:0.35s ease;
 }
 
-.btn-primary{
-border:1px solid rgba(255,0,76,0.4);
-background:rgba(10,10,10,0.9);
+.primary{
+
+background:transparent;
+
+border:
+1px solid rgba(255,0,70,0.22);
+
 color:white;
+
+box-shadow:
+0 0 12px rgba(255,0,70,0.03);
 }
 
-.btn-primary:hover{
-background:#ff004c;
-box-shadow:0 0 30px rgba(255,0,76,0.3);
+.primary:hover{
+
+background:
+rgba(255,0,70,0.04);
+
+border:
+1px solid rgba(255,0,70,0.45);
+
+transform:translateY(-3px);
 }
 
-.btn-secondary{
-border:1px solid rgba(255,255,255,0.08);
-color:white;
-background:rgba(255,255,255,0.02);
+.secondary{
+
+background:transparent;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+color:#d8d8d8;
 }
 
-.btn-secondary:hover{
-border-color:#ff004c;
+.secondary:hover{
+
+border:
+1px solid rgba(255,255,255,0.18);
+
+transform:translateY(-3px);
 }
 
-/* TECH STACK */
+/* =========================================================
+VISUAL
+========================================================= */
 
-.stack{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:20px;
-}
+.visual-zone{
 
-.stack-item{
-display:flex;
-align-items:center;
-gap:10px;
-padding:12px 16px;
-border:1px solid rgba(255,255,255,0.06);
-background:rgba(255,255,255,0.02);
-border-radius:12px;
-color:#cfcfcf;
-font-size:14px;
-transition:0.3s;
-}
-
-.stack-item:hover{
-border-color:rgba(255,0,76,0.4);
-transform:translateY(-2px);
-}
-
-.stack-item img{
-width:18px;
-height:18px;
-object-fit:contain;
-}
-
-/* RIGHT SIDE */
-
-.right{
 position:relative;
-width:650px;
-height:650px;
+
+height:760px;
+
 display:flex;
 justify-content:center;
 align-items:center;
-animation:fadeIn 2.5s ease forwards;
-opacity:0;
 }
 
-/* RADAR CIRCLES */
+/* =========================================================
+CIRCLES
+========================================================= */
 
-.radar{
+.circle{
+
 position:absolute;
-border:1px solid rgba(255,0,76,0.06);
+
 border-radius:50%;
+
+border:
+1px solid rgba(255,0,70,0.035);
 }
 
-.r1{width:250px;height:250px;}
-.r2{width:420px;height:420px;}
-.r3{width:620px;height:620px;}
-.r4{width:820px;height:820px;}
+.c1{
+width:420px;
+height:420px;
+}
 
-/* OD LOGO */
+.c2{
+width:620px;
+height:620px;
+}
+
+.c3{
+width:820px;
+height:820px;
+}
+
+/* =========================================================
+OD LOGO
+========================================================= */
+
+.od-wrapper{
+
+position:relative;
+
+transform:scale(0.88);
+
+opacity:0;
+
+animation:
+fadeUp 1.4s ease forwards;
+
+animation-delay:0.4s;
+}
 
 .od-logo{
+
 position:relative;
+
 display:flex;
 align-items:center;
-gap:30px;
-z-index:3;
-animation:logoAppear 2.2s ease forwards;
-opacity:0;
+gap:24px;
 }
 
-.o-shape,
-.d-shape{
+.od-o,
+.od-d{
+
 position:relative;
-background:#090909;
-border:1px solid rgba(255,255,255,0.04);
-box-shadow:
-inset 0 0 40px rgba(255,255,255,0.02),
-0 0 40px rgba(255,0,76,0.08);
+
+background:
+linear-gradient(
+145deg,
+#090909,
+#050505
+);
+
+border:
+1px solid rgba(255,255,255,0.03);
+
 overflow:hidden;
+
+backdrop-filter:blur(10px);
 }
 
-.o-shape{
+/* O */
+
+.od-o{
+
 width:170px;
 height:170px;
+
 border-radius:40px;
+
+box-shadow:
+
+inset 0 0 24px rgba(255,255,255,0.015),
+0 0 22px rgba(255,0,70,0.02);
 }
 
-.d-shape{
-width:280px;
-height:170px;
-border-radius:40px;
-}
+.od-o::before{
 
-.o-shape::before,
-.d-shape::before{
 content:"";
+
 position:absolute;
+
 inset:16px;
-border:1px solid rgba(255,255,255,0.03);
+
 border-radius:28px;
+
+border:
+1px solid rgba(255,255,255,0.03);
 }
 
-/* SCAN */
+/* D */
 
-.scan-line{
+.od-d{
+
+width:250px;
+height:170px;
+
+border-radius:0 40px 40px 0;
+
+box-shadow:
+
+inset 0 0 24px rgba(255,255,255,0.015),
+0 0 22px rgba(255,0,70,0.02);
+}
+
+.od-d::before{
+
+content:"";
+
 position:absolute;
-left:0;
-width:100%;
+
+inset:16px;
+
+border-radius:0 28px 28px 0;
+
+border:
+1px solid rgba(255,255,255,0.03);
+}
+
+/* =========================================================
+SCAN
+========================================================= */
+
+.scan{
+
+position:absolute;
+
+left:-20%;
+top:50%;
+
+width:140%;
 height:2px;
+
 background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,0,76,0.95),
+rgba(255,0,70,0.55),
 transparent
 );
-box-shadow:0 0 25px rgba(255,0,76,0.7);
-top:50%;
-animation:scanMove 8s ease-in-out infinite;
-animation-delay:1.5s;
-opacity:0;
-animation-fill-mode:forwards;
+
+box-shadow:
+0 0 10px rgba(255,0,70,0.25);
+
+animation:
+scanMove 8s ease-in-out infinite;
+
+animation-delay:1s;
 }
 
 @keyframes scanMove{
-0%{
-transform:translateY(-55px);
-opacity:0;
-}
 
-10%{
-opacity:1;
+0%{
+transform:translateX(-80px);
+opacity:0;
 }
 
 50%{
-transform:translateY(55px);
-opacity:1;
+opacity:0.7;
 }
 
 100%{
-transform:translateY(-55px);
-opacity:0.4;
+transform:translateX(80px);
+opacity:0;
 }
 }
 
-/* NODES */
+/* =========================================================
+REFLECTION
+========================================================= */
+
+.reflect{
+
+position:absolute;
+
+top:-40%;
+left:-40%;
+
+width:60%;
+height:220%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.025),
+transparent
+);
+
+transform:rotate(18deg);
+
+animation:reflectMove 12s linear infinite;
+}
+
+@keyframes reflectMove{
+
+from{
+left:-50%;
+}
+
+to{
+left:140%;
+}
+}
+
+/* =========================================================
+NODES
+========================================================= */
 
 .node{
+
 position:absolute;
-width:12px;
-height:12px;
+
+width:10px;
+height:10px;
+
 border-radius:50%;
+
 background:#ff004c;
-box-shadow:0 0 20px rgba(255,0,76,0.8);
+
+box-shadow:
+0 0 12px rgba(255,0,70,0.35);
+
 opacity:0;
-animation:nodeAppear 1s ease forwards;
+
+animation:nodeFade 2s ease forwards;
 }
 
-.n1{top:120px;right:120px;animation-delay:2s;}
-.n2{top:280px;left:70px;animation-delay:2.3s;}
-.n3{bottom:120px;left:140px;animation-delay:2.6s;}
-.n4{bottom:70px;right:90px;animation-delay:2.9s;}
-
-@keyframes nodeAppear{
-to{
-opacity:1;
-}
+.n1{
+top:20%;
+right:20%;
+animation-delay:1s;
 }
 
-/* TERMINAL */
-
-.terminal{
-position:absolute;
-bottom:30px;
-right:0;
-width:260px;
-padding:20px;
-background:rgba(10,10,10,0.65);
-border:1px solid rgba(255,255,255,0.05);
-border-radius:18px;
-backdrop-filter:blur(12px);
-font-family:monospace;
-font-size:12px;
-line-height:2;
-color:#8b8b8b;
-opacity:0;
-animation:fadeIn 2s ease forwards;
-animation-delay:3s;
+.n2{
+top:38%;
+left:20%;
+animation-delay:1.4s;
 }
 
-.terminal span{
-color:#ff004c;
+.n3{
+bottom:22%;
+right:16%;
+animation-delay:1.8s;
 }
 
-/* ANIMATIONS */
-
-@keyframes fadeIn{
-to{
-opacity:1;
-transform:none;
+.n4{
+bottom:16%;
+left:28%;
+animation-delay:2.2s;
 }
+
+@keyframes nodeFade{
+
 from{
 opacity:0;
-transform:translateY(15px);
-}
-}
-
-@keyframes logoAppear{
-0%{
-opacity:0;
-transform:scale(0.95);
+transform:scale(0.6);
 }
 
-100%{
+to{
 opacity:1;
 transform:scale(1);
 }
 }
 
-/* RESPONSIVE */
+/* =========================================================
+TERMINAL
+========================================================= */
 
-@media(max-width:1200px){
+.terminal{
+
+position:absolute;
+
+bottom:80px;
+right:10px;
+
+width:260px;
+
+padding:20px;
+
+border-radius:18px;
+
+background:
+rgba(8,8,8,0.72);
+
+border:
+1px solid rgba(255,255,255,0.03);
+
+backdrop-filter:blur(12px);
+
+font-family:'Courier New',monospace;
+
+font-size:11px;
+
+line-height:2;
+
+letter-spacing:1px;
+
+color:#8d8d8d;
+
+opacity:0;
+
+animation:
+fadeUp 1.6s ease forwards;
+
+animation-delay:1.6s;
+}
+
+.cursor{
+
+display:inline-block;
+
+width:8px;
+height:14px;
+
+background:#ff004c;
+
+margin-left:4px;
+
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+0%,50%{
+opacity:1;
+}
+
+51%,100%{
+opacity:0;
+}
+}
+
+/* =========================================================
+ANIMATION
+========================================================= */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(18px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* =========================================================
+SECTION
+========================================================= */
+
+.section{
+
+margin-top:120px;
+}
+
+.section-title{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:54px;
+
+margin-bottom:40px;
+
+text-transform:uppercase;
+}
+
+.about-box{
+
+padding:48px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
+);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+max-width:1100px;
+}
+
+.about-box p{
+
+font-size:18px;
+
+line-height:2.1;
+
+color:#b8b8b8;
+}
+
+/* =========================================================
+SKILLS
+========================================================= */
+
+.skills{
+
+display:flex;
+flex-wrap:wrap;
+
+gap:16px;
+
+margin-top:36px;
+}
+
+.skill{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+padding:16px 20px;
+
+border-radius:16px;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+color:#d9d9d9;
+
+transition:0.3s ease;
+}
+
+.skill i{
+
+color:#ff004c;
+}
+
+.skill:hover{
+
+transform:translateY(-3px);
+
+border:
+1px solid rgba(255,255,255,0.1);
+}
+
+/* =========================================================
+CERTIFICATIONS
+========================================================= */
+
+.certifications{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:24px;
+}
+
+.cert-card{
+
+padding:34px;
+
+border-radius:24px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
+);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+transition:0.3s ease;
+}
+
+.cert-card:hover{
+
+transform:translateY(-4px);
+
+border:
+1px solid rgba(255,0,70,0.14);
+}
+
+.cert-card h3{
+
+font-size:22px;
+
+margin-bottom:16px;
+
+color:white;
+}
+
+.cert-card p{
+
+color:#9d9d9d;
+
+line-height:1.9;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
 
 .hero{
-flex-direction:column;
-padding-top:140px;
-gap:80px;
+grid-template-columns:1fr;
 }
 
-.right{
-width:100%;
-height:500px;
+.visual-zone{
+height:460px;
 }
 
-.name{
-font-size:4.8rem;
+.social{
+display:none;
+}
 }
 
+@media(max-width:768px){
+
+.hero h1{
+font-size:54px;
+}
+
+.topbar nav{
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.visual-zone{
+height:320px;
+}
+
+.od-o{
+width:120px;
+height:120px;
+}
+
+.od-d{
+width:170px;
+height:120px;
+}
+
+.terminal{
+display:none;
+}
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
+<div class="topbar">
 
 <nav>
-<a href="#">ACCUEIL</a>
-<a href="#about">À PROPOS</a>
-<a href="#skills">COMPÉTENCES</a>
-<a href="#projects">PROJETS</a>
-<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-cybersecurity.pdf.pdf" target="_blank">CERTIFICATIONS</a>
-<a href="#contact">CONTACT</a>
+
+<a href="#home">Accueil</a>
+<a href="#about">À propos</a>
+<a href="#skills">Compétences</a>
+
+<a href="https://github.com/oceane-dehaudt?tab=repositories"
+target="_blank">
+
+Projets
+
+</a>
+
+<a href="#certifications">
+Certifications
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
 </nav>
 
-<!-- SIDE -->
-
-<div class="side-icons">
-<a href="https://github.com/oceane-dehaudt" target="_blank">⌘</a>
-<a href="mailto:oceane@example.com">✉</a>
 </div>
 
-<!-- HERO -->
+<div class="social">
 
-<section class="hero">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
 
-<!-- LEFT -->
+<i class="fab fa-github"></i>
 
-<div class="left">
+</a>
 
-<div class="top-mini">
+<a href="mailto:tonmail@example.com">
+
+<i class="fa-regular fa-envelope"></i>
+
+</a>
+
+</div>
+
+<div class="container">
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<div class="hero-mini">
 CYBERSÉCURITÉ • OSINT • ANALYSE RÉSEAU
 </div>
 
-<h1 class="name">
-OCÉANE<br>
-DEHAUDT
+<h1>
+
+<span>OCÉANE</span>
+<span>DEHAUDT</span>
+
 </h1>
 
-<p class="description">
+<p>
+
 Cybersécurité offensive, analyse réseau et recherche de vulnérabilités.
+
 Développement de laboratoires sécurisés, veille OSINT et analyse des menaces dans des environnements techniques complexes.
+
 </p>
 
-<div class="bottom-phrase">
+<div class="hero-bottom">
 ANALYSER • COMPRENDRE • ANTICIPER
 </div>
 
 <div class="buttons">
 
-<a class="btn btn-primary"
-href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-cybersecurity.pdf.pdf"
-target="_blank">
-VOIR MES CERTIFICATIONS
+<a href="#certifications"
+class="btn primary">
+
+Voir mes certifications
+
 </a>
 
-<a class="btn btn-secondary"
-href="https://github.com/oceane-dehaudt"
-target="_blank">
-VOIR MES PROJETS
+<a href="https://github.com/oceane-dehaudt?tab=repositories"
+target="_blank"
+class="btn secondary">
+
+Voir mes projets
+
 </a>
 
 </div>
 
-<!-- STACK -->
-
-<div class="stack">
-
-<div class="stack-item">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
-Linux
 </div>
 
-<div class="stack-item">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-Python
-</div>
+<div class="visual-zone">
 
-<div class="stack-item">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg">
-Wireshark
-</div>
-
-<div class="stack-item">
-<img src="https://nmap.org/images/sitelogo-2x.png">
-Nmap
-</div>
-
-<div class="stack-item">
-<img src="https://www.svgrepo.com/show/331760/burp-suite.svg">
-Burp Suite
-</div>
-
-<div class="stack-item">
-<img src="https://www.svgrepo.com/show/448266/docker.svg">
-Docker
-</div>
-
-<div class="stack-item">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-Git
-</div>
-
-<div class="stack-item">
-<img src="https://www.svgrepo.com/show/354202/postman-icon.svg">
-OSINT
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="right">
-
-<div class="radar r1"></div>
-<div class="radar r2"></div>
-<div class="radar r3"></div>
-<div class="radar r4"></div>
-
-<div class="od-logo">
-
-<div class="o-shape">
-<div class="scan-line"></div>
-</div>
-
-<div class="d-shape">
-<div class="scan-line"></div>
-</div>
-
-</div>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
 
 <div class="node n1"></div>
 <div class="node n2"></div>
 <div class="node n3"></div>
 <div class="node n4"></div>
 
+<div class="od-wrapper">
+
+<div class="od-logo">
+
+<div class="od-o">
+
+<div class="scan"></div>
+<div class="reflect"></div>
+
+</div>
+
+<div class="od-d">
+
+<div class="scan"></div>
+<div class="reflect"></div>
+
+</div>
+
+</div>
+
+</div>
+
 <div class="terminal">
-<span>root@od-sec</span>:~# active<br>
+
+root@od-sec:~ active<br>
 monitoring traffic...<br>
 threats detected: 0<br>
-network integrity: 98%
+network integrity: 98%<span class="cursor"></span>
+
 </div>
 
 </div>
 
 </section>
+
+<section class="section" id="about">
+
+<h2 class="section-title">
+À PROPOS
+</h2>
+
+<div class="about-box">
+
+<p>
+
+Étudiante en cybersécurité orientée sécurité offensive, analyse réseau et investigation OSINT.
+
+Développement de laboratoires personnels, compréhension des infrastructures sécurisées et veille autour des menaces modernes.
+
+Participation active sur Hack The Box et TryHackMe afin de renforcer les compétences techniques en environnement réel.
+
+</p>
+
+<div class="skills" id="skills">
+
+<div class="skill">
+<i class="fab fa-linux"></i>
+Linux
+</div>
+
+<div class="skill">
+<i class="fab fa-python"></i>
+Python
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-network-wired"></i>
+Wireshark
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-radar"></i>
+Nmap
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-bug"></i>
+Burp Suite
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-globe"></i>
+OSINT
+</div>
+
+<div class="skill">
+<i class="fab fa-docker"></i>
+Docker
+</div>
+
+<div class="skill">
+<i class="fab fa-git-alt"></i>
+Git
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="certifications">
+
+<h2 class="section-title">
+CERTIFICATIONS
+</h2>
+
+<div class="certifications">
+
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-cybersecurity.pdf.pdf"
+target="_blank"
+style="text-decoration:none;">
+
+<div class="cert-card">
+
+<h3>Zscaler Cybersecurity</h3>
+
+<p>
+
+Certification orientée sécurité cloud, protection réseau et architecture Zero Trust.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-networking.pdf.pdf"
+target="_blank"
+style="text-decoration:none;">
+
+<div class="cert-card">
+
+<h3>Zscaler Networking</h3>
+
+<p>
+
+Validation des compétences réseau et sécurisation des infrastructures modernes.
+
+</p>
+
+</div>
+
+</a>
+
+<div class="cert-card">
+
+<h3>Hack The Box</h3>
+
+<p>
+
+Pratique active sur laboratoires offensifs et environnements de simulation réalistes.
+
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<h3>TryHackMe</h3>
+
+<p>
+
+Entraînement continu en cybersécurité offensive, investigation et analyse réseau.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
 
 </body>
 </html>
