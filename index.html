@@ -54,8 +54,8 @@ inset:0;
 background:
 
 linear-gradient(
-rgba(0,0,0,0.92),
-rgba(0,0,0,0.96)
+rgba(0,0,0,0.93),
+rgba(0,0,0,0.97)
 ),
 
 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
@@ -64,7 +64,7 @@ background-size:cover;
 background-position:center;
 
 filter:
-brightness(0.14)
+brightness(0.13)
 blur(2px);
 
 transform:scale(1.05);
@@ -103,7 +103,7 @@ inset:0;
 
 background:
 radial-gradient(circle at center,
-rgba(130,0,20,0.18),
+rgba(140,0,25,0.2),
 transparent 70%);
 
 filter:blur(120px);
@@ -140,7 +140,7 @@ height:100%;
 background:
 linear-gradient(
 transparent,
-rgba(130,0,20,0.35),
+rgba(150,0,30,0.35),
 transparent);
 
 filter:blur(1px);
@@ -183,7 +183,7 @@ rgba(0,0,0,0.22);
 backdrop-filter:blur(18px);
 
 border-bottom:
-1px solid rgba(130,0,20,0.08);
+1px solid rgba(150,0,30,0.08);
 
 z-index:999;
 }
@@ -211,7 +211,7 @@ transition:0.3s ease;
 
 .topbar a:hover{
 
-color:#9b0021;
+color:#b10030;
 }
 
 /* =========================================================
@@ -246,7 +246,7 @@ transition:0.3s ease;
 
 .social a:hover{
 
-color:#9b0021;
+color:#b10030;
 
 transform:translateY(-3px);
 }
@@ -302,7 +302,7 @@ letter-spacing:5px;
 
 text-transform:uppercase;
 
-color:#9b0021;
+color:#b10030;
 
 margin-bottom:24px;
 }
@@ -333,10 +333,10 @@ display:block;
 
 font-size:clamp(70px,9vw,170px);
 
-color:#a10028;
+color:#b10030;
 
 text-shadow:
-0 0 35px rgba(161,0,40,0.35);
+0 0 35px rgba(177,0,48,0.45);
 }
 
 .dot{
@@ -346,12 +346,12 @@ height:14px;
 
 border-radius:50%;
 
-background:#a10028;
+background:#b10030;
 
 margin-bottom:34px;
 
 box-shadow:
-0 0 20px rgba(161,0,40,0.9);
+0 0 20px rgba(177,0,48,1);
 }
 
 .hero p{
@@ -402,12 +402,12 @@ background:
 linear-gradient(
 135deg,
 #540010,
-#a10028);
+#b10030);
 
 color:white;
 
 box-shadow:
-0 0 35px rgba(161,0,40,0.25);
+0 0 35px rgba(177,0,48,0.35);
 }
 
 .secondary{
@@ -428,7 +428,7 @@ color:white;
 transform:translateY(-4px);
 
 box-shadow:
-0 0 42px rgba(161,0,40,0.3);
+0 0 42px rgba(177,0,48,0.4);
 }
 
 /* =========================================================
@@ -444,6 +444,11 @@ height:760px;
 display:flex;
 justify-content:center;
 align-items:center;
+
+aspect-ratio:1/1;
+max-width:760px;
+
+margin:auto;
 }
 
 /* =========================================================
@@ -452,8 +457,13 @@ CANVAS
 
 #globe-canvas{
 
-width:100%;
-height:100%;
+width:760px !important;
+height:760px !important;
+
+max-width:100%;
+max-height:100%;
+
+display:block;
 }
 
 /* =========================================================
@@ -489,7 +499,7 @@ height:1000px;
 }
 
 /* =========================================================
-SECTIONS
+SECTION
 ========================================================= */
 
 .section-title{
@@ -506,7 +516,7 @@ text-transform:uppercase;
 
 .section-title span{
 
-color:#9b0021;
+color:#b10030;
 }
 
 /* =========================================================
@@ -533,7 +543,7 @@ background:
 rgba(7,7,7,0.55);
 
 border:
-1px solid rgba(161,0,40,0.12);
+1px solid rgba(177,0,48,0.12);
 
 backdrop-filter:blur(18px);
 
@@ -545,15 +555,15 @@ transition:0.35s ease;
 transform:translateY(-5px);
 
 border:
-1px solid rgba(161,0,40,0.24);
+1px solid rgba(177,0,48,0.24);
 
 box-shadow:
-0 0 40px rgba(161,0,40,0.1);
+0 0 40px rgba(177,0,48,0.12);
 }
 
 .card h3{
 
-color:#9b0021;
+color:#b10030;
 
 margin-bottom:20px;
 
@@ -595,14 +605,14 @@ background:
 rgba(0,0,0,0.45);
 
 border:
-1px solid rgba(161,0,40,0.12);
+1px solid rgba(177,0,48,0.12);
 
 transition:0.3s ease;
 }
 
 .skill i{
 
-color:#9b0021;
+color:#b10030;
 }
 
 .skill:hover{
@@ -610,7 +620,7 @@ color:#9b0021;
 transform:translateY(-3px);
 
 border:
-1px solid rgba(161,0,40,0.24);
+1px solid rgba(177,0,48,0.24);
 }
 
 /* =========================================================
@@ -624,7 +634,7 @@ margin-top:120px;
 padding-top:40px;
 
 border-top:
-1px solid rgba(161,0,40,0.12);
+1px solid rgba(177,0,48,0.12);
 
 text-align:center;
 
@@ -688,10 +698,6 @@ margin-top:-100px;
 <div class="light center-light"></div>
 <div class="light right-light"></div>
 
-<!-- =========================================================
-TOPBAR
-========================================================= -->
-
 <div class="topbar">
 
 <nav>
@@ -720,10 +726,6 @@ Certifications
 
 </div>
 
-<!-- =========================================================
-SOCIAL
-========================================================= -->
-
 <div class="social">
 
 <a href="https://github.com/oceane-dehaudt"
@@ -741,17 +743,9 @@ target="_blank">
 
 </div>
 
-<!-- =========================================================
-MAIN
-========================================================= -->
-
 <div class="container">
 
 <section class="hero" id="home">
-
-<!-- =========================================================
-TEXT
-========================================================= -->
 
 <div class="hero-text">
 
@@ -803,10 +797,6 @@ Voir mes projets
 
 </div>
 
-<!-- =========================================================
-GLOBE
-========================================================= -->
-
 <div class="globe-zone">
 
 <div class="orbit orbit1"></div>
@@ -818,10 +808,6 @@ GLOBE
 </div>
 
 </section>
-
-<!-- =========================================================
-ABOUT
-========================================================= -->
 
 <h2 class="section-title" id="about">
 À <span>PROPOS</span>
@@ -914,10 +900,6 @@ Git
 
 </div>
 
-<!-- =========================================================
-THREE JS
-========================================================= -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
@@ -932,7 +914,7 @@ const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
 45,
-canvas.clientWidth / canvas.clientHeight,
+1,
 0.1,
 1000
 );
@@ -944,15 +926,14 @@ RENDERER
 ========================================================= */
 
 const renderer = new THREE.WebGLRenderer({
+
 canvas,
 alpha:true,
 antialias:true
+
 });
 
-renderer.setSize(
-canvas.clientWidth,
-canvas.clientHeight
-);
+renderer.setSize(760,760);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -962,16 +943,16 @@ GLOBE
 
 const globeGeometry = new THREE.SphereGeometry(
 2,
-64,
-64
+120,
+120
 );
 
 const globeMaterial = new THREE.MeshBasicMaterial({
 
-color:0xaa0028,
+color:0xff003c,
 wireframe:true,
 transparent:true,
-opacity:0.95
+opacity:0.9
 
 });
 
@@ -983,12 +964,37 @@ globeMaterial
 scene.add(globe);
 
 /* =========================================================
+INNER GLOW
+========================================================= */
+
+const glowGeometry = new THREE.SphereGeometry(
+2.03,
+120,
+120
+);
+
+const glowMaterial = new THREE.MeshBasicMaterial({
+
+color:0xff003c,
+transparent:true,
+opacity:0.08
+
+});
+
+const glow = new THREE.Mesh(
+glowGeometry,
+glowMaterial
+);
+
+scene.add(glow);
+
+/* =========================================================
 PARTICLES
 ========================================================= */
 
 const particleGeometry = new THREE.BufferGeometry();
 
-const particleCount = 1800;
+const particleCount = 2500;
 
 const positions = [];
 
@@ -1012,8 +1018,8 @@ positions,
 
 const particleMaterial = new THREE.PointsMaterial({
 
-color:0xff003c,
-size:0.01
+color:0xff335f,
+size:0.012
 
 });
 
@@ -1023,6 +1029,42 @@ particleMaterial
 );
 
 scene.add(particles);
+
+/* =========================================================
+NODES
+========================================================= */
+
+for(let i=0;i<25;i++){
+
+const nodeGeometry = new THREE.SphereGeometry(
+0.03,
+12,
+12
+);
+
+const nodeMaterial = new THREE.MeshBasicMaterial({
+color:0xff335f
+});
+
+const node = new THREE.Mesh(
+nodeGeometry,
+nodeMaterial
+);
+
+const phi = Math.acos(
+-1 + (2 * Math.random())
+);
+
+const theta = Math.sqrt(25 * Math.PI) * phi;
+
+node.position.setFromSphericalCoords(
+2,
+phi,
+theta
+);
+
+scene.add(node);
+}
 
 /* =========================================================
 ATTACK ARCS
@@ -1037,9 +1079,9 @@ function createAttackArc(){
 const curve = new THREE.QuadraticBezierCurve3(
 
 new THREE.Vector3(
-(Math.random()-0.5)*2.5,
-(Math.random()-0.5)*2.5,
-(Math.random()-0.5)*2.5
+(Math.random()-0.5)*2.2,
+(Math.random()-0.5)*2.2,
+(Math.random()-0.5)*2.2
 ),
 
 new THREE.Vector3(
@@ -1049,9 +1091,9 @@ new THREE.Vector3(
 ),
 
 new THREE.Vector3(
-(Math.random()-0.5)*2.5,
-(Math.random()-0.5)*2.5,
-(Math.random()-0.5)*2.5
+(Math.random()-0.5)*2.2,
+(Math.random()-0.5)*2.2,
+(Math.random()-0.5)*2.2
 )
 
 );
@@ -1064,7 +1106,7 @@ const material = new THREE.LineBasicMaterial({
 
 color:0xff003c,
 transparent:true,
-opacity:0.9
+opacity:1
 
 });
 
@@ -1076,17 +1118,17 @@ material
 attackGroup.add(arc);
 
 /* =========================================================
-MOVING PULSE
+PULSE
 ========================================================= */
 
 const pulseGeometry = new THREE.SphereGeometry(
-0.03,
+0.035,
 12,
 12
 );
 
 const pulseMaterial = new THREE.MeshBasicMaterial({
-color:0xff335f
+color:0xffffff
 });
 
 const pulse = new THREE.Mesh(
@@ -1100,7 +1142,7 @@ let progress = 0;
 
 function animatePulse(){
 
-progress += 0.01;
+progress += 0.012;
 
 if(progress >= 1){
 
@@ -1120,7 +1162,7 @@ requestAnimationFrame(animatePulse);
 animatePulse();
 }
 
-setInterval(createAttackArc,700);
+setInterval(createAttackArc,350);
 
 /* =========================================================
 LIGHT
@@ -1128,7 +1170,7 @@ LIGHT
 
 const light = new THREE.PointLight(
 0xff003c,
-2,
+3,
 100
 );
 
@@ -1144,9 +1186,11 @@ function animate(){
 
 requestAnimationFrame(animate);
 
-globe.rotation.y += 0.002;
+globe.rotation.y += 0.0018;
 
-particles.rotation.y += 0.0006;
+glow.rotation.y += 0.0018;
+
+particles.rotation.y += 0.0005;
 
 renderer.render(scene,camera);
 }
@@ -1159,15 +1203,7 @@ RESPONSIVE
 
 window.addEventListener('resize',()=>{
 
-camera.aspect =
-canvas.clientWidth / canvas.clientHeight;
-
-camera.updateProjectionMatrix();
-
-renderer.setSize(
-canvas.clientWidth,
-canvas.clientHeight
-);
+renderer.setSize(760,760);
 
 });
 
