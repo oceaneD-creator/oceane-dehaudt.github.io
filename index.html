@@ -5,15 +5,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Océane Dehaudt | Cybersécurité</title>
+<title>Océane Dehaudt | Cybersecurity</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <style>
 
@@ -32,56 +31,66 @@ html{
 }
 
 body{
-    background:#050505;
+
+    background:#030303;
     color:white;
+
     overflow-x:hidden;
+
     font-family:'Inter',sans-serif;
 }
 
 /* =========================
-BACKGROUND
+LAYERS
 ========================= */
 
-.background{
+.scene{
 
     position:fixed;
     inset:0;
-    z-index:-10;
+
+    z-index:-20;
+
+    overflow:hidden;
+
+    perspective:1600px;
 
     background:
-    linear-gradient(
-    rgba(0,0,0,0.78),
-    rgba(0,0,0,0.92)),
+    radial-gradient(circle at top,
+    rgba(70,0,12,0.22),
+    transparent 45%),
 
-    url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1974&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
-
-    filter:brightness(0.32) blur(1px);
-
-    transform:scale(1.03);
+    #030303;
 }
 
 /* =========================
-OVERLAY
+FOG
 ========================= */
 
-.overlay{
+.fog{
 
-    position:fixed;
+    position:absolute;
     inset:0;
-    z-index:-9;
 
     background:
-
-    radial-gradient(circle at top,
-    rgba(110,0,25,0.16),
-    transparent 42%),
-
-    radial-gradient(circle at bottom,
-    rgba(60,0,10,0.28),
+    radial-gradient(circle at center,
+    rgba(120,0,25,0.06),
     transparent 55%);
+
+    filter:blur(70px);
+
+    animation:fogMove 14s ease-in-out infinite;
+}
+
+@keyframes fogMove{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
 }
 
 /* =========================
@@ -90,14 +99,12 @@ GRID
 
 .grid{
 
-    position:fixed;
+    position:absolute;
     inset:0;
 
-    z-index:-8;
-
     background-image:
-    linear-gradient(rgba(90,0,20,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(90,0,20,0.12) 1px, transparent 1px);
+    linear-gradient(rgba(100,0,18,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,0,18,0.12) 1px, transparent 1px);
 
     background-size:60px 60px;
 
@@ -105,57 +112,212 @@ GRID
 }
 
 /* =========================
-LIGHTS
+SERVER ROOM
 ========================= */
 
-.light{
+.server-room{
 
-    position:fixed;
+    position:absolute;
 
-    width:1px;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* =========================
+SERVER WALLS
+========================= */
+
+.server-wall{
+
+    position:absolute;
+
+    top:0;
+
+    width:26%;
     height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:space-evenly;
+
+    transform-style:preserve-3d;
+}
+
+.left-wall{
+
+    left:-3%;
+
+    transform:
+    rotateY(30deg)
+    translateZ(-120px);
+}
+
+.right-wall{
+
+    right:-3%;
+
+    transform:
+    rotateY(-30deg)
+    translateZ(-120px);
+}
+
+/* =========================
+SERVERS
+========================= */
+
+.server{
+
+    width:100%;
+    height:75px;
+
+    border-radius:12px;
 
     background:
     linear-gradient(
+    180deg,
+    rgba(12,12,12,0.95),
+    rgba(3,3,3,0.95));
+
+    border:
+    1px solid rgba(90,0,18,0.2);
+
+    box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.9);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* =========================
+SERVER LEDS
+========================= */
+
+.server::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:14px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#7c0018;
+
+    box-shadow:
+    0 0 12px rgba(124,0,24,0.9);
+
+    animation:pulse 2.5s ease-in-out infinite;
+}
+
+.server::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:40%;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+    90deg,
     transparent,
-    rgba(130,0,30,0.7),
+    rgba(124,0,24,0.5),
     transparent);
-
-    opacity:0.4;
-
-    z-index:-7;
-
-    animation:pulse 4s ease-in-out infinite;
-}
-
-.light1{
-    left:7%;
-}
-
-.light2{
-    right:10%;
 }
 
 @keyframes pulse{
 
     0%,100%{
-        opacity:0.18;
+        opacity:0.4;
     }
 
     50%{
-        opacity:0.5;
+        opacity:1;
     }
 }
 
 /* =========================
-PARTICLES
+CENTER LIGHT
 ========================= */
 
-#tsparticles{
+.center-light{
 
-    position:fixed;
-    inset:0;
-    z-index:-6;
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:2px;
+    height:100%;
+
+    background:
+    linear-gradient(
+    transparent,
+    rgba(124,0,24,0.55),
+    transparent);
+
+    filter:blur(1px);
+
+    animation:lightPulse 5s ease-in-out infinite;
+}
+
+@keyframes lightPulse{
+
+    0%,100%{
+        opacity:0.25;
+    }
+
+    50%{
+        opacity:0.6;
+    }
+}
+
+/* =========================
+FLOOR REFLECTION
+========================= */
+
+.floor{
+
+    position:absolute;
+
+    bottom:-10%;
+
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    rotateX(82deg);
+
+    width:180%;
+    height:60%;
+
+    background:
+    linear-gradient(
+    rgba(100,0,18,0.08),
+    transparent);
+
+    filter:blur(10px);
 }
 
 /* =========================
@@ -179,10 +341,11 @@ TOPBAR
 
     backdrop-filter:blur(18px);
 
-    background:rgba(0,0,0,0.28);
+    background:
+    rgba(0,0,0,0.3);
 
     border-bottom:
-    1px solid rgba(110,0,25,0.18);
+    1px solid rgba(90,0,18,0.14);
 }
 
 .topbar nav{
@@ -193,19 +356,19 @@ TOPBAR
 
 .topbar a{
 
-    color:#d6d6d6;
+    color:#d2d2d2;
 
     text-decoration:none;
 
     text-transform:uppercase;
 
-    font-size:12px;
-
     letter-spacing:3px;
 
-    position:relative;
+    font-size:12px;
 
     transition:0.3s ease;
+
+    position:relative;
 }
 
 .topbar a::after{
@@ -260,7 +423,7 @@ SOCIAL BAR
 
     color:#cfcfcf;
 
-    font-size:19px;
+    font-size:20px;
 
     transition:0.3s ease;
 }
@@ -280,23 +443,24 @@ SIDE MENU
 
     position:fixed;
 
-    right:28px;
+    right:30px;
     top:50%;
 
     transform:translateY(-50%);
 
-    width:105px;
+    width:110px;
 
     padding:26px 14px;
 
     border-radius:28px;
 
-    background:rgba(7,7,7,0.58);
+    background:
+    rgba(7,7,7,0.58);
 
     backdrop-filter:blur(20px);
 
     border:
-    1px solid rgba(120,0,25,0.14);
+    1px solid rgba(90,0,18,0.18);
 
     z-index:999;
 }
@@ -317,7 +481,7 @@ SIDE MENU
 
 .side-menu a{
 
-    color:#d6d6d6;
+    color:#d0d0d0;
 
     text-decoration:none;
 
@@ -337,7 +501,7 @@ SIDE MENU
 }
 
 /* =========================
-CONTAINER
+MAIN
 ========================= */
 
 .container{
@@ -398,7 +562,7 @@ HERO
 
     color:white;
 
-    font-size:clamp(75px,10vw,155px);
+    font-size:clamp(75px,10vw,160px);
 }
 
 .hero .red{
@@ -407,7 +571,7 @@ HERO
 
     color:#7c0018;
 
-    font-size:clamp(75px,10vw,155px);
+    font-size:clamp(75px,10vw,160px);
 
     text-shadow:
     0 0 18px rgba(124,0,24,0.45);
@@ -500,13 +664,10 @@ BUTTONS
 .btn:hover{
 
     transform:translateY(-4px);
-
-    box-shadow:
-    0 0 25px rgba(124,0,24,0.28);
 }
 
 /* =========================
-SECTION TITLE
+SECTIONS
 ========================= */
 
 .section-title{
@@ -543,10 +704,10 @@ CARDS
 .card{
 
     background:
-    rgba(8,8,8,0.52);
+    rgba(8,8,8,0.55);
 
     border:
-    1px solid rgba(120,0,25,0.14);
+    1px solid rgba(90,0,18,0.16);
 
     border-radius:28px;
 
@@ -600,17 +761,26 @@ SKILLS
 
 .skill{
 
-    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    border-radius:12px;
+    padding:14px 18px;
+
+    border-radius:14px;
 
     background:
     rgba(0,0,0,0.45);
 
     border:
-    1px solid rgba(120,0,25,0.12);
+    1px solid rgba(90,0,18,0.12);
 
     transition:0.3s ease;
+}
+
+.skill i{
+
+    color:#7c0018;
 }
 
 .skill:hover{
@@ -622,14 +792,14 @@ SKILLS
 }
 
 /* =========================
-PROJECT LINKS
+LINKS
 ========================= */
 
 .project-link{
 
     display:inline-block;
 
-    margin-top:25px;
+    margin-top:24px;
 
     color:#7c0018;
 
@@ -649,11 +819,11 @@ FOOTER
     padding-top:40px;
 
     border-top:
-    1px solid rgba(120,0,25,0.12);
-
-    color:#7f7f7f;
+    1px solid rgba(90,0,18,0.12);
 
     text-align:center;
+
+    color:#777;
 }
 
 /* =========================
@@ -706,6 +876,10 @@ RESPONSIVE
     .topbar a{
         font-size:11px;
     }
+
+    .server-wall{
+        width:34%;
+    }
 }
 
 </style>
@@ -713,16 +887,46 @@ RESPONSIVE
 
 <body>
 
-<div class="background"></div>
-<div class="overlay"></div>
+<!-- SCENE -->
+
+<div class="scene">
+
+<div class="fog"></div>
 <div class="grid"></div>
 
-<div class="light light1"></div>
-<div class="light light2"></div>
+<div class="server-room">
 
-<div id="tsparticles"></div>
+<div class="server-wall left-wall">
 
-<!-- NAVBAR -->
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+
+</div>
+
+<div class="server-wall right-wall">
+
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+<div class="server"></div>
+
+</div>
+
+<div class="center-light"></div>
+
+<div class="floor"></div>
+
+</div>
+
+</div>
+
+<!-- TOPBAR -->
 
 <div class="topbar">
 
@@ -747,7 +951,7 @@ RESPONSIVE
 <i class="fab fa-github"></i>
 </a>
 
-<a href="https://linkedin.com/" target="_blank">
+<a href="#">
 <i class="fab fa-linkedin-in"></i>
 </a>
 
@@ -813,8 +1017,6 @@ RESPONSIVE
 
 <div class="container">
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
 <div class="hero-content">
@@ -835,11 +1037,13 @@ RESPONSIVE
 <p>
 
 Passionnée par la cybersécurité offensive,
-l’analyse réseau, l’OSINT
+l’analyse réseau,
+l’OSINT
 et la protection des infrastructures.
 
 Développement de labs personnels,
-analyse des menaces et recherche de vulnérabilités.
+analyse des menaces
+et recherche de vulnérabilités.
 
 </p>
 
@@ -886,20 +1090,51 @@ et la sécurité réseau.
 
 </div>
 
-<div class="card">
+<div class="card" id="skills">
 
-<h3>Spécialités</h3>
+<h3>Compétences</h3>
 
 <div class="skills">
 
-<div class="skill">Linux</div>
-<div class="skill">Wireshark</div>
-<div class="skill">Burp Suite</div>
-<div class="skill">OSINT</div>
-<div class="skill">Python</div>
-<div class="skill">Docker</div>
-<div class="skill">Nmap</div>
-<div class="skill">SQL</div>
+<div class="skill">
+<i class="fab fa-linux"></i>
+Linux
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-network-wired"></i>
+Nmap
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-shield"></i>
+Wireshark
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-bug"></i>
+Burp Suite
+</div>
+
+<div class="skill">
+<i class="fab fa-python"></i>
+Python
+</div>
+
+<div class="skill">
+<i class="fab fa-docker"></i>
+Docker
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-globe"></i>
+OSINT
+</div>
+
+<div class="skill">
+<i class="fa-solid fa-database"></i>
+SQL
+</div>
 
 </div>
 
@@ -945,28 +1180,6 @@ Voir certification →
 Certification réseau,
 monitoring
 et cybersurveillance moderne.
-
-</p>
-
-<a class="project-link"
-href="https://github.com/oceane-dehaudt"
-target="_blank">
-
-Voir certification →
-
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>GOOGLE CYBERSECURITY</h3>
-
-<p>
-
-Analyse des menaces,
-sécurité réseau
-et gestion des incidents.
 
 </p>
 
@@ -1091,49 +1304,6 @@ Mon GitHub
 </div>
 
 </div>
-
-<script>
-
-tsParticles.load("tsparticles", {
-
-    fpsLimit:60,
-
-    particles:{
-        number:{
-            value:30
-        },
-
-        color:{
-            value:"#5e0012"
-        },
-
-        links:{
-            enable:true,
-            color:"#3a000b",
-            distance:150,
-            opacity:0.15
-        },
-
-        move:{
-            enable:true,
-            speed:0.6
-        },
-
-        opacity:{
-            value:0.25
-        },
-
-        size:{
-            value:2
-        }
-    },
-
-    background:{
-        color:"transparent"
-    }
-});
-
-</script>
 
 </body>
 </html>
