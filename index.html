@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Océane Dehaudt | Cybersécurité</title>
 
@@ -279,7 +280,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:30px;
+gap:20px;
 
 align-items:center;
 }
@@ -446,6 +447,10 @@ justify-content:center;
 align-items:center;
 }
 
+/* =========================================================
+GLOW
+========================================================= */
+
 .glow{
 
 position:absolute;
@@ -479,13 +484,13 @@ transform:scale(1.04);
 }
 
 /* =========================================================
-THREE CONTAINER
+THREE
 ========================================================= */
 
 #globe{
 
-width:700px;
-height:700px;
+width:760px;
+height:760px;
 
 position:relative;
 
@@ -546,7 +551,7 @@ transform:rotate(360deg);
 }
 
 /* =========================================================
-SECTION TITLE
+SECTIONS
 ========================================================= */
 
 .section-title{
@@ -713,21 +718,6 @@ margin-top:-60px;
 width:340px;
 height:340px;
 }
-
-.o1{
-width:380px;
-height:380px;
-}
-
-.o2{
-width:500px;
-height:500px;
-}
-
-.o3{
-width:620px;
-height:620px;
-}
 }
 
 @media(max-width:768px){
@@ -771,10 +761,6 @@ height:240px;
 <div class="light center-light"></div>
 <div class="light right-light"></div>
 
-<!-- =========================================================
-TOPBAR
-========================================================= -->
-
 <div class="topbar">
 
 <nav>
@@ -783,12 +769,18 @@ TOPBAR
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
 
-<a href="https://github.com/oceane-dehaudt?tab=repositories" target="_blank">
+<a href="https://github.com/oceane-dehaudt?tab=repositories"
+target="_blank">
+
 Projets
+
 </a>
 
-<a href="https://github.com/oceane-dehaudt" target="_blank">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 Certifications
+
 </a>
 
 <a href="#contact">Contact</a>
@@ -796,10 +788,6 @@ Certifications
 </nav>
 
 </div>
-
-<!-- =========================================================
-SOCIAL
-========================================================= -->
 
 <div class="social">
 
@@ -813,17 +801,9 @@ SOCIAL
 
 </div>
 
-<!-- =========================================================
-MAIN
-========================================================= -->
-
 <div class="container">
 
 <section class="hero" id="home">
-
-<!-- =========================================================
-TEXT
-========================================================= -->
 
 <div class="hero-text">
 
@@ -892,10 +872,6 @@ GLOBE
 </div>
 
 </section>
-
-<!-- =========================================================
-ABOUT
-========================================================= -->
 
 <h2 class="section-title" id="about">
 À <span>PROPOS</span>
@@ -980,10 +956,6 @@ Git
 
 </div>
 
-<!-- =========================================================
-FOOTER
-========================================================= -->
-
 <div class="footer" id="contact">
 
 © 2026 • OCÉANE DEHAUDT
@@ -995,7 +967,7 @@ FOOTER
 <script>
 
 /* =========================================================
-THREE JS GLOBE
+SCENE
 ========================================================= */
 
 const scene = new THREE.Scene();
@@ -1009,14 +981,21 @@ const camera = new THREE.PerspectiveCamera(
 
 camera.position.z = 4;
 
+/* =========================================================
+RENDERER
+========================================================= */
+
 const renderer = new THREE.WebGLRenderer({
 alpha:true,
 antialias:true
 });
 
-renderer.setSize(700,700);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-document.getElementById("globe")
+renderer.setSize(760,760);
+
+document
+.getElementById("globe")
 .appendChild(renderer.domElement);
 
 /* =========================================================
@@ -1030,12 +1009,14 @@ const geometry = new THREE.SphereGeometry(
 );
 
 const texture = new THREE.TextureLoader().load(
-'https://threejsfundamentals.org/threejs/resources/images/earth-night.jpg'
+'https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg'
 );
 
 const material = new THREE.MeshBasicMaterial({
+
 map:texture,
-color:0xff003c
+color:0xaa001f
+
 });
 
 const globe = new THREE.Mesh(
@@ -1051,8 +1032,8 @@ WIREFRAME
 
 const wireGeometry = new THREE.SphereGeometry(
 1.47,
-64,
-64
+128,
+128
 );
 
 const wireMaterial = new THREE.MeshBasicMaterial({
@@ -1060,7 +1041,7 @@ const wireMaterial = new THREE.MeshBasicMaterial({
 color:0xff003c,
 wireframe:true,
 transparent:true,
-opacity:0.18
+opacity:0.14
 
 });
 
@@ -1109,6 +1090,41 @@ particlesMaterial
 scene.add(particles);
 
 /* =========================================================
+ATTACK LINES
+========================================================= */
+
+function createAttackLine(){
+
+const material = new THREE.LineBasicMaterial({
+color:0xff003c
+});
+
+const points = [];
+
+const startX = (Math.random()-0.5)*2;
+const startY = (Math.random()-0.5)*2;
+
+const endX = (Math.random()-0.5)*2;
+const endY = (Math.random()-0.5)*2;
+
+points.push(new THREE.Vector3(startX,startY,1));
+points.push(new THREE.Vector3(0,0,1.8));
+points.push(new THREE.Vector3(endX,endY,1));
+
+const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+const line = new THREE.Line(geometry,material);
+
+scene.add(line);
+
+setTimeout(()=>{
+scene.remove(line);
+},2500);
+}
+
+setInterval(createAttackLine,800);
+
+/* =========================================================
 ANIMATION
 ========================================================= */
 
@@ -1116,11 +1132,11 @@ function animate(){
 
 requestAnimationFrame(animate);
 
-globe.rotation.y += 0.0018;
+globe.rotation.y += 0.0015;
 
-wireSphere.rotation.y -= 0.001;
+wireSphere.rotation.y -= 0.0008;
 
-particles.rotation.y += 0.0004;
+particles.rotation.y += 0.0002;
 
 renderer.render(scene,camera);
 }
@@ -1133,7 +1149,7 @@ RESPONSIVE
 
 window.addEventListener('resize',()=>{
 
-let size = window.innerWidth < 768 ? 240 : 700;
+let size = window.innerWidth < 768 ? 240 : 760;
 
 renderer.setSize(size,size);
 });
