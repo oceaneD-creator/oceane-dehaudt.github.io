@@ -33,15 +33,17 @@ scroll-behavior:smooth;
 
 body{
 
-background:#020202;
+background:#050505;
+
 overflow-x:hidden;
 
 font-family:'Inter',sans-serif;
+
 color:white;
 }
 
 /* =========================================================
-BACKGROUND
+MATTE BACKGROUND
 ========================================================= */
 
 body::before{
@@ -54,22 +56,54 @@ inset:0;
 background:
 
 linear-gradient(
-rgba(0,0,0,0.93),
-rgba(0,0,0,0.97)
+rgba(4,4,4,0.96),
+rgba(2,2,2,0.98)
 ),
 
-url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
+url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
 
 filter:
-brightness(0.12)
-blur(2px);
+brightness(0.08)
+contrast(1.2)
+blur(1px);
 
 transform:scale(1.04);
 
 z-index:-100;
+}
+
+/* =========================================================
+MATTE OVERLAY
+========================================================= */
+
+body::after{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,0.015),
+transparent 30%
+),
+
+radial-gradient(circle at top left,
+rgba(255,255,255,0.02),
+transparent 35%
+);
+
+mix-blend-mode:soft-light;
+
+opacity:0.8;
+
+z-index:-99;
 }
 
 /* =========================================================
@@ -82,31 +116,12 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(120,0,20,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(120,0,20,0.04) 1px, transparent 1px);
+linear-gradient(rgba(255,0,60,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,60,0.03) 1px, transparent 1px);
 
-background-size:64px 64px;
+background-size:70px 70px;
 
-opacity:0.12;
-
-z-index:-99;
-}
-
-/* =========================================================
-RED GLOW
-========================================================= */
-
-.red-glow{
-
-position:fixed;
-inset:0;
-
-background:
-radial-gradient(circle at center,
-rgba(120,0,20,0.12),
-transparent 70%);
-
-filter:blur(120px);
+opacity:0.08;
 
 z-index:-98;
 }
@@ -129,12 +144,12 @@ display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.28);
+rgba(0,0,0,0.24);
 
-backdrop-filter:blur(14px);
+backdrop-filter:blur(16px);
 
 border-bottom:
-1px solid rgba(120,0,20,0.06);
+1px solid rgba(255,255,255,0.04);
 
 z-index:999;
 }
@@ -142,12 +157,12 @@ z-index:999;
 .topbar nav{
 
 display:flex;
-gap:48px;
+gap:52px;
 }
 
 .topbar a{
 
-color:#d4d4d4;
+color:#d7d7d7;
 
 text-decoration:none;
 
@@ -232,11 +247,11 @@ grid-template-columns:
 
 align-items:center;
 
-gap:40px;
+gap:60px;
 }
 
 /* =========================================================
-TEXT
+TEXT SIDE
 ========================================================= */
 
 .hero-text{
@@ -247,13 +262,13 @@ z-index:20;
 
 .hero-mini{
 
-font-size:12px;
+font-size:11px;
 
-letter-spacing:6px;
+letter-spacing:7px;
 
 text-transform:uppercase;
 
-color:#a10028;
+color:#8e8e8e;
 
 margin-bottom:24px;
 }
@@ -264,30 +279,35 @@ font-family:'Orbitron',sans-serif;
 
 line-height:0.92;
 
-margin-bottom:26px;
+margin-bottom:28px;
 
 text-transform:uppercase;
 }
 
-.hero .white{
+.white{
 
 display:block;
 
-font-size:clamp(56px,7vw,120px);
+font-size:clamp(56px,7vw,110px);
 
-color:white;
-}
-
-.hero .red{
-
-display:block;
-
-font-size:clamp(56px,7vw,120px);
-
-color:#b0002d;
+color:#f2f2f2;
 
 text-shadow:
-0 0 18px rgba(176,0,45,0.2);
+0 0 18px rgba(255,255,255,0.04);
+}
+
+.lastname{
+
+display:block;
+
+font-size:clamp(56px,7vw,110px);
+
+color:#ffffff;
+
+opacity:0.92;
+
+text-shadow:
+0 0 20px rgba(255,255,255,0.03);
 }
 
 .dot{
@@ -302,7 +322,7 @@ background:#ff003c;
 margin-bottom:34px;
 
 box-shadow:
-0 0 18px rgba(255,0,60,0.8);
+0 0 16px rgba(255,0,60,0.6);
 }
 
 .hero p{
@@ -313,7 +333,24 @@ font-size:20px;
 
 line-height:2;
 
-color:#cfcfcf;
+color:#c7c7c7;
+}
+
+/* =========================================================
+SIGNATURE
+========================================================= */
+
+.signature{
+
+margin-top:24px;
+
+font-size:13px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#7f7f7f;
 }
 
 /* =========================================================
@@ -325,7 +362,7 @@ BUTTONS
 display:flex;
 gap:18px;
 
-margin-top:42px;
+margin-top:44px;
 
 flex-wrap:wrap;
 }
@@ -352,22 +389,22 @@ transition:0.35s ease;
 background:
 linear-gradient(
 135deg,
-#570013,
-#a3002b);
+#4d0011,
+#a0002a);
 
 color:white;
 
 box-shadow:
-0 0 30px rgba(255,0,60,0.14);
+0 0 24px rgba(255,0,60,0.12);
 }
 
 .secondary{
 
 background:
-rgba(0,0,0,0.34);
+rgba(12,12,12,0.6);
 
 border:
-1px solid rgba(255,255,255,0.08);
+1px solid rgba(255,255,255,0.06);
 
 color:white;
 
@@ -395,7 +432,7 @@ align-items:center;
 }
 
 /* =========================================================
-BACKGROUND RINGS
+RINGS
 ========================================================= */
 
 .ring{
@@ -405,41 +442,22 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,60,0.05);
+1px solid rgba(255,0,60,0.035);
 }
 
 .r1{
-
-width:500px;
-height:500px;
+width:480px;
+height:480px;
 }
 
 .r2{
-
 width:700px;
 height:700px;
 }
 
 .r3{
-
-width:900px;
-height:900px;
-}
-
-/* =========================================================
-LOGO WRAPPER
-========================================================= */
-
-.logo-wrapper{
-
-position:relative;
-
-width:520px;
-height:260px;
-
-display:flex;
-justify-content:center;
-align-items:center;
+width:920px;
+height:920px;
 }
 
 /* =========================================================
@@ -455,10 +473,13 @@ align-items:center;
 
 gap:10px;
 
-animation:logoFloat 5s ease-in-out infinite;
+animation:floatLogo 5s ease-in-out infinite;
+
+filter:
+drop-shadow(0 0 28px rgba(255,0,60,0.08));
 }
 
-@keyframes logoFloat{
+@keyframes floatLogo{
 
 0%,100%{
 transform:translateY(0px);
@@ -470,32 +491,32 @@ transform:translateY(-6px);
 }
 
 /* =========================================================
-O LETTER
+O
 ========================================================= */
 
 .o-letter{
 
 position:relative;
 
-width:170px;
-height:170px;
+width:180px;
+height:180px;
 
-border-radius:48px;
+border-radius:52px;
 
 background:
 linear-gradient(
 145deg,
-rgba(15,15,15,1),
-rgba(0,0,0,1)
+rgba(18,18,18,1),
+rgba(3,3,3,1)
 );
 
 overflow:hidden;
 
 box-shadow:
 
-inset 0 0 2px rgba(255,255,255,0.05),
-inset 0 0 40px rgba(255,0,60,0.04),
-0 0 40px rgba(255,0,60,0.08);
+inset 0 0 2px rgba(255,255,255,0.06),
+inset 0 0 50px rgba(255,0,60,0.03),
+0 0 24px rgba(255,0,60,0.06);
 }
 
 .o-letter::before{
@@ -506,7 +527,7 @@ position:absolute;
 
 inset:14px;
 
-border-radius:34px;
+border-radius:38px;
 
 border:
 1px solid rgba(255,255,255,0.05);
@@ -522,7 +543,7 @@ bottom:0;
 left:0;
 
 width:100%;
-height:3px;
+height:2px;
 
 background:
 linear-gradient(
@@ -532,37 +553,36 @@ transparent,
 transparent
 );
 
-box-shadow:
-0 0 18px rgba(255,0,60,1);
+opacity:0.85;
 }
 
 /* =========================================================
-D LETTER
+D
 ========================================================= */
 
 .d-letter{
 
 position:relative;
 
-width:240px;
-height:170px;
+width:250px;
+height:180px;
 
-border-radius:0 52px 52px 0;
+border-radius:0 56px 56px 0;
 
 background:
 linear-gradient(
 145deg,
-rgba(15,15,15,1),
-rgba(0,0,0,1)
+rgba(18,18,18,1),
+rgba(3,3,3,1)
 );
 
 overflow:hidden;
 
 box-shadow:
 
-inset 0 0 2px rgba(255,255,255,0.05),
-inset 0 0 40px rgba(255,0,60,0.04),
-0 0 40px rgba(255,0,60,0.08);
+inset 0 0 2px rgba(255,255,255,0.06),
+inset 0 0 50px rgba(255,0,60,0.03),
+0 0 24px rgba(255,0,60,0.06);
 }
 
 .d-letter::before{
@@ -576,10 +596,10 @@ left:14px;
 right:14px;
 bottom:14px;
 
-border-radius:0 36px 36px 0;
+border-radius:0 40px 40px 0;
 
 border:
-1px solid rgba(255,0,60,0.12);
+1px solid rgba(255,255,255,0.04);
 }
 
 .d-letter::after{
@@ -592,7 +612,7 @@ top:0;
 right:0;
 
 width:100%;
-height:3px;
+height:2px;
 
 background:
 linear-gradient(
@@ -601,8 +621,7 @@ transparent,
 #ff003c
 );
 
-box-shadow:
-0 0 18px rgba(255,0,60,1);
+opacity:0.8;
 }
 
 /* =========================================================
@@ -617,39 +636,37 @@ inset:0;
 background:
 
 radial-gradient(circle at 30% 20%,
-rgba(255,255,255,0.04),
+rgba(255,255,255,0.03),
 transparent 20%),
 
 radial-gradient(circle at 70% 80%,
-rgba(255,0,60,0.05),
+rgba(255,0,60,0.04),
 transparent 30%);
-
-mix-blend-mode:screen;
 }
 
 /* =========================================================
-FLOATING DOTS
+PARTICLES
 ========================================================= */
 
 .particle{
 
 position:absolute;
 
-width:8px;
-height:8px;
+width:7px;
+height:7px;
 
 border-radius:50%;
 
 background:#ff003c;
 
 box-shadow:
-0 0 18px rgba(255,0,60,1);
+0 0 16px rgba(255,0,60,0.7);
 
 animation:particlePulse 4s ease-in-out infinite;
 }
 
 .p1{
-top:16%;
+top:20%;
 left:70%;
 }
 
@@ -659,19 +676,19 @@ left:32%;
 }
 
 .p3{
-top:24%;
-left:24%;
+top:26%;
+left:26%;
 }
 
 .p4{
-top:84%;
-left:76%;
+top:82%;
+left:78%;
 }
 
 @keyframes particlePulse{
 
 0%,100%{
-opacity:0.4;
+opacity:0.35;
 transform:scale(1);
 }
 
@@ -682,7 +699,29 @@ transform:scale(1.7);
 }
 
 /* =========================================================
-SECTION TITLE
+SYSTEM STATUS
+========================================================= */
+
+.system-status{
+
+position:absolute;
+
+bottom:40px;
+right:20px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+line-height:2;
+
+text-transform:uppercase;
+
+color:#5f5f5f;
+}
+
+/* =========================================================
+SECTIONS
 ========================================================= */
 
 .section-title{
@@ -690,7 +729,7 @@ SECTION TITLE
 margin-top:120px;
 margin-bottom:40px;
 
-font-size:42px;
+font-size:40px;
 
 font-family:'Orbitron',sans-serif;
 
@@ -699,7 +738,7 @@ text-transform:uppercase;
 
 .section-title span{
 
-color:#a10028;
+color:#ff003c;
 }
 
 /* =========================================================
@@ -720,13 +759,17 @@ gap:28px;
 
 padding:34px;
 
-border-radius:26px;
+border-radius:24px;
 
 background:
-rgba(10,10,10,0.5);
+linear-gradient(
+145deg,
+rgba(16,16,16,0.9),
+rgba(6,6,6,0.95)
+);
 
 border:
-1px solid rgba(255,0,60,0.08);
+1px solid rgba(255,255,255,0.04);
 
 backdrop-filter:blur(18px);
 
@@ -735,28 +778,28 @@ transition:0.35s ease;
 
 .card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-4px);
 
 border:
-1px solid rgba(255,0,60,0.16);
+1px solid rgba(255,0,60,0.12);
 }
 
 .card h3{
 
-color:#b0002d;
+color:#f2f2f2;
 
 margin-bottom:20px;
 
-text-transform:uppercase;
-
 letter-spacing:2px;
+
+text-transform:uppercase;
 }
 
 .card p{
 
 line-height:1.9;
 
-color:#d0d0d0;
+color:#c7c7c7;
 }
 
 /* =========================================================
@@ -782,22 +825,25 @@ padding:14px 18px;
 border-radius:14px;
 
 background:
-rgba(0,0,0,0.4);
+rgba(0,0,0,0.35);
 
 border:
-1px solid rgba(255,0,60,0.08);
+1px solid rgba(255,255,255,0.05);
 
 transition:0.3s ease;
-}
-
-.skill i{
-
-color:#ff003c;
 }
 
 .skill:hover{
 
 transform:translateY(-3px);
+
+border:
+1px solid rgba(255,0,60,0.12);
+}
+
+.skill i{
+
+color:#ff003c;
 }
 
 /* =========================================================
@@ -809,22 +855,26 @@ CERTIFICATIONS
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
+repeat(auto-fit,minmax(280px,1fr));
 
 gap:24px;
 }
 
 .cert-card{
 
-padding:28px;
+padding:30px;
 
 border-radius:24px;
 
 background:
-rgba(10,10,10,0.5);
+linear-gradient(
+145deg,
+rgba(16,16,16,0.9),
+rgba(6,6,6,0.95)
+);
 
 border:
-1px solid rgba(255,0,60,0.08);
+1px solid rgba(255,255,255,0.04);
 
 transition:0.35s ease;
 }
@@ -834,23 +884,23 @@ transition:0.35s ease;
 transform:translateY(-4px);
 
 border:
-1px solid rgba(255,0,60,0.16);
+1px solid rgba(255,0,60,0.12);
 }
 
 .cert-card h4{
 
-font-size:18px;
+font-size:20px;
 
-margin-bottom:12px;
+margin-bottom:14px;
 
-color:white;
+color:#ffffff;
 }
 
 .cert-card p{
 
-color:#9f9f9f;
-
 line-height:1.8;
+
+color:#a8a8a8;
 }
 
 /* =========================================================
@@ -864,7 +914,7 @@ margin-top:120px;
 padding-top:40px;
 
 border-top:
-1px solid rgba(255,0,60,0.08);
+1px solid rgba(255,255,255,0.05);
 
 text-align:center;
 
@@ -886,12 +936,10 @@ display:none;
 }
 
 .logo-zone{
-
 height:420px;
 }
 
-.logo-wrapper{
-
+.od-logo{
 transform:scale(0.8);
 }
 }
@@ -901,18 +949,20 @@ transform:scale(0.8);
 .topbar nav{
 
 gap:18px;
+
 flex-wrap:wrap;
+
 justify-content:center;
 }
 
 .hero p{
 
 font-size:18px;
+
 line-height:1.8;
 }
 
-.logo-wrapper{
-
+.od-logo{
 transform:scale(0.62);
 }
 }
@@ -924,7 +974,6 @@ transform:scale(0.62);
 <body>
 
 <div class="grid"></div>
-<div class="red-glow"></div>
 
 <!-- =========================================================
 TOPBAR
@@ -975,7 +1024,7 @@ MAIN
 <section class="hero" id="home">
 
 <!-- =========================================================
-TEXT
+LEFT
 ========================================================= -->
 
 <div class="hero-text">
@@ -987,7 +1036,7 @@ CYBERSÉCURITÉ • OSINT • ANALYSE RÉSEAU
 <h1>
 
 <span class="white">OCÉANE</span>
-<span class="red">DEHAUDT</span>
+<span class="lastname">DEHAUDT</span>
 
 </h1>
 
@@ -1003,6 +1052,12 @@ veille OSINT et analyse des menaces
 dans des environnements techniques.
 
 </p>
+
+<div class="signature">
+
+ANALYSER • COMPRENDRE • ANTICIPER
+
+</div>
 
 <div class="buttons">
 
@@ -1026,7 +1081,7 @@ Voir mes projets
 </div>
 
 <!-- =========================================================
-LOGO SIDE
+RIGHT
 ========================================================= -->
 
 <div class="logo-zone">
@@ -1040,8 +1095,6 @@ LOGO SIDE
 <div class="particle p3"></div>
 <div class="particle p4"></div>
 
-<div class="logo-wrapper">
-
 <div class="od-logo">
 
 <div class="o-letter">
@@ -1053,6 +1106,12 @@ LOGO SIDE
 </div>
 
 </div>
+
+<div class="system-status">
+
+SECURE CHANNEL ACTIVE<br>
+THREAT LEVEL LOW<br>
+NETWORK MONITORED
 
 </div>
 
@@ -1157,12 +1216,12 @@ CERTI<span>FICATIONS</span>
 
 <div class="cert-card">
 
-<h4>TryHackMe</h4>
+<h4>Zscaler</h4>
 
 <p>
 
-Labs offensifs, reconnaissance réseau,
-analyse système et méthodologies d’attaque.
+Certifications orientées sécurité cloud,
+analyse réseau et protection des accès.
 
 </p>
 
@@ -1174,8 +1233,8 @@ analyse système et méthodologies d’attaque.
 
 <p>
 
-Environnements de sécurité avancés,
-exploitation et analyse technique.
+Plateforme d’entraînement offensive security,
+pentest et analyse de vulnérabilités.
 
 </p>
 
@@ -1183,12 +1242,12 @@ exploitation et analyse technique.
 
 <div class="cert-card">
 
-<h4>Cybersécurité & Réseau</h4>
+<h4>TryHackMe</h4>
 
 <p>
 
-Formation technique orientée sécurité,
-réseau, infrastructures et veille cyber.
+Labs cybersécurité orientés apprentissage,
+reconnaissance et sécurité offensive.
 
 </p>
 
