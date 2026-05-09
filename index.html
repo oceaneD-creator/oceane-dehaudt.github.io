@@ -33,7 +33,7 @@ scroll-behavior:smooth;
 
 body{
 
-background:#040404;
+background:#050505;
 overflow-x:hidden;
 
 font-family:'Inter',sans-serif;
@@ -54,7 +54,7 @@ inset:0;
 background:
 
 linear-gradient(
-rgba(0,0,0,0.94),
+rgba(0,0,0,0.96),
 rgba(0,0,0,0.98)
 );
 
@@ -73,8 +73,8 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
 
 background-size:48px 48px;
 
@@ -95,18 +95,18 @@ left:0;
 
 width:100%;
 
-padding:26px;
+padding:24px;
 
 display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.72);
+rgba(0,0,0,0.74);
 
 backdrop-filter:blur(18px);
 
 border-bottom:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.03);
 
 z-index:999;
 }
@@ -119,7 +119,7 @@ gap:46px;
 
 .topbar a{
 
-color:#bdbdbd;
+color:#b7b7b7;
 
 text-decoration:none;
 
@@ -145,7 +145,7 @@ SOCIAL
 
 position:fixed;
 
-left:30px;
+left:28px;
 top:50%;
 
 transform:translateY(-50%);
@@ -153,14 +153,14 @@ transform:translateY(-50%);
 display:flex;
 flex-direction:column;
 
-gap:28px;
+gap:30px;
 
 z-index:999;
 }
 
 .social a{
 
-color:#d0d0d0;
+color:#d4d4d4;
 
 font-size:22px;
 
@@ -169,8 +169,9 @@ transition:0.3s ease;
 
 .social a:hover{
 
-color:white;
 transform:translateY(-3px);
+
+color:white;
 }
 
 /* =========================================================
@@ -224,9 +225,9 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#7f7f7f;
+color:#6d6d6d;
 
-margin-bottom:26px;
+margin-bottom:28px;
 }
 
 .hero h1{
@@ -239,7 +240,7 @@ text-transform:uppercase;
 
 margin-bottom:34px;
 
-font-size:clamp(58px,5vw,90px);
+font-size:clamp(54px,4.5vw,82px);
 
 font-weight:800;
 
@@ -255,13 +256,13 @@ color:#f2f2f2;
 
 .hero p{
 
-max-width:640px;
+max-width:650px;
 
 font-size:18px;
 
-line-height:2;
+line-height:2.1;
 
-color:#bdbdbd;
+color:#b8b8b8;
 
 margin-bottom:34px;
 }
@@ -274,9 +275,9 @@ letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#5f5f5f;
+color:#575757;
 
-margin-bottom:42px;
+margin-bottom:44px;
 }
 
 /* =========================================================
@@ -313,21 +314,21 @@ transition:0.35s ease;
 background:transparent;
 
 border:
-1px solid rgba(255,0,70,0.4);
+1px solid rgba(255,0,70,0.35);
 
 color:white;
 
 box-shadow:
-0 0 20px rgba(255,0,70,0.08);
+0 0 18px rgba(255,0,70,0.06);
 }
 
 .primary:hover{
 
 background:
-rgba(255,0,70,0.08);
+rgba(255,0,70,0.06);
 
 border:
-1px solid rgba(255,0,70,0.7);
+1px solid rgba(255,0,70,0.55);
 
 transform:translateY(-3px);
 }
@@ -345,7 +346,7 @@ color:#d8d8d8;
 .secondary:hover{
 
 border:
-1px solid rgba(255,255,255,0.22);
+1px solid rgba(255,255,255,0.18);
 
 transform:translateY(-3px);
 }
@@ -376,7 +377,7 @@ position:absolute;
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,70,0.05);
+1px solid rgba(255,0,70,0.04);
 }
 
 .c1{
@@ -398,13 +399,22 @@ height:820px;
 OD LOGO
 ========================================================= */
 
+.od-wrapper{
+
+position:relative;
+
+transform:scale(0.92);
+
+opacity:0.94;
+}
+
 .od-logo{
 
 position:relative;
 
 display:flex;
 align-items:center;
-gap:26px;
+gap:24px;
 }
 
 .od-o,
@@ -420,24 +430,26 @@ linear-gradient(
 );
 
 border:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.035);
 
 overflow:hidden;
+
+backdrop-filter:blur(10px);
 }
 
 /* O */
 
 .od-o{
 
-width:180px;
-height:180px;
+width:170px;
+height:170px;
 
-border-radius:42px;
+border-radius:40px;
 
 box-shadow:
 
-inset 0 0 25px rgba(255,255,255,0.03),
-0 0 40px rgba(255,0,70,0.04);
+inset 0 0 24px rgba(255,255,255,0.02),
+0 0 35px rgba(255,0,70,0.03);
 }
 
 .od-o::before{
@@ -446,27 +458,27 @@ content:"";
 
 position:absolute;
 
-inset:18px;
+inset:16px;
 
-border-radius:30px;
+border-radius:28px;
 
 border:
-1px solid rgba(255,255,255,0.05);
+1px solid rgba(255,255,255,0.04);
 }
 
 /* D */
 
 .od-d{
 
-width:260px;
-height:180px;
+width:250px;
+height:170px;
 
-border-radius:0 42px 42px 0;
+border-radius:0 40px 40px 0;
 
 box-shadow:
 
-inset 0 0 25px rgba(255,255,255,0.03),
-0 0 40px rgba(255,0,70,0.04);
+inset 0 0 24px rgba(255,255,255,0.02),
+0 0 35px rgba(255,0,70,0.03);
 }
 
 .od-d::before{
@@ -475,16 +487,16 @@ content:"";
 
 position:absolute;
 
-inset:18px;
+inset:16px;
 
-border-radius:0 30px 30px 0;
+border-radius:0 28px 28px 0;
 
 border:
-1px solid rgba(255,255,255,0.05);
+1px solid rgba(255,255,255,0.04);
 }
 
 /* =========================================================
-SCAN LINE
+SCAN
 ========================================================= */
 
 .scan{
@@ -501,14 +513,14 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,0,70,0.9),
+rgba(255,0,70,0.75),
 transparent
 );
 
 box-shadow:
-0 0 18px rgba(255,0,70,0.6);
+0 0 14px rgba(255,0,70,0.45);
 
-animation:scanMove 4s ease-in-out infinite;
+animation:scanMove 6s ease-in-out infinite;
 }
 
 @keyframes scanMove{
@@ -519,7 +531,7 @@ opacity:0;
 }
 
 50%{
-opacity:1;
+opacity:0.9;
 }
 
 100%{
@@ -537,7 +549,7 @@ REFLECTION
 position:absolute;
 
 top:-40%;
-left:-30%;
+left:-40%;
 
 width:60%;
 height:220%;
@@ -546,19 +558,19 @@ background:
 linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,0.04),
+rgba(255,255,255,0.03),
 transparent
 );
 
 transform:rotate(18deg);
 
-animation:reflectMove 8s linear infinite;
+animation:reflectMove 10s linear infinite;
 }
 
 @keyframes reflectMove{
 
 from{
-left:-40%;
+left:-50%;
 }
 
 to{
@@ -574,61 +586,102 @@ NODES
 
 position:absolute;
 
-width:10px;
-height:10px;
+width:8px;
+height:8px;
 
 border-radius:50%;
 
 background:#ff004c;
 
 box-shadow:
-0 0 16px rgba(255,0,70,0.8);
+0 0 12px rgba(255,0,70,0.6);
 }
 
 .n1{
-top:18%;
+top:20%;
 right:20%;
 }
 
 .n2{
-top:34%;
-left:18%;
+top:38%;
+left:20%;
 }
 
 .n3{
-bottom:24%;
-right:14%;
+bottom:22%;
+right:16%;
 }
 
 .n4{
-bottom:18%;
-left:26%;
+bottom:16%;
+left:28%;
 }
 
 /* =========================================================
-STATUS
+TERMINAL
 ========================================================= */
 
-.status{
+.terminal{
 
 position:absolute;
 
-bottom:90px;
-right:20px;
+bottom:80px;
+right:10px;
+
+width:260px;
+
+padding:20px;
+
+border-radius:18px;
+
+background:
+rgba(8,8,8,0.72);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+backdrop-filter:blur(12px);
+
+font-family:'Courier New',monospace;
 
 font-size:11px;
 
-letter-spacing:5px;
+line-height:2;
 
-line-height:2.2;
+letter-spacing:1px;
 
-text-transform:uppercase;
+color:#8d8d8d;
 
-color:#5f5f5f;
+opacity:0.45;
+}
+
+.cursor{
+
+display:inline-block;
+
+width:8px;
+height:14px;
+
+background:#ff004c;
+
+margin-left:4px;
+
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+0%,50%{
+opacity:1;
+}
+
+51%,100%{
+opacity:0;
+}
 }
 
 /* =========================================================
-ABOUT
+SECTION
 ========================================================= */
 
 .section{
@@ -651,28 +704,28 @@ text-transform:uppercase;
 
 padding:48px;
 
-border-radius:30px;
+border-radius:28px;
 
 background:
 linear-gradient(
 145deg,
-rgba(10,10,10,0.94),
-rgba(5,5,5,0.96)
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
 );
 
 border:
-1px solid rgba(255,255,255,0.05);
+1px solid rgba(255,255,255,0.04);
 
 max-width:1100px;
 }
 
 .about-box p{
 
-font-size:19px;
+font-size:18px;
 
 line-height:2.1;
 
-color:#bdbdbd;
+color:#b8b8b8;
 }
 
 /* =========================================================
@@ -705,7 +758,7 @@ rgba(255,255,255,0.02);
 border:
 1px solid rgba(255,255,255,0.04);
 
-color:#d8d8d8;
+color:#d9d9d9;
 
 transition:0.3s ease;
 }
@@ -746,8 +799,8 @@ border-radius:24px;
 background:
 linear-gradient(
 145deg,
-rgba(10,10,10,0.96),
-rgba(4,4,4,0.98)
+rgba(10,10,10,0.95),
+rgba(5,5,5,0.97)
 );
 
 border:
@@ -761,19 +814,21 @@ transition:0.3s ease;
 transform:translateY(-4px);
 
 border:
-1px solid rgba(255,0,70,0.16);
+1px solid rgba(255,0,70,0.14);
 }
 
 .cert-card h3{
 
 font-size:22px;
 
-margin-bottom:18px;
+margin-bottom:16px;
+
+color:white;
 }
 
 .cert-card p{
 
-color:#9f9f9f;
+color:#9d9d9d;
 
 line-height:1.9;
 }
@@ -800,13 +855,17 @@ display:none;
 @media(max-width:768px){
 
 .hero h1{
-font-size:62px;
+font-size:58px;
 }
 
 .topbar nav{
 gap:18px;
 flex-wrap:wrap;
 justify-content:center;
+}
+
+.visual-zone{
+height:320px;
 }
 
 .od-o{
@@ -819,8 +878,8 @@ width:170px;
 height:120px;
 }
 
-.visual-zone{
-height:320px;
+.terminal{
+display:none;
 }
 }
 
@@ -841,9 +900,21 @@ TOPBAR
 <a href="#home">Accueil</a>
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
-<a href="https://github.com/oceane-dehaudt?tab=repositories" target="_blank">Projets</a>
-<a href="#certifications">Certifications</a>
-<a href="#contact">Contact</a>
+
+<a href="https://github.com/oceane-dehaudt?tab=repositories"
+target="_blank">
+
+Projets
+
+</a>
+
+<a href="#certifications">
+Certifications
+</a>
+
+<a href="#contact">
+Contact
+</a>
 
 </nav>
 
@@ -855,12 +926,17 @@ SOCIAL
 
 <div class="social">
 
-<a href="https://github.com/oceane-dehaudt" target="_blank">
+<a href="https://github.com/oceane-dehaudt"
+target="_blank">
+
 <i class="fab fa-github"></i>
+
 </a>
 
 <a href="mailto:tonmail@example.com">
+
 <i class="fa-regular fa-envelope"></i>
+
 </a>
 
 </div>
@@ -904,8 +980,11 @@ ANALYSER • COMPRENDRE • ANTICIPER
 
 <div class="buttons">
 
-<a href="#certifications" class="btn primary">
+<a href="#certifications"
+class="btn primary">
+
 Voir mes certifications
+
 </a>
 
 <a href="https://github.com/oceane-dehaudt?tab=repositories"
@@ -935,6 +1014,8 @@ RIGHT
 <div class="node n3"></div>
 <div class="node n4"></div>
 
+<div class="od-wrapper">
+
 <div class="od-logo">
 
 <div class="od-o">
@@ -953,11 +1034,18 @@ RIGHT
 
 </div>
 
-<div class="status">
+</div>
 
-SECURE CHANNEL ACTIVE<br>
-THREAT LEVEL LOW<br>
-NETWORK MONITORED
+<!-- =========================================================
+TERMINAL
+========================================================= -->
+
+<div class="terminal">
+
+root@od-sec:~ active<br>
+monitoring traffic...<br>
+threats detected: 0<br>
+network integrity: 98%<span class="cursor"></span>
 
 </div>
 
@@ -1057,17 +1145,17 @@ CERTIFICATIONS
 
 <div class="certifications">
 
-<a href="LIEN_IMAGE_CERTIF_ZSCALER_1"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-cybersecurity.pdf.pdf"
 target="_blank"
 style="text-decoration:none;">
 
 <div class="cert-card">
 
-<h3>Zscaler</h3>
+<h3>Zscaler Cybersecurity</h3>
 
 <p>
 
-Certification orientée sécurité cloud et protection réseau.
+Certification orientée sécurité cloud, protection réseau et architecture Zero Trust.
 
 </p>
 
@@ -1075,17 +1163,17 @@ Certification orientée sécurité cloud et protection réseau.
 
 </a>
 
-<a href="LIEN_IMAGE_CERTIF_ZSCALER_2"
+<a href="https://github.com/oceane-dehaudt/oceane-dehaudt.github.io/raw/main/certificate-zscaler-networking.pdf.pdf"
 target="_blank"
 style="text-decoration:none;">
 
 <div class="cert-card">
 
-<h3>Zscaler Advanced</h3>
+<h3>Zscaler Networking</h3>
 
 <p>
 
-Validation des connaissances autour des architectures Zero Trust et sécurité moderne.
+Validation des compétences réseau et sécurisation des infrastructures modernes.
 
 </p>
 
