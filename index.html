@@ -34,16 +34,14 @@ scroll-behavior:smooth;
 body{
 
 background:#050505;
-
 overflow-x:hidden;
 
 font-family:'Inter',sans-serif;
-
 color:white;
 }
 
 /* =========================================================
-MATTE BACKGROUND
+BACKGROUND
 ========================================================= */
 
 body::before{
@@ -56,8 +54,8 @@ inset:0;
 background:
 
 linear-gradient(
-rgba(4,4,4,0.96),
-rgba(2,2,2,0.98)
+rgba(0,0,0,0.92),
+rgba(0,0,0,0.97)
 ),
 
 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop');
@@ -66,42 +64,27 @@ background-size:cover;
 background-position:center;
 
 filter:
-brightness(0.08)
+brightness(0.12)
 contrast(1.2)
-blur(1px);
+blur(2px);
 
-transform:scale(1.04);
+transform:scale(1.05);
 
 z-index:-100;
 }
 
 /* =========================================================
-MATTE OVERLAY
+NOISE
 ========================================================= */
 
-body::after{
-
-content:"";
+.noise{
 
 position:fixed;
 inset:0;
 
-background:
+opacity:0.035;
 
-linear-gradient(
-145deg,
-rgba(255,255,255,0.015),
-transparent 30%
-),
-
-radial-gradient(circle at top left,
-rgba(255,255,255,0.02),
-transparent 35%
-);
-
-mix-blend-mode:soft-light;
-
-opacity:0.8;
+background-image:url('https://grainy-gradients.vercel.app/noise.svg');
 
 z-index:-99;
 }
@@ -116,12 +99,10 @@ position:fixed;
 inset:0;
 
 background-image:
-linear-gradient(rgba(255,0,60,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,0,60,0.03) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
 
 background-size:70px 70px;
-
-opacity:0.08;
 
 z-index:-98;
 }
@@ -144,9 +125,9 @@ display:flex;
 justify-content:center;
 
 background:
-rgba(0,0,0,0.24);
+rgba(0,0,0,0.35);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(14px);
 
 border-bottom:
 1px solid rgba(255,255,255,0.04);
@@ -157,12 +138,14 @@ z-index:999;
 .topbar nav{
 
 display:flex;
-gap:52px;
+gap:54px;
 }
 
 .topbar a{
 
-color:#d7d7d7;
+position:relative;
+
+color:#d8d8d8;
 
 text-decoration:none;
 
@@ -177,7 +160,29 @@ transition:0.3s ease;
 
 .topbar a:hover{
 
-color:#ff003c;
+color:white;
+}
+
+.topbar a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:#c40032;
+
+transition:0.3s ease;
+}
+
+.topbar a:hover::after{
+
+width:100%;
 }
 
 /* =========================================================
@@ -188,7 +193,7 @@ SOCIAL
 
 position:fixed;
 
-left:28px;
+left:26px;
 top:50%;
 
 transform:translateY(-50%);
@@ -196,7 +201,7 @@ transform:translateY(-50%);
 display:flex;
 flex-direction:column;
 
-gap:28px;
+gap:30px;
 
 z-index:999;
 }
@@ -212,9 +217,9 @@ transition:0.3s ease;
 
 .social a:hover{
 
-color:#ff003c;
+color:white;
 
-transform:translateY(-3px);
+transform:translateY(-2px);
 }
 
 /* =========================================================
@@ -224,11 +229,11 @@ MAIN
 .container{
 
 width:88%;
-max-width:1450px;
+max-width:1500px;
 
 margin:auto;
 
-padding-top:150px;
+padding-top:140px;
 padding-bottom:120px;
 }
 
@@ -245,69 +250,66 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-align-items:center;
-
 gap:60px;
+
+align-items:center;
 }
 
 /* =========================================================
-TEXT SIDE
+TEXT
 ========================================================= */
 
 .hero-text{
 
 position:relative;
-z-index:20;
+
+z-index:10;
 }
 
 .hero-mini{
 
-font-size:11px;
+font-size:12px;
 
 letter-spacing:7px;
 
 text-transform:uppercase;
 
-color:#8e8e8e;
+color:#8a8a8a;
 
-margin-bottom:24px;
+margin-bottom:30px;
 }
 
 .hero h1{
 
 font-family:'Orbitron',sans-serif;
 
+font-size:clamp(70px,8vw,150px);
+
 line-height:0.92;
 
-margin-bottom:28px;
+font-weight:800;
+
+letter-spacing:-3px;
+
+margin-bottom:40px;
 
 text-transform:uppercase;
 }
 
-.white{
+.hero h1 span{
 
 display:block;
-
-font-size:clamp(56px,7vw,110px);
-
-color:#f2f2f2;
-
-text-shadow:
-0 0 18px rgba(255,255,255,0.04);
 }
 
-.lastname{
+.hero p{
 
-display:block;
+max-width:620px;
 
-font-size:clamp(56px,7vw,110px);
+font-size:20px;
 
-color:#ffffff;
+line-height:1.9;
 
-opacity:0.92;
-
-text-shadow:
-0 0 20px rgba(255,255,255,0.03);
+color:#c8c8c8;
 }
 
 .dot{
@@ -319,38 +321,27 @@ border-radius:50%;
 
 background:#ff003c;
 
-margin-bottom:34px;
+margin:34px 0;
 
 box-shadow:
-0 0 16px rgba(255,0,60,0.6);
-}
-
-.hero p{
-
-max-width:560px;
-
-font-size:20px;
-
-line-height:2;
-
-color:#c7c7c7;
+0 0 18px rgba(255,0,60,0.9);
 }
 
 /* =========================================================
-SIGNATURE
+SMALL TAGLINE
 ========================================================= */
 
-.signature{
+.tagline{
 
-margin-top:24px;
+margin-top:34px;
 
-font-size:13px;
+font-size:12px;
 
-letter-spacing:4px;
+letter-spacing:6px;
 
 text-transform:uppercase;
 
-color:#7f7f7f;
+color:#666;
 }
 
 /* =========================================================
@@ -362,7 +353,7 @@ BUTTONS
 display:flex;
 gap:18px;
 
-margin-top:44px;
+margin-top:48px;
 
 flex-wrap:wrap;
 }
@@ -371,13 +362,13 @@ flex-wrap:wrap;
 
 padding:18px 32px;
 
-border-radius:14px;
+border-radius:10px;
 
 text-decoration:none;
 
 font-size:12px;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
 text-transform:uppercase;
 
@@ -386,41 +377,35 @@ transition:0.35s ease;
 
 .primary{
 
-background:
-linear-gradient(
-135deg,
-#4d0011,
-#a0002a);
+background:#a3002d;
 
 color:white;
 
-box-shadow:
-0 0 24px rgba(255,0,60,0.12);
+border:
+1px solid rgba(255,255,255,0.04);
 }
 
 .secondary{
 
 background:
-rgba(12,12,12,0.6);
+rgba(255,255,255,0.02);
 
 border:
-1px solid rgba(255,255,255,0.06);
+1px solid rgba(255,255,255,0.08);
 
 color:white;
-
-backdrop-filter:blur(12px);
 }
 
 .btn:hover{
 
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
 
 /* =========================================================
-LOGO SIDE
+CYBER PANEL
 ========================================================= */
 
-.logo-zone{
+.cyber-panel{
 
 position:relative;
 
@@ -432,296 +417,290 @@ align-items:center;
 }
 
 /* =========================================================
-RINGS
+BACKGROUND RADAR
 ========================================================= */
 
-.ring{
+.radar{
 
 position:absolute;
+
+width:900px;
+height:900px;
 
 border-radius:50%;
 
 border:
-1px solid rgba(255,0,60,0.035);
+1px solid rgba(255,255,255,0.03);
+
+animation:rotateSlow 40s linear infinite;
 }
 
-.r1{
-width:480px;
-height:480px;
-}
-
-.r2{
-width:700px;
-height:700px;
-}
-
-.r3{
-width:920px;
-height:920px;
-}
-
-/* =========================================================
-OD LOGO
-========================================================= */
-
-.od-logo{
-
-position:relative;
-
-display:flex;
-align-items:center;
-
-gap:10px;
-
-animation:floatLogo 5s ease-in-out infinite;
-
-filter:
-drop-shadow(0 0 28px rgba(255,0,60,0.08));
-}
-
-@keyframes floatLogo{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-6px);
-}
-}
-
-/* =========================================================
-O
-========================================================= */
-
-.o-letter{
-
-position:relative;
-
-width:180px;
-height:180px;
-
-border-radius:52px;
-
-background:
-linear-gradient(
-145deg,
-rgba(18,18,18,1),
-rgba(3,3,3,1)
-);
-
-overflow:hidden;
-
-box-shadow:
-
-inset 0 0 2px rgba(255,255,255,0.06),
-inset 0 0 50px rgba(255,0,60,0.03),
-0 0 24px rgba(255,0,60,0.06);
-}
-
-.o-letter::before{
+.radar::before,
+.radar::after{
 
 content:"";
 
 position:absolute;
 
-inset:14px;
+inset:120px;
 
-border-radius:38px;
+border-radius:50%;
 
 border:
-1px solid rgba(255,255,255,0.05);
+1px solid rgba(255,255,255,0.03);
 }
 
-.o-letter::after{
+.radar::after{
 
-content:"";
-
-position:absolute;
-
-bottom:0;
-left:0;
-
-width:100%;
-height:2px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-#ff003c,
-transparent
-);
-
-opacity:0.85;
+inset:240px;
 }
 
 /* =========================================================
-D
+WORLD MAP
 ========================================================= */
 
-.d-letter{
+.map{
 
 position:relative;
 
-width:250px;
-height:180px;
+width:680px;
+height:520px;
 
-border-radius:0 56px 56px 0;
-
-background:
-linear-gradient(
-145deg,
-rgba(18,18,18,1),
-rgba(3,3,3,1)
-);
+border-radius:26px;
 
 overflow:hidden;
 
-box-shadow:
-
-inset 0 0 2px rgba(255,255,255,0.06),
-inset 0 0 50px rgba(255,0,60,0.03),
-0 0 24px rgba(255,0,60,0.06);
-}
-
-.d-letter::before{
-
-content:"";
-
-position:absolute;
-
-top:14px;
-left:14px;
-right:14px;
-bottom:14px;
-
-border-radius:0 40px 40px 0;
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.015),
+rgba(255,255,255,0.005)
+);
 
 border:
 1px solid rgba(255,255,255,0.04);
-}
 
-.d-letter::after{
+backdrop-filter:blur(10px);
 
-content:"";
-
-position:absolute;
-
-top:0;
-right:0;
-
-width:100%;
-height:2px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-#ff003c
-);
-
-opacity:0.8;
+box-shadow:
+0 0 80px rgba(0,0,0,0.7);
 }
 
 /* =========================================================
-INNER LIGHT
+MAP IMAGE
 ========================================================= */
 
-.inner-light{
+.map::before{
+
+content:"";
 
 position:absolute;
 inset:0;
 
 background:
 
-radial-gradient(circle at 30% 20%,
-rgba(255,255,255,0.03),
-transparent 20%),
+url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop');
 
-radial-gradient(circle at 70% 80%,
-rgba(255,0,60,0.04),
-transparent 30%);
+background-size:cover;
+background-position:center;
+
+opacity:0.16;
+
+filter:
+contrast(1.2)
+brightness(0.9);
 }
 
 /* =========================================================
-PARTICLES
+NETWORK LINES
 ========================================================= */
 
-.particle{
+.line{
 
 position:absolute;
 
-width:7px;
-height:7px;
+height:1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#ff003c,
+transparent);
+
+transform-origin:left;
+
+opacity:0.75;
+
+animation:pulse 4s ease-in-out infinite;
+}
+
+.l1{
+width:240px;
+top:140px;
+left:260px;
+transform:rotate(-18deg);
+}
+
+.l2{
+width:180px;
+top:280px;
+left:180px;
+transform:rotate(14deg);
+}
+
+.l3{
+width:220px;
+top:340px;
+left:300px;
+transform:rotate(-28deg);
+}
+
+.l4{
+width:160px;
+top:220px;
+left:360px;
+transform:rotate(28deg);
+}
+
+/* =========================================================
+NODES
+========================================================= */
+
+.node{
+
+position:absolute;
+
+width:10px;
+height:10px;
 
 border-radius:50%;
 
 background:#ff003c;
 
 box-shadow:
-0 0 16px rgba(255,0,60,0.7);
+0 0 18px rgba(255,0,60,0.9);
 
-animation:particlePulse 4s ease-in-out infinite;
+animation:nodePulse 3s ease-in-out infinite;
 }
 
-.p1{
-top:20%;
-left:70%;
+.n1{top:120px;left:280px;}
+.n2{top:200px;left:460px;}
+.n3{top:320px;left:360px;}
+.n4{top:400px;left:520px;}
+.n5{top:260px;left:220px;}
+
+/* =========================================================
+INFO BOXES
+========================================================= */
+
+.info-box{
+
+position:absolute;
+
+background:
+rgba(10,10,10,0.75);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+padding:20px;
+
+backdrop-filter:blur(12px);
+
+border-radius:14px;
+
+font-size:12px;
+
+color:#9e9e9e;
+
+line-height:1.9;
 }
 
-.p2{
-top:72%;
-left:32%;
+.box1{
+
+top:40px;
+left:40px;
+
+width:170px;
 }
 
-.p3{
-top:26%;
-left:26%;
+.box2{
+
+bottom:40px;
+left:40px;
+
+width:190px;
 }
 
-.p4{
-top:82%;
-left:78%;
+.info-box span{
+
+color:white;
 }
 
-@keyframes particlePulse{
+/* =========================================================
+STATUS
+========================================================= */
+
+.status{
+
+position:absolute;
+
+right:40px;
+bottom:34px;
+
+font-size:11px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+line-height:2;
+
+color:#666;
+}
+
+/* =========================================================
+ANIMATIONS
+========================================================= */
+
+@keyframes rotateSlow{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+}
+
+@keyframes pulse{
 
 0%,100%{
-opacity:0.35;
-transform:scale(1);
+opacity:0.2;
 }
 
 50%{
 opacity:1;
-transform:scale(1.7);
+}
+}
+
+@keyframes nodePulse{
+
+0%,100%{
+transform:scale(1);
+opacity:0.7;
+}
+
+50%{
+transform:scale(1.5);
+opacity:1;
 }
 }
 
 /* =========================================================
-SYSTEM STATUS
-========================================================= */
-
-.system-status{
-
-position:absolute;
-
-bottom:40px;
-right:20px;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-line-height:2;
-
-text-transform:uppercase;
-
-color:#5f5f5f;
-}
-
-/* =========================================================
-SECTIONS
+SECTION TITLE
 ========================================================= */
 
 .section-title{
@@ -729,16 +708,11 @@ SECTIONS
 margin-top:120px;
 margin-bottom:40px;
 
-font-size:40px;
+font-size:42px;
 
 font-family:'Orbitron',sans-serif;
 
 text-transform:uppercase;
-}
-
-.section-title span{
-
-color:#ff003c;
 }
 
 /* =========================================================
@@ -759,19 +733,15 @@ gap:28px;
 
 padding:34px;
 
-border-radius:24px;
+border-radius:20px;
 
 background:
-linear-gradient(
-145deg,
-rgba(16,16,16,0.9),
-rgba(6,6,6,0.95)
-);
+rgba(255,255,255,0.02);
 
 border:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.05);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(14px);
 
 transition:0.35s ease;
 }
@@ -781,14 +751,14 @@ transition:0.35s ease;
 transform:translateY(-4px);
 
 border:
-1px solid rgba(255,0,60,0.12);
+1px solid rgba(255,255,255,0.09);
 }
 
 .card h3{
 
-color:#f2f2f2;
+margin-bottom:22px;
 
-margin-bottom:20px;
+font-size:18px;
 
 letter-spacing:2px;
 
@@ -799,7 +769,7 @@ text-transform:uppercase;
 
 line-height:1.9;
 
-color:#c7c7c7;
+color:#bdbdbd;
 }
 
 /* =========================================================
@@ -816,91 +786,17 @@ gap:14px;
 
 .skill{
 
-display:flex;
-align-items:center;
-gap:10px;
-
 padding:14px 18px;
 
-border-radius:14px;
+border-radius:12px;
 
 background:
-rgba(0,0,0,0.35);
+rgba(255,255,255,0.02);
 
 border:
-1px solid rgba(255,255,255,0.05);
+1px solid rgba(255,255,255,0.06);
 
-transition:0.3s ease;
-}
-
-.skill:hover{
-
-transform:translateY(-3px);
-
-border:
-1px solid rgba(255,0,60,0.12);
-}
-
-.skill i{
-
-color:#ff003c;
-}
-
-/* =========================================================
-CERTIFICATIONS
-========================================================= */
-
-.certifications{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:24px;
-}
-
-.cert-card{
-
-padding:30px;
-
-border-radius:24px;
-
-background:
-linear-gradient(
-145deg,
-rgba(16,16,16,0.9),
-rgba(6,6,6,0.95)
-);
-
-border:
-1px solid rgba(255,255,255,0.04);
-
-transition:0.35s ease;
-}
-
-.cert-card:hover{
-
-transform:translateY(-4px);
-
-border:
-1px solid rgba(255,0,60,0.12);
-}
-
-.cert-card h4{
-
-font-size:20px;
-
-margin-bottom:14px;
-
-color:#ffffff;
-}
-
-.cert-card p{
-
-line-height:1.8;
-
-color:#a8a8a8;
+font-size:14px;
 }
 
 /* =========================================================
@@ -931,39 +827,43 @@ RESPONSIVE
 grid-template-columns:1fr;
 }
 
-.social{
-display:none;
+.cyber-panel{
+height:500px;
 }
 
-.logo-zone{
+.map{
+width:100%;
 height:420px;
 }
 
-.od-logo{
-transform:scale(0.8);
+.social{
+display:none;
 }
 }
 
 @media(max-width:768px){
 
-.topbar nav{
-
-gap:18px;
-
-flex-wrap:wrap;
-
-justify-content:center;
+.hero h1{
+font-size:70px;
 }
 
 .hero p{
-
 font-size:18px;
-
 line-height:1.8;
 }
 
-.od-logo{
-transform:scale(0.62);
+.topbar nav{
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.map{
+height:320px;
+}
+
+.radar{
+display:none;
 }
 }
 
@@ -973,6 +873,7 @@ transform:scale(0.62);
 
 <body>
 
+<div class="noise"></div>
 <div class="grid"></div>
 
 <!-- =========================================================
@@ -986,8 +887,20 @@ TOPBAR
 <a href="#home">Accueil</a>
 <a href="#about">À propos</a>
 <a href="#skills">Compétences</a>
-<a href="#projects">Projets</a>
-<a href="#certifications">Certifications</a>
+
+<a href="https://github.com/oceane-dehaudt?tab=repositories"
+target="_blank">
+
+Projets
+
+</a>
+
+<a href="#certifications">
+
+Certifications
+
+</a>
+
 <a href="#contact">Contact</a>
 
 </nav>
@@ -1024,7 +937,7 @@ MAIN
 <section class="hero" id="home">
 
 <!-- =========================================================
-LEFT
+TEXT
 ========================================================= -->
 
 <div class="hero-text">
@@ -1035,8 +948,8 @@ CYBERSÉCURITÉ • OSINT • ANALYSE RÉSEAU
 
 <h1>
 
-<span class="white">OCÉANE</span>
-<span class="lastname">DEHAUDT</span>
+<span>OCÉANE</span>
+<span>DEHAUDT</span>
 
 </h1>
 
@@ -1047,16 +960,14 @@ CYBERSÉCURITÉ • OSINT • ANALYSE RÉSEAU
 Cybersécurité offensive, analyse réseau
 et recherche de vulnérabilités.
 
-Développement de labs sécurisés,
+Développement de laboratoires sécurisés,
 veille OSINT et analyse des menaces
 dans des environnements techniques.
 
 </p>
 
-<div class="signature">
-
+<div class="tagline">
 ANALYSER • COMPRENDRE • ANTICIPER
-
 </div>
 
 <div class="buttons">
@@ -1081,37 +992,58 @@ Voir mes projets
 </div>
 
 <!-- =========================================================
-RIGHT
+CYBER PANEL
 ========================================================= -->
 
-<div class="logo-zone">
+<div class="cyber-panel">
 
-<div class="ring r1"></div>
-<div class="ring r2"></div>
-<div class="ring r3"></div>
+<div class="radar"></div>
 
-<div class="particle p1"></div>
-<div class="particle p2"></div>
-<div class="particle p3"></div>
-<div class="particle p4"></div>
+<div class="map">
 
-<div class="od-logo">
+<div class="line l1"></div>
+<div class="line l2"></div>
+<div class="line l3"></div>
+<div class="line l4"></div>
 
-<div class="o-letter">
-<div class="inner-light"></div>
+<div class="node n1"></div>
+<div class="node n2"></div>
+<div class="node n3"></div>
+<div class="node n4"></div>
+<div class="node n5"></div>
+
+<div class="info-box box1">
+
+<span>NETWORK STATUS</span><br>
+ONLINE<br><br>
+
+<span>THREAT LEVEL</span><br>
+LOW<br><br>
+
+<span>ACTIVE NODES</span><br>
+12
+
 </div>
 
-<div class="d-letter">
-<div class="inner-light"></div>
-</div>
+<div class="info-box box2">
+
+<span>TOOLS</span><br>
+
+• Nmap<br>
+• Wireshark<br>
+• Burp Suite<br>
+• BloodHound<br>
+• Python
 
 </div>
 
-<div class="system-status">
+<div class="status">
 
 SECURE CHANNEL ACTIVE<br>
-THREAT LEVEL LOW<br>
-NETWORK MONITORED
+NETWORK MONITORED<br>
+DATA ENCRYPTED
+
+</div>
 
 </div>
 
@@ -1124,7 +1056,7 @@ ABOUT
 ========================================================= -->
 
 <h2 class="section-title" id="about">
-À <span>PROPOS</span>
+À PROPOS
 </h2>
 
 <div class="grid-layout">
@@ -1135,13 +1067,13 @@ ABOUT
 
 <p>
 
-Spécialisée dans la cybersécurité offensive,
-l’analyse réseau et l’OSINT.
+Étudiante en cybersécurité orientée offensive security,
+analyse réseau et recherche de vulnérabilités.
 
-Développement d’environnements de test,
-recherche de vulnérabilités
-et analyse d’activités malveillantes
-dans des infrastructures techniques.
+Développement de labs personnels,
+veille OSINT,
+monitoring réseau
+et analyse des menaces.
 
 </p>
 
@@ -1153,50 +1085,15 @@ dans des infrastructures techniques.
 
 <div class="skills">
 
-<div class="skill">
-<i class="fab fa-linux"></i>
-Linux
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-network-wired"></i>
-Nmap
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-shield"></i>
-Wireshark
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-bug"></i>
-Burp Suite
-</div>
-
-<div class="skill">
-<i class="fab fa-python"></i>
-Python
-</div>
-
-<div class="skill">
-<i class="fab fa-docker"></i>
-Docker
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-globe"></i>
-OSINT
-</div>
-
-<div class="skill">
-<i class="fa-solid fa-database"></i>
-SQL
-</div>
-
-<div class="skill">
-<i class="fab fa-git-alt"></i>
-Git
-</div>
+<div class="skill">Linux</div>
+<div class="skill">Nmap</div>
+<div class="skill">Wireshark</div>
+<div class="skill">Burp Suite</div>
+<div class="skill">Python</div>
+<div class="skill">Docker</div>
+<div class="skill">OSINT</div>
+<div class="skill">SQL</div>
+<div class="skill">Git</div>
 
 </div>
 
@@ -1209,45 +1106,33 @@ CERTIFICATIONS
 ========================================================= -->
 
 <h2 class="section-title" id="certifications">
-CERTI<span>FICATIONS</span>
+CERTIFICATIONS
 </h2>
 
-<div class="certifications">
+<div class="grid-layout">
 
-<div class="cert-card">
+<div class="card">
 
-<h4>Zscaler</h4>
+<h3>Zscaler</h3>
 
 <p>
 
-Certifications orientées sécurité cloud,
-analyse réseau et protection des accès.
+• Zscaler Internet Access (ZIA)<br>
+• Zscaler Security Foundations
 
 </p>
 
 </div>
 
-<div class="cert-card">
+<div class="card">
 
-<h4>Hack The Box</h4>
-
-<p>
-
-Plateforme d’entraînement offensive security,
-pentest et analyse de vulnérabilités.
-
-</p>
-
-</div>
-
-<div class="cert-card">
-
-<h4>TryHackMe</h4>
+<h3>Plateformes</h3>
 
 <p>
 
-Labs cybersécurité orientés apprentissage,
-reconnaissance et sécurité offensive.
+• Hack The Box<br>
+• TryHackMe<br>
+• Labs personnels en cybersécurité
 
 </p>
 
