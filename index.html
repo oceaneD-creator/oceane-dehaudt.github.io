@@ -3,10 +3,10 @@
 
 <head>
 
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Océane Dehaudt | Cybersécurité</title>
+<title>Océane Dehaudt | Cybersecurity</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -14,8 +14,6 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 <style>
 
@@ -35,28 +33,28 @@ scroll-behavior:smooth;
 
 body{
 
-background:#040404;
+background:#020202;
 overflow-x:hidden;
-color:white;
 
 font-family:'Inter',sans-serif;
+color:white;
 }
 
 /* =========================================================
 BACKGROUND
 ========================================================= */
 
-.background{
+body::before{
+
+content:"";
 
 position:fixed;
 inset:0;
 
-z-index:-50;
-
 background:
 linear-gradient(
-rgba(0,0,0,0.80),
-rgba(0,0,0,0.94)
+rgba(0,0,0,0.88),
+rgba(0,0,0,0.95)
 ),
 
 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop');
@@ -65,42 +63,12 @@ background-size:cover;
 background-position:center;
 
 filter:
-brightness(0.22)
+brightness(0.18)
 blur(2px);
 
-transform:scale(1.03);
-}
+transform:scale(1.04);
 
-/* =========================================================
-RED FOG
-========================================================= */
-
-.fog{
-
-position:fixed;
-inset:0;
-
-z-index:-49;
-
-background:
-radial-gradient(circle at center,
-rgba(120,0,22,0.10),
-transparent 58%);
-
-filter:blur(90px);
-
-animation:fogMove 14s ease-in-out infinite;
-}
-
-@keyframes fogMove{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-30px);
-}
+z-index:-50;
 }
 
 /* =========================================================
@@ -112,24 +80,57 @@ GRID
 position:fixed;
 inset:0;
 
-z-index:-48;
-
 background-image:
-linear-gradient(rgba(100,0,18,0.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(100,0,18,0.08) 1px, transparent 1px);
+linear-gradient(rgba(140,0,20,0.06) 1px, transparent 1px),
+linear-gradient(90deg, rgba(140,0,20,0.06) 1px, transparent 1px);
 
 background-size:58px 58px;
 
-opacity:0.16;
+opacity:0.15;
+
+z-index:-49;
 }
 
 /* =========================================================
-LIGHTS
+RED FOG
+========================================================= */
+
+.fog{
+
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(circle at center,
+rgba(120,0,20,0.18),
+transparent 65%);
+
+filter:blur(120px);
+
+animation:fogMove 10s ease-in-out infinite;
+
+z-index:-48;
+}
+
+@keyframes fogMove{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-25px);
+}
+}
+
+/* =========================================================
+LIGHT LINES
 ========================================================= */
 
 .light{
 
 position:fixed;
+
 top:0;
 
 width:1px;
@@ -138,82 +139,24 @@ height:100%;
 background:
 linear-gradient(
 transparent,
-rgba(120,0,22,0.65),
+rgba(130,0,20,0.45),
 transparent);
 
 filter:blur(1px);
 
 z-index:-47;
-
-animation:lightPulse 5s ease-in-out infinite;
 }
 
-.light-left{
-left:6%;
+.left-light{
+left:8%;
 }
 
-.light-center{
+.center-light{
 left:50%;
 }
 
-.light-right{
+.right-light{
 right:8%;
-}
-
-@keyframes lightPulse{
-
-0%,100%{
-opacity:0.15;
-}
-
-50%{
-opacity:0.6;
-}
-}
-
-/* =========================================================
-PARTICLES
-========================================================= */
-
-.particles{
-
-position:fixed;
-inset:0;
-
-pointer-events:none;
-
-z-index:-46;
-}
-
-.particle{
-
-position:absolute;
-
-width:2px;
-height:2px;
-
-border-radius:50%;
-
-background:rgba(120,0,22,0.5);
-
-animation:floatParticle linear infinite;
-}
-
-@keyframes floatParticle{
-
-0%{
-transform:translateY(0px);
-opacity:0;
-}
-
-20%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-100vh);
-opacity:0;
-}
 }
 
 /* =========================================================
@@ -228,20 +171,20 @@ left:0;
 
 width:100%;
 
-padding:24px;
+padding:26px;
 
 display:flex;
 justify-content:center;
 
-z-index:999;
-
 background:
-rgba(0,0,0,0.22);
+rgba(0,0,0,0.2);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(16px);
 
 border-bottom:
-1px solid rgba(90,0,18,0.12);
+1px solid rgba(120,0,20,0.08);
+
+z-index:999;
 }
 
 .topbar nav{
@@ -252,46 +195,22 @@ gap:42px;
 
 .topbar a{
 
-text-decoration:none;
+color:#d7d7d7;
 
-color:#d6d6d6;
+text-decoration:none;
 
 font-size:12px;
 
-text-transform:uppercase;
-
 letter-spacing:3px;
 
-position:relative;
-
-transition:0.3s ease;
-}
-
-.topbar a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:1px;
-
-background:#760018;
+text-transform:uppercase;
 
 transition:0.3s ease;
 }
 
 .topbar a:hover{
 
-color:white;
-}
-
-.topbar a:hover::after{
-
-width:100%;
+color:#96001f;
 }
 
 /* =========================================================
@@ -302,7 +221,7 @@ SOCIAL
 
 position:fixed;
 
-left:30px;
+left:32px;
 top:50%;
 
 transform:translateY(-50%);
@@ -326,72 +245,9 @@ transition:0.3s ease;
 
 .social a:hover{
 
-color:#760018;
+color:#96001f;
 
 transform:translateY(-3px);
-}
-
-/* =========================================================
-SIDE MENU
-========================================================= */
-
-.side-menu{
-
-position:fixed;
-
-right:24px;
-top:50%;
-
-transform:translateY(-50%);
-
-padding:24px 14px;
-
-border-radius:28px;
-
-background:
-rgba(8,8,8,0.5);
-
-backdrop-filter:blur(20px);
-
-border:
-1px solid rgba(90,0,18,0.14);
-
-z-index:999;
-}
-
-.side-menu ul{
-
-list-style:none;
-
-display:flex;
-flex-direction:column;
-
-gap:26px;
-}
-
-.side-menu li{
-text-align:center;
-}
-
-.side-menu a{
-
-color:#d0d0d0;
-
-text-decoration:none;
-
-font-size:11px;
-
-display:flex;
-flex-direction:column;
-
-gap:8px;
-
-transition:0.3s ease;
-}
-
-.side-menu a:hover{
-
-color:#760018;
 }
 
 /* =========================================================
@@ -401,11 +257,11 @@ MAIN
 .container{
 
 width:88%;
-max-width:1450px;
+max-width:1500px;
 
 margin:auto;
 
-padding-top:160px;
+padding-top:140px;
 padding-bottom:120px;
 }
 
@@ -422,7 +278,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:70px;
+gap:40px;
 
 align-items:center;
 }
@@ -431,42 +287,41 @@ align-items:center;
 TEXT
 ========================================================= */
 
-.hero-content{
+.hero-text{
 
 position:relative;
-
 z-index:20;
 }
 
 .hero-mini{
 
-color:#760018;
-
 font-size:13px;
 
-letter-spacing:4px;
-
-margin-bottom:20px;
+letter-spacing:5px;
 
 text-transform:uppercase;
+
+color:#8d001d;
+
+margin-bottom:24px;
 }
 
 .hero h1{
 
 font-family:'Orbitron',sans-serif;
 
-line-height:0.88;
+line-height:0.9;
 
 text-transform:uppercase;
 
-margin-bottom:30px;
+margin-bottom:28px;
 }
 
 .hero .white{
 
 display:block;
 
-font-size:clamp(80px,10vw,170px);
+font-size:clamp(70px,9vw,170px);
 
 color:white;
 }
@@ -475,12 +330,12 @@ color:white;
 
 display:block;
 
-font-size:clamp(80px,10vw,170px);
+font-size:clamp(70px,9vw,170px);
 
-color:#760018;
+color:#8d001d;
 
 text-shadow:
-0 0 24px rgba(118,0,24,0.4);
+0 0 28px rgba(141,0,29,0.35);
 }
 
 .dot{
@@ -490,23 +345,23 @@ height:14px;
 
 border-radius:50%;
 
-background:#760018;
+background:#8d001d;
 
-margin-bottom:34px;
+margin-bottom:36px;
 
 box-shadow:
-0 0 18px rgba(118,0,24,0.8);
+0 0 18px rgba(141,0,29,0.8);
 }
 
 .hero p{
 
 max-width:620px;
 
-color:#d2d2d2;
-
-font-size:21px;
+font-size:20px;
 
 line-height:2;
+
+color:#d0d0d0;
 }
 
 /* =========================================================
@@ -518,7 +373,7 @@ BUTTONS
 display:flex;
 gap:18px;
 
-margin-top:50px;
+margin-top:45px;
 
 flex-wrap:wrap;
 }
@@ -545,26 +400,26 @@ transition:0.35s ease;
 background:
 linear-gradient(
 135deg,
-#49000d,
-#760018);
+#520010,
+#8d001d);
 
 color:white;
 
 box-shadow:
-0 0 25px rgba(118,0,24,0.22);
+0 0 28px rgba(141,0,29,0.22);
 }
 
 .secondary{
 
 background:
-rgba(0,0,0,0.55);
+rgba(0,0,0,0.45);
 
 border:
 1px solid rgba(255,255,255,0.08);
 
-color:white;
-
 backdrop-filter:blur(14px);
+
+color:white;
 }
 
 .btn:hover{
@@ -572,18 +427,18 @@ backdrop-filter:blur(14px);
 transform:translateY(-4px);
 
 box-shadow:
-0 0 28px rgba(118,0,24,0.32);
+0 0 32px rgba(141,0,29,0.28);
 }
 
 /* =========================================================
-SPHERE SIDE
+PLANET
 ========================================================= */
 
-.sphere-side{
+.planet-zone{
 
 position:relative;
 
-height:720px;
+height:760px;
 
 display:flex;
 justify-content:center;
@@ -591,24 +446,24 @@ align-items:center;
 }
 
 /* =========================================================
-CENTER GLOW
+PLANET GLOW
 ========================================================= */
 
-.center-glow{
+.planet-glow{
 
 position:absolute;
 
-width:260px;
-height:260px;
+width:640px;
+height:640px;
 
 border-radius:50%;
 
 background:
 radial-gradient(circle,
-rgba(118,0,24,0.38),
-transparent 72%);
+rgba(160,0,35,0.25),
+transparent 70%);
 
-filter:blur(42px);
+filter:blur(90px);
 
 animation:glowPulse 5s ease-in-out infinite;
 }
@@ -622,103 +477,240 @@ transform:scale(1);
 
 50%{
 opacity:1;
-transform:scale(1.06);
+transform:scale(1.04);
 }
 }
 
 /* =========================================================
-SCAN EFFECT
+PLANET
 ========================================================= */
 
-.scan{
+.planet{
 
-position:absolute;
+position:relative;
 
-width:520px;
-height:520px;
+width:560px;
+height:560px;
 
 border-radius:50%;
 
 overflow:hidden;
 
-pointer-events:none;
+background:
+radial-gradient(circle at center,
+rgba(255,0,60,0.08),
+rgba(0,0,0,0.96) 65%);
+
+box-shadow:
+
+0 0 80px rgba(255,0,50,0.2),
+0 0 160px rgba(120,0,20,0.2),
+inset 0 0 120px rgba(255,0,50,0.14);
+
+animation:planetRotate 24s linear infinite;
 }
 
-.scan::before{
+/* =========================================================
+NETWORK MAP
+========================================================= */
+
+.planet::before{
 
 content:"";
 
 position:absolute;
-
-top:-100%;
-left:0;
-
-width:100%;
-height:100%;
+inset:0;
 
 background:
-linear-gradient(
-transparent,
-rgba(118,0,24,0.12),
-transparent);
 
-animation:scanMove 5s linear infinite;
+url('https://i.imgur.com/4NJlZxK.png');
+
+background-size:cover;
+background-position:center;
+
+mix-blend-mode:screen;
+
+opacity:0.9;
+
+animation:mapMove 40s linear infinite;
 }
 
-@keyframes scanMove{
+/* =========================================================
+NETWORK GLOW
+========================================================= */
 
-0%{
-top:-100%;
+.planet::after{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+background:
+
+radial-gradient(circle,
+rgba(255,0,60,0.12),
+transparent 70%);
+
+mix-blend-mode:screen;
 }
 
-100%{
-top:100%;
+/* =========================================================
+ROTATION
+========================================================= */
+
+@keyframes planetRotate{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+}
+
+@keyframes mapMove{
+
+from{
+transform:translateX(0px);
+}
+
+to{
+transform:translateX(-25px);
 }
 }
 
 /* =========================================================
-HUD RINGS
+CONNECTIONS
 ========================================================= */
 
-.hud{
+.connection{
+
+position:absolute;
+
+border-top:
+1px solid rgba(255,0,50,0.32);
+
+border-radius:50%;
+
+filter:drop-shadow(0 0 8px rgba(255,0,50,0.4));
+
+animation:connectionPulse 4s ease-in-out infinite;
+}
+
+.c1{
+
+width:520px;
+height:240px;
+
+top:130px;
+left:20px;
+
+transform:rotate(-12deg);
+}
+
+.c2{
+
+width:420px;
+height:180px;
+
+top:200px;
+left:70px;
+
+transform:rotate(22deg);
+}
+
+.c3{
+
+width:470px;
+height:220px;
+
+top:170px;
+left:50px;
+
+transform:rotate(48deg);
+}
+
+@keyframes connectionPulse{
+
+0%,100%{
+opacity:0.2;
+}
+
+50%{
+opacity:0.8;
+}
+}
+
+/* =========================================================
+NETWORK DOTS
+========================================================= */
+
+.node{
+
+position:absolute;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#ff003c;
+
+box-shadow:
+0 0 16px rgba(255,0,60,0.9);
+
+animation:nodePulse 3s ease-in-out infinite;
+}
+
+@keyframes nodePulse{
+
+0%,100%{
+transform:scale(1);
+opacity:0.7;
+}
+
+50%{
+transform:scale(1.5);
+opacity:1;
+}
+}
+
+/* =========================================================
+ORBITS
+========================================================= */
+
+.orbit{
 
 position:absolute;
 
 border-radius:50%;
 
 border:
-1px solid rgba(118,0,24,0.15);
+1px solid rgba(255,0,50,0.08);
 
-animation:rotate linear infinite;
+animation:orbitRotate linear infinite;
 }
 
-.hud1{
-
-width:420px;
-height:420px;
-
-animation-duration:18s;
-}
-
-.hud2{
-
-width:520px;
-height:520px;
-
-animation-duration:28s;
-
-animation-direction:reverse;
-}
-
-.hud3{
+.o1{
 
 width:650px;
 height:650px;
 
-animation-duration:40s;
+animation-duration:35s;
 }
 
-@keyframes rotate{
+.o2{
+
+width:760px;
+height:760px;
+
+animation-duration:60s;
+animation-direction:reverse;
+}
+
+@keyframes orbitRotate{
 
 from{
 transform:rotate(0deg);
@@ -730,55 +722,7 @@ transform:rotate(360deg);
 }
 
 /* =========================================================
-SEGMENTS
-========================================================= */
-
-.segment{
-
-position:absolute;
-
-border-radius:50%;
-
-border:
-2px dashed rgba(118,0,24,0.12);
-
-animation:rotate linear infinite;
-}
-
-.seg1{
-
-width:470px;
-height:470px;
-
-animation-duration:32s;
-}
-
-.seg2{
-
-width:600px;
-height:600px;
-
-animation-duration:46s;
-
-animation-direction:reverse;
-}
-
-/* =========================================================
-THREE CANVAS
-========================================================= */
-
-#sphereCanvas{
-
-position:absolute;
-
-inset:0;
-
-width:100%;
-height:100%;
-}
-
-/* =========================================================
-SECTIONS
+SECTION TITLE
 ========================================================= */
 
 .section-title{
@@ -786,7 +730,7 @@ SECTIONS
 margin-top:120px;
 margin-bottom:40px;
 
-font-size:46px;
+font-size:44px;
 
 font-family:'Orbitron',sans-serif;
 
@@ -795,7 +739,7 @@ text-transform:uppercase;
 
 .section-title span{
 
-color:#760018;
+color:#8d001d;
 }
 
 /* =========================================================
@@ -814,15 +758,15 @@ gap:28px;
 
 .card{
 
-background:
-rgba(8,8,8,0.55);
-
-border:
-1px solid rgba(90,0,18,0.14);
+padding:34px;
 
 border-radius:28px;
 
-padding:34px;
+background:
+rgba(7,7,7,0.55);
+
+border:
+1px solid rgba(141,0,29,0.12);
 
 backdrop-filter:blur(18px);
 
@@ -831,20 +775,20 @@ transition:0.35s ease;
 
 .card:hover{
 
-transform:translateY(-6px);
+transform:translateY(-5px);
 
 border:
-1px solid rgba(118,0,24,0.28);
+1px solid rgba(141,0,29,0.24);
 
 box-shadow:
-0 0 35px rgba(118,0,24,0.1);
+0 0 35px rgba(141,0,29,0.1);
 }
 
 .card h3{
 
-color:#760018;
+color:#8d001d;
 
-margin-bottom:22px;
+margin-bottom:20px;
 
 text-transform:uppercase;
 
@@ -853,9 +797,9 @@ letter-spacing:2px;
 
 .card p{
 
-color:#d0d0d0;
-
 line-height:1.9;
+
+color:#d0d0d0;
 }
 
 /* =========================================================
@@ -884,14 +828,14 @@ background:
 rgba(0,0,0,0.45);
 
 border:
-1px solid rgba(90,0,18,0.12);
+1px solid rgba(141,0,29,0.12);
 
 transition:0.3s ease;
 }
 
 .skill i{
 
-color:#760018;
+color:#8d001d;
 }
 
 .skill:hover{
@@ -899,24 +843,7 @@ color:#760018;
 transform:translateY(-3px);
 
 border:
-1px solid rgba(118,0,24,0.25);
-}
-
-/* =========================================================
-LINKS
-========================================================= */
-
-.project-link{
-
-display:inline-block;
-
-margin-top:24px;
-
-color:#760018;
-
-text-decoration:none;
-
-font-weight:600;
+1px solid rgba(141,0,29,0.24);
 }
 
 /* =========================================================
@@ -930,7 +857,7 @@ margin-top:120px;
 padding-top:40px;
 
 border-top:
-1px solid rgba(90,0,18,0.12);
+1px solid rgba(141,0,29,0.12);
 
 text-align:center;
 
@@ -941,26 +868,40 @@ color:#777;
 RESPONSIVE
 ========================================================= */
 
-@media(max-width:1200px){
-
-.hero{
-
-grid-template-columns:1fr;
-gap:40px;
-}
-
-.sphere-side{
-
-height:420px;
-}
-}
-
 @media(max-width:1100px){
 
-.social,
-.side-menu{
+.hero{
+grid-template-columns:1fr;
+}
+
+.social{
 display:none;
 }
+
+.planet-zone{
+
+height:420px;
+margin-top:-80px;
+}
+
+.planet{
+
+width:320px;
+height:320px;
+}
+
+.o1{
+width:380px;
+height:380px;
+}
+
+.o2{
+width:460px;
+height:460px;
+}
+}
+
+@media(max-width:768px){
 
 .topbar nav{
 
@@ -968,81 +909,45 @@ gap:18px;
 flex-wrap:wrap;
 justify-content:center;
 }
-}
-
-@media(max-width:768px){
-
-.container{
-
-width:92%;
-padding-top:130px;
-}
-
-.hero{
-
-min-height:auto;
-}
 
 .hero p{
 
 font-size:18px;
-line-height:1.9;
+line-height:1.8;
 }
 
-.grid-layout{
-grid-template-columns:1fr;
+.planet-zone{
+
+height:280px;
+
+margin-top:-110px;
+
+opacity:0.82;
 }
 
-.sphere-side{
-height:320px;
-}
+.planet{
 
-.hud1{
-width:220px;
-height:220px;
-}
-
-.hud2{
-width:300px;
-height:300px;
-}
-
-.hud3{
-width:380px;
-height:380px;
-}
-
-.seg1{
-width:260px;
-height:260px;
-}
-
-.seg2{
-width:340px;
-height:340px;
+width:240px;
+height:240px;
 }
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
-
-<div class="background"></div>
-<div class="fog"></div>
 <div class="grid"></div>
+<div class="fog"></div>
 
-<div class="light light-left"></div>
-<div class="light light-center"></div>
-<div class="light light-right"></div>
+<div class="light left-light"></div>
+<div class="light center-light"></div>
+<div class="light right-light"></div>
 
-<!-- PARTICLES -->
-
-<div class="particles" id="particles"></div>
-
-<!-- TOPBAR -->
+<!-- =========================================================
+TOPBAR
+========================================================= -->
 
 <div class="topbar">
 
@@ -1072,7 +977,9 @@ Certifications
 
 </div>
 
-<!-- SOCIAL -->
+<!-- =========================================================
+SOCIAL
+========================================================= -->
 
 <div class="social">
 
@@ -1093,69 +1000,19 @@ target="_blank">
 
 </div>
 
-<!-- SIDE -->
-
-<div class="side-menu">
-
-<ul>
-
-<li>
-<a href="#home">
-<i class="fa-solid fa-house"></i>
-<span>Accueil</span>
-</a>
-</li>
-
-<li>
-<a href="#about">
-<i class="fa-regular fa-user"></i>
-<span>À propos</span>
-</a>
-</li>
-
-<li>
-<a href="#skills">
-<i class="fa-solid fa-chart-column"></i>
-<span>Skills</span>
-</a>
-</li>
-
-<li>
-<a href="https://github.com/oceane-dehaudt"
-target="_blank">
-<i class="fa-solid fa-shield-halved"></i>
-<span>Certifs</span>
-</a>
-</li>
-
-<li>
-<a href="https://github.com/oceane-dehaudt?tab=repositories"
-target="_blank">
-<i class="fa-regular fa-folder"></i>
-<span>Projets</span>
-</a>
-</li>
-
-<li>
-<a href="#contact">
-<i class="fa-regular fa-paper-plane"></i>
-<span>Contact</span>
-</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- MAIN -->
+<!-- =========================================================
+MAIN
+========================================================= -->
 
 <div class="container">
 
 <section class="hero" id="home">
 
-<!-- LEFT -->
+<!-- =========================================================
+TEXT
+========================================================= -->
 
-<div class="hero-content">
+<div class="hero-text">
 
 <div class="hero-mini">
 ÉTUDIANTE EN CYBERSÉCURITÉ
@@ -1205,28 +1062,38 @@ Voir mes projets
 
 </div>
 
-<!-- RIGHT -->
+<!-- =========================================================
+PLANET
+========================================================= -->
 
-<div class="sphere-side">
+<div class="planet-zone">
 
-<div class="center-glow"></div>
+<div class="planet-glow"></div>
 
-<div class="scan"></div>
+<div class="orbit o1"></div>
+<div class="orbit o2"></div>
 
-<div class="hud hud1"></div>
-<div class="hud hud2"></div>
-<div class="hud hud3"></div>
+<div class="planet">
 
-<div class="segment seg1"></div>
-<div class="segment seg2"></div>
+<div class="connection c1"></div>
+<div class="connection c2"></div>
+<div class="connection c3"></div>
 
-<canvas id="sphereCanvas"></canvas>
+<div class="node" style="top:20%;left:68%;"></div>
+<div class="node" style="top:44%;left:30%;"></div>
+<div class="node" style="top:58%;left:74%;"></div>
+<div class="node" style="top:72%;left:45%;"></div>
+<div class="node" style="top:36%;left:55%;"></div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- ABOUT -->
+<!-- =========================================================
+ABOUT
+========================================================= -->
 
 <h2 class="section-title" id="about">
 À <span>PROPOS</span>
@@ -1240,11 +1107,15 @@ Voir mes projets
 
 <p>
 
-Étudiante en cybersécurité passionnée
-par l’analyse offensive,
-la cybersurveillance,
-la veille numérique
-et la sécurité réseau.
+Étudiante passionnée par la cybersécurité offensive,
+l’analyse réseau,
+la veille numérique,
+la sécurité des infrastructures
+et la recherche de vulnérabilités.
+
+Développement de projets personnels,
+labs de sécurité
+et monitoring cyber avancé.
 
 </p>
 
@@ -1296,13 +1167,20 @@ OSINT
 SQL
 </div>
 
+<div class="skill">
+<i class="fab fa-git-alt"></i>
+Git
 </div>
 
 </div>
 
 </div>
 
-<!-- FOOTER -->
+</div>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
 
 <div class="footer" id="contact">
 
@@ -1311,271 +1189,6 @@ SQL
 </div>
 
 </div>
-
-<script>
-
-/* =========================================================
-THREE JS
-========================================================= */
-
-const canvas =
-document.getElementById('sphereCanvas');
-
-const scene =
-new THREE.Scene();
-
-const camera =
-new THREE.PerspectiveCamera(
-45,
-canvas.clientWidth /
-canvas.clientHeight,
-0.1,
-1000
-);
-
-camera.position.z = 4;
-
-const renderer =
-new THREE.WebGLRenderer({
-
-canvas,
-alpha:true,
-antialias:true
-
-});
-
-renderer.setSize(
-canvas.clientWidth,
-canvas.clientHeight
-);
-
-renderer.setPixelRatio(
-window.devicePixelRatio
-);
-
-/* =========================================================
-MAIN SPHERE
-========================================================= */
-
-const geometry =
-new THREE.SphereGeometry(
-1.05,
-96,
-96
-);
-
-const material =
-new THREE.MeshBasicMaterial({
-
-color:0x760018,
-wireframe:true,
-transparent:true,
-opacity:0.42
-
-});
-
-const sphere =
-new THREE.Mesh(
-geometry,
-material
-);
-
-scene.add(sphere);
-
-/* =========================================================
-INNER SPHERE
-========================================================= */
-
-const innerGeometry =
-new THREE.SphereGeometry(
-0.72,
-64,
-64
-);
-
-const innerMaterial =
-new THREE.MeshBasicMaterial({
-
-color:0x990022,
-wireframe:true,
-transparent:true,
-opacity:0.18
-
-});
-
-const innerSphere =
-new THREE.Mesh(
-innerGeometry,
-innerMaterial
-);
-
-scene.add(innerSphere);
-
-/* =========================================================
-OUTER GLOW SPHERE
-========================================================= */
-
-const glowGeometry =
-new THREE.SphereGeometry(
-1.22,
-64,
-64
-);
-
-const glowMaterial =
-new THREE.MeshBasicMaterial({
-
-color:0x760018,
-transparent:true,
-opacity:0.04
-
-});
-
-const glowSphere =
-new THREE.Mesh(
-glowGeometry,
-glowMaterial
-);
-
-scene.add(glowSphere);
-
-/* =========================================================
-PARTICLES
-========================================================= */
-
-const particlesGeometry =
-new THREE.BufferGeometry();
-
-const particlesCount = 2500;
-
-const posArray =
-new Float32Array(
-particlesCount * 3
-);
-
-for(let i=0;i<particlesCount*3;i++){
-
-posArray[i] =
-(Math.random()-0.5) * 8;
-}
-
-particlesGeometry.setAttribute(
-'position',
-new THREE.BufferAttribute(posArray,3)
-);
-
-const particlesMaterial =
-new THREE.PointsMaterial({
-
-size:0.006,
-color:0x9b0020,
-transparent:true,
-opacity:0.55
-
-});
-
-const particlesMesh =
-new THREE.Points(
-particlesGeometry,
-particlesMaterial
-);
-
-scene.add(particlesMesh);
-
-/* =========================================================
-MOUSE PARALLAX
-========================================================= */
-
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener(
-'mousemove',
-(event)=>{
-
-mouseX =
-(event.clientX /
-window.innerWidth - 0.5);
-
-mouseY =
-(event.clientY /
-window.innerHeight - 0.5);
-});
-
-/* =========================================================
-ANIMATION
-========================================================= */
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-sphere.rotation.y += 0.0024;
-sphere.rotation.x += 0.0008;
-
-innerSphere.rotation.y -= 0.0015;
-innerSphere.rotation.x += 0.0005;
-
-particlesMesh.rotation.y += 0.0005;
-
-sphere.rotation.y += mouseX * 0.0015;
-sphere.rotation.x += mouseY * 0.001;
-
-renderer.render(scene,camera);
-}
-
-animate();
-
-/* =========================================================
-RESIZE
-========================================================= */
-
-window.addEventListener(
-'resize',
-()=>{
-
-camera.aspect =
-canvas.clientWidth /
-canvas.clientHeight;
-
-camera.updateProjectionMatrix();
-
-renderer.setSize(
-canvas.clientWidth,
-canvas.clientHeight
-);
-});
-
-/* =========================================================
-DOM PARTICLES
-========================================================= */
-
-const particles =
-document.getElementById('particles');
-
-for(let i=0;i<45;i++){
-
-const p =
-document.createElement('div');
-
-p.classList.add('particle');
-
-p.style.left =
-Math.random()*100 + 'vw';
-
-p.style.top =
-Math.random()*100 + 'vh';
-
-p.style.animationDuration =
-8 + Math.random()*10 + 's';
-
-p.style.animationDelay =
-Math.random()*10 + 's';
-
-particles.appendChild(p);
-}
-
-</script>
 
 </body>
 </html>
